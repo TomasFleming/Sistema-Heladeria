@@ -38,8 +38,14 @@
         <asp:GridView ID="Articulos_Colum" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt" Width="1235px">
             <Columns>
                 <asp:BoundField DataField="ID" HeaderText="COD" />
-                <asp:BoundField DataField="Nombre" HeaderText="Nombre" />
-                <asp:BoundField DataField="Cantidad" HeaderText="Stock" />
+                <asp:TemplateField HeaderText="Imagen" ValidateRequestMode="Enabled">
+                            <ItemTemplate>
+                                <asp:Image Id="ImagenHelado" runat="server"  Height="150px" Width="150px" ImageUrl='<%#"data:image/jpg;base64,"+Convert.ToBase64String((byte[])Eval("Imagen")) %>' />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                <asp:BoundField DataField="Sabor" HeaderText="Nombre" />
+                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />
+                <asp:BoundField DataField="Precio" HeaderText="Precio" />
             </Columns>
         </asp:GridView>
     </p>

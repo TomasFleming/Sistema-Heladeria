@@ -34,7 +34,7 @@ namespace Sistema_Heladeria
         protected void Buscar_art_btn_Click(object sender, EventArgs e)
         {
             con.Open();
-            string qry = "select ID,Nombre,Cantidad from Articulos ";
+            string qry = "select * from Helados ";
             SqlCommand Com = new SqlCommand(qry, con.GetConnection());
             Com.ExecuteNonQuery();
             SqlDataAdapter Articulos = new SqlDataAdapter(Com);
