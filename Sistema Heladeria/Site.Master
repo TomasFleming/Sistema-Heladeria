@@ -20,12 +20,12 @@
 <body>
     <link href="Diseños.css" rel="stylesheet" type="text/css" />
     <form runat="server">
-        <nav class="dark-container" aria-atomic="True"> 
+        <%--<nav class="dark-container" aria-atomic="True"> 
       <a class="navbar-brand" runat="server" href="~/Inicio"  title="GamerSalta" style="font-size:2em; 
             font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" >Heladeria Fili</a>
             <span class="icon-bar"></span>
             <a class="navbar_brand" runat="server" href="Testeos.aspx">Testeo</a>
-        </nav>
+        </nav>--%>
 
 
 
@@ -47,7 +47,7 @@
   </header>--%>
         <%--  --%>
         <%--                                                 ---------------------------------------------------------------------------------  --%>
- <%--       <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -64,7 +64,7 @@
                 <div class="navbar-collapse collapse">
                 </div>
             </div>
-        </nav>--%>
+        </div>
         <%-- ------------------------------------------------------------------------------------------------------------------------------------------------  --%>
             <center>
         <img src="Imagenes/fondo.jpg" class="full-width-image" />
