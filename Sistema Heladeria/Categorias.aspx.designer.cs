@@ -15,13 +15,13 @@ namespace Sistema_Heladeria
     {
 
         /// <summary>
-        /// Control Buscador_art.
+        /// Control Buscador_cat.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Buscador_art;
+        protected global::System.Web.UI.WebControls.TextBox Buscador_cat;
 
         /// <summary>
         /// Control Buscar_cat_btn.

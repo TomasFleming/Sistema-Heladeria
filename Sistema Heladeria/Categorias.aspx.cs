@@ -43,7 +43,7 @@ namespace Sistema_Heladeria
         protected void Buscar_cat_btn_Click(object sender, EventArgs e)
         {
             con.Open();
-            SqlCommand sqlc = new SqlCommand("select * from Categorias", con.GetConnection());
+            SqlCommand sqlc = new SqlCommand("select * from Categorias where Nombre_Categoria like '%"+Buscador_cat.Text+ "%' or ID like '" + Buscador_cat.Text+"'", con.GetConnection());
             sqlc.ExecuteNonQuery();
             SqlDataAdapter Categorias = new SqlDataAdapter(sqlc);
             DataTable cat = new DataTable();
