@@ -11,53 +11,89 @@ namespace Sistema_Heladeria
 {
 
 
-    public partial class Testeos
+    public partial class Categorias
     {
 
         /// <summary>
-        /// Control Nomb_lb.
+        /// Control Buscador_art.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Nomb_lb;
+        protected global::System.Web.UI.WebControls.TextBox Buscador_art;
 
         /// <summary>
-        /// Control Sabor_tx.
+        /// Control Buscar_cat_btn.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Sabor_tx;
+        protected global::System.Web.UI.WebControls.Button Buscar_cat_btn;
 
         /// <summary>
-        /// Control Precio_lb.
+        /// Control Agregar_Cat_btn.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Precio_lb;
+        protected global::System.Web.UI.WebControls.Button Agregar_Cat_btn;
 
         /// <summary>
-        /// Control Precio_txt.
+        /// Control Lista_Categorias.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Precio_txt;
+        protected global::System.Web.UI.WebControls.GridView Lista_Categorias;
 
         /// <summary>
-        /// Control Descripcion_lb.
+        /// Control label55.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Descripcion_lb;
+        protected global::System.Web.UI.WebControls.Label label55;
+
+        /// <summary>
+        /// Control Art_nom_lb.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Art_nom_lb;
+
+        /// <summary>
+        /// Control Nomb_tx.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Nomb_tx;
+
+        /// <summary>
+        /// Control Alert_lb.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Alert_lb;
+
+        /// <summary>
+        /// Control Art_desc_lb.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Art_desc_lb;
 
         /// <summary>
         /// Control Descrip_tx.
@@ -69,57 +105,21 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.TextBox Descrip_tx;
 
         /// <summary>
-        /// Control Imag_lbl.
+        /// Control Cat_guardar_btn.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Imag_lbl;
+        protected global::System.Web.UI.WebControls.Button Cat_guardar_btn;
 
         /// <summary>
-        /// Control Imagen_Helado_direc.
+        /// Control Cat_borrar_btn.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload Imagen_Helado_direc;
-
-        /// <summary>
-        /// Control prueba_lb.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label prueba_lb;
-
-        /// <summary>
-        /// Control Guardar_Helado_btn.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Guardar_Helado_btn;
-
-        /// <summary>
-        /// Control Articulos_Colum.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView Articulos_Colum;
-
-        /// <summary>
-        /// Control label55.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label55;
+        protected global::System.Web.UI.WebControls.Button Cat_borrar_btn;
     }
 }

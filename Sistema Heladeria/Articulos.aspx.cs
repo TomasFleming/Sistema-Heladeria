@@ -22,26 +22,40 @@ namespace Sistema_Heladeria
 
         protected void Agregar_Art_btn_Click(object sender, EventArgs e)
         {
-            con.Open();
-            string qry = "insert Articulos (Nombre,Cantidad) values(@prNombre,@prCat)";
-            SqlCommand SqlCom = new SqlCommand(qry, con.GetConnection());
-            SqlCom.Parameters.Add(new SqlParameter("@prNombre", Art_nom.Text));
-            SqlCom.Parameters.Add(new SqlParameter("@prCat", Art_stock.Text));
-            SqlCom.ExecuteNonQuery();
-            con.Close();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+
+            
         }
 
         protected void Buscar_art_btn_Click(object sender, EventArgs e)
         {
             con.Open();
-            string qry = "select * from Helados ";
+            string qry = "select * from Articulos ";
             SqlCommand Com = new SqlCommand(qry, con.GetConnection());
             Com.ExecuteNonQuery();
             SqlDataAdapter Articulos = new SqlDataAdapter(Com);
             DataTable art = new DataTable();
             Articulos.Fill(art);
-            Articulos_Colum.DataSource = art;
-            Articulos_Colum.DataBind();
+            Lista_Articulos.DataSource = art;
+            Lista_Articulos.DataBind();
+        }
+
+        protected void Art_camb_btn_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            SqlCommand sql = new SqlCommand("insert into Articulos(Nombre,Categoria,Precio,Descripcion) values (@prNombre,@prCat,@prPrecio,@prDesc)", con.GetConnection());
+            sql.Parameters.Add(new SqlParameter("@prNombre",Nomb_tx.Text));
+            sql.Parameters.Add(new SqlParameter("@prCat",Categorias_list.SelectedValue));
+            sql.Parameters.Add(new SqlParameter("@prPrecio",Precio_tx.Text));
+            sql.Parameters.Add(new SqlParameter("@prDesc",Descrip_tx.Text));
+            sql.ExecuteNonQuery();
+            con.Close();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
+        }
+
+        protected void Art_elin_byn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

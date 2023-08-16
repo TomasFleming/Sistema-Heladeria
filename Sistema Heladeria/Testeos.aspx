@@ -83,4 +83,60 @@
         </table>
 
     </p>
+    <p>
+        <asp:GridView ID="Articulos_Colum" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt" Width="1235px">
+            <Columns>
+                <asp:BoundField DataField="ID" HeaderText="COD" />
+                <asp:TemplateField HeaderText="Imagen" ValidateRequestMode="Enabled">
+                            <ItemTemplate>
+                                <asp:Image Id="ImagenHelado" runat="server"  Height="150px" Width="150px" ImageUrl='<%#"data:image/jpg;base64,"+Convert.ToBase64String((byte[])Eval("Imagen")) %>' />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                <asp:BoundField DataField="Sabor" HeaderText="Nombre" />
+                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" />
+                <asp:BoundField DataField="Precio" HeaderText="Precio" />
+            </Columns>
+        </asp:GridView>
+    </p>
+
+        <%-- Inicia el popup --%>
+    <div id="myModal1" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Agregar nuevo articulo<asp:Label ID="label55" runat="server" Text="Label" Visible="False"></asp:Label></h4>
+      </div>
+      <div class="modal-body">
+        <p></p><%--aasasdasasadsads--%>
+          <%-- aca deberia empesar el asp:UpdatePanel y el contentemplate, pero solo los nesesitaria para aquellos que nesesito para editar --%>
+                  <center>
+                  </center>
+              
+                          
+          <%--ass--%>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+  <script type="text/javascript">
+      function openModal() {
+          $('#myModal1').modal('show');
+      }
+      function closeModal() {
+          $('#myModal1').modal('hide');
+      }
+  </script>
+    <%-- termina  --%>
+
+
+
+
 </asp:Content>

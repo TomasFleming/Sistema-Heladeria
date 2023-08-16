@@ -21,7 +21,14 @@
     </center>
                 </td>
                 <td style="height: 247px; width: 434px;">
-                    <asp:ImageButton ID="ImageButton1" runat="server" />
+                    <center>
+                        <a href="Categorias.aspx" runat="server">
+                    <div class="image-button-container">
+                        <img src="Imagenes/categorias.png" width="136" height="136" />
+                    </div>
+                        <asp:Label ID="lb" runat="server" Text="Categorias" CssClass="BtsImg"></asp:Label>
+                        </a>
+                    </center>
                 </td>
                 <td style="height: 247px">
                     <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/Imagenes/factura.png" PostBackUrl="~/Articulos.aspx" />
