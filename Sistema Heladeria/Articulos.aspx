@@ -22,7 +22,7 @@
                 <asp:BoundField DataField="Nombre" HeaderText="Nombre" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
-                <asp:BoundField DataField="Categoria" HeaderText="Categoria" >
+                <asp:BoundField DataField="Nombre_Categoria" HeaderText="Categoria" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
                 <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" >
