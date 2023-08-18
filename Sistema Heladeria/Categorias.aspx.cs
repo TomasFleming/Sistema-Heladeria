@@ -32,7 +32,10 @@ namespace Sistema_Heladeria
             sqlc.Parameters.Add(new SqlParameter("@prDesc", Descrip_tx.Text));
             sqlc.ExecuteNonQuery();
             con.Close();
+            Nomb_tx.Text = "";
+            Descrip_tx.Text = "";
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
+
         }
 
         protected void Art_elin_byn_Click(object sender, EventArgs e)
@@ -51,6 +54,11 @@ namespace Sistema_Heladeria
             Lista_Categorias.DataSource = cat;
             Lista_Categorias.DataBind();
             con.Close();
+
+        }
+
+        protected void Editar_cat_Click(object sender, EventArgs e)
+        {
 
         }
     }

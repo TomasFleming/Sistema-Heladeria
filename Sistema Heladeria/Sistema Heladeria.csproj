@@ -119,6 +119,8 @@
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
+    <Content Include="ListasCompras_Nueva.aspx" />
+    <Content Include="ListasCompras_Ver.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
@@ -179,6 +181,20 @@
       <DependentUpon>Categorias.aspx</DependentUpon>
     </Compile>
     <Compile Include="Clases.cs" />
+    <Compile Include="ListasCompras_Nueva.aspx.cs">
+      <DependentUpon>ListasCompras_Nueva.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListasCompras_Nueva.aspx.designer.cs">
+      <DependentUpon>ListasCompras_Nueva.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListasCompras_Ver.aspx.cs">
+      <DependentUpon>ListasCompras_Ver.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListasCompras_Ver.aspx.designer.cs">
+      <DependentUpon>ListasCompras_Ver.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Parabdd.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

@@ -38,4 +38,15 @@ namespace Sistema_Heladeria
 
         // Otros métodos relacionados con operaciones de helados
     }
+    public class ArticuloCompra
+    {
+        public int Id { get; set; }
+        public int Cantidad { get; set; }
+
+        public ArticuloCompra(int id, int cantidad)
+        {
+            Id = id;
+            Cantidad = cantidad;
+        }
+    }
 }

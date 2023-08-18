@@ -20,6 +20,13 @@
                 <asp:BoundField DataField="Descripcion" HeaderText="Descripcion">
                 <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                 </asp:BoundField>
+                <asp:TemplateField HeaderText="">
+                    <ItemTemplate>
+                        <center>
+                        <asp:Button ID="Editar_cat" runat="server" OnClick="Editar_cat_Click" Text="Editar" CssClass="btn btn-primary" />
+                    </center>
+                       </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
             <PagerStyle CssClass="pgr" />
         </asp:GridView>

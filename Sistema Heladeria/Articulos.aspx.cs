@@ -50,10 +50,20 @@ namespace Sistema_Heladeria
             sql.Parameters.Add(new SqlParameter("@prDesc",Descrip_tx.Text));
             sql.ExecuteNonQuery();
             con.Close();
+            Nomb_tx.Text = "";
+            Descrip_tx.Text = "";
+            Precio_tx.Text = "";
+            Descrip_tx.Text = "";
+            Categorias_list.SelectedValue = "1";
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
         }
 
         protected void Art_elin_byn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Editar_art_Click(object sender, EventArgs e)
         {
 
         }

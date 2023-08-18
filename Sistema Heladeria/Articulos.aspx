@@ -31,6 +31,13 @@
                 <asp:BoundField DataField="Precio" HeaderText="Precio" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
+                    <asp:TemplateField HeaderText="">
+                    <ItemTemplate>
+                        <center>
+                        <asp:Button ID="Editar_art" runat="server" OnClick="Editar_art_Click" Text="Editar" CssClass="btn btn-primary" />
+                    </center>
+                       </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
 
 <PagerStyle CssClass="pgr"></PagerStyle>
