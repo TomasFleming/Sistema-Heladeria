@@ -7,6 +7,7 @@
         &nbsp;&nbsp;&nbsp;
         <asp:Button ID="Agregar_dep_btn" CssClass="btn btn-default" runat="server" Text="Agregar Deposito" OnClick="Agregar_dep_btn_Click"  />
     </p>
+    <%-- Como seria el agregar en deposito, habrian 2 supongo --%>
     <asp:GridView ID="Lista_Depositos" runat="server" AlternatingRowStyle-CssClass="alt" AutoGenerateColumns="False" CssClass="mGrid" DataKeyNames="ID" PagerStyle-CssClass="pgr" Width="1235px">
         <AlternatingRowStyle CssClass="alt" />
         <Columns>
