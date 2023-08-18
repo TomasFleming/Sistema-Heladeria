@@ -5,7 +5,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="Buscar_prov_btn" CssClass="btn btn-primary" runat="server"  Text="Buscar" OnClick="Buscar_prov_btn_Click" />
         &nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Agregar_prov_btn" CssClass="btn btn-default" runat="server" Text="Agregar Articulo" OnClick="Agregar_prov_btn_Click"  />
+        <asp:Button ID="Agregar_prov_btn" CssClass="btn btn-default" runat="server" Text="Agregar Proveedor" OnClick="Agregar_prov_btn_Click"  />
     </p>
     <p>
         
