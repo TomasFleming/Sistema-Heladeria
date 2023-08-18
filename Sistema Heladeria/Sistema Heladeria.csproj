@@ -105,10 +105,13 @@
     <Content Include="Categorias.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Depositos.aspx" />
     <Content Include="Imagenes\categorias.png" />
     <Content Include="Imagenes\deposito.png" />
     <Content Include="Imagenes\factura.png" />
     <Content Include="Imagenes\fondo.jpg" />
+    <Content Include="Imagenes\OrdenesCompra.png" />
+    <Content Include="Imagenes\Proveedor.png" />
     <Content Include="Imagenes\stock.jpg" />
     <Content Include="Inicio.aspx" />
     <Content Include="Diseños.css" />
@@ -121,6 +124,7 @@
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="ListasCompras_Nueva.aspx" />
     <Content Include="ListasCompras_Ver.aspx" />
+    <Content Include="Proveedores.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
@@ -181,6 +185,13 @@
       <DependentUpon>Categorias.aspx</DependentUpon>
     </Compile>
     <Compile Include="Clases.cs" />
+    <Compile Include="Depositos.aspx.cs">
+      <DependentUpon>Depositos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Depositos.aspx.designer.cs">
+      <DependentUpon>Depositos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ListasCompras_Nueva.aspx.cs">
       <DependentUpon>ListasCompras_Nueva.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -207,6 +218,13 @@
       <DependentUpon>Inicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proveedores.aspx.cs">
+      <DependentUpon>Proveedores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Proveedores.aspx.designer.cs">
+      <DependentUpon>Proveedores.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
