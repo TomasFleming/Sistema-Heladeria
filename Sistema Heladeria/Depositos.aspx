@@ -101,6 +101,7 @@
           <%-- aca deberia empesar el asp:UpdatePanel y el contentemplate, pero solo los nesesitaria para aquellos que nesesito para editar --%>
           <center>
             <asp:GridView ID="Lista_Articulos" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt">
+
 <AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
                 <Columns>
                 <asp:BoundField DataField="ID" HeaderText="COD" >
@@ -151,4 +152,6 @@
       }
   </script>
     <%-- termina  --%>
+</div>
+    </div>
 </asp:Content>

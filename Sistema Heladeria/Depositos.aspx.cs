@@ -21,7 +21,7 @@ namespace Sistema_Heladeria
         protected void Buscar_dep_btn_Click(object sender, EventArgs e)
         {
             con.Open();
-            string qry = "select * from Depositos where Nombre like'%"+Buscador_dep.Text+"%' or ID like '%"+Buscador_dep.Text+"%' ";
+            string qry = "select * from Depositos where Nombre like'%" + Buscador_dep.Text + "%' or ID like '%" + Buscador_dep.Text + "%' ";
             SqlCommand Com = new SqlCommand(qry, con.GetConnection());
             Com.ExecuteNonQuery();
             SqlDataAdapter Depositos = new SqlDataAdapter(Com);
@@ -35,7 +35,7 @@ namespace Sistema_Heladeria
         protected void Agregar_dep_btn_Click(object sender, EventArgs e)
         {
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
-            
+
         }
 
         protected void Dep_guard_btn_Click(object sender, EventArgs e)
@@ -67,7 +67,7 @@ namespace Sistema_Heladeria
             Num_Dep.Text = ID_dep.ToString();
 
             con.Open();
-            string qry = "select A.ID,A.Nombre,A.Descripcion,C.Nombre_Categoria,DS.Stock from Articulos A inner join Categorias C on C.ID=A.Categoria inner Join Stock_Depo Ds on DS.ID_art=A.ID inner join Depositos D on D.ID=DS.ID_dep where ID_dep like '"+ID_dep+"' ";
+            string qry = "select A.ID,A.Nombre,A.Descripcion,C.Nombre_Categoria,DS.Stock from Articulos A inner join Categorias C on C.ID=A.Categoria inner Join Stock_Depo Ds on DS.ID_art=A.ID inner join Depositos D on D.ID=DS.ID_dep where ID_dep like '" + ID_dep + "' ";
             SqlCommand Com = new SqlCommand(qry, con.GetConnection());
             Com.ExecuteNonQuery();
             SqlDataAdapter Articulos = new SqlDataAdapter(Com);
@@ -78,5 +78,6 @@ namespace Sistema_Heladeria
             con.Close();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal2();", true);
         }
+
     }
 }
