@@ -58,23 +58,14 @@
       <div class="modal-header">
 
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Agregar nuevo articulo<asp:Label ID="label55" runat="server" Text="Label" Visible="False"></asp:Label></h4>
+        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Agregar nuevo articulo<asp:Label ID="label55" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
       </div>
       <div class="modal-body">
         <p></p><%--aasasdasasadsads--%>
           <%-- aca deberia empesar el asp:UpdatePanel y el contentemplate, pero solo los nesesitaria para aquellos que nesesito para editar --%>
           
-                  <center>
+                <center>
                           <table id="Tabla_cat1" style="width: 36%; height: 207px;">
-        <tr>
-            <td style="height: 20px; width: 228px">
-                <asp:Label ID="Art_nom_lb" runat="server" Text="Nombre" style="font-size: 20px"></asp:Label>
-            </td>
-            <td style="height: 20px; width: 646px">
-                <asp:TextBox ID="Nomb_tx" runat="server" style="font-size: 15pt" Width="300px"></asp:TextBox>
-                <asp:Label ID="Alert_lb" runat="server" Text="Ya existe un articulo con ese nombre" Visible="False" ForeColor="Red"></asp:Label>
-            </td>
-        </tr>
         <tr>
             <td style="width: 228px; height: 22px">
                 <asp:Label ID="Art_cat_lb" runat="server" Text="Categoria" style="font-size: 20px"></asp:Label>
@@ -85,6 +76,16 @@
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Heladeria Sistemas 3ConnectionString %>" SelectCommand="SELECT * FROM [Categorias]"></asp:SqlDataSource>
             </td>
         </tr>
+        <tr>
+            <td style="height: 66px; width: 228px">
+                <asp:Label ID="Art_nom_lb" runat="server" Text="Nombre" style="font-size: 20px"></asp:Label>
+            </td>
+            <td style="height: 66px; width: 646px">
+                <asp:TextBox ID="Nomb_tx" runat="server" style="font-size: 15pt" Width="300px"></asp:TextBox>
+                <asp:Label ID="Alert_lb" runat="server" Text="Ya existe un articulo con ese nombre" Visible="False" ForeColor="Red"></asp:Label>
+            </td>
+        </tr>
+        
         <tr>
             <td style="width: 228px; height: 22px">
                 <asp:Label ID="Art_Pre_lb" runat="server" Text="Precio" style="font-size: 20px"></asp:Label>
@@ -107,11 +108,11 @@
         <tr>
             <td colspan="2">
                 <center><asp:Button ID="Art_camb_btn" CssClass="btn btn-primary" runat="server" Text="Guardar Cambios" OnClick="Art_camb_btn_Click"/></center>
-            &nbsp;<center><asp:Button ID="Art_elin_byn" CssClass="btn btn-danger" runat="server" Text="Borrar Articulo" OnClick="Art_elin_byn_Click" /></center>
+            &nbsp;<center><asp:Button ID="Art_elin_byn" CssClass="btn btn-danger" Visible="false" runat="server" Text="Borrar Articulo" OnClick="Art_elin_byn_Click" /></center>
             </td>
         </tr>
     </table>
-                      </center>
+                      </center>  
                   
                           
           <%--ass--%>

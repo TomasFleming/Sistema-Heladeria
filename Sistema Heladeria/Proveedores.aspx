@@ -19,7 +19,7 @@
       <div class="modal-header">
 
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Agregar nuevo Proveedor<asp:Label ID="label55" runat="server" Text="Label" Visible="False"></asp:Label></h4>
+        <h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Agregar nuevo Proveedor<asp:Label ID="label55" runat="server" Text="Label" Visible="False"></asp:Label></h4>
       </div>
       <div class="modal-body">
         <p></p><%--aasasdasasadsads--%>

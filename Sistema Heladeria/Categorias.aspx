@@ -43,7 +43,7 @@
       <div class="modal-header">
 
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Agregar nueva Categoria<asp:Label ID="label55" runat="server" Text="Label" Visible="False"></asp:Label></h4>
+        <center><h4 class="modal-title"style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Agregar nueva Categoria<asp:Label ID="label55" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
       </div>
       <div class="modal-body">
         <p></p><%--aasasdasasadsads--%>
