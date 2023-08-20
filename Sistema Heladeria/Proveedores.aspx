@@ -8,7 +8,30 @@
         <asp:Button ID="Agregar_prov_btn" CssClass="btn btn-default" runat="server" Text="Agregar Proveedor" OnClick="Agregar_prov_btn_Click"  />
     </p>
     <p>
-        
+        <center>
+            <asp:GridView ID="Lista_Proveedores" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt" Width="1235px">
+<AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
+                <Columns>
+                <asp:BoundField DataField="ID" HeaderText="COD" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="NombreCompleto" HeaderText="Nombre" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Telefono" HeaderText="Telefono" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Correo" HeaderText="Correo" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="Direccion" HeaderText="Direccion" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+            </Columns>
+
+<PagerStyle CssClass="pgr"></PagerStyle>
+            </asp:GridView>
+        </center>
     </p>
     <%-- Inicia el popup --%>
     <div id="myModal1" class="modal fade" role="dialog">
@@ -19,7 +42,7 @@
       <div class="modal-header">
 
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Agregar nuevo Proveedor<asp:Label ID="label55" runat="server" Text="Label" Visible="False"></asp:Label></h4>
+        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Agregar nuevo Proveedor<asp:Label ID="label55" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
       </div>
       <div class="modal-body">
         <p></p><%--aasasdasasadsads--%>
@@ -50,7 +73,7 @@
                 <asp:Label ID="Direc_lb" runat="server" Text="Direccion" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 22px; width: 646px">
-                <asp:TextBox ID="Direcc_tx" runat="server" TextMode="Number" style="font-size: 15pt" Width="302px"></asp:TextBox>
+                <asp:TextBox ID="Direcc_tx" runat="server" style="font-size: 15pt" Width="302px"></asp:TextBox>
 
             </td>
             </tr>
@@ -59,7 +82,7 @@
                 <asp:Label ID="Correo_lb" runat="server" Text="Correo" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 22px; width: 646px">
-                <asp:TextBox ID="Correo_tx" runat="server" TextMode="Number" style="font-size: 15pt" Width="302px"></asp:TextBox>
+                <asp:TextBox ID="Correo_tx" runat="server" style="font-size: 15pt" Width="302px"></asp:TextBox>
 
             </td>
             </tr>
