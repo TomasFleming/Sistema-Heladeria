@@ -13,5 +13,15 @@ namespace Sistema_Heladeria
         {
 
         }
+
+        protected void Buscar_Ord_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Agregar_Ord_btn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
