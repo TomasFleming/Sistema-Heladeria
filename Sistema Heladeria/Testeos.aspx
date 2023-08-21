@@ -1,40 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Testeos.aspx.cs" Inherits="Sistema_Heladeria.Testeos" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Testeos.aspx.cs" Inherits="Sistema_Heladeria.Testeos" EnableSessionState="True" EnableEventValidation="False" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <%--<center>
-        <a href="~/Inicio" runat="server">
-        <div class="image-button-container">
-            <img src="Imagenes/deposito.png" alt="Imagen">
-        </div>
-            <asp:Label ID="Label1" runat="server" Text="Deposistos" CssClass="BtsImg"></asp:Label>
-        </a>
-    </center>--%>
-    <%--        <head>
-    <title>Mi Página Web</title>
-    <link rel="stylesheet" href="probar.css">
-    <script src="script.js" defer></script>
-</head>
-<body>
-    <nav>
-        <button id="toggleMenu">Menú</button>
-        <ul id="menuItems">
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Acerca de</a></li>
-            <li><a href="#">Contacto</a></li>
-        </ul>
-    </nav>
-
-    <!-- Resto del contenido de la página -->
-</body>
-    <script type="text/javascript">
-        const toggleButton = document.getElementById('toggleMenu');
-        const menuItems = document.getElementById('menuItems');
-
-        toggleButton.addEventListener('click', (event) => {
-            event.preventDefault(); // Evitar la recarga de la página
-
-            menuItems.classList.toggle('show');
-        });
-    </script>--%>
+    <%--                  <center>
+                  </center>--%>    <%--ass--%>
     <p>
 
         <table class="auto-style6">
@@ -98,9 +65,54 @@
             </Columns>
         </asp:GridView>
     </p>
+    <p>
+        <%--      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
 
-        <%-- Inicia el popup --%>
-    <div id="myModal1" class="modal fade" role="dialog">
+  </div>
+</div>--%><%--  <script type="text/javascript">
+      function openModal() {
+          $('#myModal1').modal('show');
+      }
+      function closeModal() {
+          $('#myModal1').modal('hide');
+      }
+  </script>--%>
+
+    <!-- Modal content-->
+        <%-- termina  --%>        <%-- Inicia el popup Articulos--%><%--aasasdasasadsads--%>          <%-- aca deberia empesar el asp:UpdatePanel y el contentemplate, pero solo los nesesitaria para aquellos que nesesito para editar --%><%--ass--%>              
+                          
+          <%--        </div>--%>
+<%--      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>--%>
+<%--  <script type="text/javascript">
+      function openModal() {
+          $('#myModal1').modal('show');
+      }
+      function closeModal() {
+          $('#myModal1').modal('hide');
+      }
+  </script>--%>
+    <%-- termina  --%>
+        <asp:Button ID="Pop_Art_bt" runat="server" Text="Agregar Articulo" CssClass="btn btn-default" OnClick="Pop_Art_bt_Click" />
+        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+        <asp:Button ID="pop2" runat="server" Text="Agregar Articulo" CssClass="btn btn-default" OnClick="pop2_Click" />
+        </p>
+    <p>
+        <ajaxToolkit:CalendarExtender ID="Fechar_ord_tx_CalendarExtender" runat="server" TargetControlID="TextBox1" />
+        </p>
+    
+    <%-- Inicia el popup Articulos--%>
+    <div id="ModalArt" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -108,16 +120,48 @@
       <div class="modal-header">
 
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Agregar nuevo articulo<asp:Label ID="label55" runat="server" Text="Label" Visible="False"></asp:Label></h4>
+        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Seleccionar Articulo<asp:Label ID="label2" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
       </div>
       <div class="modal-body">
         <p></p><%--aasasdasasadsads--%>
           <%-- aca deberia empesar el asp:UpdatePanel y el contentemplate, pero solo los nesesitaria para aquellos que nesesito para editar --%>
-                  <center>
-                  </center>
-              
-                          
+          <asp:TextBox ID="Buscador_art" runat="server" Width="257px" style="font-size: 15pt" Height="27px"></asp:TextBox>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="Buscar_art_btn" CssClass="btn btn-primary" runat="server" OnClick="Buscar_art_btn_Click" Text="Buscar" />
+        <center>
+            <asp:GridView ID="Lista_Articulos" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt">
+<AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
+                <Columns>
+                <asp:BoundField DataField="ID" HeaderText="COD" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Nombre" HeaderText="Nombre" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Nombre_Categoria" HeaderText="Categoria" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Precio" HeaderText="Precio" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                    <asp:TemplateField HeaderText="">
+                    <ItemTemplate>
+                        <center>
+                        <asp:Button ID="Selecc_Art_bt" runat="server" OnClick="Selecc_Art_bt_Click" Text="Seleccionar" CssClass="btn btn-primary" />
+                    </center>
+                       </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
+
+<PagerStyle CssClass="pgr"></PagerStyle>
+            </asp:GridView>
+        </center>
           <%--ass--%>
+
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -127,16 +171,80 @@
   </div>
 </div>
   <script type="text/javascript">
-      function openModal() {
-          $('#myModal1').modal('show');
+      function openModalArt() {
+          $('#ModalArt').modal('show');
       }
-      function closeModal() {
-          $('#myModal1').modal('hide');
+      function closeModalArt() {
+          $('#ModalArt').modal('hide');
       }
   </script>
-    <%-- termina  --%>
+                <!-- Modal -->
+            <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal-dialog">
+                
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Popup de Búsqueda</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Contenido del Popup</p>
+                            <input type="text" id="txtBusqueda" placeholder="Ingrese su búsqueda" class="form-control" />
+                            <asp:TextBox ID="TextBox2" runat="server" Width="257px" style="font-size: 15pt" Height="27px"></asp:TextBox>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="buscar2btn" CssClass="btn btn-primary" runat="server" OnClick="buscar2btn_Click" Text="Buscar" />
+        <center>
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt">
+<AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
+                <Columns>
+                <asp:BoundField DataField="ID" HeaderText="COD" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Nombre" HeaderText="Nombre" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Nombre_Categoria" HeaderText="Categoria" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Precio" HeaderText="Precio" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                    <asp:TemplateField HeaderText="">
+                    <ItemTemplate>
+                        <center>
+                        <asp:Button ID="Selecc_Art_bt" runat="server" OnClick="Selecc_Art_bt_Click" Text="Seleccionar" CssClass="btn btn-primary" />
+                    </center>
+                       </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
 
+<PagerStyle CssClass="pgr"></PagerStyle>
+            </asp:GridView>
+        </center>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary" onclick="realizarBusqueda()">Buscar</button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+<%--        </div>--%>
 
-
+        <script type="text/javascript">
+            function realizarBusqueda() {
+                // Agrega aquí la lógica de búsqueda o llamada AJAX
+                var busqueda = document.getElementById('txtBusqueda').value;
+                alert('Realizando búsqueda: ' + busqueda);
+            }
+            function openModal() {
+                $('#myModal').modal('show');
+            }
+        </script>
 
 </asp:Content>
