@@ -13,5 +13,10 @@ namespace Sistema_Heladeria
         {
 
         }
+
+        protected void Quitar_art_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
