@@ -43,5 +43,28 @@ namespace Sistema_Heladeria
             Guardar.ExecuteNonQuery();
             con.Close();
         }
+
+        protected void Selecc_Art_bt_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Pop_Art_bt_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalArt();", true);
+        }
+
+        protected void Buscar_art_btn_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            string qry = "select A.ID, A.Nombre,C.Nombre_Categoria, A.Descripcion, A.Precio from Articulos A inner join Categorias C on A.Categoria=C.ID where A.ID like '" + Buscador_art.Text + "' or A.Nombre like '%" + Buscador_art.Text + "%' or C.Nombre_Categoria like '%" + Buscador_art.Text + "%' ";
+            SqlCommand Com = new SqlCommand(qry, con.GetConnection());
+            Com.ExecuteNonQuery();
+            SqlDataAdapter Articulos = new SqlDataAdapter(Com);
+            DataTable art = new DataTable();
+            Articulos.Fill(art);
+            Lista_Articulos.DataSource = art;
+            Lista_Articulos.DataBind();
+        }
     }
 }
