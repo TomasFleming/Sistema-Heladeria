@@ -30,7 +30,16 @@ namespace Sistema_Heladeria
 
         protected void Buscar_prov_btn_Click(object sender, EventArgs e)
         {
-
+            con.Open();
+            string qry = "select * from Proveedores ";
+            SqlCommand Com = new SqlCommand(qry, con.GetConnection());
+            Com.ExecuteNonQuery();
+            SqlDataAdapter Proveedores = new SqlDataAdapter(Com);
+            DataTable prov = new DataTable();
+            Proveedores.Fill(prov);
+            Lista_Proveedores.DataSource = prov;
+            Lista_Proveedores.DataBind();
+            con.Close();
         }
 
         protected void PopUp_Prov_bt_Click(object sender, EventArgs e)
@@ -64,6 +73,25 @@ namespace Sistema_Heladeria
             Articulos.Fill(art);
             Lista_Articulos.DataSource = art;
             Lista_Articulos.DataBind();
+        }
+
+        protected void Buscar_dep_btn_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            string qry = "select * from Depositos where Nombre like'%" + Buscador_dep.Text + "%' or ID like '%" + Buscador_dep.Text + "%' ";
+            SqlCommand Com = new SqlCommand(qry, con.GetConnection());
+            Com.ExecuteNonQuery();
+            SqlDataAdapter Depositos = new SqlDataAdapter(Com);
+            DataTable dep = new DataTable();
+            Depositos.Fill(dep);
+            Lista_Depositos.DataSource = dep;
+            Lista_Depositos.DataBind();
+            con.Close();
+        }
+
+        protected void Select_Dept_btn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

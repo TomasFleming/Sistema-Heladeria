@@ -49,6 +49,8 @@
     <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
         Articulos solicitados:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="Pop_Art_bt" runat="server" Text="Agregar Articulo" CssClass="btn btn-default" OnClick="Pop_Art_bt_Click" />
+        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+            <ContentTemplate>
         <center>
             <asp:GridView ID="Lista_Art_Ord" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt" Width="1235px">
 <AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
@@ -80,11 +82,12 @@
 <PagerStyle CssClass="pgr"></PagerStyle>
             </asp:GridView>
         </center>
+                            </ContentTemplate>
+        </asp:UpdatePanel>
     &nbsp;</p>
     <p>
         <%--Para los popups ¿--%>
-
-                         
+            
               <%--Para los popups ? --%>    
     
     </p>
@@ -102,12 +105,13 @@
       </div>
       <div class="modal-body">
         <p></p><%--aasasdasasadsads--%>          <%-- aca deberia empesar el asp:UpdatePanel y el contentemplate, pero solo los nesesitaria para aquellos que nesesito para editar --%>
-          
+          <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+              <ContentTemplate>
                         <asp:TextBox ID="Buscador_prov" runat="server" Width="257px" style="font-size: 15pt" Height="27px"></asp:TextBox>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="Buscar_prov_btn" CssClass="btn btn-primary" runat="server"  Text="Buscar" OnClick="Buscar_prov_btn_Click" />
         <center>
-            <asp:GridView ID="Lista_Proveedores" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt" Width="1235px">
+            <asp:GridView ID="Lista_Proveedores" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt" >
 <AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
                 <Columns>
                 <asp:BoundField DataField="ID" HeaderText="COD" >
@@ -137,7 +141,8 @@
 <PagerStyle CssClass="pgr"></PagerStyle>
             </asp:GridView>
         </center>
-                          
+                                    </ContentTemplate>
+          </asp:UpdatePanel>    
           <%--ass--%>
 
 
@@ -163,7 +168,38 @@
       <div class="modal-body">
         <p></p><%--aasasdasasadsads--%>
           <%-- aca deberia empesar el asp:UpdatePanel y el contentemplate, pero solo los nesesitaria para aquellos que nesesito para editar --%>
-          
+          <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+              <ContentTemplate>
+          <asp:TextBox ID="Buscador_dep" runat="server" Width="257px" style="font-size: 15pt" Height="27px"></asp:TextBox>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="Buscar_dep_btn" CssClass="btn btn-primary" runat="server"  Text="Buscar" OnClick="Buscar_dep_btn_Click" />
+
+                     <center>
+                         <asp:GridView ID="Lista_Depositos" runat="server" AlternatingRowStyle-CssClass="alt" AutoGenerateColumns="False" CssClass="mGrid" DataKeyNames="ID" PagerStyle-CssClass="pgr">
+        <AlternatingRowStyle CssClass="alt" />
+        <Columns>
+            <asp:BoundField DataField="ID" HeaderText="COD">
+            <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+            </asp:BoundField>
+            <asp:BoundField DataField="Nombre" HeaderText="Nombre">
+            <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+            </asp:BoundField>
+            <asp:BoundField DataField="Ubicacion" HeaderText="Ubicacion">
+            <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+            </asp:BoundField>
+            <asp:TemplateField HeaderText="">
+                <ItemTemplate>
+                    <center>
+                                  <asp:Button ID="Select_Dept_btn" runat="server" CssClass="btn btn-primary" OnClick="Select_Dept_btn_Click" Text="Seleccionar" />
+                    </center>
+                </ItemTemplate>
+            </asp:TemplateField>
+        </Columns>
+        <PagerStyle CssClass="pgr" />
+    </asp:GridView>
+                     </center>
+                                </ContentTemplate>
+          </asp:UpdatePanel>
           <%--ass--%>
 
 
@@ -189,6 +225,8 @@
       <div class="modal-body">
         <p></p><%--aasasdasasadsads--%>
           <%-- aca deberia empesar el asp:UpdatePanel y el contentemplate, pero solo los nesesitaria para aquellos que nesesito para editar --%>
+          <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+              <ContentTemplate>
           <asp:TextBox ID="Buscador_art" runat="server" Width="257px" style="font-size: 15pt" Height="27px"></asp:TextBox>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="Buscar_art_btn" CssClass="btn btn-primary" runat="server" OnClick="Buscar_art_btn_Click" Text="Buscar" />
@@ -223,6 +261,8 @@
 <PagerStyle CssClass="pgr"></PagerStyle>
             </asp:GridView>
         </center>
+                                </ContentTemplate>
+          </asp:UpdatePanel>
           <%--ass--%>
 
 
