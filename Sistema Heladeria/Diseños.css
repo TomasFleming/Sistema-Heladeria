@@ -133,9 +133,9 @@ Titulos {
     /*margin-right: 5px;*/ /* Espacio entre el icono y el texto */
 /*}*/
 /*.iconoAdvertencia {
-    width: 16px;*/ /* Ajusta el ancho según tus necesidades */
-    /*height: 16px;*/ /* Ajusta la altura según tus necesidades */
-    /*background: url('ruta-del-icono.png') no-repeat center center;*/ /* Cambia la ruta y el nombre del icono */
-    /*display: inline-block;
+    width: 16px;
+    height: 16px; 
+    background: url('') no-repeat center center;
+    display: inline-block;
     vertical-align: middle;
 }*/
