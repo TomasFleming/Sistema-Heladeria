@@ -159,6 +159,24 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.GridView Lista_Art_Ord;
 
         /// <summary>
+        /// Control Guardar_Ord_btn.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Guardar_Ord_btn;
+
+        /// <summary>
+        /// Control Cancelar_Ord_btn.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Cancelar_Ord_btn;
+
+        /// <summary>
         /// Control label55.
         /// </summary>
         /// <remarks>

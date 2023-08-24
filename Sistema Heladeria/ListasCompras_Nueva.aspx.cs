@@ -209,5 +209,14 @@ namespace Sistema_Heladeria
             public int Cantidad { get; set; }
         }
 
+        protected void Guardar_Ord_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Cancelar_Ord_btn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

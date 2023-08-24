@@ -90,10 +90,13 @@
         </asp:UpdatePanel>
     &nbsp;</p>
     <p>
-        <%--aasasdasasadsads--%>
-                          
-        <%-- aca deberia empesar el asp:UpdatePanel y el contentemplate, pero solo los nesesitaria para aquellos que nesesito para editar --%>    
-    
+        <%--  --%>  
+        <center>
+            <asp:Button ID="Guardar_Ord_btn" CssClass="btn btn-success" runat="server" Text="Terminar Orden" OnClick="Guardar_Ord_btn_Click" />
+            &nbsp;&nbsp;&nbsp;
+            <asp:Button ID="Cancelar_Ord_btn" runat="server" CssClass="btn btn-danger" OnClick="Cancelar_Ord_btn_Click" Text="Cancelar Orden" />
+        </center>
+    <%--  --%>
     </p>
     
     <%--ass--%><%-- Inicia el popup Proveedores--%>
