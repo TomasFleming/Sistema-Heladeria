@@ -101,7 +101,7 @@
         <p></p><%--aasasdasasadsads--%>
           <%-- aca deberia empesar el asp:UpdatePanel y el contentemplate, pero solo los nesesitaria para aquellos que nesesito para editar --%>
           <center>
-            <asp:GridView ID="Lista_Articulos" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt">
+            <asp:GridView ID="Lista_Articulos" runat="server" AutoGenerateColumns="False" DataKeyNames="ID" OnRowDataBound="Lista_Articulos_RowDataBound"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt">
 
 <AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
                 <Columns>
@@ -118,6 +118,9 @@
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
                 <asp:BoundField DataField="Stock" HeaderText="Stock" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="Stock_Min" HeaderText="Stock Minimo" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
                     

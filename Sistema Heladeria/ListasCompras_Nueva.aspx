@@ -11,6 +11,8 @@
         Fecha de Creacion :&nbsp;&nbsp;&nbsp;
         <asp:Label ID="Fecha_Creacion_lb" runat="server" Text="Label"></asp:Label>
     </p>
+    <asp:UpdatePanel ID="UpdatePanel5" runat="server">
+        <ContentTemplate>
     <table class="nav-justified" border="0" style="border: 3px solid #CCCCCC; padding: 0px; clip: rect(0px, 0px, 0px, 0px);">
         <tr>
             <td class="modal-lg" style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; width: 586px; height: 36px;">Detalles del Proveedor :&nbsp;&nbsp;&nbsp;<asp:Button ID="PopUp_Prov_bt" runat="server" Text="Seleccionar Proveedor" CssClass="btn btn-default" OnClick="PopUp_Prov_bt_Click"/>
@@ -46,6 +48,8 @@
             </td>
         </tr>
     </table>
+                    </ContentTemplate>
+    </asp:UpdatePanel>
     <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
         Articulos solicitados:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="Pop_Art_bt" runat="server" Text="Agregar Articulo" CssClass="btn btn-default" OnClick="Pop_Art_bt_Click" />
