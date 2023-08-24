@@ -20,12 +20,12 @@
             <td style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; height: 36px;">Detalles de Entrega:</td>
         </tr>
         <tr>
-            <td class="modal-lg" style="width: 586px; font-family: Arial; font-size: 16px; font-style: inherit; color: #000000;">Numero Proveedor:
+            <td class="modal-lg" style="width: 586px; font-family: Arial; font-size: 16px; font-style: inherit; color: #000000; height: 56px;">Numero Proveedor:
                 <asp:Label ID="Prov_ID_lb" runat="server" style="font-size: 20px" Text="ID"></asp:Label>
                 <br />
                 Nombre :&nbsp;&nbsp; <asp:Label ID="Prov_nom_lb" runat="server" style="font-size: 20px" Text="Nombre :"></asp:Label>
             </td>
-            <td style="font-family: Arial; font-size: 16px; font-style: inherit; color: #000000;">Seleccione un deposito para recibir la entrega <asp:Button ID="PopUp_Depos_bt" runat="server" Text="Seleccionar Deposito" CssClass="btn btn-default" OnClick="PopUp_Depos_bt_Click"/>
+            <td style="font-family: Arial; font-size: 16px; font-style: inherit; color: #000000; height: 56px;">Seleccione un deposito para recibir la entrega <asp:Button ID="PopUp_Depos_bt" runat="server" Text="Seleccionar Deposito" CssClass="btn btn-default" OnClick="PopUp_Depos_bt_Click"/>
             </td>
         </tr>
         <tr>
