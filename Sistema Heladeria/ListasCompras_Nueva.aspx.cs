@@ -169,6 +169,11 @@ namespace Sistema_Heladeria
         protected void Art_elin_byn_Click(object sender, EventArgs e)
         {
 
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalDep();", true);
+            //Para dejar bacio
+            DataTable clrear = new DataTable();
+            Lista_Depositos.DataSource = clrear;
+            Lista_Depositos.DataBind();
         }
     }
 }

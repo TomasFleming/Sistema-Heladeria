@@ -21,8 +21,8 @@
             </td>
         </tr>
         <tr>
-            <td class="modal-lg" style="width: 586px; font-family: Arial; font-size: 16px; font-style: inherit; color: #000000; height: 56px;">Numero Proveedor:
-                <asp:Label ID="Prov_ID_lb" runat="server" style="font-size: 20px"></asp:Label>
+            <td class="modal-lg" style="width: 586px; font-family: Arial; font-size: 16px; font-style: inherit; color: #000000;">Numero Proveedor:
+                <asp:Label ID="Prov_ID_lb" runat="server" style="font-size: 20px" Text="ID"></asp:Label>
                 <br />
                 Nombre :&nbsp;&nbsp; <asp:Label ID="Prov_nom_lb" runat="server" style="font-size: 20px"></asp:Label>
             </td>
