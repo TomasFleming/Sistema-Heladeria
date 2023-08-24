@@ -180,7 +180,6 @@ namespace Sistema_Heladeria
             Lista_Art_Ord.DataSource = ListaOrden;
             Lista_Art_Ord.DataBind();
 
-            //CargarLista();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalSelArt();", true);
 
 
@@ -209,10 +208,6 @@ namespace Sistema_Heladeria
             public string Descripcion { get; set; }
             public int Cantidad { get; set; }
         }
-        //public void CargarLista()
-        //{
-        //    Lista_Art_Ord.DataSource = ListaOrden;
-        //    Lista_Art_Ord.DataBind();
-        //}
+
     }
 }
