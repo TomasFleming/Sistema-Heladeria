@@ -21,8 +21,8 @@
             </td>
         </tr>
         <tr>
-            <td class="modal-lg" style="width: 586px; font-family: Arial; font-size: 16px; font-style: inherit; color: #000000; height: 56px;">Numero Proveedor:
-                <asp:Label ID="Prov_ID_lb" runat="server" style="font-size: 20px"></asp:Label>
+            <td class="modal-lg" style="width: 586px; font-family: Arial; font-size: 16px; font-style: inherit; color: #000000;">Numero Proveedor:
+                <asp:Label ID="Prov_ID_lb" runat="server" style="font-size: 20px" Text="ID"></asp:Label>
                 <br />
                 Nombre :&nbsp;&nbsp; <asp:Label ID="Prov_nom_lb" runat="server" style="font-size: 20px"></asp:Label>
             </td>
@@ -65,13 +65,13 @@
                 <asp:BoundField DataField="Nombre" HeaderText="Nombre" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
-                <asp:BoundField DataField="Nombre_Categoria" HeaderText="Categoria" >
+                <asp:BoundField DataField="Categoria" HeaderText="Categoria" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
                 <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
-                <asp:BoundField DataField="Precio" HeaderText="Precio" >
+                <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
                     <asp:TemplateField HeaderText="">
@@ -327,12 +327,12 @@
             <td style="width: 116px; height: 36px; font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
                 Cantidad Solicitada:</td>
             <td style="height: 66px; width: 646px">
-                <asp:TextBox ID="Precio_tx" runat="server" Height="22px" style="font-size: 15pt" TextMode="Number" Width="78px"></asp:TextBox>
+                <asp:TextBox ID="Cantidad_tx" runat="server" Height="22px" style="font-size: 15pt" TextMode="Number" Width="78px"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td colspan="2">
-                <center><asp:Button ID="Art_Agregar_btn" CssClass="btn btn-primary" runat="server" Text="Guardar Cambios" OnClick="Art_camb_btn_Click"/></center>
+                <center><asp:Button ID="Art_Agregar_btn" CssClass="btn btn-primary" runat="server" Text="Guardar Cambios" OnClick="Art_Agregar_btn_Click"/></center>
             &nbsp;<center><asp:Button ID="Art_Cancelar_byn" CssClass="btn btn-danger" Visible="false" runat="server" Text="Cancelar" OnClick="Art_elin_byn_Click" /></center>
             </td>
         </tr>

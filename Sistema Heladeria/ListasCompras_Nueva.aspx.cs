@@ -13,9 +13,15 @@ namespace Sistema_Heladeria
     public partial class ListasCompras_Nueva : System.Web.UI.Page
     {
         Conectar con = new Conectar();
+        //List<ItemCompra> ListaOrden = new List<ItemCompra>();
         protected void Page_Load(object sender, EventArgs e)
         {
             con.CrearConexion();
+            if (Session["ListaOrden"] == null)
+            {
+                List<ItemCompra> ListaOrden = new List<ItemCompra>();
+                Session["ListaOrden"] = ListaOrden;
+            }
         }
 
         protected void Quitar_art_Click(object sender, EventArgs e)
@@ -88,6 +94,8 @@ namespace Sistema_Heladeria
             Lista_Articulos.SelectedIndex = I;
             int ID = Convert.ToInt32(Lista_Articulos.DataKeys[Lista_Articulos.SelectedIndex].Value);
 
+            //Session["ID_art"] = ID.ToString();
+
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalSelArt();", true);
 
             con.Open();
@@ -105,6 +113,7 @@ namespace Sistema_Heladeria
             //DataTable clrear = new DataTable();
             //Lista_Articulos.DataSource = clrear;
             //Lista_Articulos.DataBind();
+
 
         }
 
@@ -161,14 +170,49 @@ namespace Sistema_Heladeria
             Lista_Depositos.DataBind();
         }
 
-        protected void Art_camb_btn_Click(object sender, EventArgs e)
+        protected void Art_Agregar_btn_Click(object sender, EventArgs e)
         {
+            List<ItemCompra> ListaOrden = (List<ItemCompra>)Session["ListaOrden"];
+            ListaOrden.Add(new ItemCompra{ ID = Convert.ToInt32(ID_Art_sel_lb.Text), Nombre = Nomb_art_lb.Text, Categoria = Cat_art_lb.Text, Descripcion = Desc_art_lb.Text, Cantidad = Convert.ToInt32(Cantidad_tx.Text) });
+
+            //int ID = Convert.ToInt32(Session[""].ToString());
+
+            Lista_Art_Ord.DataSource = ListaOrden;
+            Lista_Art_Ord.DataBind();
+
+            //CargarLista();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalSelArt();", true);
+
+
+            //Para dejar bacio
+            DataTable clrear = new DataTable();
+            Lista_Articulos.DataSource = clrear;
+            Lista_Articulos.DataBind();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalArt();", true);
 
         }
 
         protected void Art_elin_byn_Click(object sender, EventArgs e)
         {
 
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalDep();", true);
+            //Para dejar bacio
+            DataTable clrear = new DataTable();
+            Lista_Depositos.DataSource = clrear;
+            Lista_Depositos.DataBind();
         }
+        class ItemCompra
+        {
+            public int ID { get; set; }
+            public string Nombre { get; set; }
+            public string Categoria { get; set; }
+            public string Descripcion { get; set; }
+            public int Cantidad { get; set; }
+        }
+        //public void CargarLista()
+        //{
+        //    Lista_Art_Ord.DataSource = ListaOrden;
+        //    Lista_Art_Ord.DataBind();
+        //}
     }
 }
