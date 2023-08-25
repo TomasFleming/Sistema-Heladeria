@@ -38,7 +38,23 @@ namespace Sistema_Heladeria
 
         protected void Ver_Detalle_btn_Click(object sender, EventArgs e)
         {
+            Button IDBtn_ = sender as Button;
+            GridViewRow row = (GridViewRow)IDBtn_.NamingContainer;
+            int I = row.RowIndex;
+            Lista_Ordenes_Compra.SelectedIndex = I;
+            int ID = Convert.ToInt32(Lista_Ordenes_Compra.DataKeys[Lista_Ordenes_Compra.SelectedIndex].Value);
 
+            con.Open();
+            SqlCommand detalle = new SqlCommand("select DO.ID,A.Nombre,A.Descripcion,C.Nombre_Categoria,Cantidad  from Detalle_Ord DO inner join Articulos A on A.ID=DO.ID_Art inner join Categorias C on C.ID=A.Categoria  where ID_ord= "+ID+"", con.GetConnection());
+            detalle.ExecuteNonQuery();
+
+            SqlDataAdapter Depositos = new SqlDataAdapter(detalle);
+            DataTable det = new DataTable();
+            Depositos.Fill(det);
+            Lista_Detalle.DataSource = det;
+            Lista_Detalle.DataBind();
+            con.Close();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
         }
     }
 }

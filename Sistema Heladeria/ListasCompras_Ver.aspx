@@ -45,4 +45,66 @@
         
     </p>
     
+
+        <%-- Inicia el popup --%>
+    <div id="myModal1" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Agregar nuevo articulo<asp:Label ID="label55" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
+      </div>
+      <div class="modal-body">
+        <p></p><%--aasasdasasadsads--%>
+          <%-- aca deberia empesar el asp:UpdatePanel y el contentemplate, pero solo los nesesitaria para aquellos que nesesito para editar --%>
+          
+                <center>
+                          <asp:GridView ID="Lista_Detalle" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt">
+<AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
+                <Columns>
+                <asp:BoundField DataField="ID" HeaderText="COD" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Nombre" HeaderText="Nombre" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Nombre_Categoria" HeaderText="Categoria" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+            </Columns>
+
+<PagerStyle CssClass="pgr"></PagerStyle>
+            </asp:GridView>
+                      </center>  
+                  
+                          
+          <%--ass--%>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+  <script type="text/javascript">
+      function openModal() {
+          $('#myModal1').modal('show');
+      }
+      function closeModal() {
+          $('#myModal1').modal('hide');
+      }
+  </script>
+    
 </asp:Content>
