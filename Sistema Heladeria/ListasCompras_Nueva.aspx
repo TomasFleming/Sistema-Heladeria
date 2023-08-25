@@ -1,16 +1,30 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ListasCompras_Nueva.aspx.cs" Inherits="Sistema_Heladeria.ListasCompras_Nueva" EnableSessionState="True" EnableEventValidation="False" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <p>
-
-    </p>
-    <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
+    <table class="nav-justified">
+        <tr>
+            <td rowspan="2" style="width: 618px; font-size: x-large; color: #FF6666;">
+                <center>
+                    Orden De compra
+                </center>
+            </td>
+            <td style="height: 38px">
+    <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;">
         Numero de Orden a Crear:&nbsp;&nbsp;&nbsp;
         <asp:Label ID="Nro_ord_lb" runat="server"></asp:Label>
     </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
     <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
-        Fecha de Creacion :&nbsp;&nbsp;&nbsp;
-        <asp:Label ID="Fecha_Creacion_lb" runat="server"></asp:Label>
+        Fecha de Creacion :&nbsp;&nbsp;&nbsp;<strong>
+        <asp:TextBox ID="Fecha_Creacion_lb" runat="server" TextMode="DateTime" Width="190px" style="font-size: 13pt; font-weight: bold"></asp:TextBox>
+            <ajaxToolkit:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="Fecha_Creacion_lb" />
+                                             </strong>
     </p>
+            </td>
+        </tr>
+    </table>
     <asp:UpdatePanel ID="UpdatePanel5" runat="server">
         <ContentTemplate>
     <table class="nav-justified" border="0" style="border: 3px solid #CCCCCC; padding: 0px; clip: rect(0px, 0px, 0px, 0px);">
@@ -26,7 +40,9 @@
                 <br />
                 Nombre :&nbsp;&nbsp; <asp:Label ID="Prov_nom_lb" runat="server" style="font-size: 20px"></asp:Label>
             </td>
-            <td style="font-family: Arial; font-size: 16px; font-style: inherit; color: #000000; height: 56px;">&nbsp;</td>
+            <td style="font-family: Arial; font-size: 16px; font-style: inherit; color: #000000; ">Fecha de Entrega:<strong><asp:TextBox ID="Fechar_ord_tx" runat="server" style="font-size: 13pt; font-weight: bold" TextMode="DateTime" Width="190px"></asp:TextBox>
+                <ajaxToolkit:CalendarExtender ID="Fechar_ord_tx_CalendarExtender" runat="server" TargetControlID="Fechar_ord_tx" />
+                </strong></td>
         </tr>
         <tr>
             <td class="modal-lg" style="width: 586px; font-family: Arial; font-size: 16px; font-style: inherit; color: #000000; height: 28px;">Telefono:&nbsp;&nbsp;<asp:Label ID="Telf_lb" runat="server" style="font-size: 20px"></asp:Label>
@@ -107,7 +123,7 @@
     <div class="modal-content">
       <div class="modal-header">
 
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <button type="button" class="close" data-dismiss="modal">&times;/button>
         <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Seleccionar Proveedor<asp:Label ID="label55" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
       </div>
       <div class="modal-body">

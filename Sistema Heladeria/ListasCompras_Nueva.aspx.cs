@@ -211,7 +211,31 @@ namespace Sistema_Heladeria
 
         protected void Guardar_Ord_btn_Click(object sender, EventArgs e)
         {
+            con.Open();
+            //primero creo orden
+            
+            SqlCommand Orden = new SqlCommand("insert into OrdenesCompra (ID_Proveedor,ID_Deposito,Fecha_Creacion,Fecha_Entrega) values ("+Prov_ID_lb.Text+","+Deposit_ID_lb.Text+",'"+Fecha_Creacion_lb.Text+"','"+Fechar_ord_tx.Text+"') ", con.GetConnection());
+            Orden.ExecuteNonQuery();
+            con.Close();
+            //Luego el detalle
 
+            con.Open();
+            SqlCommand Detalle = new SqlCommand("SELECT TOP 1 * FROM OrdenesCompra ORDER BY ID DESC", con.GetConnection());
+            SqlDataReader Leer = Detalle.ExecuteReader();
+            Leer.Read();
+            int ID_Orden = Convert.ToInt32(Leer["ID"].ToString());
+            con.Close();
+            List<ItemCompra> ListaOrden = (List<ItemCompra>)Session["ListaOrden"];
+            foreach (var item in ListaOrden)
+            {
+                int ID = item.ID;
+                int Cant = item.Cantidad;
+                con.Open();
+                SqlCommand Detalle2 = new SqlCommand("insert into Detalle_Ord(ID_ord,ID_Art,Cantidad) values ("+ID_Orden+","+ID+","+Cant+")", con.GetConnection());
+                Detalle2.ExecuteNonQuery();
+                con.Close();
+            }
+            Response.Redirect("~/ListasCompras_Ver.aspx");
         }
 
         protected void Cancelar_Ord_btn_Click(object sender, EventArgs e)
