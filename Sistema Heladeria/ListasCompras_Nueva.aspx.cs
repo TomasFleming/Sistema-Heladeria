@@ -17,6 +17,13 @@ namespace Sistema_Heladeria
         protected void Page_Load(object sender, EventArgs e)
         {
             con.CrearConexion();
+            con.Open();
+            SqlCommand a = new SqlCommand("SELECT TOP 1 * FROM OrdenesCompra ORDER BY ID DESC", con.GetConnection());
+            SqlDataReader leer = a.ExecuteReader();
+            leer.Read();
+            int i = (Convert.ToInt32(leer["ID"].ToString()) + 1);
+            Nro_ord_lb.Text = i.ToString();
+            con.Close();
             if (Session["ListaOrden"] == null)
             {
                 List<ItemCompra> ListaOrden = new List<ItemCompra>();
@@ -26,7 +33,16 @@ namespace Sistema_Heladeria
 
         protected void Quitar_art_Click(object sender, EventArgs e)
         {
+            Button IDBtn_ = sender as Button;
+            GridViewRow row = (GridViewRow)IDBtn_.NamingContainer;
+            int I = row.RowIndex;
+            Lista_Art_Ord.SelectedIndex = I;
+            int ID = Convert.ToInt32(Lista_Art_Ord.DataKeys[Lista_Art_Ord.SelectedIndex].Value);
+            List<ItemCompra> ListaOrden = (List<ItemCompra>)Session["ListaOrden"];
+            ListaOrden.RemoveAt(ListaOrden.FindIndex(item => item.ID == ID));
 
+            Lista_Art_Ord.DataSource = ListaOrden;
+            Lista_Art_Ord.DataBind();
         }
 
         protected void Selecc_Prov_btn_Click(object sender, EventArgs e)
@@ -191,7 +207,7 @@ namespace Sistema_Heladeria
 
         }
 
-        protected void Art_elin_byn_Click(object sender, EventArgs e)
+        protected void Art_elin_byn_Click(object sender, EventArgs e)//cual era este ??????
         {
 
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalDep();", true);

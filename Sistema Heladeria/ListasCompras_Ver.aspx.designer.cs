@@ -40,5 +40,14 @@ namespace Sistema_Heladeria
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Agregar_Ord_btn;
+
+        /// <summary>
+        /// Control Lista_Ordenes_Compra.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView Lista_Ordenes_Compra;
     }
 }

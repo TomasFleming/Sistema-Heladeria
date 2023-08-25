@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <table class="nav-justified">
         <tr>
-            <td rowspan="2" style="width: 618px; font-size: x-large; color: #FF6666;">
+            <td rowspan="2" style="width: 618px; font-size: 50px; color: #FF6666;">
                 <center>
                     Orden De compra
                 </center>
@@ -36,7 +36,7 @@
         </tr>
         <tr>
             <td class="modal-lg" style="width: 586px; font-family: Arial; font-size: 16px; font-style: inherit; color: #000000;">Numero Proveedor:
-                <asp:Label ID="Prov_ID_lb" runat="server" style="font-size: 20px" Text="ID"></asp:Label>
+                <asp:Label ID="Prov_ID_lb" runat="server" style="font-size: 20px"></asp:Label>
                 <br />
                 Nombre :&nbsp;&nbsp; <asp:Label ID="Prov_nom_lb" runat="server" style="font-size: 20px"></asp:Label>
             </td>
@@ -123,7 +123,7 @@
     <div class="modal-content">
       <div class="modal-header">
 
-        <button type="button" class="close" data-dismiss="modal">&times;/button>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
         <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Seleccionar Proveedor<asp:Label ID="label55" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
       </div>
       <div class="modal-body">
