@@ -51,21 +51,58 @@ namespace Sistema_Heladeria
             sql.ExecuteNonQuery();
             con.Close();
             Nomb_tx.Text = "";
-            Descrip_tx.Text = "";
             Precio_tx.Text = "";
             Descrip_tx.Text = "";
             Categorias_list.SelectedValue = "1";
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
         }
-
-        protected void Art_elin_byn_Click(object sender, EventArgs e)
-        {
-
-        }
-
         protected void Editar_art_Click(object sender, EventArgs e)
         {
+            Button IDBtn_ = sender as Button;
+            GridViewRow row = (GridViewRow)IDBtn_.NamingContainer;
+            int I = row.RowIndex;
+            Lista_Articulos.SelectedIndex = I;
+            int ID = Convert.ToInt32(Lista_Articulos.DataKeys[Lista_Articulos.SelectedIndex].Value);
 
+            con.Open();
+            SqlCommand sql = new SqlCommand("select * from Articulos where ID= "+ID,con.GetConnection());
+            SqlDataReader leer = sql.ExecuteReader();
+            leer.Read();
+            ID_Art_edit_lb.Text = leer["ID"].ToString();
+            Nomb_Edit_tx.Text = leer["Nombre"].ToString();
+            Descript_Edit_tx.Text = leer["Descripcion"].ToString();
+            Precio_Edit_tx.Text = leer["Precio"].ToString();
+            Categoria_Edit_tx.SelectedValue = leer["Categoria"].ToString();
+            con.Close();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal2();", true);
+        }
+
+        protected void Guardar_Camb_bt_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            SqlCommand sql = new SqlCommand("update Articulos set Nombre='"+Nomb_Edit_tx.Text+"',Categoria="+Categoria_Edit_tx.SelectedValue+",Descripcion='"+Descript_Edit_tx.Text+"',Precio='"+Precio_Edit_tx.Text+"' where ID= "+ID_Art_edit_lb.Text+" ",con.GetConnection());
+            sql.ExecuteNonQuery();
+            con.Close();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal2();", true);
+        }
+
+        protected void Eliminar_Art_btn_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            SqlCommand sql = new SqlCommand("delete Articulos where ID= "+ID_Art_edit_lb.Text, con.GetConnection());
+            sql.ExecuteNonQuery();
+            con.Close();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal2();", true);
+        }
+
+        protected void Cancelar_art_btn_Click(object sender, EventArgs e)
+        {
+            Nomb_tx.Text = "";
+            Descrip_tx.Text = "";
+            Precio_tx.Text = "";
+            Descrip_tx.Text = "";
+            Categorias_list.SelectedValue = "1";
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
         }
     }
 }

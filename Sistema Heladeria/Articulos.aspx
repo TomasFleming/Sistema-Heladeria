@@ -44,7 +44,7 @@
             </asp:GridView>
         </center>
     </p>
-    <p><%-- Dentro del popup--%>
+    <p><%-- termina  --%>
         <center>
               
         </center>
@@ -107,8 +107,8 @@
         </tr>
         <tr>
             <td colspan="2">
-                <center><asp:Button ID="Art_camb_btn" CssClass="btn btn-primary" runat="server" Text="Guardar Cambios" OnClick="Art_camb_btn_Click"/></center>
-            &nbsp;<center><asp:Button ID="Art_elin_byn" CssClass="btn btn-danger" Visible="false" runat="server" Text="Borrar Articulo" OnClick="Art_elin_byn_Click" /></center>
+                <center><asp:Button ID="Art_camb_btn" CssClass="btn btn-primary" runat="server" Text="Guardar Articulo" OnClick="Art_camb_btn_Click"/></center>
+            &nbsp;<center><asp:Button ID="Cancelar_art_btn" CssClass="btn btn-danger" runat="server" Text="Cancelar" OnClick="Cancelar_art_btn_Click" /></center>
             </td>
         </tr>
     </table>
@@ -126,12 +126,97 @@
 
   </div>
 </div>
+     <%-- Inicia el popup --%>
+    <div id="myModal2" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Editar Articulo N° <asp:Label ID="ID_Art_edit_lb" runat="server"  Visible="True"></asp:Label></h4></center>
+      </div>
+      <div class="modal-body">
+        <p></p><%--aasasdasasadsads--%>
+          <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+              <ContentTemplate>
+                  <center>
+
+                      <table id="Tabla_categ" style="width: 36%; height: 207px;">
+        <tr>
+            <td style="width: 228px; height: 22px">
+                <asp:Label ID="Label2" runat="server" Text="Categoria" style="font-size: 20px"></asp:Label>
+            </td>
+            <td style="height: 22px; width: 646px">
+                   <asp:DropDownList ID="Categoria_Edit_tx" runat="server" DataSourceID="SqlDataSource2" DataTextField="Nombre_Categoria" DataValueField="ID">
+        </asp:DropDownList>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Heladeria Sistemas 3ConnectionString %>" SelectCommand="SELECT * FROM [Categorias]"></asp:SqlDataSource>
+            </td>
+        </tr>
+        <tr>
+            <td style="height: 66px; width: 228px">
+                <asp:Label ID="Label3" runat="server" Text="Nombre" style="font-size: 20px"></asp:Label>
+            </td>
+            <td style="height: 66px; width: 646px">
+                <asp:TextBox ID="Nomb_Edit_tx" runat="server" style="font-size: 15pt" Width="300px"></asp:TextBox>
+                <asp:Label ID="Label4" runat="server" Text="Ya existe un articulo con ese nombre" Visible="False" ForeColor="Red"></asp:Label>
+            </td>
+        </tr>
+        
+        <tr>
+            <td style="width: 228px; height: 22px">
+                <asp:Label ID="Label5" runat="server" Text="Precio" style="font-size: 20px"></asp:Label>
+            </td>
+            <td style="height: 22px; width: 646px">
+                <asp:TextBox ID="Precio_Edit_tx" runat="server" TextMode="Number" style="font-size: 15pt" Width="302px"></asp:TextBox>
+
+                <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="Debe ser un valor superior a 0" ControlToValidate="Precio_tx" Operator="GreaterThan" Type="Integer" ValueToCompare="0"></asp:CompareValidator>
+
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 228px; height: 22px">
+                <asp:Label ID="Label6" runat="server" Text="Descripcion" style="font-size: 20px"></asp:Label>
+            </td>
+            <td style="height: 22px; width: 646px">
+                <asp:TextBox ID="Descript_Edit_tx" runat="server" TextMode="MultiLine" Height="65px" style="margin-left: 0" Width="292px"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <center><asp:Button ID="Guardar_Camb_bt" CssClass="btn btn-primary" runat="server" Text="Guardar Cambios" OnClick="Guardar_Camb_bt_Click"/></center>
+            &nbsp;<center><asp:Button ID="Eliminar_Art_btn" CssClass="btn btn-danger" runat="server" Text="Borrar Articulo" OnClick="Eliminar_Art_btn_Click" /></center>
+            </td>
+        </tr>
+    </table>
+
+                  </center>
+              </ContentTemplate>
+          </asp:UpdatePanel>                           
+          <%--ass--%>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
   <script type="text/javascript">
       function openModal() {
           $('#myModal1').modal('show');
       }
       function closeModal() {
           $('#myModal1').modal('hide');
+      }
+      function openModal2() {
+          $('#myModal2').modal('show');
+      }
+      function closeModal2() {
+          $('#myModal2').modal('hide');
       }
   </script>
     <%-- termina  --%>

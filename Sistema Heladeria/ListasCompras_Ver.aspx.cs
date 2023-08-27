@@ -43,7 +43,7 @@ namespace Sistema_Heladeria
             int I = row.RowIndex;
             Lista_Ordenes_Compra.SelectedIndex = I;
             int ID = Convert.ToInt32(Lista_Ordenes_Compra.DataKeys[Lista_Ordenes_Compra.SelectedIndex].Value);
-
+            ID_Ord_lb.Text = ID.ToString();
             con.Open();
             SqlCommand detalle = new SqlCommand("select DO.ID,A.Nombre,A.Descripcion,C.Nombre_Categoria,Cantidad  from Detalle_Ord DO inner join Articulos A on A.ID=DO.ID_Art inner join Categorias C on C.ID=A.Categoria  where ID_ord= "+ID+"", con.GetConnection());
             detalle.ExecuteNonQuery();

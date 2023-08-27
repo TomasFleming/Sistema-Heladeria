@@ -32,9 +32,12 @@
         </asp:GridView>
     </center>
     <p>
+        <center>
+            
+        </center>
         
             &nbsp;</p>
-            <%-- Inicia el popup --%>
+    <%-- termina  --%>
     <div id="myModal1" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -71,12 +74,67 @@
         </tr>
         <tr>
             <td colspan="2">
-                <center><asp:Button ID="Cat_guardar_btn" CssClass="btn btn-primary" runat="server" Text="Guardar Cambios" OnClick="Art_camb_btn_Click"/></center>
-            &nbsp;<center><asp:Button ID="Cat_borrar_btn" CssClass="btn btn-danger" runat="server" Text="Borrar Articulo" OnClick="Art_elin_byn_Click" /></center>
+                <center><asp:Button ID="Cat_guardar_btn" CssClass="btn btn-primary" runat="server" Text="Guardar Categoria" OnClick="Art_camb_btn_Click"/></center>
+            &nbsp;<center><asp:Button ID="Cancelar_btn" CssClass="btn btn-danger" runat="server" Text="Cancelar" OnClick="Cancelar_btn_Click" /></center>
             </td>
         </tr>
     </table>
                   </center>
+          <%--ass--%>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+    <%-- Inicia el popup --%>
+    <div id="myModal2" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <center><h4 class="modal-title"style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Editar Categoria N°<asp:Label ID="ID_cat_edit" runat="server" Visible="True"></asp:Label></h4></center>
+      </div>
+      <div class="modal-body">
+        <p></p><%--aasasdasasadsads--%>
+          <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+              <ContentTemplate>
+                  <center>
+                      <table id="Tabla_cat2" style="width: 36%; height: 207px;">
+        <tr>
+            <td style="height: 20px; width: 228px">
+                <asp:Label ID="Label2" runat="server" Text="Nombre" style="font-size: 20px"></asp:Label>
+            </td>
+            <td style="height: 20px; width: 646px">
+                <asp:TextBox ID="Nomb_Edit_tx" runat="server" style="font-size: 15pt" Width="300px"></asp:TextBox>
+                <br />
+                <asp:Label ID="Label3" runat="server" Text="Ya existe una categoria con ese nombre" Visible="False" ForeColor="Red"></asp:Label>
+            </td>
+        </tr>
+        
+        <tr>
+            <td style="width: 228px; height: 22px">
+                <asp:Label ID="Label4" runat="server" Text="Descripcion" style="font-size: 20px"></asp:Label>
+            </td>
+            <td style="height: 22px; width: 646px">
+                <asp:TextBox ID="Descrip_Edit_tx" runat="server" TextMode="MultiLine" Height="65px" style="margin-left: 0" Width="292px"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <center><asp:Button ID="Guardar_Editado_bt" CssClass="btn btn-primary" runat="server" Text="Guardar Cambios" OnClick="Guardar_Editado_bt_Click"/></center>
+            &nbsp;<center><asp:Button ID="Borrar_cat_btn" CssClass="btn btn-danger" runat="server" Text="Borrar Categoria" OnClick="Borrar_cat_btn_Click" /></center>
+            </td>
+        </tr>
+    </table>
+                  </center>
+              </ContentTemplate>
+          </asp:UpdatePanel>
           <%--ass--%>
       </div>
       <div class="modal-footer">
@@ -92,6 +150,12 @@
       }
       function closeModal() {
           $('#myModal1').modal('hide');
+      }
+      function openModal2() {
+          $('#myModal2').modal('show');
+      }
+      function closeModal2() {
+          $('#myModal2').modal('hide');
       }
   </script>
     <%-- termina  --%>

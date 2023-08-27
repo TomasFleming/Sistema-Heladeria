@@ -51,13 +51,13 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.GridView Lista_Ordenes_Compra;
 
         /// <summary>
-        /// Control label55.
+        /// Control ID_Ord_lb.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label55;
+        protected global::System.Web.UI.WebControls.Label ID_Ord_lb;
 
         /// <summary>
         /// Control Lista_Detalle.
