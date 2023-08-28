@@ -1,11 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Depositos.aspx.cs" Inherits="Sistema_Heladeria.Depositos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <p>
-        <asp:TextBox ID="Buscador_dep" runat="server" Width="257px" style="font-size: 15pt" Height="27px"></asp:TextBox>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <div class="row">
+    <div class="col-md-4"> <!-- Columna para el textbox -->
+        <asp:TextBox ID="Buscador_dep" runat="server" class="form-control" placeholder="Insertar Deposito" style="width: 350px"></asp:TextBox>
+    </div>
+    <div class="col-md-4"> <!-- Columna para los botones -->
         <asp:Button ID="Buscar_dep_btn" CssClass="btn btn-primary" runat="server"  Text="Buscar" OnClick="Buscar_dep_btn_Click"  />
-        &nbsp;&nbsp;&nbsp;
         <asp:Button ID="Agregar_dep_btn" CssClass="btn btn-default" runat="server" Text="Agregar Deposito" OnClick="Agregar_dep_btn_Click"  />
+    </div>
+</div>
+
+    <p>
+        
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+        &nbsp;&nbsp;&nbsp;
+        
     </p>
     <%-- Como seria el agregar en deposito, habrian 2 supongo --%>
     <asp:GridView ID="Lista_Depositos" runat="server" AlternatingRowStyle-CssClass="alt" AutoGenerateColumns="False" CssClass="mGrid" DataKeyNames="ID" PagerStyle-CssClass="pgr" Width="1235px">

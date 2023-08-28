@@ -1,11 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ListasCompras_Ver.aspx.cs" Inherits="Sistema_Heladeria.ListasCompras_Ver" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+
+    <div class="row">
+    <div class="col-md-4"> <!-- Columna para el textbox -->
+        <asp:TextBox ID="Buscador_Ord" runat="server" class="form-control" placeholder="Insertar COD lista" style="width: 350px"></asp:TextBox>
+    </div>
+    <div class="col-md-4"> <!-- Columna para los botones -->
+         <asp:Button ID="Buscar_Ord_btn" CssClass="btn btn-primary" runat="server" OnClick="Buscar_Ord_btn_Click" Text="Buscar" />
+         <asp:Button ID="Agregar_Ord_btn" CssClass="btn btn-default" runat="server" Text="Crear Orden de Compra" OnClick="Agregar_Ord_btn_Click" PostBackUrl="~/ListasCompras_Nueva.aspx" />
+    </div>
+</div>
+
     <p>
-        <asp:TextBox ID="Buscador_Ord" runat="server" Width="257px" style="font-size: 15pt" Height="27px"></asp:TextBox>
+        
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Buscar_Ord_btn" CssClass="btn btn-primary" runat="server" OnClick="Buscar_Ord_btn_Click" Text="Buscar" />
+       
         &nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Agregar_Ord_btn" CssClass="btn btn-default" runat="server" Text="Crear Orden de Compra" OnClick="Agregar_Ord_btn_Click" PostBackUrl="~/ListasCompras_Nueva.aspx" />
+       
     </p>
     <p>
         <center>

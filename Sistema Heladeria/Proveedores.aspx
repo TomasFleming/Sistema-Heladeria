@@ -1,11 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Proveedores.aspx.cs" Inherits="Sistema_Heladeria.Proveedores" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <p>
-        <asp:TextBox ID="Buscador_prov" runat="server" Width="257px" style="font-size: 15pt" Height="27px"></asp:TextBox>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <div class="row">
+    <div class="col-md-4"> <!-- Columna para el textbox -->
+        <asp:TextBox ID="Buscador_prov" runat="server" class="form-control" placeholder="Buscador" style="width: 350px"></asp:TextBox>
+    </div>
+    <div class="col-md-4"> <!-- Columna para los botones -->
         <asp:Button ID="Buscar_prov_btn" CssClass="btn btn-primary" runat="server"  Text="Buscar" OnClick="Buscar_prov_btn_Click" />
-        &nbsp;&nbsp;&nbsp;
         <asp:Button ID="Agregar_prov_btn" CssClass="btn btn-default" runat="server" Text="Agregar Proveedor" OnClick="Agregar_prov_btn_Click"  />
+    </div>
+</div>
+
+    <p>
+        
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
+        &nbsp;&nbsp;&nbsp;
+        
     </p>
     <p>
         <center>
