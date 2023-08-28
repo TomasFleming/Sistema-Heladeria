@@ -104,5 +104,44 @@ namespace Sistema_Heladeria
             con.Close();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal2();", true);
         }
+
+        protected void Eliminar_Prov_btn_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            SqlCommand sql = new SqlCommand("delete Proveedores where ID= " + ID_Prov_edit.Text, con.GetConnection());
+            sql.ExecuteNonQuery();
+            con.Close();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal2();", true);
+        }
+
+        protected void Guardar_Edit_btn_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            SqlCommand sql = new SqlCommand("update Proveedores set NombreCompleto='"+Nomb_Edit_tx.Text+"',Telefono="+Telf_Edit_tx.Text+",Direccion='"+Direcc_Edit_tx.Text+"',Correo='"+Correo_Edit_tx.Text+"' where ID= "+ID_Prov_edit.Text, con.GetConnection());
+            sql.ExecuteNonQuery();
+            con.Close();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal2();", true);
+        }
+
+        protected void Edit_prov_btn_Click(object sender, EventArgs e)
+        {
+            Button IDBtn_ = sender as Button;
+            GridViewRow row = (GridViewRow)IDBtn_.NamingContainer;
+            int I = row.RowIndex;
+            Lista_Proveedores.SelectedIndex = I;
+            int ID = Convert.ToInt32(Lista_Proveedores.DataKeys[Lista_Proveedores.SelectedIndex].Value);
+
+            con.Open();
+            SqlCommand sql = new SqlCommand("select * from Proveedores where ID= "+ID, con.GetConnection());
+            SqlDataReader leer = sql.ExecuteReader();
+            leer.Read();
+            ID_Prov_edit.Text = leer["ID"].ToString();
+            Nomb_Edit_tx.Text = leer["NombreCompleto"].ToString();
+            Telf_Edit_tx.Text = leer["Telefono"].ToString();
+            Correo_Edit_tx.Text = leer["Correo"].ToString();
+            Direcc_Edit_tx.Text = leer["Direccion"].ToString();
+            con.Close();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal2();", true);
+        }
     }
 }
