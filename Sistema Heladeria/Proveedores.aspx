@@ -27,11 +27,21 @@
                     <asp:BoundField DataField="Direccion" HeaderText="Direccion" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
+                    <asp:TemplateField HeaderText="">
+                    <ItemTemplate>
+                        <center>
+                        <asp:Button ID="Edit_prov_btn" runat="server" OnClick="Edit_prov_btn_Click" Text="Editar" CssClass="btn btn-primary" />
+                    </center>
+                       </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
 
 <PagerStyle CssClass="pgr"></PagerStyle>
             </asp:GridView>
         </center>
+    </p>
+    <p>
+        
     </p>
     <%-- Inicia el popup --%>
     <div id="myModal1" class="modal fade" role="dialog">
@@ -95,7 +105,7 @@
         <tr>
             <td colspan="2">
                 <center><asp:Button ID="Prov_guard_btn" CssClass="btn btn-primary" runat="server" Text="Guardar Cambios" OnClick="Prov_guard_btn_Click" /></center>
-            &nbsp;<center><asp:Button ID="Prov_elin_byn" CssClass="btn btn-danger" runat="server" Text="Borrar Articulo" OnClick="Prov_elin_byn_Click"  /></center>
+            &nbsp;
             </td>
         </tr>
     </table>
@@ -113,12 +123,99 @@
 
   </div>
 </div>
+    <%-- Inicia el popup --%>
+    <div id="myModal2" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Editar Proveedor N° <asp:Label ID="ID_Prov_edit" runat="server" Visible="True"></asp:Label></h4></center>
+      </div>
+      <div class="modal-body">
+        <p></p><%--aasasdasasadsads--%>
+
+          <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+              <ContentTemplate>
+                  <center>
+            <table id="Tabla_prov2" style="width: 36%; height: 207px;">
+        <tr>
+            <td style="height: 20px; width: 228px">
+                <asp:Label ID="Label2" runat="server" Text="Nombre" style="font-size: 20px"></asp:Label>
+            </td>
+            <td style="height: 20px; width: 646px">
+                <asp:TextBox ID="Nomb_Edit_tx" runat="server" style="font-size: 15pt" Width="311px"></asp:TextBox>
+                <asp:Label ID="Label3" runat="server" Text="Ya existe un proveedor con ese nombre" Visible="False" ForeColor="Red"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 228px; height: 22px">
+                <asp:Label ID="Label4" runat="server" Text="Telefono" style="font-size: 20px"></asp:Label>
+            </td>
+            <td style="height: 22px; width: 646px">
+                <asp:TextBox ID="Telf_Edit_tx" runat="server" TextMode="Number" style="font-size: 15pt" Width="302px"></asp:TextBox>
+
+            </td>
+        </tr>
+            <tr>
+            <td style="width: 228px; height: 22px">
+                <asp:Label ID="Label5" runat="server" Text="Direccion" style="font-size: 20px"></asp:Label>
+            </td>
+            <td style="height: 22px; width: 646px">
+                <asp:TextBox ID="Direcc_Edit_tx" runat="server" style="font-size: 15pt" Width="302px"></asp:TextBox>
+
+            </td>
+            </tr>
+            <tr>
+            <td style="width: 228px; height: 22px">
+                <asp:Label ID="Label6" runat="server" Text="Correo" style="font-size: 20px"></asp:Label>
+            </td>
+            <td style="height: 22px; width: 646px">
+                <asp:TextBox ID="Correo_Edit_tx" runat="server" style="font-size: 15pt" Width="302px"></asp:TextBox>
+
+            </td>
+            </tr>
+            <tr>
+            <td style="width: 228px; height: 22px">
+                &nbsp;</td>
+            <td style="height: 22px; width: 646px">
+                &nbsp;</td>
+            </tr>
+        <tr>
+            <td colspan="2">
+                <center><asp:Button ID="Guardar_Edit_btn" CssClass="btn btn-primary" runat="server" Text="Guardar Cambios" OnClick="Guardar_Edit_btn_Click" /></center>
+            &nbsp;<center><asp:Button ID="Eliminar_Prov_btn" CssClass="btn btn-danger" runat="server" Text="Borrar Proveedor" OnClick="Eliminar_Prov_btn_Click"  /></center>
+            </td>
+        </tr>
+    </table>
+        </center>
+              </ContentTemplate>
+          </asp:UpdatePanel>
+          <%--ass--%>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
   <script type="text/javascript">
       function openModal() {
           $('#myModal1').modal('show');
       }
       function closeModal() {
           $('#myModal1').modal('hide');
+      }
+      function openModal2() {
+          $('#myModal2').modal('show');
+      }
+      function closeModal2() {
+          $('#myModal2').modal('hide');
       }
   </script>
     <%-- termina  --%>
