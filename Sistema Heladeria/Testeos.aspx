@@ -50,7 +50,19 @@
         </table>
 
     </p>
-    
+
+        <div class="row">
+    <div class="col-md-4"> <!-- Columna para el textbox -->
+
+    </div>
+    <div class="col-md-4"> <!-- Columna para los botones -->
+
+    </div>
+</div>
+
+    <p>
+        <input id="Text1" type="text" class="form-control" placeholder="Buscador" style="width: 300px" />
+    </p>
     <p>
         <asp:GridView ID="Articulos_Colum" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt" Width="1235px">
             <Columns>
