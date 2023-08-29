@@ -106,15 +106,22 @@
         </asp:UpdatePanel>
     &nbsp;</p>
     <p>
-        <%--  --%>  
+        <%--ass--%>  
         <center>
             <asp:Button ID="Guardar_Ord_btn" CssClass="btn btn-success" runat="server" Text="Terminar Orden" OnClick="Guardar_Ord_btn_Click" />
             &nbsp;&nbsp;&nbsp;
             <asp:Button ID="Cancelar_Ord_btn" runat="server" CssClass="btn btn-danger" OnClick="Cancelar_Ord_btn_Click" Text="Cancelar Orden" />
         </center>
-    <%--  --%>
+    <%-- Inicia el popup Depositos--%>
     </p>
+    <%--aasasdasasadsads--%>
+    <%-- perooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo --%>
     
+
+
+    <%-- me borraa los putos comentarioooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooos --%>
+
+    <%-- aca deberia empesar el asp:UpdatePanel y el contentemplate, pero solo los nesesitaria para aquellos que nesesito para editar --%>
     <%--ass--%><%-- Inicia el popup Proveedores--%>
     <div id="ModalProv" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -177,7 +184,7 @@
 
   </div>
 </div>
-    <%-- Inicia el popup Depositos--%>
+    <%--ass--%>
     <div id="ModalDep" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -189,8 +196,7 @@
         <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Seleccionar Deposito<asp:Label ID="label1" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
       </div>
       <div class="modal-body">
-        <p></p><%--aasasdasasadsads--%>
-          <%-- aca deberia empesar el asp:UpdatePanel y el contentemplate, pero solo los nesesitaria para aquellos que nesesito para editar --%>
+        <p></p><%-- Inicia el popup Agregar el Articulo--%>          <%--ass--%>
           <asp:UpdatePanel ID="UpdatePanel1" runat="server">
               <ContentTemplate>
           <asp:TextBox ID="Buscador_dep" runat="server" Width="257px" style="font-size: 15pt" Height="27px"></asp:TextBox>
@@ -234,70 +240,7 @@
 
   </div>
 </div>
-    <%-- Inicia el popup Articulos--%>
-    <div id="ModalArt" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Seleccionar Articulo<asp:Label ID="label2" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
-      </div>
-      <div class="modal-body">
-        <p></p><%--aasasdasasadsads--%>
-          <%-- aca deberia empesar el asp:UpdatePanel y el contentemplate, pero solo los nesesitaria para aquellos que nesesito para editar --%>
-          <asp:UpdatePanel ID="UpdatePanel4" runat="server">
-              <ContentTemplate>
-          <asp:TextBox ID="Buscador_art" runat="server" Width="257px" style="font-size: 15pt" Height="27px"></asp:TextBox>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Buscar_art_btn" CssClass="btn btn-primary" runat="server" OnClick="Buscar_art_btn_Click" Text="Buscar" />
-        <center>
-            <asp:GridView ID="Lista_Articulos" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt">
-<AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
-                <Columns>
-                <asp:BoundField DataField="ID" HeaderText="COD" >
-                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
-                <asp:BoundField DataField="Nombre" HeaderText="Nombre" >
-                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
-                <asp:BoundField DataField="Nombre_Categoria" HeaderText="Categoria" >
-                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
-                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" >
-                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
-                <asp:BoundField DataField="Precio" HeaderText="Precio" >
-                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
-                    <asp:TemplateField HeaderText="">
-                    <ItemTemplate>
-                        <center>
-                        <asp:Button ID="Selecc_Art_bt" runat="server" OnClick="Selecc_Art_bt_Click" Text="Seleccionar" CssClass="btn btn-primary" />
-                    </center>
-                       </ItemTemplate>
-                </asp:TemplateField>
-            </Columns>
-
-<PagerStyle CssClass="pgr"></PagerStyle>
-            </asp:GridView>
-        </center>
-                                </ContentTemplate>
-          </asp:UpdatePanel>
-          <%--ass--%>
-
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-
+   
     <%--ass--%><%-- Inicia el popup Agregar el Articulo--%>
     <div id="ModalSelectArt" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -318,7 +261,24 @@
           <asp:UpdatePanel ID="UpdatePanel6" runat="server">
               <ContentTemplate>
                   <center>
-        <table id="Tabla_cat1" style="width: 23%; height: 212px;">
+        <div class="row">
+    <div class="col-md-6"> <!-- Columna para el textbox -->
+         <asp:TextBox ID="Buscador_art" runat="server" class="form-control" placeholder="Buscador" style="width: 400px"></asp:TextBox>
+    </div>
+    <div class="col-md-4"> <!-- Columna para los botones -->
+        <asp:Button ID="Buscar_art_btn" CssClass="btn btn-primary" runat="server" OnClick="Buscar_art_btn_Click" Text="Buscar" />
+    </div>
+</div>
+
+    <table id="Tabla_cat1" style="width: 27%; height: 212px;">
+        <tr>
+            <td style="width: 116px; height: 36px; font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
+                ID:</td>
+            <td style="height: 36px; width: 646px">
+                   <asp:TextBox ID="ID_art_tx" runat="server" ReadOnly="True"></asp:TextBox>
+                   <asp:Button ID="Cargar_Art_btn" runat="server" CssClass="btn btn-default" Text="Cargar" />
+            </td>
+        </tr>
         <tr>
             <td style="width: 116px; height: 36px; font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
                 Nombre:</td>
@@ -370,6 +330,71 @@
 
   </div>
 </div>
+
+     <%-- Inicia el popup Articulos--%>
+    <div id="ModalArt" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Seleccionar Articulo<asp:Label ID="label2" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
+      </div>
+      <div class="modal-body">
+        <p></p><%--aasasdasasadsads--%>
+          <%-- aca deberia empesar el asp:UpdatePanel y el contentemplate, pero solo los nesesitaria para aquellos que nesesito para editar --%>
+          <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+              <ContentTemplate>
+         <%-- <asp:TextBox ID="Buscador_art" runat="server" Width="257px" style="font-size: 15pt" Height="27px"></asp:TextBox>--%>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <%--<asp:Button ID="Buscar_art_btn" CssClass="btn btn-primary" runat="server" OnClick="Buscar_art_btn_Click" Text="Buscar" />--%>
+        <center>
+            <asp:GridView ID="Lista_Articulos" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt">
+<AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
+                <Columns>
+                <asp:BoundField DataField="ID" HeaderText="COD" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Nombre" HeaderText="Nombre" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Nombre_Categoria" HeaderText="Categoria" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Precio" HeaderText="Precio" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                    <asp:TemplateField HeaderText="">
+                    <ItemTemplate>
+                        <center>
+                        <asp:Button ID="Selecc_Art_bt" runat="server" OnClick="Selecc_Art_bt_Click" Text="Seleccionar" CssClass="btn btn-primary" />
+                    </center>
+                       </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
+
+<PagerStyle CssClass="pgr"></PagerStyle>
+            </asp:GridView>
+        </center>
+                                </ContentTemplate>
+          </asp:UpdatePanel>
+          <%--ass--%>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
   <script type="text/javascript">
       function openModalProv() {
           $('#ModalProv').modal('show');

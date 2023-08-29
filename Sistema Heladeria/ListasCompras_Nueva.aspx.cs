@@ -98,7 +98,7 @@ namespace Sistema_Heladeria
 
         protected void Pop_Art_bt_Click(object sender, EventArgs e)
         {
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalArt();", true);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalSelArt();", true);
         }
 
         protected void Selecc_Art_bt_Click(object sender, EventArgs e)
@@ -112,7 +112,7 @@ namespace Sistema_Heladeria
 
             //Session["ID_art"] = ID.ToString();
 
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalSelArt();", true);
+            //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalSelArt();", true);
 
             con.Open();
             SqlCommand Com = new SqlCommand("Select A.ID,A.Nombre,C.Nombre_Categoria,A.Descripcion from Articulos A inner join Categorias C on C.ID=A.Categoria where A.ID="+ID, con.GetConnection());
@@ -124,7 +124,7 @@ namespace Sistema_Heladeria
             Desc_art_lb.Text = Leer["Descripcion"].ToString();
             con.Close();
 
-            //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalArt();", true);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalArt();", true);
             ////Para dejar bacio
             //DataTable clrear = new DataTable();
             //Lista_Articulos.DataSource = clrear;
@@ -144,6 +144,7 @@ namespace Sistema_Heladeria
             Articulos.Fill(art);
             Lista_Articulos.DataSource = art;
             Lista_Articulos.DataBind();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalArt();", true);
         }
 
         protected void Buscar_dep_btn_Click(object sender, EventArgs e)
