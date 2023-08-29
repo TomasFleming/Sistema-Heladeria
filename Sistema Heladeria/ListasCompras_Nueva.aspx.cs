@@ -202,9 +202,14 @@ namespace Sistema_Heladeria
 
 
             //Para dejar bacio
-            DataTable clrear = new DataTable();
-            Lista_Articulos.DataSource = clrear;
-            Lista_Articulos.DataBind();
+            //DataTable clrear = new DataTable();
+            //Lista_Articulos.DataSource = clrear;
+            //Lista_Articulos.DataBind();
+            ID_art_tx.Text = "";
+            Nomb_art_lb.Text = "";
+            Desc_art_lb.Text = "";
+            Cantidad_tx.Text = "";
+            Cat_art_lb.Text = "";
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalArt();", true);
 
         }
