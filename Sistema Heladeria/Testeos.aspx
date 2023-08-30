@@ -127,7 +127,7 @@
         <ajaxToolkit:CalendarExtender ID="Fechar_ord_tx_CalendarExtender" runat="server" TargetControlID="TextBox1" />
         </p>
     
-    <%-- Inicia el popup Articulos--%>
+    <%-- Inicia el popup --%>
     <div id="ModalArt" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -139,44 +139,12 @@
         <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Seleccionar Articulo<asp:Label ID="label2" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
       </div>
       <div class="modal-body">
-        <p></p><%--aasasdasasadsads--%>
-          <%-- aca deberia empesar el asp:UpdatePanel y el contentemplate, pero solo los nesesitaria para aquellos que nesesito para editar --%>
+        <p></p>
+          <%--aasasdasasadsads--%>
           <asp:UpdatePanel ID="UpdatePanel1" runat="server">
               <ContentTemplate>
-
-                            <asp:TextBox ID="Buscador_art" runat="server" Width="257px" style="font-size: 15pt" Height="27px"></asp:TextBox>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Buscar_art_btn" CssClass="btn btn-primary" runat="server" OnClick="Buscar_art_btn_Click" Text="Buscar" />
         <center>
-            <asp:GridView ID="Lista_Articulos" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt">
-<AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
-                <Columns>
-                <asp:BoundField DataField="ID" HeaderText="COD" >
-                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
-                <asp:BoundField DataField="Nombre" HeaderText="Nombre" >
-                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
-                <asp:BoundField DataField="Nombre_Categoria" HeaderText="Categoria" >
-                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
-                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" >
-                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
-                <asp:BoundField DataField="Precio" HeaderText="Precio" >
-                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
-                    <asp:TemplateField HeaderText="">
-                    <ItemTemplate>
-                        <center>
-                        <asp:Button ID="Selecc_Art_bt" runat="server" OnClick="Selecc_Art_bt_Click" Text="Seleccionar" CssClass="btn btn-primary" />
-                    </center>
-                       </ItemTemplate>
-                </asp:TemplateField>
-            </Columns>
-
-<PagerStyle CssClass="pgr"></PagerStyle>
-            </asp:GridView>
+            
         </center>
                   </ContentTemplate>
           </asp:UpdatePanel>

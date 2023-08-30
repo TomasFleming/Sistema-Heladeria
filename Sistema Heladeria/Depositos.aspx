@@ -18,7 +18,7 @@
         &nbsp;&nbsp;&nbsp;
         
     </p>
-    <%-- Como seria el agregar en deposito, habrian 2 supongo --%>
+    <%--ass--%>
     <asp:GridView ID="Lista_Depositos" runat="server" AlternatingRowStyle-CssClass="alt" AutoGenerateColumns="False" CssClass="mGrid" DataKeyNames="ID" PagerStyle-CssClass="pgr" Width="1235px">
         <AlternatingRowStyle CssClass="alt" />
         <Columns>
@@ -41,10 +41,9 @@
         </Columns>
         <PagerStyle CssClass="pgr" />
     </asp:GridView>
-    <p>
-        
-    </p>
-        <%-- Inicia el popup --%>
+    
+
+    <%-- Inicia el popup  ModalMin_Stock--%>
     <div id="myModal1" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -56,8 +55,7 @@
         <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Agregar nuevo Deposito<asp:Label ID="label55" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
       </div>
       <div class="modal-body">
-        <p></p><%--aasasdasasadsads--%>
-          <%-- aca deberia empesar el asp:UpdatePanel y el contentemplate, pero solo los nesesitaria para aquellos que nesesito para editar --%>
+        <p></p><%--aasasdasasadsads--%><%--ass--%>
           <center>
                           <table id="Tabla_cat1" style="width: 36%; height: 207px;">
         <tr>
@@ -106,11 +104,13 @@
       <div class="modal-header">
 
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Articulos del Deposito N° <asp:Label ID="Num_Dep" runat="server" Text="Label" Visible="True"></asp:Label> :</h4>
+        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Articulos del Deposito N° <asp:Label ID="Num_Dep" runat="server" Text="Label" Visible="True"></asp:Label> :</h4></center>
       </div>
       <div class="modal-body">
         <p></p><%--aasasdasasadsads--%>
           <%-- aca deberia empesar el asp:UpdatePanel y el contentemplate, pero solo los nesesitaria para aquellos que nesesito para editar --%>
+          <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+              <ContentTemplate>
           <center>
             <asp:GridView ID="Lista_Articulos" runat="server" AutoGenerateColumns="False" DataKeyNames="ID" OnRowDataBound="Lista_Articulos_RowDataBound"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt">
 
@@ -134,12 +134,70 @@
                     <asp:BoundField DataField="Stock_Min" HeaderText="Stock Minimo" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
+                    <asp:TemplateField HeaderText="">
+                <ItemTemplate>
+                    <center>
+                        <asp:Button ID="Stock_Min_btn" runat="server" CssClass="btn btn-primary" OnClick="Stock_Min_btn_Click" Text="Cambiar Stock Minimo" />
+                    </center>
+                </ItemTemplate>
+            </asp:TemplateField>
                     
             </Columns>
 
 <PagerStyle CssClass="pgr"></PagerStyle>
             </asp:GridView>
         </center>
+                  </ContentTemplate>
+          </asp:UpdatePanel>
+          <%--ass--%>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+ <%-- Inicia el popup  ModalMin_Stock--%>
+    <div id="ModalMin_Stock" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <asp:UpdatePanel ID="UpdatePanel3" runat="server"><ContentTemplate>
+        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Stock Minimo Articulo N° <asp:Label ID="ID_Art_st_lb" runat="server" ></asp:Label>
+            <p>Para el Deposito N° <asp:Label ID="ID_dep_lb2" runat="server"></asp:Label></p> </h4></center></ContentTemplate></asp:UpdatePanel>
+      </div>
+      <div class="modal-body">
+        <p></p>
+          <%--aasasdasasadsads--%>
+          <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+              <ContentTemplate>
+        <center>
+            <table class="nav-justified" style="width: 24%">
+        <tr>
+            <td style="width: 586px; font-family: Arial; font-size: 16px; font-style: inherit; color: #000000; height: 22px;">Stock Minimo Actual</td>
+            <td style="width: 586px; font-family: Arial; font-size: 16px; font-style: inherit; color: #000000; height: 22px;"><asp:TextBox ID="Stock_Min_Acct_tx" runat="server" Height="22px" style="font-size: 15pt"  Width="78px" ReadOnly="True"></asp:TextBox></td>
+        </tr>
+        <tr>
+            <td style="width: 586px; font-family: Arial; font-size: 16px; font-style: inherit; color: #000000;">Nuevo Stock Minimo</td>
+            <td style="width: 586px; font-family: Arial; font-size: 16px; font-style: inherit; color: #000000;"><asp:TextBox ID="Stock_Min_Nuevo_tx" runat="server" Height="22px" style="font-size: 15pt" TextMode="Number" Width="78px"></asp:TextBox></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="font-family: Arial; font-size: 16px; font-style: inherit; color: #000000;"> <center>
+                <asp:Button ID="Guardar_MinStock_btn" runat="server" CssClass="btn btn-success" Text="Guardar Cambio" OnClick="Guardar_MinStock_btn_Click" /></center><center>
+                    <asp:Button ID="Cancelar_MinStk_btn" runat="server" CssClass="btn btn-danger" Text="Cancelar" OnClick="Cancelar_MinStk_btn_Click" /></center>&nbsp;</td>
+        </tr>
+    </table>
+        </center>
+                  </ContentTemplate>
+          </asp:UpdatePanel>
           <%--ass--%>
 
 
@@ -165,8 +223,12 @@
       function closeModal2() {
           $('#myModal2').modal('hide');
       }
+      function openModal3() {
+          $('#ModalMin_Stock').modal('show');
+      }
+      function closeModal3() {
+          $('#ModalMin_Stock').modal('hide');
+      }
   </script>
-    <%-- termina  --%>
-</div>
-    </div>
+
 </asp:Content>
