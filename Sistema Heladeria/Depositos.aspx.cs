@@ -65,6 +65,7 @@ namespace Sistema_Heladeria
             int ID_dep = Convert.ToInt32(Lista_Depositos.DataKeys[I].Value);
 
             Num_Dep.Text = ID_dep.ToString();
+            ID_dep_lb2.Text = ID_dep.ToString();
 
             con.Open();
             string qry = "select A.ID,A.Nombre,A.Descripcion,C.Nombre_Categoria,DS.Stock,DS.Stock_Min from Articulos A inner join Categorias C on C.ID=A.Categoria inner Join Stock_Depo Ds on DS.ID_art=A.ID inner join Depositos D on D.ID=DS.ID_dep where ID_dep like '" + ID_dep + "' ";
@@ -96,5 +97,50 @@ namespace Sistema_Heladeria
             }
         }
 
+        protected void Stock_Min_btn_Click(object sender, EventArgs e)
+        {
+            Button IDTBtn_ = sender as Button;
+            GridViewRow row = (GridViewRow)IDTBtn_.NamingContainer;
+            int I = row.RowIndex;
+            Lista_Articulos.SelectedIndex = I;
+            int ID = Convert.ToInt32(Lista_Articulos.DataKeys[I].Value);
+            ID_Art_st_lb.Text = ID.ToString();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal3();", true);
+            con.Open();
+            SqlCommand sql = new SqlCommand("select * from Stock_Depo where ID_art= "+ID+" and ID_dep= "+ID_dep_lb2.Text, con.GetConnection());
+            SqlDataReader reader = sql.ExecuteReader();
+            reader.Read();
+            Stock_Min_Acct_tx.Text = reader["Stock_Min"].ToString();
+            con.Close();
+        }
+
+        protected void Guardar_MinStock_btn_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            SqlCommand sql = new SqlCommand("update Stock_Depo set Stock_Min= "+Stock_Min_Nuevo_tx.Text+" where ID_art= " + ID_Art_st_lb.Text + " and ID_dep= " + ID_dep_lb2.Text, con.GetConnection());
+            sql.ExecuteNonQuery();
+            con.Close();
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal3();", true);
+
+
+            con.Open();
+            string qry = "select A.ID,A.Nombre,A.Descripcion,C.Nombre_Categoria,DS.Stock,DS.Stock_Min from Articulos A inner join Categorias C on C.ID=A.Categoria inner Join Stock_Depo Ds on DS.ID_art=A.ID inner join Depositos D on D.ID=DS.ID_dep where ID_dep like '" + ID_dep_lb2.Text + "' ";
+            SqlCommand Com = new SqlCommand(qry, con.GetConnection());
+            Com.ExecuteNonQuery();
+            SqlDataAdapter Articulos = new SqlDataAdapter(Com);
+            DataTable art = new DataTable();
+            Articulos.Fill(art);
+            Lista_Articulos.DataSource = art;
+            Lista_Articulos.DataBind();
+            con.Close();
+            Stock_Min_Nuevo_tx.Text = "";
+        }
+
+        protected void Cancelar_MinStk_btn_Click(object sender, EventArgs e)
+        {
+            Stock_Min_Nuevo_tx.Text = "";
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal3();", true);
+        }
     }
 }
