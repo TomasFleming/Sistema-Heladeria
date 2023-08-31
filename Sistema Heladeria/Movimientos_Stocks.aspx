@@ -191,7 +191,7 @@
             <td style="width: 116px; height: 36px; font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
                 Movimiento:</td>
             <td style="height: 28px; width: 646px">
-                <asp:DropDownList ID="DropDownList1" runat="server" Height="19px" Width="130px">
+                <asp:DropDownList ID="Lista_Mov" runat="server" Height="19px" Width="130px">
             <asp:ListItem>Agregar</asp:ListItem>
             <asp:ListItem>Retirar</asp:ListItem>
         </asp:DropDownList>

@@ -222,13 +222,13 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.TextBox Desc_art_lb;
 
         /// <summary>
-        /// Control DropDownList1.
+        /// Control Lista_Mov.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList Lista_Mov;
 
         /// <summary>
         /// Control Cantidad_tx.
