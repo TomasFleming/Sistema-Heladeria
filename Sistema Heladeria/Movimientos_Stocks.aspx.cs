@@ -33,17 +33,30 @@ namespace Sistema_Heladeria
         }
         protected void Quitar_Mov_Click(object sender, EventArgs e)
         {
+            Button IDBtn_ = sender as Button;
+            GridViewRow row = (GridViewRow)IDBtn_.NamingContainer;
+            int I = row.RowIndex;
+            Lista_Art_MOV.SelectedIndex = I;
+            int ID = Convert.ToInt32(Lista_Art_MOV.DataKeys[Lista_Art_MOV.SelectedIndex].Value);
+            List<ItemMovimiento> ListaOrden = (List<ItemMovimiento>)Session["ListaOrden"];
+            ListaOrden.RemoveAt(ListaOrden.FindIndex(item => item.ID == ID));
 
+            Lista_Art_MOV.DataSource = ListaOrden;
+            Lista_Art_MOV.DataBind();
         }
         protected void Lista_Movs_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                string Mov = (e.Row.DataItem, "Movimiento").ToString();
+                string Mov = (DataBinder.Eval(e.Row.DataItem, "Movimiento")).ToString();
 
-                if (Mov =="Ingreso")
+                if (Mov =="Agregar")
                 {
                     e.Row.CssClass = "filaAgregarStock";
+                }
+                else
+                {
+                    e.Row.CssClass = "filaReducirStock";
                 }
             }
         }
@@ -103,7 +116,28 @@ namespace Sistema_Heladeria
 
         protected void Art_Agregar_btn_Click(object sender, EventArgs e)
         {
+            List<ItemMovimiento> ListaOrden = (List<ItemMovimiento>)Session["ListaOrden"];
+            ListaOrden.Add(new ItemMovimiento { ID = Convert.ToInt32(ID_Art_sel_lb.Text), Nombre = Nomb_art_lb.Text, Categoria = Cat_art_lb.Text, Descripcion = Desc_art_lb.Text, Cantidad = Convert.ToInt32(Cantidad_tx.Text),Movimiento=(Lista_Mov.SelectedValue).ToString() });
 
+            //int ID = Convert.ToInt32(Session[""].ToString());
+
+            Lista_Art_MOV.DataSource = ListaOrden;
+            Lista_Art_MOV.DataBind();
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalSelArt();", true);
+
+
+            //Para dejar bacio
+            //DataTable clrear = new DataTable();
+            //Lista_Articulos.DataSource = clrear;
+            //Lista_Articulos.DataBind();
+            ID_art_tx.Text = "";
+            Nomb_art_lb.Text = "";
+            Desc_art_lb.Text = "";
+            Cantidad_tx.Text = "";
+            Lista_Mov.SelectedValue = "Agregar";
+            Cat_art_lb.Text = "";
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalArt();", true);
         }
 
         protected void Art_Cancelar_byn_Click(object sender, EventArgs e)
@@ -127,7 +161,27 @@ namespace Sistema_Heladeria
 
         protected void Cargar_Art_btn_Click(object sender, EventArgs e)
         {
+            try
+            {
+                con.Open();
+                SqlCommand Com = new SqlCommand("Select A.ID,A.Nombre,C.Nombre_Categoria,A.Descripcion from Articulos A inner join Categorias C on C.ID=A.Categoria where A.ID=" + ID_art_tx.Text, con.GetConnection());
+                SqlDataReader Leer = Com.ExecuteReader();
+                Leer.Read();
+                ID_Art_sel_lb.Text = Leer["ID"].ToString();
+                //ID_art_tx.Text = Leer["ID"].ToString();
+                Nomb_art_lb.Text = Leer["Nombre"].ToString();
+                Cat_art_lb.Text = Leer["Nombre_Categoria"].ToString();
+                Desc_art_lb.Text = Leer["Descripcion"].ToString();
+                con.Close();
+            }
+            catch
+            {
 
+            }
+            finally
+            {
+
+            }
         }
 
         protected void Buscar_dep_btn_Click(object sender, EventArgs e)
