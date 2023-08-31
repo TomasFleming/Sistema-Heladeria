@@ -24,6 +24,10 @@
     </table>
                     </ContentTemplate>
     </asp:UpdatePanel>
+    <p>
+        Movimientos a realizar: 
+
+    </p>
     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
             <ContentTemplate>
         <center>
@@ -63,7 +67,63 @@
                             </ContentTemplate>
         </asp:UpdatePanel>
 
-     <%--ass--%><%-- Inicia el popup Agregar el Articulo--%>
+    <div id="ModalDep" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Seleccionar Deposito<asp:Label ID="label1" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
+      </div>
+      <div class="modal-body">
+        <p></p><%-- Inicia el popup Agregar el Deposito--%>          <%--ass--%>
+          <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+              <ContentTemplate>
+          <asp:TextBox ID="Buscador_dep" runat="server" Width="257px" style="font-size: 15pt" Height="27px"></asp:TextBox>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="Buscar_dep_btn" CssClass="btn btn-primary" runat="server"  Text="Buscar" OnClick="Buscar_dep_btn_Click" />
+
+                     <center>
+                         <asp:GridView ID="Lista_Depositos" runat="server" AlternatingRowStyle-CssClass="alt" AutoGenerateColumns="False" CssClass="mGrid" DataKeyNames="ID" PagerStyle-CssClass="pgr">
+        <AlternatingRowStyle CssClass="alt" />
+        <Columns>
+            <asp:BoundField DataField="ID" HeaderText="COD">
+            <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+            </asp:BoundField>
+            <asp:BoundField DataField="Nombre" HeaderText="Nombre">
+            <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+            </asp:BoundField>
+            <asp:BoundField DataField="Ubicacion" HeaderText="Ubicacion">
+            <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+            </asp:BoundField>
+            <asp:TemplateField HeaderText="">
+                <ItemTemplate>
+                    <center>
+                                  <asp:Button ID="Select_Dept_btn" runat="server" CssClass="btn btn-primary" OnClick="Select_Dept_btn_Click" Text="Seleccionar" />
+                    </center>
+                </ItemTemplate>
+            </asp:TemplateField>
+        </Columns>
+        <PagerStyle CssClass="pgr" />
+    </asp:GridView>
+                     </center>
+                                </ContentTemplate>
+          </asp:UpdatePanel>
+          <%--ass--%>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+   
+    <%--ass--%><%-- Inicia el popup Agregar el Articulo--%>
     <div id="ModalSelectArt" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -218,63 +278,14 @@
 
   </div>
 </div>
-    <%-- Inicia el popup Depositos--%> 
-    <div id="ModalDep" class="modal fade" role="dialog">
-  <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Seleccionar Deposito<asp:Label ID="label1" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
-      </div>
-      <div class="modal-body">
-        <p></p>         <%--ass--%>
-          <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-              <ContentTemplate>
-          <asp:TextBox ID="Buscador_dep" runat="server" Width="257px" style="font-size: 15pt" Height="27px"></asp:TextBox>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Buscar_dep_btn" CssClass="btn btn-primary" runat="server"  Text="Buscar" OnClick="Buscar_dep_btn_Click" />
-
-                     <center>
-                         <asp:GridView ID="Lista_Depositos" runat="server" AlternatingRowStyle-CssClass="alt" AutoGenerateColumns="False" CssClass="mGrid" DataKeyNames="ID" PagerStyle-CssClass="pgr">
-        <AlternatingRowStyle CssClass="alt" />
-        <Columns>
-            <asp:BoundField DataField="ID" HeaderText="COD">
-            <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-            </asp:BoundField>
-            <asp:BoundField DataField="Nombre" HeaderText="Nombre">
-            <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-            </asp:BoundField>
-            <asp:BoundField DataField="Ubicacion" HeaderText="Ubicacion">
-            <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-            </asp:BoundField>
-            <asp:TemplateField HeaderText="">
-                <ItemTemplate>
-                    <center>
-                               <asp:Button ID="Select_Dept_btn" runat="server" CssClass="btn btn-primary" OnClick="Select_Dept_btn_Click" Text="Seleccionar" />   
-                    </center>
-                </ItemTemplate>
-            </asp:TemplateField>
-        </Columns>
-        <PagerStyle CssClass="pgr" />
-    </asp:GridView>
-                     </center>
-                                </ContentTemplate>
-          </asp:UpdatePanel>
-          <%--ass--%>
-
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
-    <script type="text/javascript">
+  <script type="text/javascript">
+      function openModalProv() {
+          $('#ModalProv').modal('show');
+      }
+      function closeModalProv() {
+          $('#ModalProv').modal('hide');
+      }
       function openModalDep() {
           $('#ModalDep').modal('show');
       }
@@ -293,5 +304,5 @@
           $('#ModalArt').modal('hide');
       }
 
-    </script>
-</asp:Content>
+  </script>
+     </asp:Content>
