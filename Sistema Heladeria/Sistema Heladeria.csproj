@@ -127,6 +127,7 @@
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="ListasCompras_Nueva.aspx" />
     <Content Include="ListasCompras_Ver.aspx" />
+    <Content Include="Movimientos_Stocks.aspx" />
     <Content Include="Proveedores.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -208,6 +209,13 @@
     </Compile>
     <Compile Include="ListasCompras_Ver.aspx.designer.cs">
       <DependentUpon>ListasCompras_Ver.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Movimientos_Stocks.aspx.cs">
+      <DependentUpon>Movimientos_Stocks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Movimientos_Stocks.aspx.designer.cs">
+      <DependentUpon>Movimientos_Stocks.aspx</DependentUpon>
     </Compile>
     <Compile Include="Parabdd.cs" />
     <Compile Include="Global.asax.cs">

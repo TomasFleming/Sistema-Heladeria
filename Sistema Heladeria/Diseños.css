@@ -127,6 +127,13 @@ Titulos {
     background-color:#FFCCCC;
 }
 
+.filaAgregarStock {
+    background-color:#b6fb76;
+}
+.filaReducirStock{
+    background-color:#fc9595
+}
+
 /*.iconoAdvertencia::before {
     content: "\26A0";*/ /* Código Unicode del icono de advertencia */
     /*color: #FF0000;*/ /* Color rojo o el que prefieras */

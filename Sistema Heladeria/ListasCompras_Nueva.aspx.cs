@@ -268,16 +268,27 @@ namespace Sistema_Heladeria
 
         protected void Cargar_Art_btn_Click(object sender, EventArgs e)
         {
-            con.Open();
-            SqlCommand Com = new SqlCommand("Select A.ID,A.Nombre,C.Nombre_Categoria,A.Descripcion from Articulos A inner join Categorias C on C.ID=A.Categoria where A.ID="+ID_art_tx.Text, con.GetConnection());
-            SqlDataReader Leer = Com.ExecuteReader();
-            Leer.Read();
-            ID_Art_sel_lb.Text = Leer["ID"].ToString();
-            //ID_art_tx.Text = Leer["ID"].ToString();
-            Nomb_art_lb.Text = Leer["Nombre"].ToString();
-            Cat_art_lb.Text = Leer["Nombre_Categoria"].ToString();
-            Desc_art_lb.Text = Leer["Descripcion"].ToString();
-            con.Close();
+            try
+            {
+                con.Open();
+                SqlCommand Com = new SqlCommand("Select A.ID,A.Nombre,C.Nombre_Categoria,A.Descripcion from Articulos A inner join Categorias C on C.ID=A.Categoria where A.ID=" + ID_art_tx.Text, con.GetConnection());
+                SqlDataReader Leer = Com.ExecuteReader();
+                Leer.Read();
+                ID_Art_sel_lb.Text = Leer["ID"].ToString();
+                //ID_art_tx.Text = Leer["ID"].ToString();
+                Nomb_art_lb.Text = Leer["Nombre"].ToString();
+                Cat_art_lb.Text = Leer["Nombre_Categoria"].ToString();
+                Desc_art_lb.Text = Leer["Descripcion"].ToString();
+                con.Close();
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+
+            }
         }
     }
 }
