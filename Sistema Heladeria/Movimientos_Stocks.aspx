@@ -26,7 +26,8 @@
     </asp:UpdatePanel>
     <p>
         Movimientos a realizar: 
-
+        <asp:Button ID="Pop_Art_bt" runat="server" Text="Agregar Articulo" CssClass="btn btn-default" OnClick="Pop_Art_bt_Click" />
+        
     </p>
     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
             <ContentTemplate>
@@ -188,7 +189,17 @@
         </tr>
         <tr>
             <td style="width: 116px; height: 36px; font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
-                Cantidad Solicitada:</td>
+                Movimiento:</td>
+            <td style="height: 28px; width: 646px">
+                <asp:DropDownList ID="DropDownList1" runat="server" Height="19px" Width="130px">
+            <asp:ListItem>Agregar</asp:ListItem>
+            <asp:ListItem>Retirar</asp:ListItem>
+        </asp:DropDownList>
+
+        </tr>
+        <tr>
+            <td style="width: 116px; height: 36px; font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
+                Cantidad Movida:</td>
             <td style="height: 66px; width: 646px">
                 <asp:TextBox ID="Cantidad_tx" runat="server" Height="22px" style="font-size: 15pt" TextMode="Number" Width="78px"></asp:TextBox>
             </td>
@@ -280,12 +291,6 @@
 </div>
 
   <script type="text/javascript">
-      function openModalProv() {
-          $('#ModalProv').modal('show');
-      }
-      function closeModalProv() {
-          $('#ModalProv').modal('hide');
-      }
       function openModalDep() {
           $('#ModalDep').modal('show');
       }
