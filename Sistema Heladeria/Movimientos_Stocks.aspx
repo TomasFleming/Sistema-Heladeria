@@ -26,7 +26,7 @@
     </asp:UpdatePanel>
     <p>
         Movimientos a realizar: 
-
+        <asp:Button ID="Pop_Art_bt" runat="server" Text="Agregar Articulo" CssClass="btn btn-default" OnClick="Pop_Art_bt_Click" />
     </p>
     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
             <ContentTemplate>
@@ -280,12 +280,6 @@
 </div>
 
   <script type="text/javascript">
-      function openModalProv() {
-          $('#ModalProv').modal('show');
-      }
-      function closeModalProv() {
-          $('#ModalProv').modal('hide');
-      }
       function openModalDep() {
           $('#ModalDep').modal('show');
       }
