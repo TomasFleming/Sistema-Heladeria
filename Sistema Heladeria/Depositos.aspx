@@ -7,7 +7,10 @@
     </div>
     <div class="col-md-4"> <!-- Columna para los botones -->
         <asp:Button ID="Buscar_dep_btn" CssClass="btn btn-primary" runat="server"  Text="Buscar" OnClick="Buscar_dep_btn_Click"  />
+        &nbsp;&nbsp;&nbsp;
         <asp:Button ID="Agregar_dep_btn" CssClass="btn btn-default" runat="server" Text="Agregar Deposito" OnClick="Agregar_dep_btn_Click"  />
+    &nbsp;&nbsp;&nbsp;
+        <asp:Button ID="Button1" runat="server" Text="Realizar Movimientos" CssClass="btn btn-default" PostBackUrl="~/Movimientos_Stocks.aspx" />
     </div>
 </div>
 
