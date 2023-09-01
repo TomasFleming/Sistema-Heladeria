@@ -86,7 +86,7 @@
         </div>
         <%-- ------------------------------------------------------------------------------------------------------------------------------------------------  --%>
             <center>
-        <img src="Imagenes/fondo.jpg" class="full-width-image" />
+        <img src="Imagenes/fondo3.jpg" class="full-width-image" />
     </center>
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">

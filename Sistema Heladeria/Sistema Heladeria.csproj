@@ -113,6 +113,8 @@
     <Content Include="Imagenes\deposito.png" />
     <Content Include="Imagenes\factura.png" />
     <Content Include="Imagenes\fondo.jpg" />
+    <Content Include="Imagenes\fondo2.jpg" />
+    <Content Include="Imagenes\fondo3.jpg" />
     <Content Include="Imagenes\OrdenesCompra.png" />
     <Content Include="Imagenes\Proveedor.png" />
     <Content Include="Imagenes\stock.jpg" />
