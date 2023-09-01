@@ -87,6 +87,24 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.GridView Lista_Art_MOV;
 
         /// <summary>
+        /// Control Guardar_Ops_btn.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Guardar_Ops_btn;
+
+        /// <summary>
+        /// Control Cancelar_Ops_btn.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Cancelar_Ops_btn;
+
+        /// <summary>
         /// Control label1.
         /// </summary>
         /// <remarks>

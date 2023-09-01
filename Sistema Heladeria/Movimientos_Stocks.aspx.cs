@@ -202,5 +202,15 @@ namespace Sistema_Heladeria
         {
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalSelArt();", true);
         }
+
+        protected void Cancelar_Ops_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Guardar_Ops_btn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

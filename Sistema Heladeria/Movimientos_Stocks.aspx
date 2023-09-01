@@ -67,6 +67,13 @@
         </center>
                             </ContentTemplate>
         </asp:UpdatePanel>
+    <p>
+        <center>
+            <asp:Button ID="Guardar_Ops_btn" CssClass="btn btn-success" runat="server" Text="Realizar Operaciones" OnClick="Guardar_Ops_btn_Click" />
+            &nbsp;&nbsp;&nbsp;
+            <asp:Button ID="Cancelar_Ops_btn" runat="server" CssClass="btn btn-danger" OnClick="Cancelar_Ops_btn_Click" Text="Cancelar Operaciones" PostBackUrl="~/Depositos.aspx" />
+        </center>
+    </p>
 
     <div id="ModalDep" class="modal fade" role="dialog">
   <div class="modal-dialog">
