@@ -4,7 +4,7 @@
         <img src="Imagenes/fondo.jpg" class="full-width-image" />
     </center>--%>
         <center>
-        <Titulos style="font-size: 45pt">Inicio</Titulos>
+        <Titulos style="font-size: 45pt">Heladeria Fili</Titulos>
     </center>
     <center>
 
