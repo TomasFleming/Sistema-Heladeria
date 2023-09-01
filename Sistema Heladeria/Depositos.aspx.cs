@@ -142,5 +142,19 @@ namespace Sistema_Heladeria
             Stock_Min_Nuevo_tx.Text = "";
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal3();", true);
         }
+
+        protected void Historial_Movs_btn_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            SqlCommand sql = new SqlCommand("select Top 10 MS.ID,A.Nombre,D.Nombre'Deposito',Actividad,MS.Cantidad,Fecha_Registro from Mov_Stock MS inner join Stock_Depo SD on SD.ID=MS.ID_Stock_Depo inner join Depositos D on D.ID=SD.ID_dep inner join Articulos A on A.ID=SD.ID_art ORDER BY MS.ID DESC", con.GetConnection());
+            sql.ExecuteNonQuery();
+            SqlDataAdapter Articulos = new SqlDataAdapter(sql);
+            DataTable hist = new DataTable();
+            Articulos.Fill(hist);
+            Lista_Historial.DataSource = hist;
+            Lista_Historial.DataBind();
+            con.Close();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal4();", true);
+        }
     }
 }

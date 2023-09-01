@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Movimientos_Stocks.aspx.cs" Inherits="Sistema_Heladeria.Movimientos_Stocks" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <p>
+    <center><p style="font-size: 40px; color: #CC3300">Registro de Movimientos de Stock</p></center>
+    <p style="font-size: 22px">
+        
+        Deposito en el que se realizaran las Operaciones:
         
         <asp:Button ID="PopUp_Depos_bt" runat="server" CssClass="btn btn-default" OnClick="PopUp_Depos_bt_Click" Text="Seleccionar Deposito" />
 
@@ -24,7 +27,7 @@
     </table>
                     </ContentTemplate>
     </asp:UpdatePanel>
-    <p>
+    <p style="font-size: 22px">
         Movimientos a realizar: 
         <asp:Button ID="Pop_Art_bt" runat="server" Text="Agregar Articulo" CssClass="btn btn-default" OnClick="Pop_Art_bt_Click" />
         
@@ -151,6 +154,7 @@
           
           <asp:UpdatePanel ID="UpdatePanel6" runat="server">
               <ContentTemplate>
+                  <center>
                   <div class="row">
     <div class="col-md-5"> <!-- Columna para el textbox -->
          <asp:TextBox ID="Buscador_art" runat="server" class="form-control" placeholder="Buscador" style="width: 250px"></asp:TextBox>
@@ -158,7 +162,7 @@
     <div class="col-md-4"> <!-- Columna para los botones -->
         <asp:Button ID="Buscar_art_btn" CssClass="btn btn-primary" runat="server" OnClick="Buscar_art_btn_Click" Text="Buscar" />
     </div>
-</div>
+</div></center>
                   <center>
         
 

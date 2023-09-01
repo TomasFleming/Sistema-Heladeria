@@ -11,6 +11,8 @@
         <asp:Button ID="Agregar_dep_btn" CssClass="btn btn-default" runat="server" Text="Agregar Deposito" OnClick="Agregar_dep_btn_Click"  />
     &nbsp;&nbsp;&nbsp;
         <asp:Button ID="Button1" runat="server" Text="Realizar Movimientos" CssClass="btn btn-default" PostBackUrl="~/Movimientos_Stocks.aspx" />
+    &nbsp;&nbsp;&nbsp;
+        <asp:Button ID="Historial_Movs_btn" runat="server" Text="Historial De Movimientos" CssClass="btn btn-default" OnClick="Historial_Movs_btn_Click" />
     </div>
 </div>
 
@@ -212,7 +214,61 @@
 
   </div>
 </div>
+    <%-- Inicia el popup --%>
+    <div id="ModalHistorial" class="modal fade" role="dialog">
+  <div class="modal-dialog">
 
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Ultimos 10 movimientos de stock<asp:Label ID="label2" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
+      </div>
+      <div class="modal-body">
+        <p></p>
+          <%--aasasdasasadsads--%>
+          <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+              <ContentTemplate>
+        <center>
+            <asp:GridView ID="Lista_Historial" runat="server" AlternatingRowStyle-CssClass="alt" AutoGenerateColumns="False" CssClass="mGrid" DataKeyNames="ID" PagerStyle-CssClass="pgr">
+        <AlternatingRowStyle CssClass="alt" />
+        <Columns>
+            <asp:BoundField DataField="ID" HeaderText="N° Operacion">
+            <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+            </asp:BoundField>
+            <asp:BoundField DataField="Nombre" HeaderText="Articulo">
+            <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+            </asp:BoundField>
+            <asp:BoundField DataField="Deposito" HeaderText="Deposito">
+            <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+            </asp:BoundField>
+            <asp:BoundField DataField="Actividad" HeaderText="Actividad">
+            <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+            </asp:BoundField>
+            <asp:BoundField DataField="Cantidad" HeaderText="Cantidad">
+            <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+            </asp:BoundField>
+            <asp:BoundField DataField="Fecha_Registro" HeaderText="Fecha Realizado">
+            <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+            </asp:BoundField>
+        </Columns>
+        <PagerStyle CssClass="pgr" />
+    </asp:GridView>
+        </center>
+                  </ContentTemplate>
+          </asp:UpdatePanel>
+          <%--ass--%>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
   <script type="text/javascript">
       function openModal() {
           $('#myModal1').modal('show');
@@ -231,6 +287,12 @@
       }
       function closeModal3() {
           $('#ModalMin_Stock').modal('hide');
+      }
+      function openModal4() {
+          $('#ModalHistorial').modal('show');
+      }
+      function closeModal4() {
+          $('#ModalHistorial').modal('hide');
       }
   </script>
 
