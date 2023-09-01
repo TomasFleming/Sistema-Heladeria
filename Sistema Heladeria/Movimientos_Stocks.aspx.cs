@@ -16,10 +16,10 @@ namespace Sistema_Heladeria
         protected void Page_Load(object sender, EventArgs e)
         {
             con.CrearConexion();
-            if (Session["ListaOrden"] == null)
+            if (Session["ListaOps"] == null)
             {
                 List<ItemMovimiento> ListaOrden = new List<ItemMovimiento>();
-                Session["ListaOrden"] = ListaOrden;
+                Session["ListaOps"] = ListaOrden;
             }
         }
         class ItemMovimiento
@@ -38,7 +38,7 @@ namespace Sistema_Heladeria
             int I = row.RowIndex;
             Lista_Art_MOV.SelectedIndex = I;
             int ID = Convert.ToInt32(Lista_Art_MOV.DataKeys[Lista_Art_MOV.SelectedIndex].Value);
-            List<ItemMovimiento> ListaOrden = (List<ItemMovimiento>)Session["ListaOrden"];
+            List<ItemMovimiento> ListaOrden = (List<ItemMovimiento>)Session["ListaOps"];
             ListaOrden.RemoveAt(ListaOrden.FindIndex(item => item.ID == ID));
 
             Lista_Art_MOV.DataSource = ListaOrden;
@@ -116,7 +116,7 @@ namespace Sistema_Heladeria
 
         protected void Art_Agregar_btn_Click(object sender, EventArgs e)
         {
-            List<ItemMovimiento> ListaOrden = (List<ItemMovimiento>)Session["ListaOrden"];
+            List<ItemMovimiento> ListaOrden = (List<ItemMovimiento>)Session["ListaOps"];
             ListaOrden.Add(new ItemMovimiento { ID = Convert.ToInt32(ID_Art_sel_lb.Text), Nombre = Nomb_art_lb.Text, Categoria = Cat_art_lb.Text, Descripcion = Desc_art_lb.Text, Cantidad = Convert.ToInt32(Cantidad_tx.Text),Movimiento=(Lista_Mov.SelectedValue).ToString() });
 
             //int ID = Convert.ToInt32(Session[""].ToString());
@@ -205,12 +205,62 @@ namespace Sistema_Heladeria
 
         protected void Cancelar_Ops_btn_Click(object sender, EventArgs e)
         {
+            List<ItemMovimiento> Lista_Art_MOV = (List<ItemMovimiento>)Session["ListaOps"];
+            Lista_Art_MOV.Clear();
 
+            Response.Redirect("~/Depositos.aspx");
         }
 
         protected void Guardar_Ops_btn_Click(object sender, EventArgs e)
         {
+            try
+            {
+                List<ItemMovimiento> Lista_Art_MOV = (List<ItemMovimiento>)Session["ListaOps"];
+                foreach (var item in Lista_Art_MOV)
+                {
 
+                    int ID = item.ID;
+                    int Cant = item.Cantidad;
+                    string Movimiento = item.Movimiento;
+                    con.Open();
+                    SqlCommand sql = new SqlCommand("select * from Stock_Depo where ID_Art= " + ID + " and ID_Dep= " + Deposit_ID_lb.Text, con.GetConnection());
+                    SqlDataReader leer = sql.ExecuteReader();
+
+                    if (leer.Read())//quiere decir que si esta ese articulo en el deposito
+                    {
+                        con.Close();
+                        con.Open();
+                        if (Movimiento == "Agregar")
+                        {
+                            SqlCommand sql1 = new SqlCommand("update Stock_Depo set Stock=(Stock +" + Cant + ") where ID_art= " + ID + " and ID_dep= " + Deposit_ID_lb.Text, con.GetConnection());
+                            sql1.ExecuteNonQuery();
+                        }
+                        else
+                        {
+                            SqlCommand sql1 = new SqlCommand("update Stock_Depo set Stock=(Stock -" + Cant + ") where ID_art= " + ID + " and ID_dep= " + Deposit_ID_lb.Text, con.GetConnection());
+                            sql1.ExecuteNonQuery();
+                        }
+                    }
+                    else
+                    {
+
+                        con.Close();
+                        con.Open();
+                        SqlCommand sql1 = new SqlCommand("insert into Stock_Depo(ID_art,ID_dep,Stock,Stock_Min) values(" + ID + "," + Deposit_ID_lb.Text + "," + Cant + ",0) ", con.GetConnection());
+                        sql1.ExecuteNonQuery();
+                    }
+                    con.Close();
+
+
+                }
+                Lista_Art_MOV.Clear();
+
+                Response.Redirect("~/Depositos.aspx");
+            }
+            finally
+            {
+
+            }
         }
     }
 }
