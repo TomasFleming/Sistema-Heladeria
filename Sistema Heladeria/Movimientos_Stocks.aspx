@@ -10,7 +10,7 @@
         </p>
     <asp:UpdatePanel ID="UpdatePanel3" runat="server">
         <ContentTemplate>
-    <table class="nav-justified" border="0" style="border: 3px solid #CCCCCC; padding: 0px; clip: rect(0px, 0px, 0px, 0px); width: 29%;">
+    <table class="nav-justified" border="0" style="border-color: #CCCCCC; padding: 0px; clip: rect(0px, 0px, 0px, 0px); width: 29%;">
         <tr>
             <td style="font-family: Arial; font-size: 16px; font-style: inherit; color: #000000; height: 28px;">Numero de Deposito:
                 <asp:Label ID="Deposit_ID_lb" runat="server" style="font-size: 20px"></asp:Label>
