@@ -63,6 +63,7 @@ namespace Sistema_Heladeria
 
         protected void PopUp_Depos_bt_Click(object sender, EventArgs e)
         {
+            Buscar_dep_btn_Click(sender, e);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalDep();", true);
         }
 
