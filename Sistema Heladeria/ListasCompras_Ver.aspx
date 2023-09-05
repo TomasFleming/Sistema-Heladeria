@@ -65,48 +65,8 @@
     <p>
         <%-- para el popup --%>
 
-
-        <table class="nav-justified" border="0" style="border-width: 0px; border-color: #CCCCCC; padding: 0px; clip: rect(0px, 0px, 0px, 0px);">
-        <tr>
-            <td class="modal-lg" style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; width: 586px; height: 36px;">Detalles del Proveedor :&nbsp;&nbsp;&nbsp;</td>
-            <td style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; height: 36px;">Detalles de Entrega:&nbsp;&nbsp;&nbsp;</td>
-        </tr>
-        <tr>
-            <td class="modal-lg" style="width: 586px; font-family: Arial; font-size: 16px; font-style: inherit; color: #000000;">Numero Proveedor:
-                <asp:Label ID="Prov_ID_lb" runat="server" style="font-size: 20px"></asp:Label>
-                <br />
-                Nombre :&nbsp;&nbsp; <asp:Label ID="Prov_nom_lb" runat="server" style="font-size: 20px"></asp:Label>
-            </td>
-            <td style="font-family: Arial; font-size: 16px; font-style: inherit; color: #000000; ">Fecha de Entrega:<strong><asp:TextBox ID="Fechar_ord_tx" runat="server" style="font-size: 13pt; font-weight: bold" TextMode="DateTime" Width="190px"></asp:TextBox>
-                <ajaxToolkit:CalendarExtender ID="Fechar_ord_tx_CalendarExtender" runat="server" TargetControlID="Fechar_ord_tx" />
-                </strong></td>
-        </tr>
-        <tr>
-            <td class="modal-lg" style="width: 586px; font-family: Arial; font-size: 16px; font-style: inherit; color: #000000; height: 28px;">Telefono:&nbsp;&nbsp;<asp:Label ID="Telf_lb" runat="server" style="font-size: 20px"></asp:Label>
-            </td>
-            <td style="font-family: Arial; font-size: 16px; font-style: inherit; color: #000000;">Numero de Deposito:
-                <asp:Label ID="Deposit_ID_lb" runat="server" style="font-size: 20px"></asp:Label>
-            </td>
-        </tr>
-        <tr>
-            <td class="modal-lg" style="width: 586px; font-family: Arial; font-size: 16px; font-style: inherit; color: #000000;">Direccion:&nbsp;&nbsp;<asp:Label ID="Direc_lb" runat="server" style="font-size: 20px"></asp:Label>
-            </td>
-            <td style="font-family: Arial; font-size: 16px; font-style: inherit; color: #000000;">Nombre:&nbsp; <asp:Label ID="Deposit_nom_lb" runat="server" style="font-size: 20px"></asp:Label>
-            </td>
-        </tr>
-        <tr>
-            <td class="modal-lg" style="width: 586px; font-family: Arial; font-size: 16px; font-style: inherit; color: #000000;">Correo:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<asp:Label ID="Correo_lb" runat="server" style="font-size: 20px"></asp:Label>
-            </td>
-            <td style="font-family: Arial; font-size: 16px; font-style: inherit; color: #000000;">Ubicacion:&nbsp; <asp:Label ID="Deposit_Ubic_lb" runat="server" style="font-size: 20px"></asp:Label>
-            </td>
-        </tr>
-    </table>
         
-            <center style="width: 563px">
-            <asp:Button ID="Aprobar_ord_btn" CssClass="btn btn-success" runat="server" Text="Aprobar Orden" OnClick="Aprobar_ord_btn_Click" />
-            &nbsp;&nbsp;&nbsp;
-            <asp:Button ID="Cancelar_btn" runat="server" CssClass="btn btn-danger" OnClick="Cancelar_btn_Click" Text="Cancelar" PostBackUrl="~/Depositos.aspx" />
-        </center>
+        
         <%-- para el popup --%>
     </p>
     
@@ -163,12 +123,88 @@
 
   </div>
 </div>
+     <%-- Inicia el popup --%>
+    <div id="ModalAprob" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Aprobacion de Orden<asp:Label ID="label2" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
+      </div>
+      <div class="modal-body">
+        <p></p>
+          <%--aasasdasasadsads--%>
+          <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+              <ContentTemplate>
+                  <p>
+
+        <table class="nav-justified" border="0" style="border-width: 0px; border-color: #CCCCCC; padding: 0px; clip: rect(0px, 0px, 0px, 0px);">
+        <tr>
+            <td class="modal-lg" style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; width: 586px; height: 36px;">Detalles del Proveedor :&nbsp;&nbsp;&nbsp;</td>
+            <td style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; height: 36px;">Detalles de Entrega:&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="modal-lg" style="width: 586px; font-family: Arial; font-size: 16px; font-style: inherit; color: #000000;">Numero Proveedor:
+                <asp:Label ID="Prov_ID_lb" runat="server" style="font-size: 20px"></asp:Label>
+                <br />
+                Nombre :&nbsp;&nbsp; <asp:Label ID="Prov_nom_lb" runat="server" style="font-size: 20px"></asp:Label>
+            </td>
+            <td style="font-family: Arial; font-size: 16px; font-style: inherit; color: #000000; ">Fecha de Entrega:<asp:TextBox runat="server" ID="Fecha_Entrega"></asp:TextBox></td>
+        </tr>
+        <tr>
+            <td class="modal-lg" style="width: 586px; font-family: Arial; font-size: 16px; font-style: inherit; color: #000000; height: 28px;">Telefono:&nbsp;&nbsp;<asp:Label ID="Telf_lb" runat="server" style="font-size: 20px"></asp:Label>
+            </td>
+            <td style="font-family: Arial; font-size: 16px; font-style: inherit; color: #000000;">Numero de Deposito:
+                <asp:Label ID="Deposit_ID_lb" runat="server" style="font-size: 20px"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td class="modal-lg" style="width: 586px; font-family: Arial; font-size: 16px; font-style: inherit; color: #000000;">Direccion:&nbsp;&nbsp;<asp:Label ID="Direc_lb" runat="server" style="font-size: 20px"></asp:Label>
+            </td>
+            <td style="font-family: Arial; font-size: 16px; font-style: inherit; color: #000000;">Nombre:&nbsp; <asp:Label ID="Deposit_nom_lb" runat="server" style="font-size: 20px"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td class="modal-lg" style="width: 586px; font-family: Arial; font-size: 16px; font-style: inherit; color: #000000;">Correo:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<asp:Label ID="Correo_lb" runat="server" style="font-size: 20px"></asp:Label>
+            </td>
+            <td style="font-family: Arial; font-size: 16px; font-style: inherit; color: #000000;">Ubicacion:&nbsp; <asp:Label ID="Deposit_Ubic_lb" runat="server" style="font-size: 20px"></asp:Label>
+            </td>
+        </tr>
+    </table>
+            <center>
+            <asp:Button ID="Aprobar_ord_btn" CssClass="btn btn-success" runat="server" Text="Aprobar Orden" OnClick="Aprobar_ord_btn_Click" />
+            &nbsp;&nbsp;&nbsp;
+            <asp:Button ID="Cancelar_btn" runat="server" CssClass="btn btn-danger" OnClick="Cancelar_btn_Click" Text="Cancelar" PostBackUrl="~/Depositos.aspx" />
+        </center>
+                      </p>
+                  </ContentTemplate>
+          </asp:UpdatePanel>
+          <%--ass--%>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
   <script type="text/javascript">
       function openModal() {
           $('#myModal1').modal('show');
       }
       function closeModal() {
           $('#myModal1').modal('hide');
+      }
+      function openModal2() {
+          $('#ModalAprob').modal('show');
+      }
+      function closeModal2() {
+          $('#ModalAprob').modal('hide');
       }
   </script>
     

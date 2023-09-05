@@ -59,17 +59,37 @@ namespace Sistema_Heladeria
 
         protected void Aprobar_Popup_btn_Click(object sender, EventArgs e)
         {
+            Button IDBtn_ = sender as Button;
+            GridViewRow row = (GridViewRow)IDBtn_.NamingContainer;
+            int I = row.RowIndex;
+            Lista_Ordenes_Compra.SelectedIndex = I;
+            con.Open();
+            int ID = Convert.ToInt32(Lista_Ordenes_Compra.DataKeys[Lista_Ordenes_Compra.SelectedIndex].Value);
+            SqlCommand sql = new SqlCommand("select P.ID as Prov,D.ID as Dep,P.Telefono,P.NombreCompleto,D.Nombre,P.Correo,P.Direccion,D.Ubicacion,OC.Fecha_Entrega from OrdenesCompra OC inner join Depositos D on OC.ID_Deposito=D.ID inner join Proveedores P on P.ID=OC.ID_Proveedor where OC.ID= "+ID, con.GetConnection());
+            SqlDataReader leer =sql.ExecuteReader();
+            leer.Read();
+            Prov_ID_lb.Text = leer["Prov"].ToString();
+            Prov_nom_lb.Text = leer["NombreCompleto"].ToString();
+            Correo_lb.Text = leer["Correo"].ToString();
+            Direc_lb.Text = leer["Direccion"].ToString();
+            Telf_lb.Text = leer["Telefono"].ToString();
 
+            Deposit_ID_lb.Text = leer["Dep"].ToString();
+            Deposit_nom_lb.Text = leer["Nombre"].ToString();
+            Deposit_Ubic_lb.Text = leer["Ubicacion"].ToString();
+            Fecha_Entrega.Text = leer["Fecha_Entrega"].ToString();
+            con.Close();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal2();", true);
         }
 
         protected void Cancelar_btn_Click(object sender, EventArgs e)
         {
-
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal2();", true);
         }
 
         protected void Aprobar_ord_btn_Click(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

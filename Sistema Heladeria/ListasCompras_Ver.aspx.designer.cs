@@ -51,6 +51,42 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.GridView Lista_Ordenes_Compra;
 
         /// <summary>
+        /// Control ID_Ord_lb.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ID_Ord_lb;
+
+        /// <summary>
+        /// Control Lista_Detalle.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView Lista_Detalle;
+
+        /// <summary>
+        /// Control label2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label label2;
+
+        /// <summary>
+        /// Control UpdatePanel1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+
+        /// <summary>
         /// Control Prov_ID_lb.
         /// </summary>
         /// <remarks>
@@ -69,22 +105,13 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.Label Prov_nom_lb;
 
         /// <summary>
-        /// Control Fechar_ord_tx.
+        /// Control Fecha_Entrega.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Fechar_ord_tx;
-
-        /// <summary>
-        /// Control Fechar_ord_tx_CalendarExtender.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender Fechar_ord_tx_CalendarExtender;
+        protected global::System.Web.UI.WebControls.TextBox Fecha_Entrega;
 
         /// <summary>
         /// Control Telf_lb.
@@ -157,23 +184,5 @@ namespace Sistema_Heladeria
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Cancelar_btn;
-
-        /// <summary>
-        /// Control ID_Ord_lb.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ID_Ord_lb;
-
-        /// <summary>
-        /// Control Lista_Detalle.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView Lista_Detalle;
     }
 }
