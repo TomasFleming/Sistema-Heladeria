@@ -56,5 +56,20 @@ namespace Sistema_Heladeria
             con.Close();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
         }
+
+        protected void Aprobar_Popup_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Cancelar_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Aprobar_ord_btn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

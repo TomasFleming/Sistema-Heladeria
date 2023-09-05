@@ -48,12 +48,66 @@
                     </center>
                        </ItemTemplate>
                 </asp:TemplateField>
+                    <asp:TemplateField HeaderText="">
+                    <ItemTemplate>
+                        <center>
+                        <asp:Button ID="Aprobar_Popup_btn" runat="server" OnClick="Aprobar_Popup_btn_Click" Text="Aprobar Orden" CssClass="btn btn-primary" />
+                    </center>
+                       </ItemTemplate>
+                </asp:TemplateField>
             </Columns>
 
 <PagerStyle CssClass="pgr"></PagerStyle>
             </asp:GridView>
         </center>
         
+    </p>
+    <p>
+        <%-- para el popup --%>
+
+
+        <table class="nav-justified" border="0" style="border-width: 0px; border-color: #CCCCCC; padding: 0px; clip: rect(0px, 0px, 0px, 0px);">
+        <tr>
+            <td class="modal-lg" style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; width: 586px; height: 36px;">Detalles del Proveedor :&nbsp;&nbsp;&nbsp;</td>
+            <td style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; height: 36px;">Detalles de Entrega:&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="modal-lg" style="width: 586px; font-family: Arial; font-size: 16px; font-style: inherit; color: #000000;">Numero Proveedor:
+                <asp:Label ID="Prov_ID_lb" runat="server" style="font-size: 20px"></asp:Label>
+                <br />
+                Nombre :&nbsp;&nbsp; <asp:Label ID="Prov_nom_lb" runat="server" style="font-size: 20px"></asp:Label>
+            </td>
+            <td style="font-family: Arial; font-size: 16px; font-style: inherit; color: #000000; ">Fecha de Entrega:<strong><asp:TextBox ID="Fechar_ord_tx" runat="server" style="font-size: 13pt; font-weight: bold" TextMode="DateTime" Width="190px"></asp:TextBox>
+                <ajaxToolkit:CalendarExtender ID="Fechar_ord_tx_CalendarExtender" runat="server" TargetControlID="Fechar_ord_tx" />
+                </strong></td>
+        </tr>
+        <tr>
+            <td class="modal-lg" style="width: 586px; font-family: Arial; font-size: 16px; font-style: inherit; color: #000000; height: 28px;">Telefono:&nbsp;&nbsp;<asp:Label ID="Telf_lb" runat="server" style="font-size: 20px"></asp:Label>
+            </td>
+            <td style="font-family: Arial; font-size: 16px; font-style: inherit; color: #000000;">Numero de Deposito:
+                <asp:Label ID="Deposit_ID_lb" runat="server" style="font-size: 20px"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td class="modal-lg" style="width: 586px; font-family: Arial; font-size: 16px; font-style: inherit; color: #000000;">Direccion:&nbsp;&nbsp;<asp:Label ID="Direc_lb" runat="server" style="font-size: 20px"></asp:Label>
+            </td>
+            <td style="font-family: Arial; font-size: 16px; font-style: inherit; color: #000000;">Nombre:&nbsp; <asp:Label ID="Deposit_nom_lb" runat="server" style="font-size: 20px"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td class="modal-lg" style="width: 586px; font-family: Arial; font-size: 16px; font-style: inherit; color: #000000;">Correo:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<asp:Label ID="Correo_lb" runat="server" style="font-size: 20px"></asp:Label>
+            </td>
+            <td style="font-family: Arial; font-size: 16px; font-style: inherit; color: #000000;">Ubicacion:&nbsp; <asp:Label ID="Deposit_Ubic_lb" runat="server" style="font-size: 20px"></asp:Label>
+            </td>
+        </tr>
+    </table>
+        
+            <center style="width: 563px">
+            <asp:Button ID="Aprobar_ord_btn" CssClass="btn btn-success" runat="server" Text="Aprobar Orden" OnClick="Aprobar_ord_btn_Click" />
+            &nbsp;&nbsp;&nbsp;
+            <asp:Button ID="Cancelar_btn" runat="server" CssClass="btn btn-danger" OnClick="Cancelar_btn_Click" Text="Cancelar" PostBackUrl="~/Depositos.aspx" />
+        </center>
+        <%-- para el popup --%>
     </p>
     
 
