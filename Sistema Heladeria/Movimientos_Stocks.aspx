@@ -3,9 +3,19 @@
     <center><p style="font-size: 40px; color: #CC3300">Registro de Movimientos de Stock</p></center>
     <p style="font-size: 22px">
         
-        Deposito en el que se realizaran las Operaciones:
+        Tipo de Movimiento a realizar :
+
+        <asp:DropDownList ID="Lista_Mov" runat="server" Height="25px" Width="244px" DataSourceID="SqlDataSource1" DataTextField="Nombre" DataValueField="ID">
+            <asp:ListItem>Agregar</asp:ListItem>
+            <asp:ListItem>Retirar</asp:ListItem>
+        </asp:DropDownList>
+
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Heladeria Sistemas 3ConnectionString %>" SelectCommand="SELECT [ID], [Nombre] FROM [Actividades]"></asp:SqlDataSource>
+
+    </p>
+    <p style="font-size: 22px">
         
-        <asp:Button ID="PopUp_Depos_bt" runat="server" CssClass="btn btn-default" OnClick="PopUp_Depos_bt_Click" Text="Seleccionar Deposito" />
+        Deposito en el que se realizaran los Movimientos: <asp:Button ID="PopUp_Depos_bt" runat="server" CssClass="btn btn-default" OnClick="PopUp_Depos_bt_Click" Text="Seleccionar Deposito" />
 
         </p>
     <asp:UpdatePanel ID="UpdatePanel3" runat="server">
@@ -50,9 +60,9 @@
                 <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
-                    <asp:BoundField DataField="Movimiento" HeaderText="Movimiento" >
+                    <%--<asp:BoundField DataField="Movimiento" HeaderText="Movimiento" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
+                    </asp:BoundField>--%>
                 <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
@@ -202,10 +212,10 @@
             <td style="width: 116px; height: 36px; font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
                 Movimiento:</td>
             <td style="height: 28px; width: 646px">
-                <asp:DropDownList ID="Lista_Mov" runat="server" Height="19px" Width="130px">
+                <%--<asp:DropDownList ID="Lista_Mov" runat="server" Height="19px" Width="130px">
             <asp:ListItem>Agregar</asp:ListItem>
             <asp:ListItem>Retirar</asp:ListItem>
-        </asp:DropDownList>
+        </asp:DropDownList>--%>
 
         </tr>
         <tr>

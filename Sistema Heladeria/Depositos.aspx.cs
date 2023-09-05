@@ -146,7 +146,7 @@ namespace Sistema_Heladeria
         protected void Historial_Movs_btn_Click(object sender, EventArgs e)
         {
             con.Open();
-            SqlCommand sql = new SqlCommand("select Top 10 MS.ID,A.Nombre,D.Nombre'Deposito',Actividad,MS.Cantidad,Fecha_Registro from Mov_Stock MS inner join Stock_Depo SD on SD.ID=MS.ID_Stock_Depo inner join Depositos D on D.ID=SD.ID_dep inner join Articulos A on A.ID=SD.ID_art inner join Actividades Ac on Ac.ID=MS.Actividad ORDER BY MS.ID DESC", con.GetConnection());
+            SqlCommand sql = new SqlCommand("select Top 10 MS.ID,A.Nombre,D.Nombre'Deposito',Ac.Nombre as Actividad,MS.Cantidad,Fecha_Registro from Mov_Stock MS inner join Stock_Depo SD on SD.ID=MS.ID_Stock_Depo inner join Depositos D on D.ID=SD.ID_dep inner join Articulos A on A.ID=SD.ID_art inner join Actividades Ac on Ac.ID=MS.Actividad ORDER BY MS.ID DESC", con.GetConnection());
             sql.ExecuteNonQuery();
             SqlDataAdapter Articulos = new SqlDataAdapter(sql);
             DataTable hist = new DataTable();

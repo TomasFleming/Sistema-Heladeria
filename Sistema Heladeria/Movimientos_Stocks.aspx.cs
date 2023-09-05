@@ -28,7 +28,6 @@ namespace Sistema_Heladeria
             public string Nombre { get; set; }
             public string Categoria { get; set; }
             public string Descripcion { get; set; }
-            public string Movimiento { get; set; }
             public int Cantidad { get; set; }
         }
         protected void Quitar_Mov_Click(object sender, EventArgs e)
@@ -46,19 +45,19 @@ namespace Sistema_Heladeria
         }
         protected void Lista_Movs_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                string Mov = (DataBinder.Eval(e.Row.DataItem, "Movimiento")).ToString();
+            //if (e.Row.RowType == DataControlRowType.DataRow)
+            //{
+            //    string Mov = (DataBinder.Eval(e.Row.DataItem, "Movimiento")).ToString();
 
-                if (Mov =="Agregar")
-                {
-                    e.Row.CssClass = "filaAgregarStock";
-                }
-                else
-                {
-                    e.Row.CssClass = "filaReducirStock";
-                }
-            }
+            //    if (Mov =="Agregar")
+            //    {
+            //        e.Row.CssClass = "filaAgregarStock";
+            //    }
+            //    else
+            //    {
+            //        e.Row.CssClass = "filaReducirStock";
+            //    }
+            //}
         }
 
         protected void PopUp_Depos_bt_Click(object sender, EventArgs e)
@@ -118,7 +117,7 @@ namespace Sistema_Heladeria
         protected void Art_Agregar_btn_Click(object sender, EventArgs e)
         {
             List<ItemMovimiento> ListaOrden = (List<ItemMovimiento>)Session["ListaOps"];
-            ListaOrden.Add(new ItemMovimiento { ID = Convert.ToInt32(ID_Art_sel_lb.Text), Nombre = Nomb_art_lb.Text, Categoria = Cat_art_lb.Text, Descripcion = Desc_art_lb.Text, Cantidad = Convert.ToInt32(Cantidad_tx.Text),Movimiento=(Lista_Mov.SelectedValue).ToString() });
+            ListaOrden.Add(new ItemMovimiento { ID = Convert.ToInt32(ID_Art_sel_lb.Text), Nombre = Nomb_art_lb.Text, Categoria = Cat_art_lb.Text, Descripcion = Desc_art_lb.Text, Cantidad = Convert.ToInt32(Cantidad_tx.Text) });
 
             //int ID = Convert.ToInt32(Session[""].ToString());
 
@@ -136,7 +135,7 @@ namespace Sistema_Heladeria
             Nomb_art_lb.Text = "";
             Desc_art_lb.Text = "";
             Cantidad_tx.Text = "";
-            Lista_Mov.SelectedValue = "Agregar";
+
             Cat_art_lb.Text = "";
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalArt();", true);
         }
@@ -222,7 +221,6 @@ namespace Sistema_Heladeria
 
                     int ID = item.ID;
                     int Cant = item.Cantidad;
-                    string Movimiento = item.Movimiento;
                     con.Open();
                     SqlCommand sql = new SqlCommand("select * from Stock_Depo where ID_Art= " + ID + " and ID_Dep= " + Deposit_ID_lb.Text, con.GetConnection());
                     SqlDataReader leer = sql.ExecuteReader();
@@ -231,15 +229,19 @@ namespace Sistema_Heladeria
                     {
                         con.Close();
                         con.Open();
-                        if (Movimiento == "Agregar")
+                        if ((Lista_Mov.SelectedIndex +1) == 1)
                         {
                             SqlCommand sql1 = new SqlCommand("update Stock_Depo set Stock=(Stock +" + Cant + ") where ID_art= " + ID + " and ID_dep= " + Deposit_ID_lb.Text, con.GetConnection());
                             sql1.ExecuteNonQuery();
+                            SqlCommand sql2 = new SqlCommand("INSERT INTO Mov_Stock (ID_Stock_Depo, Actividad, Cantidad, Fecha_Registro) SELECT SD.ID,"+ (Lista_Mov.SelectedIndex + 1)+"," +Cant+", GETDATE()  FROM Stock_Depo SD WHERE SD.ID_art = "+ID+" AND SD.ID_dep = "+Deposit_ID_lb.Text , con.GetConnection());
+                            sql2.ExecuteNonQuery();
                         }
                         else
                         {
                             SqlCommand sql1 = new SqlCommand("update Stock_Depo set Stock=(Stock -" + Cant + ") where ID_art= " + ID + " and ID_dep= " + Deposit_ID_lb.Text, con.GetConnection());
                             sql1.ExecuteNonQuery();
+                            SqlCommand sql2 = new SqlCommand("INSERT INTO Mov_Stock (ID_Stock_Depo, Actividad, Cantidad, Fecha_Registro) SELECT SD.ID," + (Lista_Mov.SelectedIndex + 1) + "," + Cant + ", GETDATE()  FROM Stock_Depo SD WHERE SD.ID_art = " + ID + " AND SD.ID_dep = " + Deposit_ID_lb.Text, con.GetConnection());
+                            sql2.ExecuteNonQuery();
                         }
                     }
                     else
@@ -249,6 +251,8 @@ namespace Sistema_Heladeria
                         con.Open();
                         SqlCommand sql1 = new SqlCommand("insert into Stock_Depo(ID_art,ID_dep,Stock,Stock_Min) values(" + ID + "," + Deposit_ID_lb.Text + "," + Cant + ",0) ", con.GetConnection());
                         sql1.ExecuteNonQuery();
+                        SqlCommand sql2 = new SqlCommand("INSERT INTO Mov_Stock (ID_Stock_Depo, Actividad, Cantidad, Fecha_Registro) SELECT SD.ID," + (Lista_Mov.SelectedIndex + 1) + "," + Cant + ", GETDATE()  FROM Stock_Depo SD WHERE SD.ID_art = " + ID + " AND SD.ID_dep = " + Deposit_ID_lb.Text, con.GetConnection());
+                        sql2.ExecuteNonQuery();
                     }
                     con.Close();
 
