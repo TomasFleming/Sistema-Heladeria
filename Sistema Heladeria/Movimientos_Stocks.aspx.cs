@@ -229,7 +229,14 @@ namespace Sistema_Heladeria
                     {
                         con.Close();
                         con.Open();
-                        if ((Lista_Mov.SelectedIndex +1) == 1)
+                        int IDact = Lista_Mov.SelectedIndex + 1;
+                        SqlCommand chec = new SqlCommand("select* from Actividades where ID= "+IDact, con.GetConnection());
+                        SqlDataReader act = chec.ExecuteReader();
+                        act.Read();
+                        string Actividad = act["Detalle"].ToString();
+                        con.Close();
+                        con.Open();
+                        if (Actividad=="Ingreso")
                         {
                             SqlCommand sql1 = new SqlCommand("update Stock_Depo set Stock=(Stock +" + Cant + ") where ID_art= " + ID + " and ID_dep= " + Deposit_ID_lb.Text, con.GetConnection());
                             sql1.ExecuteNonQuery();
