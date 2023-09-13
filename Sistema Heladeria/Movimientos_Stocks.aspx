@@ -5,7 +5,7 @@
         
         Tipo de Movimiento a realizar :
 
-        <asp:DropDownList ID="Lista_Mov" runat="server" Height="25px" Width="244px" DataSourceID="SqlDataSource1" DataTextField="Nombre" DataValueField="ID">
+        <asp:DropDownList ID="Lista_Mov" runat="server" Height="25px" Width="244px" DataSourceID="SqlDataSource1" DataTextField="Nombre" DataValueField="ID" OnSelectedIndexChanged="Lista_Mov_SelectedIndexChanged">
             <asp:ListItem>Agregar</asp:ListItem>
             <asp:ListItem>Retirar</asp:ListItem>
         </asp:DropDownList>
@@ -84,7 +84,7 @@
         <center>
             <asp:Button ID="Guardar_Ops_btn" CssClass="btn btn-success" runat="server" Text="Realizar Operaciones" OnClick="Guardar_Ops_btn_Click" />
             &nbsp;&nbsp;&nbsp;
-            <asp:Button ID="Cancelar_Ops_btn" runat="server" CssClass="btn btn-danger" OnClick="Cancelar_Ops_btn_Click" Text="Cancelar Operaciones" PostBackUrl="~/Depositos.aspx" />
+            <asp:Button ID="Cancelar_Ops_btn" runat="server" CssClass="btn btn-danger" OnClick="Cancelar_Ops_btn_Click" Text="Cancelar Operaciones" />
         </center>
     </p>
 

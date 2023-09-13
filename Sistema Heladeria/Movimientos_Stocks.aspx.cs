@@ -87,9 +87,9 @@ namespace Sistema_Heladeria
 
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalDep();", true);
             //Para dejar bacio
-            DataTable clrear = new DataTable();
-            Lista_Depositos.DataSource = clrear;
-            Lista_Depositos.DataBind();
+            //DataTable clrear = new DataTable();
+            //Lista_Depositos.DataSource = clrear;
+            //Lista_Depositos.DataBind();
         }
 
         protected void Selecc_Art_bt_Click(object sender, EventArgs e)
@@ -187,7 +187,7 @@ namespace Sistema_Heladeria
             try
             {
                 con.Open();
-                SqlCommand sqlCommand = new SqlCommand("select * from Stock_Depo where ID_dep = " + Deposit_ID_lb.Text + " and ID_art= " + IDArt, con.GetConnection());
+                SqlCommand sqlCommand = new SqlCommand("select COALESCE(SUM(Stock), 0) AS Stock from Stock_Depo where ID_dep = " + Deposit_ID_lb.Text + " and ID_art= " + IDArt, con.GetConnection());
                 SqlDataReader ver = sqlCommand.ExecuteReader();
                 ver.Read();
                 int Stock = Convert.ToInt32(ver["Stock"]);
@@ -216,6 +216,7 @@ namespace Sistema_Heladeria
             Cantidad_tx.Text = "";
 
             Cat_art_lb.Text = "";
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalArt();", true);
         }
 
         protected void Buscar_art_btn_Click(object sender, EventArgs e)
@@ -358,6 +359,44 @@ namespace Sistema_Heladeria
             {
 
             }
+        }
+
+        protected void Lista_Mov_SelectedIndexChanged(object sender, EventArgs e)//cada que cambie de movimiento
+        {
+            con.Open();
+            int IDact = Lista_Mov.SelectedIndex + 1;
+            SqlCommand chec = new SqlCommand("select* from Actividades where ID= " + IDact, con.GetConnection());
+            SqlDataReader act = chec.ExecuteReader();
+            act.Read();
+            string Actividad = act["Detalle"].ToString();
+            con.Close();
+            if (Actividad == "Retiro")
+            {
+                ReChequearListaCambios(sender, e);
+                List<ItemMovimiento> ListaOrden = (List<ItemMovimiento>)Session["ListaOps"];
+                Lista_Art_MOV.DataSource = ListaOrden;
+                Lista_Art_MOV.DataBind();
+                Page_Load(sender, e);
+                Response.Write("<script>alert('"+Session["ListBorrados"].ToString()+"');</script>");
+            }
+        }
+        public void ReChequearListaCambios(object sender,EventArgs e)
+        {
+            List<ItemMovimiento> Lista_Art_MOV = (List<ItemMovimiento>)Session["ListaOps"];
+            string Borrados = "Los siguientes articulos fueron sacados de la lista por que su cantidad a mover superaba la cantindad disponible en el deposito con este cambio :";
+            for (int i = Lista_Art_MOV.Count - 1; i >= 0; i--)
+            {
+                var item = Lista_Art_MOV[i];
+                int ID = item.ID;
+                int Cant = item.Cantidad;
+                int Respuesta = ChequearArt(ID, Cant);
+                if (Respuesta == 1)
+                {
+                    Borrados = Borrados + "; " + item.Nombre;
+                    Lista_Art_MOV.RemoveAt(i);
+                }
+            }
+            Session["ListBorrados"] = Borrados;
         }
     }
 }
