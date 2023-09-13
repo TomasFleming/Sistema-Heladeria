@@ -114,49 +114,123 @@ namespace Sistema_Heladeria
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalArt();", true);
         }
 
-        protected void Art_Agregar_btn_Click(object sender, EventArgs e)
+        protected void Art_Agregar_btn_Click(object sender, EventArgs e)//cambiarlo para que me valide si puedo quitar la cantidad de articulos que digo, o que me de una alerta de que quedaran con bajo stock
         {
-            List<ItemMovimiento> ListaOrden = (List<ItemMovimiento>)Session["ListaOps"];
-            ListaOrden.Add(new ItemMovimiento { ID = Convert.ToInt32(ID_Art_sel_lb.Text), Nombre = Nomb_art_lb.Text, Categoria = Cat_art_lb.Text, Descripcion = Desc_art_lb.Text, Cantidad = Convert.ToInt32(Cantidad_tx.Text) });
+            con.Open();
+            int IDact = Lista_Mov.SelectedIndex + 1;
+            SqlCommand chec = new SqlCommand("select* from Actividades where ID= " + IDact, con.GetConnection());
+            SqlDataReader act = chec.ExecuteReader();
+            act.Read();
+            string Actividad = act["Detalle"].ToString();
+            con.Close();
+            try
+            {
+                if (Actividad == "Retiro")
+                {
+                    int checkeo = ChequearArt(Convert.ToInt32(ID_Art_sel_lb.Text), Convert.ToInt32(Cantidad_tx.Text));
+
+                    if (checkeo == 0)//quiere decir que la cantidad que quiero quitar es menor a la que hay y si puedo moverlo
+                    {
+                        List<ItemMovimiento> ListaOrden = (List<ItemMovimiento>)Session["ListaOps"];
+                        ListaOrden.Add(new ItemMovimiento { ID = Convert.ToInt32(ID_Art_sel_lb.Text), Nombre = Nomb_art_lb.Text, Categoria = Cat_art_lb.Text, Descripcion = Desc_art_lb.Text, Cantidad = Convert.ToInt32(Cantidad_tx.Text) });
+                        Lista_Art_MOV.DataSource = ListaOrden;
+                        Lista_Art_MOV.DataBind();
+
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalSelArt();", true);
+
+                        ID_art_tx.Text = "";
+                        Nomb_art_lb.Text = "";
+                        Desc_art_lb.Text = "";
+                        Cantidad_tx.Text = "";
+
+                        Cat_art_lb.Text = "";
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalArt();", true);
+                        Cant_alert_lb.Visible = false;
+                    }
+                    else
+                    {
+                        //Response.Write("<script>alert('La cantidad que quiere sacar es mayor a la que hay disponible');</script>");
+                        Cant_alert_lb.Visible = true;
+                    }
+                }
+                else
+                {
+                    List<ItemMovimiento> ListaOrden = (List<ItemMovimiento>)Session["ListaOps"];
+                    ListaOrden.Add(new ItemMovimiento { ID = Convert.ToInt32(ID_Art_sel_lb.Text), Nombre = Nomb_art_lb.Text, Categoria = Cat_art_lb.Text, Descripcion = Desc_art_lb.Text, Cantidad = Convert.ToInt32(Cantidad_tx.Text) });
+                    Lista_Art_MOV.DataSource = ListaOrden;
+                    Lista_Art_MOV.DataBind();
+
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalSelArt();", true);
+
+                    ID_art_tx.Text = "";
+                    Nomb_art_lb.Text = "";
+                    Desc_art_lb.Text = "";
+                    Cantidad_tx.Text = "";
+
+                    Cat_art_lb.Text = "";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalArt();", true);
+                    Cant_alert_lb.Visible = false;
+                }
+            }
+            catch(Exception ex)
+            {
+            }
+            finally
+            {
+
+            }
 
             //int ID = Convert.ToInt32(Session[""].ToString());
+        }
+        protected int ChequearArt(int IDArt, int cantidad)
+        {
+            try
+            {
+                con.Open();
+                SqlCommand sqlCommand = new SqlCommand("select * from Stock_Depo where ID_dep = " + Deposit_ID_lb.Text + " and ID_art= " + IDArt, con.GetConnection());
+                SqlDataReader ver = sqlCommand.ExecuteReader();
+                ver.Read();
+                int Stock = Convert.ToInt32(ver["Stock"]);
+                con.Close();
+                int resultado = 0;
+                if (Stock < cantidad)
+                {
+                    resultado = 1;
+                }
+                else
+                {
+                    resultado = 0;
+                }
+                return resultado;
+            }
+            finally
+            {
 
-            Lista_Art_MOV.DataSource = ListaOrden;
-            Lista_Art_MOV.DataBind();
-
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalSelArt();", true);
-
-
-            //Para dejar bacio
-            //DataTable clrear = new DataTable();
-            //Lista_Articulos.DataSource = clrear;
-            //Lista_Articulos.DataBind();
+            }
+        }
+        protected void Art_Cancelar_byn_Click(object sender, EventArgs e)
+        {
             ID_art_tx.Text = "";
             Nomb_art_lb.Text = "";
             Desc_art_lb.Text = "";
             Cantidad_tx.Text = "";
 
             Cat_art_lb.Text = "";
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalArt();", true);
-        }
-
-        protected void Art_Cancelar_byn_Click(object sender, EventArgs e)
-        {
-
         }
 
         protected void Buscar_art_btn_Click(object sender, EventArgs e)
         {
-            con.Open();
-            string qry = "select A.ID, A.Nombre,C.Nombre_Categoria, A.Descripcion, A.Precio from Articulos A inner join Categorias C on A.Categoria=C.ID where A.ID like '" + Buscador_art.Text + "' or A.Nombre like '%" + Buscador_art.Text + "%' or C.Nombre_Categoria like '%" + Buscador_art.Text + "%' ";
-            SqlCommand Com = new SqlCommand(qry, con.GetConnection());
-            Com.ExecuteNonQuery();
-            SqlDataAdapter Articulos = new SqlDataAdapter(Com);
-            DataTable art = new DataTable();
-            Articulos.Fill(art);
-            Lista_Articulos.DataSource = art;
-            Lista_Articulos.DataBind();
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalArt();", true);
+                con.Open();
+                string qry = "select A.ID, A.Nombre,C.Nombre_Categoria, A.Descripcion, A.Precio from Articulos A inner join Categorias C on A.Categoria=C.ID where A.ID like '" + Buscador_art.Text + "' or A.Nombre like '%" + Buscador_art.Text + "%' or C.Nombre_Categoria like '%" + Buscador_art.Text + "%' ";
+                SqlCommand Com = new SqlCommand(qry, con.GetConnection());
+                Com.ExecuteNonQuery();
+                SqlDataAdapter Articulos = new SqlDataAdapter(Com);
+                DataTable art = new DataTable();
+                Articulos.Fill(art);
+                Lista_Articulos.DataSource = art;
+                Lista_Articulos.DataBind();
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalArt();", true);
+
         }
 
         protected void Cargar_Art_btn_Click(object sender, EventArgs e)
@@ -200,7 +274,14 @@ namespace Sistema_Heladeria
 
         protected void Pop_Art_bt_Click(object sender, EventArgs e)
         {
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalSelArt();", true);
+            if (Deposit_ID_lb.Text != "")
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalSelArt();", true);
+            }
+            else
+            {
+                Response.Write("<script>alert('Por favor, primero seleccione el deposito donde se realizara la operacion para poder validar los datos');</script>");
+            }
         }
 
         protected void Cancelar_Ops_btn_Click(object sender, EventArgs e)
@@ -268,6 +349,10 @@ namespace Sistema_Heladeria
                 Lista_Art_MOV.Clear();
 
                 Response.Redirect("~/Depositos.aspx");
+            }
+            catch(Exception ex)
+            {
+                Response.Write("<script>alert('Todos los campos deben estar cargados');</script>");
             }
             finally
             {

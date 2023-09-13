@@ -267,6 +267,24 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.TextBox Cantidad_tx;
 
         /// <summary>
+        /// Control CompareValidator1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
+
+        /// <summary>
+        /// Control Cant_alert_lb.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Cant_alert_lb;
+
+        /// <summary>
         /// Control Art_Agregar_btn.
         /// </summary>
         /// <remarks>
