@@ -109,6 +109,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Depositos.aspx" />
+    <Content Include="Facturas_Crear_Nueva.aspx" />
+    <Content Include="Facturas_Ver.aspx" />
     <Content Include="Imagenes\categorias.png" />
     <Content Include="Imagenes\deposito.png" />
     <Content Include="Imagenes\factura.png" />
@@ -197,6 +199,20 @@
     </Compile>
     <Compile Include="Depositos.aspx.designer.cs">
       <DependentUpon>Depositos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Facturas_Crear_Nueva.aspx.cs">
+      <DependentUpon>Facturas_Crear_Nueva.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Facturas_Crear_Nueva.aspx.designer.cs">
+      <DependentUpon>Facturas_Crear_Nueva.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Facturas_Ver.aspx.cs">
+      <DependentUpon>Facturas_Ver.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Facturas_Ver.aspx.designer.cs">
+      <DependentUpon>Facturas_Ver.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListasCompras_Nueva.aspx.cs">
       <DependentUpon>ListasCompras_Nueva.aspx</DependentUpon>
