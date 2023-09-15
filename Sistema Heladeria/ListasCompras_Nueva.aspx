@@ -262,13 +262,15 @@
           <asp:UpdatePanel ID="UpdatePanel6" runat="server">
               <ContentTemplate>
                   <div class="row">
+                      <div class="col-md-3"> <!-- Columna para que quede bien centrado -->
+                      </div>
     <div class="col-md-5"> <!-- Columna para el textbox -->
          <asp:TextBox ID="Buscador_art" runat="server" class="form-control" placeholder="Buscador" style="width: 250px"></asp:TextBox>
     </div>
     <div class="col-md-4"> <!-- Columna para los botones -->
         <asp:Button ID="Buscar_art_btn" CssClass="btn btn-primary" runat="server" OnClick="Buscar_art_btn_Click" Text="Buscar" />
     </div>
-</div>
+</div><p></p>
                   <center>
         
 
