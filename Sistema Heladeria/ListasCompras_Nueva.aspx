@@ -270,7 +270,9 @@
     <div class="col-md-4"> <!-- Columna para los botones -->
         <asp:Button ID="Buscar_art_btn" CssClass="btn btn-primary" runat="server" OnClick="Buscar_art_btn_Click" Text="Buscar" />
     </div>
-</div><p></p>
+</div><p>
+
+      </p>
                   <center>
         
 
