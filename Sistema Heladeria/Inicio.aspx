@@ -28,7 +28,7 @@
                         </a>
                     </center>
     </div>
-    <div class="col-md-3"> 
+    <div class="col-md-4"> 
         <center style="width: 200px">
                         <a runat="server" href="Articulos.aspx">
                         <div class="image-button-container" style="width: 207px">
