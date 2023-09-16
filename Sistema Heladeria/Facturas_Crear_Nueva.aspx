@@ -15,7 +15,7 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td style="height: 47px">
     <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
         Fecha de Creacion :&nbsp;&nbsp;&nbsp;<strong>
         <asp:TextBox ID="Fecha_Creacion_lb" runat="server" TextMode="DateTime" Width="190px" style="font-size: 13pt; font-weight: bold"></asp:TextBox>
