@@ -146,3 +146,26 @@ Titulos {
     display: inline-block;
     vertical-align: middle;
 }*/
+
+/* Estilo para la tabla */
+.tableDist {
+    width: 100%;
+    border-collapse: collapse;
+}
+    .tableDist tr:nth-child(odd) {
+        background-color: white;
+    }
+    .tableDist tr:first-child {
+        background-color: #bdcde2;
+    }
+
+    /* Estilo para todas las celdas */
+    /*.tableDist td, .table th {
+        border: 1px solid black;*/ /* Líneas de las celdas en negro */
+        /*padding: 8px;*/ /* Espacio interno en las celdas */
+    /*}*/
+
+    /* Estilo para las cabeceras de las columnas */
+    /*.tableDist th {
+        background-color: gray;*/ /* Color de fondo más oscuro para las cabeceras */
+    /*}*/

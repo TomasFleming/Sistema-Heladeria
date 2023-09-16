@@ -177,7 +177,7 @@
             <center>
             <asp:Button ID="Aprobar_ord_btn" CssClass="btn btn-success" runat="server" Text="Aprobar Orden" OnClick="Aprobar_ord_btn_Click" />
             &nbsp;&nbsp;&nbsp;
-            <asp:Button ID="Cancelar_btn" runat="server" CssClass="btn btn-danger" OnClick="Cancelar_btn_Click" Text="Cancelar" PostBackUrl="~/Depositos.aspx" />
+            <asp:Button ID="Cancelar_btn" runat="server" CssClass="btn btn-danger" OnClick="Cancelar_btn_Click" Text="Cancelar" />
         </center>
                       </p>
                   </ContentTemplate>
