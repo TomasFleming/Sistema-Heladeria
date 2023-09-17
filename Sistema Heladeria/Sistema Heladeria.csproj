@@ -111,14 +111,24 @@
     <Content Include="Depositos.aspx" />
     <Content Include="Facturas_Crear_Nueva.aspx" />
     <Content Include="Facturas_Ver.aspx" />
+    <Content Include="Imagenes\agregar_deposito.png" />
+    <Content Include="Imagenes\generar_factura.png" />
+    <Content Include="Imagenes\historial_movimiento.png" />
+    <Content Include="Imagenes\pagar_factura.png" />
+    <Content Include="Imagenes\realizar_movimiento.png" />
+    <Content Include="Imagenes\registrar_factura.png" />
+    <Content Include="SubMenuFacturas.aspx" />
+    <Content Include="Imagenes\categoria1.png" />
     <Content Include="Imagenes\categorias.png" />
     <Content Include="Imagenes\deposito.png" />
+    <Content Include="Imagenes\deposito1.png" />
     <Content Include="Imagenes\factura.png" />
     <Content Include="Imagenes\fondo.jpg" />
     <Content Include="Imagenes\fondo2.jpg" />
     <Content Include="Imagenes\fondo3.jpg" />
     <Content Include="Imagenes\OrdenesCompra.png" />
     <Content Include="Imagenes\Proveedor.png" />
+    <Content Include="Imagenes\proveedor1.png" />
     <Content Include="Imagenes\stock.jpg" />
     <Content Include="Inicio.aspx" />
     <Content Include="Diseños.css" />
@@ -213,6 +223,13 @@
     </Compile>
     <Compile Include="Facturas_Ver.aspx.designer.cs">
       <DependentUpon>Facturas_Ver.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SubMenuFacturas.aspx.cs">
+      <DependentUpon>SubMenuFacturas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SubMenuFacturas.aspx.designer.cs">
+      <DependentUpon>SubMenuFacturas.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListasCompras_Nueva.aspx.cs">
       <DependentUpon>ListasCompras_Nueva.aspx</DependentUpon>

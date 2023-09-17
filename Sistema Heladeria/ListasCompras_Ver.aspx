@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ListasCompras_Ver.aspx.cs" Inherits="Sistema_Heladeria.ListasCompras_Ver" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <center><p style="font-size: 40px; font-weight: bold; color:#0094ff;font-family: Arial, sans-serif;">Listas De Ordenes de Compra</p></center>
+    <center><p style="font-size: 40px; font-weight: bold; color:#0094ff;font-family: Arial, sans-serif;">Listas De Ordenes de Compra</p>
+    </center>
     <div class="row">
     <div class="col-md-4"> <!-- Columna para el textbox -->
         <asp:TextBox ID="Buscador_Ord" runat="server" class="form-control" placeholder="Insertar COD lista" style="width: 350px"></asp:TextBox>
@@ -10,15 +11,59 @@
          <asp:Button ID="Agregar_Ord_btn" CssClass="btn btn-default" runat="server" Text="Crear Orden de Compra" OnClick="Agregar_Ord_btn_Click" PostBackUrl="~/ListasCompras_Nueva.aspx" />
     </div>
 </div>
+<p>
 
-    <p>
+</p>
+    <div style="display: flex; flex-direction: column;">
+        <div style="margin-bottom: 10px;">
+                <asp:Label ID="LabelNomProv" runat="server" Text="Nombre de proveeedor:"></asp:Label>
+            
+                <asp:TextBox ID="TextBoxNomProv" runat="server" placeholder=""></asp:TextBox>
+                &nbsp;&nbsp;&nbsp;
+                <asp:Label ID="LabelDeposito" runat="server" Text="Deposito:"></asp:Label>
+            
+                <asp:TextBox ID="TextBoxDeposito" runat="server" placeholder=""></asp:TextBox>
+            &nbsp;&nbsp;&nbsp;
+            
+                <asp:Button ID="ButtonFiltrarDeposito" runat="server" Text="Filtrar" />
         
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div> 
+    </div>
+        
+  
+    <div style="display: flex; flex-direction: column;">
+        <div style="margin-bottom: 10px;">
+                <asp:Label ID="LabelPrecMin" runat="server" Text="Precio Mínimo:"></asp:Label>
+            
+                <asp:TextBox ID="TextBoxPrecioMin" runat="server" placeholder="Ingrese precio mínimo" TextMode="Number"></asp:TextBox>
+            &nbsp;&nbsp;&nbsp;
+                <asp:Label ID="LabelPrecioMax" runat="server" Text="Precio Máximo:"></asp:Label>
+            
+                <asp:TextBox ID="TextBox2" runat="server" placeholder="Ingrese precio máximo" TextMode="Number"></asp:TextBox>
+            &nbsp;&nbsp;&nbsp;
+            
+                <asp:Button ID="ButtonFiltrarPrecio" runat="server" Text="Filtrar" />
+            
+        </div> 
+    </div>
+
+      <div style="display: flex; flex-direction: column;">
+        <div style="margin-bottom: 10px;">
+                <asp:Label ID="LabelFechDes" runat="server" Text="Fecha desde:"></asp:Label>
+            
+                <asp:TextBox ID="TextBoxFechaDesde" runat="server" placeholder="Ej: 01/01/2000" TextMode="Date"></asp:TextBox>
+            &nbsp;&nbsp;&nbsp;
+                <asp:Label ID="LabelFechHAsta" runat="server" Text="Fecha hasta:"></asp:Label>
+            
+                <asp:TextBox ID="TextBoxFechaHasta" runat="server" placeholder="Ej: 02/01/2000" TextMode="Date"></asp:TextBox>
+            &nbsp;&nbsp;&nbsp;
+            
+                <asp:Button ID="ButtonFIltrarFecha" runat="server" Text="Filtrar" />
+            
+        </div> 
+    </div>
        
-        &nbsp;&nbsp;&nbsp;
-       
-    </p>
-    <p>
+    
         <center>
             <asp:GridView ID="Lista_Ordenes_Compra" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt" Width="1235px">
 <AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
@@ -63,7 +108,7 @@
         
     </p>
     <p>
-        <%-- para el popup --%>
+        <%--ass--%>
 
         
         
@@ -79,7 +124,7 @@
     <div class="modal-content">
       <div class="modal-header">
 
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <button type="button" class="close" data-dismiss="modal">&times;on>
         <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Articulos de la Orden N°<asp:Label ID="ID_Ord_lb" runat="server" Visible="True"></asp:Label></h4></center>
       </div>
       <div class="modal-body">

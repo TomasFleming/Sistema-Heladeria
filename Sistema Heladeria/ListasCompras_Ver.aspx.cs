@@ -91,5 +91,10 @@ namespace Sistema_Heladeria
         {
             
         }
+
+        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+        {
+
+        }
     }
 }

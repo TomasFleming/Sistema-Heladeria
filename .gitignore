@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Sistema Heladeria/Articulos.aspx
+/Sistema Heladeria/Movimientos_Stocks.aspx
+/Sistema Heladeria/Parabdd.cs

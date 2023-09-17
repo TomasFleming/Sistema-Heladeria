@@ -25,6 +25,10 @@
              </td>
          </tr>
      </table>
+        <%-- ESPACIO DEBAJO DE BUSCADOR--%>
+        <p>
+            -
+        </p>
  </div>
 
     <p>
