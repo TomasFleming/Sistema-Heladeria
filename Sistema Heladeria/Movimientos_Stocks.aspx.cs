@@ -401,7 +401,7 @@ namespace Sistema_Heladeria
                 Lista_Art_MOV.DataSource = ListaOrden;
                 Lista_Art_MOV.DataBind();
                 //Page_Load(sender, e);
-                Response.Write("<script>alert('"+Session["ListBorrados"].ToString()+"');</script>");
+                //Response.Write("<script>alert('"+Session["ListBorrados"].ToString()+"');</script>");
             }
         }
         public void ReChequearListaCambios(object sender,EventArgs e)

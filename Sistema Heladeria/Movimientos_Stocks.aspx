@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <center><p style="font-size: 40px; color: #CC3300">Registro de Movimientos de Stock</p></center>
     <p style="font-size: 22px">
-        
+        <asp:UpdatePanel ID="UpdatePanel5" runat="server"><ContentTemplate>
         Tipo de Movimiento a realizar :
 
         <asp:DropDownList ID="Lista_Mov" runat="server" Height="25px" Width="244px" DataSourceID="SqlDataSource1" DataTextField="Nombre" DataValueField="ID" OnSelectedIndexChanged="Lista_Mov_SelectedIndexChanged">
@@ -11,7 +11,7 @@
         </asp:DropDownList>
 
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Heladeria Sistemas 3ConnectionString %>" SelectCommand="SELECT [ID], [Nombre] FROM [Actividades]"></asp:SqlDataSource>
-
+            </ContentTemplate></asp:UpdatePanel>
     </p>
     <p style="font-size: 22px">
         
