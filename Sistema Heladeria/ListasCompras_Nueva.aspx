@@ -318,6 +318,7 @@
                 Cantidad Solicitada:</td>
             <td style="height: 66px; width: 646px">
                 <asp:TextBox ID="Cantidad_tx" runat="server" Height="22px" style="font-size: 15pt" TextMode="Number" Width="78px"></asp:TextBox>
+                <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Debe ser un valor superior a 0" ControlToValidate="Cantidad_tx" Operator="GreaterThan" Type="Integer" ValueToCompare="0"></asp:CompareValidator>
             </td>
         </tr>
         <tr>

@@ -13,16 +13,25 @@
         Numero de Factura a Crear:&nbsp;&nbsp;&nbsp;
         <asp:Label ID="Nro_Fact_lb" runat="server"></asp:Label>
     </p>
+                <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;">
+                    Codigo Factura del Proveedor:
+                    <asp:TextBox ID="Cod_Prov_tx" runat="server" TextMode="Number" Width="140px"></asp:TextBox>
+    </p>
             </td>
         </tr>
         <tr>
             <td style="height: 47px">
     <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
-        Fecha de Emision :&nbsp;&nbsp;&nbsp;<strong>
-        <asp:TextBox ID="Fecha_Creacion_lb" runat="server" TextMode="DateTime" Width="190px" style="font-size: 13pt; font-weight: bold"></asp:TextBox>
-            <ajaxToolkit:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="Fecha_Creacion_lb" />
+        Fecha de Emision :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>
+        <asp:TextBox ID="Fecha_Creacion_tx" runat="server" TextMode="DateTime" Width="190px" style="font-size: 13pt; font-weight: bold"></asp:TextBox>
+            <ajaxToolkit:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="Fecha_Creacion_tx" />
                                              </strong>
     </p>
+                <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
+                    Fecha de Vencimiento :&nbsp;<strong><asp:TextBox ID="Fecha_Venc_tx" runat="server" TextMode="DateTime" Width="190px" style="font-size: 13pt; font-weight: bold"></asp:TextBox>
+            <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="Fecha_Creacion_tx" />
+                                             </strong>
+                </p>
             </td>
         </tr>
     </table>
@@ -89,6 +98,14 @@
                 <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
+                    <asp:BoundField DataField="Precio" HeaderText="Precio c/u" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                    <asp:TemplateField HeaderText="Total">
+            <ItemTemplate>
+                <asp:Label ID="lblTotal" runat="server" Text='<%# (Convert.ToDecimal(Eval("Precio")) * Convert.ToInt32(Eval("Cantidad"))).ToString("0.00") %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
                     <asp:TemplateField HeaderText="">
                     <ItemTemplate>
                         <center>
@@ -111,37 +128,8 @@
             <asp:Button ID="Cancelar_Fact_btn" runat="server" CssClass="btn btn-danger" OnClick="Cancelar_Fact_btn_Click" Text="Cancelar Factura" />
         </center>
     </p>
-    <p>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ID" AutoGenerateEditButton="true"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt" Width="1235px">
-<AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
-                <Columns>
-                <asp:BoundField DataField="ID" HeaderText="COD" >
-                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
-                <asp:BoundField DataField="Nombre" HeaderText="Nombre" >
-                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
-                <asp:BoundField DataField="Categoria" HeaderText="Categoria" >
-                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
-                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" >
-                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
-                <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" >
-                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
-                    <asp:TemplateField HeaderText="">
-                    <ItemTemplate>
-                        <center>
-                        <asp:Button ID="Quitar_art" runat="server" OnClick="Quitar_art_Click" Text="Quitar" CssClass="btn btn-primary" />
-                    </center>
-                       </ItemTemplate>
-                </asp:TemplateField>
-            </Columns>
-
-<PagerStyle CssClass="pgr"></PagerStyle>
-            </asp:GridView>
-    </p>
+    <p>    
+        &nbsp;</p>
 
 <%-- Inicia el popup Proveedores--%>
     <div id="ModalProv" class="modal fade" role="dialog">
@@ -238,8 +226,7 @@
 </div></center><p></p>
                   <center>
         
-
-    <table id="Tabla_cat1" style="width: 27%; height: 212px;">
+                      <table id="Tabla_cat1" style="width: 27%; height: 212px;">
         <tr>
             <td style="width: 116px; height: 36px; font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
                 ID:</td>
@@ -276,6 +263,14 @@
                 Cantidad Solicitada:</td>
             <td style="height: 66px; width: 646px">
                 <asp:TextBox ID="Cantidad_tx" runat="server" Height="22px" style="font-size: 15pt" TextMode="Number" Width="78px"></asp:TextBox>
+            <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Debe ser un valor superior a 0" ControlToValidate="Cantidad_tx" Operator="GreaterThan" Type="Integer" ValueToCompare="0"></asp:CompareValidator></td>
+        </tr>
+        <tr>
+            <td style="width: 116px; height: 36px; font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
+                Precio Unidad:</td>
+            <td style="height: 66px; width: 646px">
+                <asp:TextBox ID="Precio_tx" runat="server" Height="22px" style="font-size: 15pt" TextMode="Number" Width="78px"></asp:TextBox>
+                <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="Debe ser un valor superior a 0" ControlToValidate="Precio_tx" Operator="GreaterThan" Type="Integer" ValueToCompare="0"></asp:CompareValidator>
             </td>
         </tr>
         <tr>
@@ -285,12 +280,70 @@
             </td>
         </tr>
     </table>
+
                       </center>
                                     </ContentTemplate>
           </asp:UpdatePanel>    
           <%--ass--%>
 
 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+         <%-- Inicia el popup Articulos--%>
+    <div id="ModalArt" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Seleccionar Articulo<asp:Label ID="label2" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
+      </div>
+      <div class="modal-body">
+        <p></p><%--aasasdasasadsads--%>
+          <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+              <ContentTemplate>
+        <center>
+            <asp:GridView ID="Lista_Articulos" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt">
+<AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
+                <Columns>
+                <asp:BoundField DataField="ID" HeaderText="COD" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Nombre" HeaderText="Nombre" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Nombre_Categoria" HeaderText="Categoria" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Precio" HeaderText="Precio" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                    <asp:TemplateField HeaderText="">
+                    <ItemTemplate>
+                        <center>
+                        <asp:Button ID="Selecc_Art_bt" runat="server" OnClick="Selecc_Art_bt_Click" Text="Seleccionar" CssClass="btn btn-primary" />
+                    </center>
+                       </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
+
+<PagerStyle CssClass="pgr"></PagerStyle>
+            </asp:GridView>
+        </center>
+                                </ContentTemplate>
+          </asp:UpdatePanel>
+          <%--ass--%>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -311,6 +364,12 @@
       }
       function closeModalSelectArt() {
           $('#ModalSelectArt').modal('hide');
+      }
+      function openModalArt() {
+          $('#ModalArt').modal('show');
+      }
+      function closeModalArt() {
+          $('#ModalArt').modal('hide');
       }
     </script>
 </asp:Content>

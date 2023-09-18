@@ -17,13 +17,21 @@ namespace Sistema_Heladeria
         protected void Page_Load(object sender, EventArgs e)
         {
             con.CrearConexion();
-            con.Open();
-            SqlCommand a = new SqlCommand("SELECT TOP 1 * FROM OrdenesCompra ORDER BY ID DESC", con.GetConnection());
-            SqlDataReader leer = a.ExecuteReader();
-            leer.Read();
-            int i = (Convert.ToInt32(leer["ID"].ToString()) + 1);
-            Nro_ord_lb.Text = i.ToString();
-            con.Close();
+            try
+            {
+                con.Open();
+                SqlCommand a = new SqlCommand("SELECT TOP 1 * FROM OrdenesCompra ORDER BY ID DESC", con.GetConnection());
+                SqlDataReader leer = a.ExecuteReader();
+                leer.Read();
+                int i = (Convert.ToInt32(leer["ID"].ToString()) + 1);
+                Nro_ord_lb.Text = i.ToString();
+                con.Close();
+            }
+            catch(Exception ex)
+            {
+                Nro_ord_lb.Text = "1";
+            }
+            
             if (Session["ListaOrden"] == null)
             {
                 List<ItemCompra> ListaOrden = new List<ItemCompra>();
