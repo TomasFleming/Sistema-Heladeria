@@ -66,7 +66,7 @@
                         <div class="image-button-container" style="width: 203px">
                             <img alt="Imagen" src="Imagenes/factura.png" width="136" height="136" />
                         </div>
-                        <asp:Label ID="Label5" runat="server" CssClass="BtsImg" Text="Ordenes de Compra"></asp:Label>
+                        <asp:Label ID="Label5" runat="server" CssClass="BtsImg" Text="Facturacion"></asp:Label>
                         </a>
     </center>
     </div>

@@ -64,7 +64,41 @@ namespace Sistema_Heladeria
 
         protected void Guardar_Fact_btn_Click(object sender, EventArgs e)
         {
+            try
+            {
+                con.Open();
+                //primero creo orden
 
+                SqlCommand Orden = new SqlCommand("insert into Facturas_Proveedor(Fecha_Emision,Fecha_Vencimiento,Cod_Prov,Total,ID_prov,Fecha_Registro) values(" + Fecha_Creacion_tx.Text+","+Fecha_Venc_tx.Text+","+Cod_Prov_tx.Text+","+1+","+Prov_ID_lb.Text+","+1+")", con.GetConnection());
+                Orden.ExecuteNonQuery();
+                con.Close();
+                //Luego el detalle
+
+                con.Open();
+                SqlCommand Detalle = new SqlCommand("SELECT TOP 1 * FROM Facturas_Proveedor ORDER BY ID DESC", con.GetConnection());
+                SqlDataReader Leer = Detalle.ExecuteReader();
+                Leer.Read();
+                int ID_Fact = Convert.ToInt32(Leer["ID"].ToString());
+                con.Close();
+                List<ItemFactura> ListaFactura = (List<ItemFactura>)Session["ListaFactura"];
+                foreach (var item in ListaFactura)
+                {
+                    int ID = item.ID;
+                    int Cant = item.Cantidad;
+                    con.Open();
+                    SqlCommand Detalle2 = new SqlCommand("insert into Detalle_Fact_Prov(ID_fact,ID_art,Cant_fact,Precio_Unit) values (" + ID_Fact + "," + ID + "," + Cant + ","+item.Precio+")", con.GetConnection());
+                    Detalle2.ExecuteNonQuery();
+                    con.Close();
+
+                }
+                ListaFactura.Clear();
+
+                Response.Redirect("~/Facturas_Ver.aspx");
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert(' Error : Todos los campos del formulario deben estar completos');</script>");
+            }
         }
 
         protected void Cancelar_Fact_btn_Click(object sender, EventArgs e)
