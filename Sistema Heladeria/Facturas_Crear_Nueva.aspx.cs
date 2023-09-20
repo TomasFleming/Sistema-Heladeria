@@ -75,7 +75,7 @@ namespace Sistema_Heladeria
                 Orden.Parameters.Add("@FechaEmision",Fecha_Creacion_tx.Text);
                 Orden.Parameters.Add("@FechaVencimiento", Fecha_Venc_tx.Text);
                 Orden.Parameters.Add("@CodProv",Cod_Prov_tx.Text);
-                Orden.Parameters.Add("@Total",Convert.ToInt32(Total_lb.Text));
+                Orden.Parameters.Add("@Total",Convert.ToDouble(Total_lb.Text));
                 Orden.Parameters.Add("@IDProv",Prov_ID_lb.Text);
                 Orden.Parameters.Add("@FechaRegistro", DateTime.Now);
                 Orden.Parameters.Add("@Tipo", Tipo_Fact.Text);
@@ -104,9 +104,13 @@ namespace Sistema_Heladeria
 
                 Response.Redirect("~/Facturas_Ver.aspx");
             }
-            catch (Exception ex)
+            //catch (Exception ex)
+            //{
+            //    Response.Write("<script>alert(' Error : Todos los campos del formulario deben estar completos');</script>");
+            //}
+            finally
             {
-                Response.Write("<script>alert(' Error : Todos los campos del formulario deben estar completos');</script>");
+
             }
 
 
@@ -252,7 +256,7 @@ namespace Sistema_Heladeria
                 int Precio = item.Precio;
                 Subtotal = Subtotal + Cant * Precio;
             }
-            double Total = Subtotal; /*+ (Subtotal * 0.30);*/
+            double Total = Subtotal + (Subtotal * 0.30);
             Sub_tot_lb.Text = Subtotal.ToString();
             Total_lb.Text = Total.ToString();
         }
