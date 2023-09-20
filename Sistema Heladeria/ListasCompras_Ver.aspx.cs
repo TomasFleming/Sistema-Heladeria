@@ -79,6 +79,7 @@ namespace Sistema_Heladeria
             Deposit_Ubic_lb.Text = leer["Ubicacion"].ToString();
             Fecha_Entrega.Text = leer["Fecha_Entrega"].ToString();
             con.Close();
+            Session["ID_Aprob"] = ID.ToString();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal2();", true);
         }
 
@@ -89,6 +90,12 @@ namespace Sistema_Heladeria
 
         protected void Aprobar_ord_btn_Click(object sender, EventArgs e)
         {
+            con.Open();
+            SqlCommand sql1 = new SqlCommand("update OrdenesCompra set Estado='Orden Aprobada' where ID=" +Session["ID_Aprob"].ToString(), con.GetConnection());
+            sql1.ExecuteNonQuery();
+            con.Close();
+            Buscar_Ord_btn_Click(sender, e);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal2();", true);
             
         }
     }

@@ -21,6 +21,9 @@
                     Numero Ticket Proveedor:
                     <asp:TextBox ID="Cod_Prov_tx" runat="server" TextMode="Number" Width="140px"></asp:TextBox>
     </p>
+                <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;" __designer:mapid="26c">
+                    <asp:CompareValidator ID="CompareValidator3" runat="server" ErrorMessage="La factura a registrar debe tener un codigo de identificacion que pertenece al Proveedor" ControlToValidate="Cod_Prov_tx" Operator="GreaterThan" ValueToCompare="0" ForeColor="Red"></asp:CompareValidator>
+    </p>
             </td>
         </tr>
     </table>
