@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
 using System.Net;
+using System.Globalization;
 
 namespace Sistema_Heladeria
 {
@@ -60,6 +61,7 @@ namespace Sistema_Heladeria
 
             Lista_Art_Fact.DataSource = ListaOrden;
             Lista_Art_Fact.DataBind();
+            CalcularTotales(sender, e);
         }
 
         protected void Guardar_Fact_btn_Click(object sender, EventArgs e)
@@ -68,8 +70,15 @@ namespace Sistema_Heladeria
             {
                 con.Open();
                 //primero creo orden
-
-                SqlCommand Orden = new SqlCommand("insert into Facturas_Proveedor(Fecha_Emision,Fecha_Vencimiento,Cod_Prov,Total,ID_prov,Fecha_Registro) values(" + Fecha_Creacion_tx.Text+","+Fecha_Venc_tx.Text+","+Cod_Prov_tx.Text+","+1+","+Prov_ID_lb.Text+","+1+")", con.GetConnection());
+                string query = "INSERT INTO Facturas_Proveedor (Fecha_Emision, Fecha_Vencimiento, Cod_Prov, Total, ID_prov, Fecha_Registro, Tipo) VALUES (@FechaEmision, @FechaVencimiento, @CodProv, @Total, @IDProv, @FechaRegistro, @Tipo)";
+                SqlCommand Orden = new SqlCommand(query, con.GetConnection());
+                Orden.Parameters.Add("@FechaEmision",Fecha_Creacion_tx.Text);
+                Orden.Parameters.Add("@FechaVencimiento", Fecha_Venc_tx.Text);
+                Orden.Parameters.Add("@CodProv",Cod_Prov_tx.Text);
+                Orden.Parameters.Add("@Total",Convert.ToInt32(Total_lb.Text));
+                Orden.Parameters.Add("@IDProv",Prov_ID_lb.Text);
+                Orden.Parameters.Add("@FechaRegistro", DateTime.Now);
+                Orden.Parameters.Add("@Tipo", Tipo_Fact.Text);
                 Orden.ExecuteNonQuery();
                 con.Close();
                 //Luego el detalle
@@ -95,17 +104,22 @@ namespace Sistema_Heladeria
 
                 Response.Redirect("~/Facturas_Ver.aspx");
             }
-            catch (Exception ex)
+            //catch (Exception ex)
+            //{
+            //    Response.Write("<script>alert(' Error : Todos los campos del formulario deben estar completos');</script>");
+            //}
+            finally
             {
-                Response.Write("<script>alert(' Error : Todos los campos del formulario deben estar completos');</script>");
+
             }
+
         }
 
         protected void Cancelar_Fact_btn_Click(object sender, EventArgs e)
         {
             List<ItemFactura> ListaFactura = (List<ItemFactura>)Session["ListaFactura"];
             ListaFactura.Clear();
-            Response.Redirect("~/ListasCompras_Ver.aspx");
+            Response.Redirect("~/Facturas_Ver.aspx");
         }
         protected void Art_Agregar_btn_Click(object sender, EventArgs e)
         {
@@ -124,6 +138,7 @@ namespace Sistema_Heladeria
             Cat_art_lb.Text = "";
             Precio_tx.Text = "";
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalArt();", true);
+            CalcularTotales(sender, e);
         }
         protected void Art_Cancelar_btn_Click(object sender, EventArgs e)
         {
@@ -228,6 +243,21 @@ namespace Sistema_Heladeria
             con.Close();
 
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalArt();", true);
+        }
+        protected void CalcularTotales(object sender,EventArgs e)
+        {
+            List<ItemFactura> ListaFactura = (List<ItemFactura>)Session["ListaFactura"];
+            double Subtotal = 0;
+            foreach (var item in ListaFactura)
+            {
+                int ID = item.ID;
+                int Cant = item.Cantidad;
+                int Precio = item.Precio;
+                Subtotal = Subtotal + Cant * Precio;
+            }
+            double Total = Subtotal; /*+ (Subtotal * 0.30);*/
+            Sub_tot_lb.Text = Subtotal.ToString();
+            Total_lb.Text = Total.ToString();
         }
         class ItemFactura
         {

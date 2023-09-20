@@ -24,6 +24,15 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.Label Nro_Fact_lb;
 
         /// <summary>
+        /// Control Cod_Prov_tx.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Cod_Prov_tx;
+
+        /// <summary>
         /// Control UpdatePanel5.
         /// </summary>
         /// <remarks>
@@ -60,13 +69,13 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.Label Prov_nom_lb;
 
         /// <summary>
-        /// Control Cod_Prov_tx.
+        /// Control Tipo_Fact.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Cod_Prov_tx;
+        protected global::System.Web.UI.WebControls.DropDownList Tipo_Fact;
 
         /// <summary>
         /// Control Telf_lb.
@@ -87,15 +96,6 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.TextBox Fecha_Creacion_tx;
 
         /// <summary>
-        /// Control CalendarExtender2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender2;
-
-        /// <summary>
         /// Control Direc_lb.
         /// </summary>
         /// <remarks>
@@ -112,15 +112,6 @@ namespace Sistema_Heladeria
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox Fecha_Venc_tx;
-
-        /// <summary>
-        /// Control CalendarExtender1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender1;
 
         /// <summary>
         /// Control Correo_lb.
