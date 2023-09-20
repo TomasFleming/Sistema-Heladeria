@@ -19,16 +19,22 @@
                 <asp:BoundField DataField="NombreCompleto" HeaderText="Proveedor" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
-                <asp:BoundField DataField="ID_Deposito" HeaderText="Deposito" >
+                <asp:BoundField DataField="Cod_Prov" HeaderText="Numero Factura Proveedor" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="Tipo" HeaderText="Tipo" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
                 <asp:BoundField DataField="Estado" HeaderText="Estado" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
-                <asp:BoundField DataField="Fecha_Creacion" HeaderText="Fecha Creado" >
+                <asp:BoundField DataField="Fecha_Emision" HeaderText="Fecha Emision" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
-                    <asp:BoundField DataField="Fecha_Entrega" HeaderText="Fecha Entrega" >
+                    <asp:BoundField DataField="Fecha_Vencimiento" HeaderText="Fecha Vencimiento" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                     <asp:BoundField DataField="Total" HeaderText="Total" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
                     <asp:TemplateField HeaderText="">

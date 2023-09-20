@@ -104,14 +104,11 @@ namespace Sistema_Heladeria
 
                 Response.Redirect("~/Facturas_Ver.aspx");
             }
-            //catch (Exception ex)
-            //{
-            //    Response.Write("<script>alert(' Error : Todos los campos del formulario deben estar completos');</script>");
-            //}
-            finally
+            catch (Exception ex)
             {
-
+                Response.Write("<script>alert(' Error : Todos los campos del formulario deben estar completos');</script>");
             }
+
 
         }
 
