@@ -17,7 +17,7 @@
             <tr>
                 <td>
                     Proveedor:
-                    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="NombreCompleto" DataValueField="ID">
+                    <asp:DropDownList ID="Prov_select_lt" runat="server" DataSourceID="SqlDataSource1" DataTextField="NombreCompleto" DataValueField="ID" OnDataBound="Prov_select_lt_DataBound">
                     </asp:DropDownList>
                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Heladeria Sistemas 3ConnectionString %>" SelectCommand="SELECT [ID], [NombreCompleto] FROM [Proveedores]"></asp:SqlDataSource>
                 </td>
@@ -38,7 +38,7 @@
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>
-                    <asp:Button ID="Filtrar_btn" runat="server" Text="Filtrar" />
+                    <asp:Button ID="Filtrar_btn" runat="server" OnClick="Filtrar_btn_Click" Text="Filtrar" />
                 </td>
             </tr>
             <tr>
@@ -51,7 +51,7 @@
                     <asp:TextBox ID="Precio_Max_tx" runat="server" TextMode="Number" Width="100px"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:Button ID="Lipiar_Filt_btn" runat="server" Text="Limpiar" />
+                    <asp:Button ID="Lipiar_Filt_btn" runat="server" Text="Limpiar" OnClick="Lipiar_Filt_btn_Click" />
                 </td>
             </tr>
         </table>
