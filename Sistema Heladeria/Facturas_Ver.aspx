@@ -1,15 +1,66 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Facturas_Ver.aspx.cs" Inherits="Sistema_Heladeria.Facturas_Ver" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <center><p style="font-size: 40px; font-weight: bold; color:#0094ff;font-family: Arial, sans-serif;">Listas De Facturas</p></center>
     <div class="row">
     <div class="col-md-4"> <!-- Columna para el textbox -->
-        <asp:TextBox ID="Buscador_Fact_tx" runat="server" class="form-control" placeholder="Insertar Deposito" style="width: 350px"></asp:TextBox>    </div>
+        <asp:TextBox ID="Buscador_Fact_tx" runat="server" class="form-control" placeholder="Insertar N° de Factura" style="width: 350px"></asp:TextBox>    </div>
     <div class="col-md-4"> <!-- Columna para los botones -->
          <asp:Button ID="Buscar_fact_btn" CssClass="btn btn-primary" runat="server"  Text="Buscar" OnClick="Buscar_fact_btn_Click"  />
          <asp:Button ID="Crear_fact_btn" CssClass="btn btn-default" runat="server" Text="Crear Nueva Factura" OnClick="Crear_fact_btn_Click" PostBackUrl="~/Facturas_Crear_Nueva.aspx"  />
+        <%--<asp:Button ID="Abrir_Filt_btn" CssClass="btn btn-primary"  runat="server" Text="Agregar Filtros" />--%>
+        <button id="Abrir_Filt_btn" class="btn btn-tertiary" type="button">Cambiar Filtros</button>
     </div>
-</div>
+</div><p>    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
+    <div id="menu" style="display: none;">
+        <table class="nav-justified">
+            <tr>
+                <td>
+                    Proveedor:
+                    <asp:DropDownList ID="DropDownList1" runat="server" DataSourceID="SqlDataSource1" DataTextField="NombreCompleto" DataValueField="ID">
+                    </asp:DropDownList>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Heladeria Sistemas 3ConnectionString %>" SelectCommand="SELECT [ID], [NombreCompleto] FROM [Proveedores]"></asp:SqlDataSource>
+                </td>
+                <td>
+                    &nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>Fecha Minima:
+                    <asp:TextBox ID="Fecha_min_tx" runat="server" TextMode="Date" Width="100px"></asp:TextBox>
+                </td>
+                <td>Fecha Maxima:
+                    <asp:TextBox ID="Fecha_Max_tx" runat="server" TextMode="Date" Width="100px"></asp:TextBox>
+                </td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>
+                    <asp:Button ID="Filtrar_btn" runat="server" Text="Filtrar" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Precio Minimo:
+                    <asp:TextBox ID="Precio_min_tx" runat="server" TextMode="Number" Width="100px"></asp:TextBox>
+                </td>
+                <td>
+                    Precio Maximo:
+                    <asp:TextBox ID="Precio_Max_tx" runat="server" TextMode="Number" Width="100px"></asp:TextBox>
+                </td>
+                <td>
+                    <asp:Button ID="Lipiar_Filt_btn" runat="server" Text="Limpiar" />
+                </td>
+            </tr>
+        </table>
+    </div>
+            </ContentTemplate>
+    </asp:UpdatePanel></p>
     <p>
         <center>
+            <asp:UpdatePanel ID="UpdatePanel2" runat="server"><ContentTemplate>
             <asp:GridView ID="Lista_facturas" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt" Width="1235px">
 <AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
                 <Columns>
@@ -48,6 +99,7 @@
 
 <PagerStyle CssClass="pgr"></PagerStyle>
             </asp:GridView>
+                </ContentTemplate></asp:UpdatePanel>
         </center>
     </p>
         <div id="myModal1" class="modal fade" role="dialog">
@@ -57,7 +109,7 @@
     <div class="modal-content">
       <div class="modal-header">
 
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <button type="button" class="close" data-dismiss="modal">&times;ton>
         <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Articulos de la Factura N°<asp:Label ID="ID_Ord_lb" runat="server" Visible="True"></asp:Label></h4></center>
       </div>
       <div class="modal-body">
@@ -114,6 +166,26 @@
         function closeModal() {
             $('#myModal1').modal('hide');
         }
+        document.getElementById("Abrir_Filt_btn").addEventListener("click", function () {
+            var menu = document.getElementById("menu");
+            if (menu.style.display === "none" || menu.style.display === "") {
+                menu.style.display = "block"; 
+                this.innerHTML = "Ocultar Filtros"; 
+            } else {
+                menu.style.display = "none"; 
+                this.innerHTML = "Cambiar Filtros";
+            }
+        });
+
+
+        const toggleButton = document.getElementById('Abrir_Filt_btn');
+        const menuItems = document.getElementById('menu');
+
+        toggleButton.addEventListener('click', (event) => {
+            event.preventDefault(); 
+
+            menuItems.classList.toggle('show');
+        });
     </script>
     </div>
 </asp:Content>
