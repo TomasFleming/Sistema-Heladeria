@@ -13,7 +13,7 @@
     </div>
     <div class="col-md-4">
         <center style="width: 200px">
-                        <a href="Categorias.aspx" runat="server">
+                        <a href="Tipos_de_Movimientos.aspx" runat="server">
                     <div class="image-button-container" style="width: 191px">
                         <img src="Imagenes/categorias.png" width="136" height="136" />
                     </div>

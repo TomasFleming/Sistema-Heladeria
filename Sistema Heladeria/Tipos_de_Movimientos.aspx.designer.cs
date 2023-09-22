@@ -42,13 +42,13 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.Button Agregar_mov_btn;
 
         /// <summary>
-        /// Control Lista_Articulos.
+        /// Control Lista_Movimientos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView Lista_Articulos;
+        protected global::System.Web.UI.WebControls.GridView Lista_Movimientos;
 
         /// <summary>
         /// Control label55.
@@ -204,15 +204,6 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.TextBox Descript_Edit_tx;
 
         /// <summary>
-        /// Control CompareValidator2.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator2;
-
-        /// <summary>
         /// Control Label6.
         /// </summary>
         /// <remarks>
@@ -240,12 +231,12 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.Button Cambiar_Mov_bt;
 
         /// <summary>
-        /// Control Eliminar_Art_btn.
+        /// Control Eliminar_Mov_btn.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Eliminar_Art_btn;
+        protected global::System.Web.UI.WebControls.Button Eliminar_Mov_btn;
     }
 }

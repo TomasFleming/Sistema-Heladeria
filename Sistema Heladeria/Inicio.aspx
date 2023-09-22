@@ -10,7 +10,7 @@
                 <div class="row">
     <div class="col-md-4"> 
          <center style="width: 200px">
-        <a href="Depositos.aspx" runat="server">
+        <a href="Pre_Deposit_Movs.aspx" runat="server">
         <div class="image-button-container" style="width: 175px">
             <img src="Imagenes/deposito.png" alt="Imagen">
         </div>

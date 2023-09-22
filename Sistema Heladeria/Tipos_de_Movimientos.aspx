@@ -12,7 +12,7 @@
 </div>
     <p></p>
     <center>
-            <asp:GridView ID="Lista_Articulos" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt" Width="1235px">
+            <asp:GridView ID="Lista_Movimientos" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt" Width="1235px">
 <AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
                 <Columns>
                 <asp:BoundField DataField="ID" HeaderText="COD" >
@@ -24,7 +24,7 @@
                 <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
-                <asp:BoundField DataField="Detalles" HeaderText="Detalles" >
+                <asp:BoundField DataField="Detalle" HeaderText="Detalles" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
                     <asp:TemplateField HeaderText="">
@@ -143,7 +143,7 @@
                 </td>
                 <td style="height: 22px; width: 646px">
                     <asp:TextBox ID="Descript_Edit_tx" runat="server" Height="65px" style="margin-left: 0" TextMode="MultiLine" Width="292px"></asp:TextBox>
-                    <asp:CompareValidator ID="CompareValidator2" runat="server" ControlToValidate="Precio_tx" ErrorMessage="Debe ser un valor superior a 0" Operator="GreaterThan" Type="Integer" ValueToCompare="0"></asp:CompareValidator>
+                    <%--<asp:CompareValidator ID="CompareValidator2" runat="server" ControlToValidate="Precio_tx" ErrorMessage="Debe ser un valor superior a 0" Operator="GreaterThan" Type="Integer" ValueToCompare="0"></asp:CompareValidator>--%>
                 </td>
             </tr>
             <tr>
@@ -160,7 +160,7 @@
                         <asp:Button ID="Cambiar_Mov_bt" runat="server" CssClass="btn btn-primary" OnClick="Guardar_Mov_bt_Click" Text="Guardar Cambios" />
                     </center>
                     &nbsp;<center>
-                        <asp:Button ID="Eliminar_Art_btn" runat="server" CssClass="btn btn-danger" OnClick="Eliminar_Art_btn_Click" Text="Borrar Articulo" />
+                        <asp:Button ID="Eliminar_Mov_btn" runat="server" CssClass="btn btn-danger" OnClick="Eliminar_Mov_btn_Click" Text="Borrar Articulo" />
                     </center>
                 </td>
             </tr>
@@ -180,6 +180,7 @@
 
   </div>
 </div>
+    
   <script type="text/javascript">
       function openModal() {
           $('#myModal1').modal('show');
