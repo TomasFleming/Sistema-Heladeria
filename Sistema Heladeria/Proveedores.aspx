@@ -76,7 +76,7 @@
                 <asp:Label ID="Art_nom_lb" runat="server" Text="Nombre" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 20px; width: 646px">
-                <asp:TextBox ID="Nomb_tx" runat="server" style="font-size: 15pt" Width="311px"></asp:TextBox>
+                <asp:TextBox ID="Nomb_tx" runat="server" style="font-size: 15pt" Width="300px"></asp:TextBox>
                 <asp:Label ID="Alert_lb" runat="server" Text="Ya existe un proveedor con ese nombre" Visible="False" ForeColor="Red"></asp:Label>
             </td>
         </tr>
@@ -115,8 +115,8 @@
             </tr>
         <tr>
             <td colspan="2">
-                <center><asp:Button ID="Prov_guard_btn" CssClass="btn btn-primary" runat="server" Text="Guardar Cambios" OnClick="Prov_guard_btn_Click" /></center>
-            &nbsp;<center><asp:Button ID="Cancelar" CssClass="btn btn-danger" runat="server" Text="Cancelar" OnClick="Prov_elin_byn_Click"  /></center>
+                <center><asp:Button ID="Prov_guard_btn" CssClass="btn btn-primary" runat="server" Text="Guardar Cambios" OnClick="Prov_guard_btn_Click" />
+            &nbsp;<asp:Button ID="Cancelar" CssClass="btn btn-danger" runat="server" Text="Cancelar" OnClick="Prov_elin_byn_Click"  /></center>
             </td>
         </tr>
     </table>
@@ -157,7 +157,7 @@
                 <asp:Label ID="Label2" runat="server" Text="Nombre" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 20px; width: 646px">
-                <asp:TextBox ID="Nomb_Edit_tx" runat="server" style="font-size: 15pt" Width="311px"></asp:TextBox>
+                <asp:TextBox ID="Nomb_Edit_tx" runat="server" style="font-size: 15pt" Width="300px"></asp:TextBox>
                 <asp:Label ID="Label3" runat="server" Text="Ya existe un proveedor con ese nombre" Visible="False" ForeColor="Red"></asp:Label>
             </td>
         </tr>
@@ -166,7 +166,7 @@
                 <asp:Label ID="Label4" runat="server" Text="Telefono" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 22px; width: 646px">
-                <asp:TextBox ID="Telf_Edit_tx" runat="server" TextMode="Number" style="font-size: 15pt" Width="302px"></asp:TextBox>
+                <asp:TextBox ID="Telf_Edit_tx" runat="server" TextMode="Number" style="font-size: 15pt" Width="300px"></asp:TextBox>
 
             </td>
         </tr>
@@ -175,7 +175,7 @@
                 <asp:Label ID="Label5" runat="server" Text="Direccion" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 22px; width: 646px">
-                <asp:TextBox ID="Direcc_Edit_tx" runat="server" style="font-size: 15pt" Width="302px"></asp:TextBox>
+                <asp:TextBox ID="Direcc_Edit_tx" runat="server" style="font-size: 15pt" Width="300px"></asp:TextBox>
 
             </td>
             </tr>
@@ -184,7 +184,7 @@
                 <asp:Label ID="Label6" runat="server" Text="Correo" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 22px; width: 646px">
-                <asp:TextBox ID="Correo_Edit_tx" runat="server" style="font-size: 15pt" Width="302px"></asp:TextBox>
+                <asp:TextBox ID="Correo_Edit_tx" runat="server" style="font-size: 15pt" Width="300px"></asp:TextBox>
 
             </td>
             </tr>
@@ -196,8 +196,8 @@
             </tr>
         <tr>
             <td colspan="2">
-                <center><asp:Button ID="Guardar_Edit_btn" CssClass="btn btn-primary" runat="server" Text="Guardar Cambios" OnClick="Guardar_Edit_btn_Click" /></center>
-            &nbsp;<center><asp:Button ID="Eliminar_Prov_btn" CssClass="btn btn-danger" runat="server" Text="Borrar Proveedor" OnClick="Eliminar_Prov_btn_Click"  /></center>
+                <center><asp:Button ID="Guardar_Edit_btn" CssClass="btn btn-primary" runat="server" Text="Guardar Cambios" OnClick="Guardar_Edit_btn_Click" />
+            &nbsp;<asp:Button ID="Eliminar_Prov_btn" CssClass="btn btn-danger" runat="server" Text="Borrar Proveedor" OnClick="Eliminar_Prov_btn_Click"  /></center>
             </td>
         </tr>
     </table>

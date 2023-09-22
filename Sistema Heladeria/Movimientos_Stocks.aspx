@@ -167,7 +167,7 @@
                   <center>
                   <div class="row">
     <div class="col-md-5"> <!-- Columna para el textbox -->
-         <asp:TextBox ID="Buscador_art" runat="server" class="form-control" placeholder="Buscador" style="width: 250px"></asp:TextBox>
+         <asp:TextBox ID="Buscador_art" runat="server" class="form-control" placeholder="Buscador" style="width: 300px"></asp:TextBox>
     </div>
     <div class="col-md-4"> <!-- Columna para los botones -->
         <asp:Button ID="Buscar_art_btn" CssClass="btn btn-primary" runat="server" OnClick="Buscar_art_btn_Click" Text="Buscar" />
@@ -229,8 +229,8 @@
         </tr>
         <tr>
             <td colspan="2">
-                <center><asp:Button ID="Art_Agregar_btn" CssClass="btn btn-primary" runat="server" Text="Guardar Operacion" OnClick="Art_Agregar_btn_Click"/></center>
-            &nbsp;<center><asp:Button ID="Art_Cancelar_byn" CssClass="btn btn-danger" Visible="True" runat="server" Text="Cancelar" OnClick="Art_Cancelar_byn_Click" /></center>
+                <center><asp:Button ID="Art_Agregar_btn" CssClass="btn btn-primary" runat="server" Text="Guardar Operacion" OnClick="Art_Agregar_btn_Click"/>
+            &nbsp;<asp:Button ID="Art_Cancelar_byn" CssClass="btn btn-danger" Visible="True" runat="server" Text="Cancelar" OnClick="Art_Cancelar_byn_Click" /></center>
             </td>
         </tr>
     </table>

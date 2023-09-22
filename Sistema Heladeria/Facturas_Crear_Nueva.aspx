@@ -4,12 +4,13 @@
         <tr>
     <td rowspan="2" style="width: 603px; font-size: 50px; color: #FF6666;">
                 <center>
-                    Registro Factura
-                    Proveedor
-                </center>
+                    Registro Factura<br />
+&nbsp;</center>
             </td>
             <td style="height: 38px">
     <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;">
+        &nbsp;</p>
+                <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;">
         Numero de Factura a Crear:&nbsp;&nbsp;&nbsp;
         <asp:Label ID="Nro_Fact_lb" runat="server"></asp:Label>
     </p>
@@ -33,7 +34,7 @@
         <tr>
             <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; border-top: 3px solid #C0C0C0; width: 525px; border-bottom-color: #C0C0C0; border-bottom-width: 3px;">Detalles del Proveedor :&nbsp;&nbsp;&nbsp;<asp:Button ID="PopUp_Prov_bt" runat="server" Text="Seleccionar Proveedor" CssClass="btn btn-default" OnClick="PopUp_Prov_bt_Click"/>
             </td>
-            <td class="modal-lg" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 107px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide;">&nbsp;</td>
+            <td class="modal-lg" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 70px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide;">&nbsp;</td>
             <td style="border-width: 3px; border-color: #C0C0C0; border-right-style: solid; border-left-style: solid; border-top-style: solid;">Observaciones de la Fectura:&nbsp;&nbsp;&nbsp;</td>
         </tr>
         <tr>
@@ -42,7 +43,7 @@
                 <br />
                 Nombre :&nbsp;&nbsp; <asp:Label ID="Prov_nom_lb" runat="server" style="font-size: 20px"></asp:Label>
             </td>
-            <td class="modal-sm" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 107px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide; height: 56px;"></td>
+            <td class="modal-sm" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 70px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide; height: 56px;"></td>
             <td style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; height: 56px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px;">
                 <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
                     Tipo de Factura :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>&nbsp;&nbsp;&nbsp; </strong>
@@ -57,7 +58,7 @@
         <tr>
             <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; width: 525px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px;">Telefono:&nbsp;&nbsp;<asp:Label ID="Telf_lb" runat="server" style="font-size: 20px"></asp:Label>
             </td>
-            <td class="modal-lg" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 107px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide;">&nbsp;</td>
+            <td class="modal-lg" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 70px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide;">&nbsp;</td>
             <td style="border-width: 3px; border-color: #C0C0C0; border-right-style: solid; border-left-style: solid;">
                 <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
                     Fecha de Emision :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>
@@ -70,7 +71,7 @@
         <tr>
             <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; width: 525px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px;">Direccion:&nbsp;&nbsp;<asp:Label ID="Direc_lb" runat="server" style="font-size: 20px"></asp:Label>
             </td>
-            <td class="modal-sm" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 107px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide;">&nbsp;</td>
+            <td class="modal-sm" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 70px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide;">&nbsp;</td>
             <td style="border-width: 3px; border-color: #C0C0C0; border-right-style: solid; border-left-style: solid;">
                 <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
                     Fecha de Vencimiento :&nbsp;<strong><asp:TextBox ID="Fecha_Venc_tx" runat="server" style="font-size: 13pt; font-weight: bold" TextMode="Date" Width="190px"></asp:TextBox>
@@ -82,7 +83,7 @@
         <tr>
             <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; border-bottom: 3px solid #C0C0C0; width: 525px; border-top-color: #C0C0C0; border-top-width: 3px;">Correo:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<asp:Label ID="Correo_lb" runat="server" style="font-size: 20px"></asp:Label>
             </td>
-            <td class="modal-sm" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 107px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide;">&nbsp;</td>
+            <td class="modal-sm" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 70px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide;">&nbsp;</td>
             <td style="border-width: 3px; border-color: #C0C0C0; border-right-style: solid; border-left-style: solid; border-bottom-style: solid;">&nbsp;</td>
         </tr>
     </table>
@@ -137,11 +138,11 @@
     &nbsp;<asp:UpdatePanel ID="UpdatePanel1" runat="server"><ContentTemplate>
         <table class="nav-justified" style="border-bottom-style: solid; border-width: thin; font-family: Arial, Helvetica, sans-serif; font-size: 20px; border-top-style: solid;">
         <tr>
-            <td style="border-bottom-style: solid; border-width: thin">SubTotal:<asp:Label ID="Sub_tot_lb" runat="server" Font-Bold="True"></asp:Label>
+            <td style="border-bottom-style: solid; border-width: thin" class="text-right">SubTotal:<asp:Label ID="Sub_tot_lb" runat="server" Font-Bold="True"></asp:Label>
             </td>
         </tr>
         <tr>
-            <td style="height: 28px">Total:<asp:Label ID="Total_lb" runat="server" Font-Bold="True"></asp:Label>
+            <td style="height: 28px" class="text-right">Total:<asp:Label ID="Total_lb" runat="server" Font-Bold="True"></asp:Label>
             </td>
         </tr>
     </table></ContentTemplate></asp:UpdatePanel>

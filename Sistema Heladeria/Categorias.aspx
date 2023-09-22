@@ -79,13 +79,13 @@
                 <asp:Label ID="Art_desc_lb" runat="server" Text="Descripcion" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 22px; width: 646px">
-                <asp:TextBox ID="Descrip_tx" runat="server" TextMode="MultiLine" Height="65px" style="margin-left: 0" Width="292px"></asp:TextBox>
+                <asp:TextBox ID="Descrip_tx" runat="server" TextMode="MultiLine" Height="65px" style="margin-left: 0" Width="300px"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td colspan="2">
-                <center><asp:Button ID="Cat_guardar_btn" CssClass="btn btn-primary" runat="server" Text="Guardar Categoria" OnClick="Art_camb_btn_Click"/></center>
-            &nbsp;<center><asp:Button ID="Cancelar_btn" CssClass="btn btn-danger" runat="server" Text="Cancelar" OnClick="Cancelar_btn_Click" /></center>
+                <center><asp:Button ID="Cat_guardar_btn" CssClass="btn btn-primary" runat="server" Text="Guardar Categoria" OnClick="Art_camb_btn_Click"/>
+            &nbsp;<asp:Button ID="Cancelar_btn" CssClass="btn btn-danger" runat="server" Text="Cancelar" OnClick="Cancelar_btn_Click" /></center>
             </td>
         </tr>
     </table>
@@ -132,13 +132,13 @@
                 <asp:Label ID="Label4" runat="server" Text="Descripcion" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 22px; width: 646px">
-                <asp:TextBox ID="Descrip_Edit_tx" runat="server" TextMode="MultiLine" Height="65px" style="margin-left: 0" Width="292px"></asp:TextBox>
+                <asp:TextBox ID="Descrip_Edit_tx" runat="server" TextMode="MultiLine" Height="65px" style="margin-left: 0" Width="300px"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td colspan="2">
-                <center><asp:Button ID="Guardar_Editado_bt" CssClass="btn btn-primary" runat="server" Text="Guardar Cambios" OnClick="Guardar_Editado_bt_Click"/></center>
-            &nbsp;<center><asp:Button ID="Borrar_cat_btn" CssClass="btn btn-danger" runat="server" Text="Borrar Categoria" OnClick="Borrar_cat_btn_Click" /></center>
+                <center><asp:Button ID="Guardar_Editado_bt" CssClass="btn btn-primary" runat="server" Text="Guardar Cambios" OnClick="Guardar_Editado_bt_Click"/>
+            &nbsp;<asp:Button ID="Borrar_cat_btn" CssClass="btn btn-danger" runat="server" Text="Borrar Categoria" OnClick="Borrar_cat_btn_Click" /></center>
             </td>
         </tr>
     </table>

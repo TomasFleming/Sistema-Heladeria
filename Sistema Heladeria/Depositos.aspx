@@ -79,7 +79,7 @@
                 <asp:Label ID="Art_nom_lb" runat="server" Text="Nombre" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 20px; width: 646px">
-                <asp:TextBox ID="Nomb_tx" runat="server" style="font-size: 15pt" Width="328px"></asp:TextBox>
+                <asp:TextBox ID="Nomb_tx" runat="server" style="font-size: 15pt" Width="300px"></asp:TextBox>
                 <asp:Label ID="Alert_lb" runat="server" Text="Ya existe un proveedor con ese nombre" Visible="False" ForeColor="Red"></asp:Label>
             </td>
         </tr>
@@ -88,7 +88,7 @@
                 <asp:Label ID="Direct_lb" runat="server" Text="Ubicacion" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 22px; width: 646px">
-                <asp:TextBox ID="Ubic_tx" runat="server" style="font-size: 15pt" Width="302px"></asp:TextBox>
+                <asp:TextBox ID="Ubic_tx" runat="server" style="font-size: 15pt" Width="300px"></asp:TextBox>
 
             </td>
         </tr>

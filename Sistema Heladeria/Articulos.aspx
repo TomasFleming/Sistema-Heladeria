@@ -110,13 +110,13 @@
                 <asp:Label ID="Art_desc_lb" runat="server" Text="Descripcion" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 22px; width: 646px">
-                <asp:TextBox ID="Descrip_tx" runat="server" TextMode="MultiLine" Height="65px" style="margin-left: 0" Width="292px"></asp:TextBox>
+                <asp:TextBox ID="Descrip_tx" runat="server" TextMode="MultiLine" Height="65px" style="margin-left: 0" Width="300px"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td colspan="2">
-                <center><asp:Button ID="Art_camb_btn" CssClass="btn btn-primary" runat="server" Text="Guardar Articulo" OnClick="Art_camb_btn_Click"/></center>
-            &nbsp;<center><asp:Button ID="Cancelar_art_btn" CssClass="btn btn-danger" runat="server" Text="Cancelar" OnClick="Cancelar_art_btn_Click" /></center>
+                <center><asp:Button ID="Art_camb_btn" CssClass="btn btn-primary" runat="server" Text="Guardar Articulo" OnClick="Art_camb_btn_Click"/>
+            &nbsp;<asp:Button ID="Cancelar_art_btn" CssClass="btn btn-danger" runat="server" Text="Cancelar" OnClick="Cancelar_art_btn_Click" /></center>
             </td>
         </tr>
     </table>
@@ -177,7 +177,7 @@
                 <asp:Label ID="Label5" runat="server" Text="Precio" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 22px; width: 646px">
-                <asp:TextBox ID="Precio_Edit_tx" runat="server" TextMode="Number" style="font-size: 15pt" Width="302px"></asp:TextBox>
+                <asp:TextBox ID="Precio_Edit_tx" runat="server" TextMode="Number" style="font-size: 15pt" Width="300px"></asp:TextBox>
 
                 <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="Debe ser un valor superior a 0" ControlToValidate="Precio_tx" Operator="GreaterThan" Type="Integer" ValueToCompare="0"></asp:CompareValidator>
 
@@ -188,13 +188,13 @@
                 <asp:Label ID="Label6" runat="server" Text="Descripcion" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 22px; width: 646px">
-                <asp:TextBox ID="Descript_Edit_tx" runat="server" TextMode="MultiLine" Height="65px" style="margin-left: 0" Width="292px"></asp:TextBox>
+                <asp:TextBox ID="Descript_Edit_tx" runat="server" TextMode="MultiLine" Height="65px" style="margin-left: 0" Width="300px"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td colspan="2">
-                <center><asp:Button ID="Guardar_Camb_bt" CssClass="btn btn-primary" runat="server" Text="Guardar Cambios" OnClick="Guardar_Camb_bt_Click"/></center>
-            &nbsp;<center><asp:Button ID="Eliminar_Art_btn" CssClass="btn btn-danger" runat="server" Text="Borrar Articulo" OnClick="Eliminar_Art_btn_Click" /></center>
+                <center><asp:Button ID="Guardar_Camb_bt" CssClass="btn btn-primary" runat="server" Text="Guardar Cambios" OnClick="Guardar_Camb_bt_Click"/>
+            &nbsp;<asp:Button ID="Eliminar_Art_btn" CssClass="btn btn-danger" runat="server" Text="Borrar Articulo" OnClick="Eliminar_Art_btn_Click" /></center>
             </td>
         </tr>
     </table>

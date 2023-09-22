@@ -12,7 +12,7 @@
          <center style="width: 200px">
         <a href="Pre_Deposit_Movs.aspx" runat="server">
         <div class="image-button-container" style="width: 175px">
-            <img src="Imagenes/deposito.png" alt="Imagen">
+            <img src="Imagenes/deposito2.png" width="136" height="136" alt="Imagen">
         </div>
             <asp:Label ID="Label1" runat="server" Text="Deposistos" CssClass="BtsImg"></asp:Label>
         </a>
@@ -22,7 +22,7 @@
         <center style="width: 200px">
                         <a href="Categorias.aspx" runat="server">
                     <div class="image-button-container" style="width: 191px">
-                        <img src="Imagenes/categorias.png" width="136" height="136" />
+                        <img src="Imagenes/categoria1.png" width="136" height="136" />
                     </div>
                         <asp:Label ID="lb" runat="server" Text="Categorias" CssClass="BtsImg"></asp:Label>
                         </a>
@@ -44,7 +44,7 @@
         <center style="width: 200px">
                             <a runat="server" href="Proveedores.aspx">
                             <div class="image-button-container" style="width: 195px">
-                                <img alt="Imagen" src="Imagenes/Proveedor.png" width="136" height="136"/>
+                                <img alt="Imagen" src="Imagenes/Proveedor1.png" width="136" height="136"/>
                             </div>
                             <asp:Label ID="Label2" runat="server" CssClass="BtsImg" Text="Proveedores"></asp:Label>
                             </a>

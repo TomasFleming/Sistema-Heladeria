@@ -53,19 +53,19 @@
       <div class="modal-header">
 
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Agregar nuevo articulo<asp:Label ID="label55" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
+        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Agregar nuevo moviemiento<asp:Label ID="label55" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
       </div>
       <div class="modal-body">
         <p></p><%--aasasdasasadsads--%>
           <%-- aca deberia empesar el asp:UpdatePanel y el contentemplate, pero solo los nesesitaria para aquellos que nesesito para editar --%>
           
                 <center>
-                          <table id="Tabla_cat1" style="width: 36%; height: 207px;">
+                          <table id="Tabla_cat1" style="width: 36%; height: 300px;">
         <tr>
             <td style="height: 66px; width: 228px">
                 <asp:Label ID="Art_nom_lb" runat="server" Text="Nombre" style="font-size: 20px"></asp:Label>
             </td>
-            <td style="height: 66px; width: 646px">
+            <td style="height: 66px; width: 300px">
                 <asp:TextBox ID="Nombre_mov_tx" runat="server"></asp:TextBox>
                 <asp:Label ID="Alert_lb" runat="server" Text="Ya existe un movimiento con ese nombre" Visible="False" ForeColor="Red"></asp:Label>
             </td>
@@ -73,11 +73,11 @@
         
         <tr>
             <td style="width: 228px; height: 22px">
-                <asp:Label ID="Art_Pre_lb" runat="server" Text="Descripcion" style="font-size: 20px"></asp:Label>
+                <asp:Label ID="Art_Pre_lb" runat="server" Text="Descripcion" style="font-size: 20px" ></asp:Label>
             </td>
-            <td style="height: 22px; width: 646px">
+            <td style="height: 22px; width: 300px">
 
-               <asp:TextBox ID="Descp_tx" runat="server" Height="65px" style="margin-left: 0" TextMode="MultiLine" Width="292px"></asp:TextBox>
+               <asp:TextBox ID="Descp_tx" runat="server" Height="65px" style="margin-left: 0" TextMode="MultiLine" Width="300px"></asp:TextBox>
 
             </td>
         </tr>
@@ -85,14 +85,14 @@
             <td style="width: 228px; height: 22px">
                 <asp:Label ID="Art_desc_lb" runat="server" Text="Detalle" style="font-size: 20px"></asp:Label>
             </td>
-            <td style="height: 22px; width: 646px">
+            <td style="height: 22px; width: 300px">
                 <asp:TextBox ID="Detalle_tx" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td colspan="2">
-                <center><asp:Button ID="Mov_guard_btn" CssClass="btn btn-primary" runat="server" Text="Guardar Movimiento" OnClick="Mov_guard_btn_Click"/></center>
-            &nbsp;<center><asp:Button ID="Cancelar_mov_btn" CssClass="btn btn-danger" runat="server" Text="Cancelar" OnClick="Cancelar_mov_btn_Click" /></center>
+                <center><asp:Button ID="Mov_guard_btn" CssClass="btn btn-primary" runat="server" Text="Guardar Movimiento" OnClick="Mov_guard_btn_Click"/>
+            &nbsp;<asp:Button ID="Cancelar_mov_btn" CssClass="btn btn-danger" runat="server" Text="Cancelar" OnClick="Cancelar_mov_btn_Click" /></center>
             </td>
         </tr>
     </table>
