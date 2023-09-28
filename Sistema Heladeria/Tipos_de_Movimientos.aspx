@@ -12,7 +12,7 @@
 </div>
     <p></p>
     <center>
-            <asp:GridView ID="Lista_Movimientos" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt" Width="1235px">
+            <asp:GridView ID="Lista_Movimientos" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt" Width="1200px">
 <AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
                 <Columns>
                 <asp:BoundField DataField="ID" HeaderText="COD" >
@@ -21,7 +21,7 @@
                 <asp:BoundField DataField="Nombre" HeaderText="Actividad" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
-                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" >
+                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" ItemStyle-Width="350" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
                 <asp:BoundField DataField="Detalle" HeaderText="Detalles" >

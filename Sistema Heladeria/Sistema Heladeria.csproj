@@ -110,6 +110,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Depositos.aspx" />
     <Content Include="Facturas_Crear_Nueva.aspx" />
+    <Content Include="Facturas_Pagar.aspx" />
     <Content Include="Facturas_Ver.aspx" />
     <Content Include="Imagenes\categoria1.png" />
     <Content Include="Imagenes\categorias.png" />
@@ -139,6 +140,7 @@
     <Content Include="ListasCompras_Ver.aspx" />
     <Content Include="Movimientos_Stocks.aspx" />
     <Content Include="Pre_Deposit_Movs.aspx" />
+    <Content Include="Pre_Facts.aspx" />
     <Content Include="Proveedores.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -215,6 +217,13 @@
     <Compile Include="Facturas_Crear_Nueva.aspx.designer.cs">
       <DependentUpon>Facturas_Crear_Nueva.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Facturas_Pagar.aspx.cs">
+      <DependentUpon>Facturas_Pagar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Facturas_Pagar.aspx.designer.cs">
+      <DependentUpon>Facturas_Pagar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Facturas_Ver.aspx.cs">
       <DependentUpon>Facturas_Ver.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -260,6 +269,13 @@
     </Compile>
     <Compile Include="Pre_Deposit_Movs.aspx.designer.cs">
       <DependentUpon>Pre_Deposit_Movs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pre_Facts.aspx.cs">
+      <DependentUpon>Pre_Facts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pre_Facts.aspx.designer.cs">
+      <DependentUpon>Pre_Facts.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Proveedores.aspx.cs">

@@ -150,6 +150,15 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.Label ID_Ord_lb;
 
         /// <summary>
+        /// Control UpdatePanel3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel3;
+
+        /// <summary>
         /// Control Lista_Detalle.
         /// </summary>
         /// <remarks>

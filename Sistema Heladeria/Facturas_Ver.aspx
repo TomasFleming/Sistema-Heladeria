@@ -38,7 +38,7 @@
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>
-                    <asp:Button ID="Filtrar_btn" runat="server" OnClick="Filtrar_btn_Click" Text="Filtrar" />
+                    <asp:Button ID="Filtrar_btn" runat="server" OnClick="Buscar_fact_btn_Click" Text="Filtrar" />
                 </td>
             </tr>
             <tr>
@@ -109,13 +109,13 @@
     <div class="modal-content">
       <div class="modal-header">
 
-        <button type="button" class="close" data-dismiss="modal">&times;ton>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
         <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Articulos de la Factura N°<asp:Label ID="ID_Ord_lb" runat="server" Visible="True"></asp:Label></h4></center>
       </div>
       <div class="modal-body">
         <p></p><%--aasasdasasadsads--%>
           <%-- aca deberia empesar el asp:UpdatePanel y el contentemplate, pero solo los nesesitaria para aquellos que nesesito para editar --%>
-          
+          <asp:UpdatePanel ID="UpdatePanel3" runat="server"><ContentTemplate>
                 <center>
                           <asp:GridView ID="Lista_Detalle" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt">
 <AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
@@ -147,7 +147,7 @@
 
 <PagerStyle CssClass="pgr"></PagerStyle>
             </asp:GridView>
-                      </center>  
+                      </center> </ContentTemplate></asp:UpdatePanel> 
                   
                           
           <%--ass--%>

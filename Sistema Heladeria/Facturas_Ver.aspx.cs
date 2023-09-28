@@ -40,9 +40,45 @@ namespace Sistema_Heladeria
         }
         protected void Buscar_fact_btn_Click(object sender, EventArgs e)
         {
+            //con.Open();
+            //string comando = "select * from Facturas_Proveedor FP left join Factura_Prov_Pagada Fpp on FP.ID=Fpp.ID_fact inner join Proveedores P on P.ID=Fp.ID_prov where FP.ID like '" + Buscador_Fact_tx.Text + "'  or P.NombreCompleto like '%" + Buscador_Fact_tx.Text + "%'";
+            //SqlCommand Com = new SqlCommand(comando, con.GetConnection());
+            //Com.ExecuteNonQuery();
+            //SqlDataAdapter Proveedores = new SqlDataAdapter(Com);
+            //DataTable prov = new DataTable();
+            //Proveedores.Fill(prov);
+            //Lista_facturas.DataSource = prov;
+            //Lista_facturas.DataBind();
+            //con.Close();
             con.Open();
-            string comando = "select * from Facturas_Proveedor FP left join Factura_Prov_Pagada Fpp on FP.ID=Fpp.ID_fact inner join Proveedores P on P.ID=Fp.ID_prov where FP.ID like '" + Buscador_Fact_tx.Text + "'  or P.NombreCompleto like '%" + Buscador_Fact_tx.Text + "%'";
+            string comando = "select * from Facturas_Proveedor FP left join Factura_Prov_Pagada Fpp on FP.ID=Fpp.ID_fact inner join Proveedores P on P.ID=Fp.ID_prov where FP.ID like '" + Buscador_Fact_tx.Text + "'  or P.NombreCompleto like '%" + Buscador_Fact_tx.Text + "%' ";//and Total>=@prTotMin and Total<=@prTotMax and Fecha_Emision>=@prFechaInicio and Fecha_Emision<=@prFechaFin and ID_prov=@prProveedor";
+
+            if (!string.IsNullOrWhiteSpace(Precio_min_tx.Text))//quiere decir que si selecciono algo 
+            {
+                comando = comando + " and Total>=" + Precio_min_tx.Text + " ";
+            }
+            if (!string.IsNullOrWhiteSpace(Precio_Max_tx.Text))
+            {
+                comando = comando + " and Total<=" + Precio_Max_tx.Text + " ";
+            }
+            if (!string.IsNullOrWhiteSpace(Fecha_min_tx.Text))
+            {
+                comando = comando + " and Fecha_Emision>='" + Fecha_min_tx.Text + "' ";
+            }
+            if (!string.IsNullOrWhiteSpace(Fecha_Max_tx.Text))
+            {
+                comando = comando + " and Fecha_Emision<='" + Fecha_Max_tx.Text + "' ";
+            }
+            if (Prov_select_lt.SelectedValue != "0")
+            {
+                comando = comando + " and ID_prov=" + Prov_select_lt.SelectedValue + " ";
+            }
             SqlCommand Com = new SqlCommand(comando, con.GetConnection());
+
+            //Com.Parameters.Add(new SqlParameter("@prTotMax", Precio_Max_tx.Text));
+            //Com.Parameters.Add(new SqlParameter("@prFechaInicio", Fecha_min_tx.Text));
+            //Com.Parameters.Add(new SqlParameter("@prFechaFin", Fecha_Max_tx.Text));
+            //Com.Parameters.Add(new SqlParameter("@prProveedor", (Prov_select_lt.SelectedValue)));
             Com.ExecuteNonQuery();
             SqlDataAdapter Proveedores = new SqlDataAdapter(Com);
             DataTable prov = new DataTable();
