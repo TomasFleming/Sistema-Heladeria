@@ -33,15 +33,6 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.TextBox Cod_Prov_tx;
 
         /// <summary>
-        /// Control CompareValidator3.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator3;
-
-        /// <summary>
         /// Control UpdatePanel5.
         /// </summary>
         /// <remarks>
@@ -114,15 +105,6 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.Label Direc_lb;
 
         /// <summary>
-        /// Control Fecha_Venc_tx.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Fecha_Venc_tx;
-
-        /// <summary>
         /// Control Correo_lb.
         /// </summary>
         /// <remarks>
@@ -132,13 +114,13 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.Label Correo_lb;
 
         /// <summary>
-        /// Control Pop_Art_bt.
+        /// Control Pop_Facts_bt.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Pop_Art_bt;
+        protected global::System.Web.UI.WebControls.Button Pop_Facts_bt;
 
         /// <summary>
         /// Control UpdatePanel2.
@@ -150,12 +132,57 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.UpdatePanel UpdatePanel2;
 
         /// <summary>
-        /// Control Lista_Art_Fact.
+        /// Control Lista_facturas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView Lista_Art_Fact;
+        protected global::System.Web.UI.WebControls.GridView Lista_facturas;
+
+        /// <summary>
+        /// Control UpdatePanel1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+
+        /// <summary>
+        /// Control Sub_tot_lb.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Sub_tot_lb;
+
+        /// <summary>
+        /// Control Total_lb.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Total_lb;
+
+        /// <summary>
+        /// Control Guardar_Fact_btn.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Guardar_Fact_btn;
+
+        /// <summary>
+        /// Control Cancelar_Fact_btn.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Cancelar_Fact_btn;
     }
 }

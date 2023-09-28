@@ -23,7 +23,7 @@
     </div>
     <div class="col-md-4"> 
         <center style="width: 200px">
-                        <a runat="server" href="Articulos.aspx">
+                        <a runat="server" href="Facturas_Pagar.aspx">
                         <div class="image-button-container" style="width: 207px">
                             <img alt="Imagen" src="Imagenes/historial_movimiento.png" />
                         </div>

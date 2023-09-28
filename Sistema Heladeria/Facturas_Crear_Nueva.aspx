@@ -112,11 +112,14 @@
                     </asp:BoundField>
                 <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    <ItemStyle HorizontalAlign="Right" VerticalAlign="Middle" />
                     </asp:BoundField>
                     <asp:BoundField DataField="Precio" HeaderText="Precio c/u" >
+                        <ItemStyle HorizontalAlign="Right" VerticalAlign="Middle" />
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
                     <asp:TemplateField HeaderText="Total">
+                        <ItemStyle HorizontalAlign="Right" VerticalAlign="Middle" />
             <ItemTemplate>
                 <asp:Label ID="lblTotal" runat="server" Text='<%# (Convert.ToDecimal(Eval("Precio")) * Convert.ToInt32(Eval("Cantidad"))).ToString("0.00") %>'></asp:Label>
             </ItemTemplate>
