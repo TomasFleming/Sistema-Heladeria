@@ -121,6 +121,10 @@
     <Content Include="Imagenes\fondo.jpg" />
     <Content Include="Imagenes\fondo2.jpg" />
     <Content Include="Imagenes\fondo3.jpg" />
+    <Content Include="Imagenes\fondo4.jpg" />
+    <Content Include="Imagenes\fondo5.jpg" />
+    <Content Include="Imagenes\fondo6.jpg" />
+    <Content Include="Imagenes\fondo7.jpg" />
     <Content Include="Imagenes\historial_movimiento.png" />
     <Content Include="Imagenes\OrdenesCompra.png" />
     <Content Include="Imagenes\Proveedor.png" />

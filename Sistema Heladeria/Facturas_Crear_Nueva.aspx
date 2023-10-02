@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <table class="nav-justified">
         <tr>
-    <td rowspan="2" style="width: 603px; font-size: 50px; color: #FF6666;">
+    <td rowspan="2" style="width: 603px; font-size: 50px; color: #000000;">
                 <center>
                     Registro Factura<br />
 &nbsp;</center>
@@ -141,11 +141,17 @@
     &nbsp;<asp:UpdatePanel ID="UpdatePanel1" runat="server"><ContentTemplate>
         <table class="nav-justified" style="border-bottom-style: solid; border-width: thin; font-family: Arial, Helvetica, sans-serif; font-size: 20px; border-top-style: solid;">
         <tr>
-            <td style="border-bottom-style: solid; border-width: thin" class="text-right">SubTotal:<asp:Label ID="Sub_tot_lb" runat="server" Font-Bold="True"></asp:Label>
+            <td style="border-bottom-style: solid; border-width: thin; width: 1040px;" class="text-right">SubTotal:
+            </td>
+            <td class="text-right" style="border-bottom-style: solid; border-width: thin">
+                <asp:Label ID="Sub_tot_lb" runat="server" Font-Bold="True"></asp:Label>
             </td>
         </tr>
         <tr>
-            <td style="height: 28px" class="text-right">Total:<asp:Label ID="Total_lb" runat="server" Font-Bold="True"></asp:Label>
+            <td style="height: 28px; width: 1040px;" class="text-right">Total:
+            </td>
+            <td class="text-right" style="height: 28px">
+                <asp:Label ID="Total_lb" runat="server" Font-Bold="True"></asp:Label>
             </td>
         </tr>
     </table></ContentTemplate></asp:UpdatePanel>

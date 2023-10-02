@@ -1,29 +1,26 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Facturas_Pagar.aspx.cs" Inherits="Sistema_Heladeria.Facturas_Pagar" %>
+﻿    <%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Facturas_Pagar.aspx.cs" Inherits="Sistema_Heladeria.Facturas_Pagar" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
         <table class="nav-justified">
         <tr>
     <td rowspan="2" style="width: 603px; font-size: 50px; color: #FF6666;">
                 <center>
-                    Pago Facturas<br />
+                    <asp:Label ID="Label1" runat="server" ForeColor="Black" Text="Pago Factura"></asp:Label>
+                    <br />
                 </center>
             </td>
             <td style="height: 38px">
-    <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;">
-        &nbsp;</p>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td style="height: 47px">
                 <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;">
         Numero de Pago:&nbsp;&nbsp;&nbsp;
         <asp:Label ID="Nro_Fact_lb" runat="server"></asp:Label>
     </p>
-            </td>
-        </tr>
-        <tr>
-            <td style="height: 47px">
                 <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;" __designer:mapid="26c">
                     Numero Cuenta Corriente:
                     <asp:TextBox ID="Cod_Prov_tx" runat="server" TextMode="Number" Width="140px"></asp:TextBox>
     </p>
-                <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;" __designer:mapid="26c">
-                    &nbsp;</p>
             </td>
         </tr>
     </table>
@@ -47,9 +44,9 @@
                 <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
                     Forma de Pago :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>&nbsp;&nbsp;&nbsp; </strong>
                     <asp:DropDownList ID="Tipo_Fact" runat="server">
-                        <asp:ListItem>A</asp:ListItem>
-                        <asp:ListItem>B</asp:ListItem>
-                        <asp:ListItem>C</asp:ListItem>
+                        <asp:ListItem>Efectivo</asp:ListItem>
+                        <asp:ListItem>Targeta Credito</asp:ListItem>
+                        <asp:ListItem>Targeta Devito</asp:ListItem>
                     </asp:DropDownList>
                 </p>
             </td>
@@ -73,7 +70,7 @@
             <td class="modal-sm" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 70px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide;">&nbsp;</td>
             <td style="border-width: 3px; border-color: #C0C0C0; border-right-style: solid; border-left-style: solid;">
                 <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
-                    F</p>
+                    &nbsp;</p>
             </td>
         </tr>
         <tr>
@@ -87,7 +84,7 @@
     </asp:UpdatePanel>
     <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
         Facturas a Pagar:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Pop_Facts_bt" runat="server" Text="Agregar Factura" CssClass="btn btn-default" OnClick="Pop_Facts_bt_Click" />
+        <asp:Button ID="Pop_Facts_bt" runat="server" Text="Agregar Factura" CssClass="btn btn-default" OnClick="Pop_Facts_bt_Click"  />
         <asp:UpdatePanel ID="UpdatePanel2" runat="server">
             <ContentTemplate>
         <center>
@@ -152,11 +149,9 @@
 <asp:UpdatePanel ID="UpdatePanel1" runat="server"><ContentTemplate>
         <table class="nav-justified" style="border-bottom-style: solid; border-width: thin; font-family: Arial, Helvetica, sans-serif; font-size: 20px; border-top-style: solid;">
         <tr>
-            <td style="border-bottom-style: solid; border-width: thin" class="text-right">SubTotal:<asp:Label ID="Sub_tot_lb" runat="server" Font-Bold="True"></asp:Label>
-            </td>
-        </tr>
-        <tr>
-            <td style="height: 28px" class="text-right">Total:<asp:Label ID="Total_lb" runat="server" Font-Bold="True"></asp:Label>
+            <td style="height: 28px; width: 1048px;" class="text-right">Total:</td>
+            <td class="text-right" style="height: 28px">
+                <asp:Label ID="Total_lb" runat="server" Font-Bold="True"></asp:Label>
             </td>
         </tr>
     </table></ContentTemplate></asp:UpdatePanel>

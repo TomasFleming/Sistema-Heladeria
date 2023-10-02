@@ -15,6 +15,15 @@ namespace Sistema_Heladeria
     {
 
         /// <summary>
+        /// Control Label1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+
+        /// <summary>
         /// Control Nro_Fact_lb.
         /// </summary>
         /// <remarks>
@@ -148,15 +157,6 @@ namespace Sistema_Heladeria
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-
-        /// <summary>
-        /// Control Sub_tot_lb.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Sub_tot_lb;
 
         /// <summary>
         /// Control Total_lb.
