@@ -61,7 +61,6 @@
                 <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
                     Fecha de Pago :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>
                     <asp:TextBox ID="Fecha_Creacion_tx" runat="server" style="font-size: 13pt; font-weight: bold" TextMode="Date" Width="190px"></asp:TextBox>
-<%--                    <ajaxToolkit:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="Fecha_Creacion_tx" />--%>
                     </strong>
                 </p>
             </td>
@@ -84,23 +83,15 @@
     </table>
                     </ContentTemplate>
     </asp:UpdatePanel>
-    <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
+    <p style="font-family: Arial; font-size: 20px;">
         Facturas a Pagar:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Button ID="Pop_Facts_bt" runat="server" Text="Agregar Factura" CssClass="btn btn-default" OnClick="Pop_Facts_bt_Click"  />
-        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-            <ContentTemplate>
-        <center>
-            <asp:GridView ID="Lista_facturas" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt">
+        </p><p>
+    <center>
+            <asp:UpdatePanel ID="UpdatePanel2" runat="server"><ContentTemplate>
+            <asp:GridView ID="Lista_facturas" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt" Width="1235px">
 <AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
                 <Columns>
-                <%--<asp:TemplateField HeaderText="">
-                    <HeaderTemplate>
-                        <input type="checkbox" id="chkSelectAll" onclick="SelectAllCheckboxes(this);" />
-                    </HeaderTemplate>
-                    <ItemTemplate>
-                        <input type="checkbox" class="chkSingle" />
-                    </ItemTemplate>
-                </asp:TemplateField>--%>
                 <asp:BoundField DataField="ID" HeaderText="COD" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
@@ -124,12 +115,11 @@
                     </asp:BoundField>
                      <asp:BoundField DataField="Total" HeaderText="Total" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                         <ItemStyle HorizontalAlign="Right" VerticalAlign="Middle" />
                     </asp:BoundField>
                     <asp:TemplateField HeaderText="">
                     <ItemTemplate>
                         <center>
-                        <asp:Button ID="Ver_Detalle_btn" runat="server" Text="Ver Detalle" CssClass="btn btn-primary" OnClick="Ver_Detalle_btn_Click" />
+                        <asp:Button ID="Ver_Detalle_btn" runat="server" OnClick="Ver_Detalle_btn_Click" Text="Ver Detalle" CssClass="btn btn-primary" />
                     </center>
                        </ItemTemplate>
                 </asp:TemplateField>
@@ -144,9 +134,8 @@
 
 <PagerStyle CssClass="pgr"></PagerStyle>
             </asp:GridView>
-        </center>
-                            </ContentTemplate>
-        </asp:UpdatePanel>
+                </ContentTemplate></asp:UpdatePanel>
+        </center></p>
         <p>
 <asp:UpdatePanel ID="UpdatePanel1" runat="server"><ContentTemplate>
         <table class="nav-justified" style="border-bottom-style: solid; border-width: thin; font-family: Arial, Helvetica, sans-serif; font-size: 20px; border-top-style: solid;">
@@ -160,12 +149,13 @@
         </p>
         <p>
             <center>
-            <asp:Button ID="Guardar_Fact_btn" CssClass="btn btn-success" runat="server" Text="Realizar Pagos" />
+            <asp:Button ID="Guardar_Pagos_btn" CssClass="btn btn-success" runat="server" Text="Realizar Pagos" OnClick="Guardar_Pagos_btn_Click" />
             &nbsp;&nbsp;&nbsp;
-            <asp:Button ID="Cancelar_Fact_btn" runat="server" CssClass="btn btn-danger" Text="Cancelar Factura" />
+            <asp:Button ID="Cancelar_Pago_btn" runat="server" CssClass="btn btn-danger" Text="Cancelar Pago" OnClick="Cancelar_Pago_btn_Click" />
         </center>
         </p>
-    <%-- Inicia el popup Proveedores--%>
+
+
     <div id="ModalProv" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -177,7 +167,7 @@
         <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Seleccionar Proveedor<asp:Label ID="label55" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
       </div>
       <div class="modal-body">
-        <p></p><%--aasasdasasadsads--%>
+        <p></p><%--ass--%>
           <asp:UpdatePanel ID="UpdatePanel3" runat="server">
               <ContentTemplate>
                         <asp:TextBox ID="Buscador_prov" runat="server" Width="257px" style="font-size: 15pt" Height="27px"></asp:TextBox>
@@ -217,16 +207,17 @@
                                     </ContentTemplate>
           </asp:UpdatePanel>    
           <%--ass--%>
-
-
+          
+          
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
-
+      
   </div>
 </div>
+
     <div id="DetalleModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -285,13 +276,84 @@
     </div>
   </div>
     </div>
+    <%-- Inicia el popup Para seleccionar Facturas --%>
+    <div id="ModalFact" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Seleccionar Facturas sin pagar de <asp:Label ID="label2" runat="server" Text="Label" Visible="true"></asp:Label></h4></center>
+      </div>
+      <div class="modal-body">
+        <p></p>
+          <%--aasasdasasadsads--%>
+          <asp:UpdatePanel ID="UpdatePanel6" runat="server">
+              <ContentTemplate>
+        <center>
+            <asp:GridView ID="Facts_Seleccionar_list" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt">
+<AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
+                <Columns>
+                    <asp:TemplateField HeaderText="">
+                    <HeaderTemplate>
+                        <input type="checkbox" id="chkSelectAll" onclick="SelectAllCheckboxes(this);" />
+                    </HeaderTemplate>
+                    <ItemTemplate>
+                        <input type="checkbox" class="chkSingle" />
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:BoundField DataField="ID" HeaderText="COD" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="NombreCompleto" HeaderText="Proveedor" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Cod_Prov" HeaderText="Numero Factura Proveedor" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="Tipo" HeaderText="Tipo" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Estado" HeaderText="Estado" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Fecha_Emision" HeaderText="Fecha Emision" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="Fecha_Vencimiento" HeaderText="Fecha Vencimiento" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                     <asp:BoundField DataField="Total" HeaderText="Total" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                    <%--<asp:TemplateField HeaderText="">
+                    <ItemTemplate>
+                        <center>
+                        <asp:Button ID="Button1" runat="server" OnClick="Ver_Detalle_btn_Click" Text="Ver Detalle" CssClass="btn btn-primary" />
+                    </center>
+                       </ItemTemplate>
+                </asp:TemplateField>--%>
+            </Columns>
+
+<PagerStyle CssClass="pgr"></PagerStyle>
+            </asp:GridView>
+        </center>
+                  </ContentTemplate>
+          </asp:UpdatePanel>
+          <%--ass--%>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
         <script type="text/javascript">
-            function SelectAllCheckboxes(checkbox) {
-                var checkboxes = document.getElementsByClassName('chkSingle');
-                for (var i = 0; i < checkboxes.length; i++) {
-                    checkboxes[i].checked = checkbox.checked;
-                }
-            }
             function openModalProv() {
                 $('#ModalProv').modal('show');
             }
@@ -304,6 +366,19 @@
             function closeModalDetalle() {
                 $('#DetalleModal').modal('hide');
             }
+            function openModalFacts() {
+                $('#ModalFact').modal('show');
+            }
+            function closeModalFacts() {
+                $('#ModalFact').modal('hide');
+            }
+            function SelectAllCheckboxes(checkbox) {
+                var checkboxes = document.getElementsByClassName('chkSingle');
+                for (var i = 0; i < checkboxes.length; i++) {
+                    checkboxes[i].checked = checkbox.checked;
+                }
+            }
+            
 
         </script>
     </asp:Content>
