@@ -5,7 +5,7 @@
     <td rowspan="2" style="width: 603px; font-size: 50px; color: #000000;">
                 <center>
                     Registro Factura<br />
-&nbsp;</center>
+                </center>
             </td>
             <td style="height: 38px">
     <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;">
@@ -23,7 +23,7 @@
                     <asp:TextBox ID="Cod_Prov_tx" runat="server" TextMode="Number" Width="140px"></asp:TextBox>
     </p>
                 <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;" __designer:mapid="26c">
-                    <asp:CompareValidator ID="CompareValidator3" runat="server" ErrorMessage="La factura a registrar debe tener un codigo de identificacion que pertenece al Proveedor" ControlToValidate="Cod_Prov_tx" Operator="GreaterThan" ValueToCompare="0" ForeColor="Red"></asp:CompareValidator>
+                    <asp:CompareValidator ID="CompareValidator3" runat="server" ErrorMessage="Debe tener un codigo de identificacion perteneciente al Proveedor" ControlToValidate="Cod_Prov_tx" Operator="GreaterThan" ValueToCompare="0" ForeColor="Red"></asp:CompareValidator>
     </p>
             </td>
         </tr>
@@ -32,10 +32,10 @@
         <ContentTemplate>
     <table class="tableDist" border="0" style="border-style: solid; border-width: 0px 3px 0px 3px; border-color: #CCCCCC; padding: 0px; clip: rect(0px, 0px, 0px, 0px); font-family: Arial; font-size: 20px;">
         <tr>
-            <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; border-top: 3px solid #C0C0C0; width: 525px; border-bottom-color: #C0C0C0; border-bottom-width: 3px;">Detalles del Proveedor :&nbsp;&nbsp;&nbsp;<asp:Button ID="PopUp_Prov_bt" runat="server" Text="Seleccionar Proveedor" CssClass="btn btn-default" OnClick="PopUp_Prov_bt_Click"/>
+            <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; border-top: 3px solid #C0C0C0; width: 525px; border-bottom-color: #C0C0C0; border-bottom-width: 3px; height: 39px; background-color: #6495ED;">Detalles del Proveedor :&nbsp;&nbsp;&nbsp;<asp:Button ID="PopUp_Prov_bt" runat="server" Text="Seleccionar Proveedor" CssClass="btn btn-default" OnClick="PopUp_Prov_bt_Click"/>
             </td>
-            <td class="modal-lg" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 70px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide;">&nbsp;</td>
-            <td style="border-width: 3px; border-color: #C0C0C0; border-right-style: solid; border-left-style: solid; border-top-style: solid;">Observaciones de la Factura:&nbsp;&nbsp;&nbsp;</td>
+            <td class="modal-lg" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 70px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide; height: 39px;"></td>
+            <td style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; border-top: 3px solid #C0C0C0; height: 39px; border-bottom-color: #C0C0C0; border-bottom-width: 3px; background-color: #6495ED;">Observaciones de la Factura:&nbsp;&nbsp;&nbsp;</td>
         </tr>
         <tr>
             <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; width: 525px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px; height: 56px;">Numero Proveedor:

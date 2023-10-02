@@ -199,28 +199,34 @@ namespace Sistema_Heladeria
 
         protected void Art_Agregar_btn_Click(object sender, EventArgs e)
         {
-            List<ItemCompra> ListaOrden = (List<ItemCompra>)Session["ListaOrden"];
-            ListaOrden.Add(new ItemCompra{ ID = Convert.ToInt32(ID_Art_sel_lb.Text), Nombre = Nomb_art_lb.Text, Categoria = Cat_art_lb.Text, Descripcion = Desc_art_lb.Text, Cantidad = Convert.ToInt32(Cantidad_tx.Text) });
+            try
+            {
+                List<ItemCompra> ListaOrden = (List<ItemCompra>)Session["ListaOrden"];
+                ListaOrden.Add(new ItemCompra { ID = Convert.ToInt32(ID_Art_sel_lb.Text), Nombre = Nomb_art_lb.Text, Categoria = Cat_art_lb.Text, Descripcion = Desc_art_lb.Text, Cantidad = Convert.ToInt32(Cantidad_tx.Text) });
 
-            //int ID = Convert.ToInt32(Session[""].ToString());
+                //int ID = Convert.ToInt32(Session[""].ToString());
 
-            Lista_Art_Ord.DataSource = ListaOrden;
-            Lista_Art_Ord.DataBind();
+                Lista_Art_Ord.DataSource = ListaOrden;
+                Lista_Art_Ord.DataBind();
 
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalSelArt();", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalSelArt();", true);
 
 
-            //Para dejar bacio
-            //DataTable clrear = new DataTable();
-            //Lista_Articulos.DataSource = clrear;
-            //Lista_Articulos.DataBind();
-            ID_art_tx.Text = "";
-            Nomb_art_lb.Text = "";
-            Desc_art_lb.Text = "";
-            Cantidad_tx.Text = "";
-            Cat_art_lb.Text = "";
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalArt();", true);
+                //Para dejar bacio
+                //DataTable clrear = new DataTable();
+                //Lista_Articulos.DataSource = clrear;
+                //Lista_Articulos.DataBind();
+                ID_art_tx.Text = "";
+                Nomb_art_lb.Text = "";
+                Desc_art_lb.Text = "";
+                Cantidad_tx.Text = "";
+                Cat_art_lb.Text = "";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalArt();", true);
+            }
+            catch(Exception ex)
+            {
 
+            }
         }
 
         protected void Art_elin_byn_Click(object sender, EventArgs e)//cual era este ??????
