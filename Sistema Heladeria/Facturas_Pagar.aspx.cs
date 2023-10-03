@@ -25,8 +25,23 @@ namespace Sistema_Heladeria
             //Lista_facturas.DataSource = art;
             //Lista_facturas.DataBind();
             //con.Close();
+            if (Session["ListaFacturasPago"] == null)
+            {
+                List<Facturas> ListaFactura = new List<Facturas>();
+                Session["ListaFacturasPago"] = ListaFactura;
+            }
         }
-
+        class Facturas
+        {
+            public int ID { get; set; }
+            public string NombreCompleto { get; set; }
+            public int Cod_Prov { get; set; }
+            public string Tipo { get; set; }
+            public string Estado { get; set; }
+            public string Fecha_Emision { get; set; }
+            public string Fecha_Vencimiento { get; set; }
+            public decimal Total { get; set; }
+        }
         protected void PopUp_Prov_bt_Click(object sender, EventArgs e)
         {
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalProv();", true);
@@ -37,7 +52,7 @@ namespace Sistema_Heladeria
             try
             {
                 con.Open();
-                SqlCommand sql = new SqlCommand("select * from Facturas_Proveedor FP left join Factura_Prov_Pagada Fpp on FP.ID=Fpp.ID_fact inner join Proveedores P on P.ID=Fp.ID_prov where P.ID=" + Prov_ID_lb.Text, con.GetConnection());
+                SqlCommand sql = new SqlCommand("select * from Facturas_Proveedor FP left join Factura_Prov_Pagada Fpp on FP.ID=Fpp.ID_fact inner join Proveedores P on P.ID=Fp.ID_prov where P.ID=" + Prov_ID_lb.Text + " and Estado='Pendiente'", con.GetConnection());
                 sql.ExecuteNonQuery();
                 SqlDataAdapter fact = new SqlDataAdapter(sql);
                 DataTable f = new DataTable();
@@ -95,16 +110,16 @@ namespace Sistema_Heladeria
             con.Close();
         }
 
-        protected void Ver_Detalle_btn_Click(object sender, EventArgs e)
+        protected void Ver_Detalle_btn2_Click(object sender, EventArgs e)
         {
             Button IDBtn_ = sender as Button;
             GridViewRow row = (GridViewRow)IDBtn_.NamingContainer;
             int I = row.RowIndex;
-            Lista_facturas.SelectedIndex = I;
-            int ID = Convert.ToInt32(Lista_facturas.DataKeys[Lista_facturas.SelectedIndex].Value);
-            ID_Ord_lb.Text = ID.ToString();
+            Facts_Seleccionar_list.SelectedIndex = I;
+            int ID = Convert.ToInt32(Facts_Seleccionar_list.DataKeys[Facts_Seleccionar_list.SelectedIndex].Value);
+            ID_Fact_lb.Text = ID.ToString();
             con.Open();
-            SqlCommand detalle = new SqlCommand("select A.ID,A.Nombre,A.Descripcion,C.Nombre_Categoria,DFP.Cant_fact,DFP.Precio_Unit  from Detalle_Fact_Prov DFP inner join Articulos A on A.ID=DFP.ID_Art inner join Categorias C on C.ID=A.Categoria  where DFP.ID_fact= " + ID + " where Estado='Pendiente'", con.GetConnection());
+            SqlCommand detalle = new SqlCommand("select A.ID,A.Nombre,A.Descripcion,C.Nombre_Categoria,DFP.Cant_fact,DFP.Precio_Unit  from Detalle_Fact_Prov DFP inner join Articulos A on A.ID=DFP.ID_Art inner join Categorias C on C.ID=A.Categoria  where DFP.ID_fact= " + ID, con.GetConnection());
             detalle.ExecuteNonQuery();
 
             SqlDataAdapter Depositos = new SqlDataAdapter(detalle);
@@ -118,17 +133,99 @@ namespace Sistema_Heladeria
 
         protected void Quitar_btn_Click(object sender, EventArgs e)
         {
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalFacts();", true);
+            
         }
 
         protected void Cancelar_Pago_btn_Click(object sender, EventArgs e)
         {
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalDetalle();", true);
+
         }
 
         protected void Guardar_Pagos_btn_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void Seleccionar_Facts_btn_Click(object sender, EventArgs e)
+        {
+            
+            //List<Facturas> facturasSeleccionadas = (List<Facturas>)Session["ListaFactura"];
+
+            //foreach (GridViewRow row in Facts_Seleccionar_list.Rows)
+            //{
+            //    CheckBox chkSelect = (CheckBox)row.FindControl("chkSelect");
+
+            //    // Verifica si el checkbox está seleccionado
+            //    if (chkSelect != null && chkSelect.Checked)
+            //    {
+            //        int ID = Convert.ToInt32(Facts_Seleccionar_list.DataKeys[row.RowIndex].Value);
+            //        string nombreCompleto = row.Cells[1].Text;
+            //        int codProv = Convert.ToInt32(row.Cells[2].Text);
+            //        string tipo = row.Cells[3].Text;
+            //        string estado = row.Cells[4].Text;
+            //        DateTime fechaEmision = Convert.ToDateTime(row.Cells[5].Text);
+            //        DateTime fechaVencimiento = Convert.ToDateTime(row.Cells[6].Text);
+            //        decimal total = Convert.ToDecimal(row.Cells[7].Text);
+
+            //        // Agrega la factura seleccionada a la lista
+            //        facturasSeleccionadas.Add(new Facturas
+            //        {
+            //            ID = ID,
+            //            NombreCompleto = nombreCompleto,
+            //            Cod_Prov = codProv,
+            //            Tipo = tipo,
+            //            Estado = estado,
+            //            Fecha_Emision = fechaEmision,
+            //            Fecha_Vencimiento = fechaVencimiento,
+            //            Total = total
+            //        });
+            //    }
+            //}
+            //Lista_facturas.DataSource = facturasSeleccionadas;
+            //Lista_facturas.DataBind();
+        }
+
+        protected void Ver_Detalle_btn_Click(object sender, EventArgs e)
+        {
+            Button IDBtn_ = sender as Button;
+            GridViewRow row = (GridViewRow)IDBtn_.NamingContainer;
+            int I = row.RowIndex;
+            Lista_facturas.SelectedIndex = I;
+            int ID = Convert.ToInt32(Lista_facturas.DataKeys[Lista_facturas.SelectedIndex].Value);
+            ID_Fact_lb.Text = ID.ToString();
+            con.Open();
+            SqlCommand detalle = new SqlCommand("select A.ID,A.Nombre,A.Descripcion,C.Nombre_Categoria,DFP.Cant_fact,DFP.Precio_Unit  from Detalle_Fact_Prov DFP inner join Articulos A on A.ID=DFP.ID_Art inner join Categorias C on C.ID=A.Categoria  where DFP.ID_fact= " + ID, con.GetConnection());
+            detalle.ExecuteNonQuery();
+
+            SqlDataAdapter Depositos = new SqlDataAdapter(detalle);
+            DataTable det = new DataTable();
+            Depositos.Fill(det);
+            Lista_Detalle.DataSource = det;
+            Lista_Detalle.DataBind();
+            con.Close();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalDetalle();", true);
+        }
+
+        protected void Seleccionar_Click(object sender, EventArgs e)
+        {
+            List<Facturas> facturasSeleccionadas = (List<Facturas>)Session["ListaFacturasPago"];
+
+            Button IDBtn_ = sender as Button;
+            GridViewRow row = (GridViewRow)IDBtn_.NamingContainer;
+            int I = row.RowIndex;
+            Facts_Seleccionar_list.SelectedIndex = I;
+            int ID = Convert.ToInt32(Facts_Seleccionar_list.DataKeys[Facts_Seleccionar_list.SelectedIndex].Value);
+
+            con.Open();
+            SqlCommand sql = new SqlCommand("select * from Facturas_Proveedor FP left join Factura_Prov_Pagada Fpp on FP.ID=Fpp.ID_fact inner join Proveedores P on P.ID=Fp.ID_prov where FP.ID="+ID, con.GetConnection());
+            SqlDataReader reader = sql.ExecuteReader();
+            reader.Read();
+            
+
+            facturasSeleccionadas.Add(new Facturas{ID = Convert.ToInt32(reader["ID"].ToString()),NombreCompleto = reader["NombreCompleto"].ToString(),Cod_Prov = Convert.ToInt32(reader["Cod_Prov"].ToString()),Tipo = reader["Tipo"].ToString(),Estado = reader["Estado"].ToString(),Fecha_Emision = reader["Fecha_Emision"].ToString(),Fecha_Vencimiento = reader["Fecha_Vencimiento"].ToString(),Total = Convert.ToDecimal(reader["Total"].ToString())});
+            con.Close();
+            Lista_facturas.DataSource = facturasSeleccionadas;
+            Lista_facturas.DataBind();
         }
     }
 }

@@ -114,6 +114,7 @@
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
                      <asp:BoundField DataField="Total" HeaderText="Total" >
+                         <ItemStyle HorizontalAlign="Right" VerticalAlign="Middle" />
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
                     <asp:TemplateField HeaderText="">
@@ -218,6 +219,95 @@
   </div>
 </div>
 
+    
+    <%-- Inicia el popup Para seleccionar Facturas --%>
+    <div id="ModalFact" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Seleccionar Facturas sin pagar de <asp:Label ID="label2" runat="server" Text="Label" Visible="true"></asp:Label></h4></center>
+      </div>
+      <div class="modal-body">
+        <p></p>
+          <%--aasasdasasadsads--%>
+          <asp:UpdatePanel ID="UpdatePanel6" runat="server">
+              <ContentTemplate>
+        <center>
+            <asp:GridView ID="Facts_Seleccionar_list" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt">
+<AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
+                <Columns>
+                    <%--<asp:TemplateField HeaderText="">
+                    <HeaderTemplate>
+                        <input type="checkbox" id="chkSelectAll" onclick="SelectAllCheckboxes(this);" />
+                    </HeaderTemplate>
+                    <ItemTemplate>
+                        <input type="checkbox" class="chkSingle" />
+                    </ItemTemplate>
+                </asp:TemplateField>--%>
+                <asp:BoundField DataField="ID" HeaderText="COD" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="NombreCompleto" HeaderText="Proveedor" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Cod_Prov" HeaderText="Numero Factura Proveedor" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="Tipo" HeaderText="Tipo" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Estado" HeaderText="Estado" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Fecha_Emision" HeaderText="Fecha Emision" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="Fecha_Vencimiento" HeaderText="Fecha Vencimiento" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                     <asp:BoundField DataField="Total" HeaderText="Total" >
+                         <ItemStyle HorizontalAlign="Right" VerticalAlign="Middle" />
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                    <asp:TemplateField HeaderText="">
+                    <ItemTemplate>
+                        <center>
+                        <asp:Button ID="Ver_Detalle_btn2" runat="server" OnClick="Ver_Detalle_btn2_Click" Text="Ver Detalle" CssClass="btn btn-primary" />
+                    </center>
+                       </ItemTemplate>
+                </asp:TemplateField>
+                    <asp:TemplateField HeaderText="">
+                    <ItemTemplate>
+                        <center>
+                       <asp:Button ID="Seleccionar" runat="server" OnClick="Seleccionar_Click" Text="Seleccionar" CssClass="btn btn-primary" />
+                    </center>
+                       </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
+
+<PagerStyle CssClass="pgr"></PagerStyle>
+            </asp:GridView>
+        </center>
+                  </ContentTemplate>
+          </asp:UpdatePanel>
+          <center>
+              <asp:Button ID="Seleccionar_Facts_btn" OnClick="Seleccionar_Facts_btn_Click" runat="server" Text="Button" />
+          </center>
+          <%--ass--%>
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
     <div id="DetalleModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -226,7 +316,9 @@
       <div class="modal-header">
 
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Articulos de la Factura N°<asp:Label ID="ID_Ord_lb" runat="server" Visible="True"></asp:Label></h4></center>
+        <center>
+            <asp:UpdatePanel ID="UpdatePanel7" runat="server"><ContentTemplate>
+            <h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Articulos de la Factura N°<asp:Label ID="ID_Fact_lb" runat="server" Visible="True"></asp:Label></h4></ContentTemplate></asp:UpdatePanel></center>
       </div>
       <div class="modal-body">
         <p></p><%--aasasdasasadsads--%>
@@ -276,83 +368,6 @@
     </div>
   </div>
     </div>
-    <%-- Inicia el popup Para seleccionar Facturas --%>
-    <div id="ModalFact" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Seleccionar Facturas sin pagar de <asp:Label ID="label2" runat="server" Text="Label" Visible="true"></asp:Label></h4></center>
-      </div>
-      <div class="modal-body">
-        <p></p>
-          <%--aasasdasasadsads--%>
-          <asp:UpdatePanel ID="UpdatePanel6" runat="server">
-              <ContentTemplate>
-        <center>
-            <asp:GridView ID="Facts_Seleccionar_list" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt">
-<AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
-                <Columns>
-                    <asp:TemplateField HeaderText="">
-                    <HeaderTemplate>
-                        <input type="checkbox" id="chkSelectAll" onclick="SelectAllCheckboxes(this);" />
-                    </HeaderTemplate>
-                    <ItemTemplate>
-                        <input type="checkbox" class="chkSingle" />
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:BoundField DataField="ID" HeaderText="COD" >
-                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
-                <asp:BoundField DataField="NombreCompleto" HeaderText="Proveedor" >
-                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
-                <asp:BoundField DataField="Cod_Prov" HeaderText="Numero Factura Proveedor" >
-                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
-                    <asp:BoundField DataField="Tipo" HeaderText="Tipo" >
-                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
-                <asp:BoundField DataField="Estado" HeaderText="Estado" >
-                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
-                <asp:BoundField DataField="Fecha_Emision" HeaderText="Fecha Emision" >
-                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
-                    <asp:BoundField DataField="Fecha_Vencimiento" HeaderText="Fecha Vencimiento" >
-                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
-                     <asp:BoundField DataField="Total" HeaderText="Total" >
-                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
-                    <%--<asp:TemplateField HeaderText="">
-                    <ItemTemplate>
-                        <center>
-                        <asp:Button ID="Button1" runat="server" OnClick="Ver_Detalle_btn_Click" Text="Ver Detalle" CssClass="btn btn-primary" />
-                    </center>
-                       </ItemTemplate>
-                </asp:TemplateField>--%>
-            </Columns>
-
-<PagerStyle CssClass="pgr"></PagerStyle>
-            </asp:GridView>
-        </center>
-                  </ContentTemplate>
-          </asp:UpdatePanel>
-          <%--ass--%>
-
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-
-  </div>
-</div>
         <script type="text/javascript">
             function openModalProv() {
                 $('#ModalProv').modal('show');
