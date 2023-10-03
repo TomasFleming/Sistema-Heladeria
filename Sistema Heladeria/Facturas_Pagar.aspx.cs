@@ -47,6 +47,51 @@ namespace Sistema_Heladeria
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalProv();", true);
         }
 
+        protected void ReActualizar(object sender, EventArgs e)
+        {
+            con.Open();
+            SqlCommand sql = new SqlCommand("select * from Facturas_Proveedor FP left join Factura_Prov_Pagada Fpp on FP.ID=Fpp.ID_fact inner join Proveedores P on P.ID=Fp.ID_prov where P.ID=" + Prov_ID_lb.Text + " and Estado='Pendiente'", con.GetConnection());
+            sql.ExecuteNonQuery();
+            SqlDataAdapter fact = new SqlDataAdapter(sql);
+            DataTable f = new DataTable();
+            fact.Fill(f);
+
+            con.Close();
+
+            //para filtrarlas de la lista
+            List<Facturas> facturasSeleccionadas = (List<Facturas>)Session["ListaFacturasPago"];
+            List<int> idsEnLista = new List<int>();
+            foreach (var item in facturasSeleccionadas)
+            {
+                idsEnLista.Add(item.ID);
+            }
+
+            if (f != null && f.Rows.Count > 0)
+            {
+                var filasFiltradas = f.AsEnumerable().Where(row => !idsEnLista.Contains(row.Field<int>("ID"))).ToList();
+
+                if (filasFiltradas.Count > 0)
+                {
+                    DataTable tablaFiltrada = filasFiltradas.CopyToDataTable();
+                    Facts_Seleccionar_list.DataSource = tablaFiltrada;
+                    Facts_Seleccionar_list.DataBind();
+                }
+                else
+                {
+                    // No hay filas para mostrar
+                    DataTable bacia = new DataTable();
+                    Facts_Seleccionar_list.DataSource = bacia;
+                    Facts_Seleccionar_list.DataBind();
+                }
+            }
+            else
+            {
+                // No hay filas originales para mostrar
+                DataTable bacia = new DataTable();
+                Facts_Seleccionar_list.DataSource = bacia;
+                Facts_Seleccionar_list.DataBind();
+            }
+        }
         protected void Pop_Facts_bt_Click(object sender, EventArgs e)
         {
             try
@@ -57,11 +102,48 @@ namespace Sistema_Heladeria
                 SqlDataAdapter fact = new SqlDataAdapter(sql);
                 DataTable f = new DataTable();
                 fact.Fill(f);
-                Facts_Seleccionar_list.DataSource = f;
-                Facts_Seleccionar_list.DataBind();
+
                 con.Close();
+
+                //para filtrarlas de la lista
+                List<Facturas> facturasSeleccionadas = (List<Facturas>)Session["ListaFacturasPago"];
+                List<int> idsEnLista = new List<int>();
+                foreach (var item in facturasSeleccionadas)
+                {
+                    idsEnLista.Add(item.ID);
+                }
+
+                if (f != null && f.Rows.Count > 0)
+                {
+                    var filasFiltradas = f.AsEnumerable().Where(row => !idsEnLista.Contains(row.Field<int>("ID"))).ToList();
+
+                    if (filasFiltradas.Count > 0)
+                    {
+                        DataTable tablaFiltrada = filasFiltradas.CopyToDataTable();
+                        Facts_Seleccionar_list.DataSource = tablaFiltrada;
+                        Facts_Seleccionar_list.DataBind();
+                    }
+                    else
+                    {
+                        // No hay filas para mostrar
+                        DataTable bacia = new DataTable();
+                        Facts_Seleccionar_list.DataSource = bacia;
+                        Facts_Seleccionar_list.DataBind();
+                    }
+                }
+                else
+                {
+                    // No hay filas originales para mostrar
+                    DataTable bacia = new DataTable();
+                    Facts_Seleccionar_list.DataSource = bacia;
+                    Facts_Seleccionar_list.DataBind();
+                }
             }
-            catch(Exception ex)
+            //catch(Exception ex)
+            //{
+
+            //}
+            finally
             {
 
             }
@@ -133,12 +215,23 @@ namespace Sistema_Heladeria
 
         protected void Quitar_btn_Click(object sender, EventArgs e)
         {
-            
+            Button IDBtn_ = sender as Button;
+            GridViewRow row = (GridViewRow)IDBtn_.NamingContainer;
+            int I = row.RowIndex;
+            Lista_facturas.SelectedIndex = I;
+            int ID = Convert.ToInt32(Lista_facturas.DataKeys[Lista_facturas.SelectedIndex].Value);
+            List<Facturas> ListaFactura = (List<Facturas>)Session["ListaFacturasPago"];
+            ListaFactura.RemoveAt(ListaFactura.FindIndex(item => item.ID == ID));
+
+            Lista_facturas.DataSource = ListaFactura;
+            Lista_facturas.DataBind();
         }
 
         protected void Cancelar_Pago_btn_Click(object sender, EventArgs e)
         {
-
+            List<Facturas> ListaFactura = (List<Facturas>)Session["ListaFacturasPago"];
+            ListaFactura.Clear();
+            Response.Redirect("~/Pre_Facts.aspx");
         }
 
         protected void Guardar_Pagos_btn_Click(object sender, EventArgs e)
@@ -226,6 +319,9 @@ namespace Sistema_Heladeria
             con.Close();
             Lista_facturas.DataSource = facturasSeleccionadas;
             Lista_facturas.DataBind();
+
+            ReActualizar(sender,e);
+
         }
     }
 }
