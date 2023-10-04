@@ -19,11 +19,7 @@
         </tr>
         <tr>
             <td style="height: 47px">
-                <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;" __designer:mapid="26c">
-                    Numero Cuenta Corriente:
-                    <asp:TextBox ID="Cod_Prov_tx" runat="server" TextMode="Number" Width="140px"></asp:TextBox>
-    </p>
-            </td>
+                &nbsp;</td>
         </tr>
     </table>
     <asp:UpdatePanel ID="UpdatePanel5" runat="server">
@@ -45,10 +41,10 @@
             <td style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; height: 56px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px;">
                 <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
                     Forma de Pago :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>&nbsp;&nbsp;&nbsp; </strong>
-                    <asp:DropDownList ID="Tipo_Fact" runat="server">
-                        <asp:ListItem>Efectivo</asp:ListItem>
-                        <asp:ListItem>Targeta Credito</asp:ListItem>
-                        <asp:ListItem>Targeta Devito</asp:ListItem>
+                    <asp:DropDownList ID="Forma_Pago_tx" runat="server" onchange="mostrarOcultarContenido();">
+                        <%--<asp:ListItem>Efectivo</asp:ListItem>--%>
+                        <asp:ListItem>Transferencia</asp:ListItem>
+                        <asp:ListItem>Depósito</asp:ListItem>
                     </asp:DropDownList>
                 </p>
             </td>
@@ -60,7 +56,7 @@
             <td style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; height: 47px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px;">
                 <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
                     Fecha de Pago :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>
-                    <asp:TextBox ID="Fecha_Creacion_tx" runat="server" style="font-size: 13pt; font-weight: bold" TextMode="Date" Width="190px"></asp:TextBox>
+                    <asp:TextBox ID="Fecha_Pago_tx" runat="server" style="font-size: 13pt; font-weight: bold" TextMode="Date" Width="190px"></asp:TextBox>
                     </strong>
                 </p>
             </td>
@@ -70,8 +66,10 @@
             </td>
             <td class="modal-sm" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 70px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide;">&nbsp;</td>
             <td style="border-width: 3px; border-color: #C0C0C0; border-right-style: solid; border-left-style: solid;">
-                <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
-                    &nbsp;</p>
+                <div id="Transferencias" style="display:block;font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
+                    Numero Cuenta :
+                    <asp:TextBox ID="Num_Cuenta_tx" runat="server" TextMode="Number" Width="140px"></asp:TextBox>
+                </div>
             </td>
         </tr>
         <tr>
@@ -294,18 +292,15 @@
         </center>
                   </ContentTemplate>
           </asp:UpdatePanel>
-          <center>
+          <%--<center>
               <asp:Button ID="Seleccionar_Facts_btn" OnClick="Seleccionar_Facts_btn_Click" runat="server" Text="Button" />
-          </center>
+          </center>--%>
           <%--ass--%>
-
-
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
-
   </div>
 </div>
     <div id="DetalleModal" class="modal fade" role="dialog">
@@ -393,7 +388,17 @@
                     checkboxes[i].checked = checkbox.checked;
                 }
             }
-            
+            <%--function mostrarOcultarContenido() {
+                var formaPago = document.getElementById('<%= Forma_Pago_tx.ClientID %>');
+                var transferenciasDiv = document.getElementById('Transferencias');
+
+                if (formaPago.value === 'Efectivo') {
+                    transferenciasDiv.style.display = 'none';
+                } else {
+                    transferenciasDiv.style.display = 'block'; // o 'inline' según tu preferencia
+                }
+            }      // Llama a la función inicialmente para configurar la visibilidad inicial.
+            mostrarOcultarContenido();--%>
 
         </script>
     </asp:Content>

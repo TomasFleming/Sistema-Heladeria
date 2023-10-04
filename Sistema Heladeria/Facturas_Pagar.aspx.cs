@@ -47,6 +47,18 @@ namespace Sistema_Heladeria
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalProv();", true);
         }
 
+        protected void CalcularTotales(object sender, EventArgs e)
+        {
+            List<Facturas> ListaFactura = (List<Facturas>)Session["ListaFacturasPago"];
+            decimal total = 0;
+            foreach (var item in ListaFactura)
+            {
+                int ID = item.ID;
+                decimal Precio = item.Total;
+                total = total + Precio;
+            }
+            Total_lb.Text = total.ToString();
+        }
         protected void ReActualizar(object sender, EventArgs e)
         {
             con.Open();
@@ -139,10 +151,10 @@ namespace Sistema_Heladeria
                     Facts_Seleccionar_list.DataBind();
                 }
             }
-            //catch(Exception ex)
-            //{
+            catch (Exception ex)
+            {
 
-            //}
+            }
             finally
             {
 
@@ -176,6 +188,13 @@ namespace Sistema_Heladeria
             DataTable clrear = new DataTable();
             Lista_Proveedores.DataSource = clrear;
             Lista_Proveedores.DataBind();
+
+            //Para borrar la lista 
+            List<Facturas> ListaFactura = (List<Facturas>)Session["ListaFacturasPago"];
+            ListaFactura.Clear();
+            CalcularTotales(sender, e);
+            Lista_facturas.DataSource = ListaFactura;
+            Lista_facturas.DataBind();
         }
 
         protected void Buscar_prov_btn_Click(object sender, EventArgs e)
@@ -225,6 +244,7 @@ namespace Sistema_Heladeria
 
             Lista_facturas.DataSource = ListaFactura;
             Lista_facturas.DataBind();
+            CalcularTotales(sender, e);
         }
 
         protected void Cancelar_Pago_btn_Click(object sender, EventArgs e)
@@ -299,7 +319,7 @@ namespace Sistema_Heladeria
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalDetalle();", true);
         }
 
-        protected void Seleccionar_Click(object sender, EventArgs e)
+        protected void Seleccionar_Click(object sender, EventArgs e)//esto agrega la factura a la lista y la quita del popup
         {
             List<Facturas> facturasSeleccionadas = (List<Facturas>)Session["ListaFacturasPago"];
 
@@ -321,7 +341,7 @@ namespace Sistema_Heladeria
             Lista_facturas.DataBind();
 
             ReActualizar(sender,e);
-
+            CalcularTotales(sender, e);
         }
     }
 }

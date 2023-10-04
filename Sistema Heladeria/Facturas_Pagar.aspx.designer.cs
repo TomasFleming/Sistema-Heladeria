@@ -33,15 +33,6 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.Label Nro_Fact_lb;
 
         /// <summary>
-        /// Control Cod_Prov_tx.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Cod_Prov_tx;
-
-        /// <summary>
         /// Control UpdatePanel5.
         /// </summary>
         /// <remarks>
@@ -78,13 +69,13 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.Label Prov_nom_lb;
 
         /// <summary>
-        /// Control Tipo_Fact.
+        /// Control Forma_Pago_tx.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Tipo_Fact;
+        protected global::System.Web.UI.WebControls.DropDownList Forma_Pago_tx;
 
         /// <summary>
         /// Control Telf_lb.
@@ -96,13 +87,13 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.Label Telf_lb;
 
         /// <summary>
-        /// Control Fecha_Creacion_tx.
+        /// Control Fecha_Pago_tx.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Fecha_Creacion_tx;
+        protected global::System.Web.UI.WebControls.TextBox Fecha_Pago_tx;
 
         /// <summary>
         /// Control Direc_lb.
@@ -112,6 +103,15 @@ namespace Sistema_Heladeria
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Direc_lb;
+
+        /// <summary>
+        /// Control Num_Cuenta_tx.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Num_Cuenta_tx;
 
         /// <summary>
         /// Control Correo_lb.
@@ -256,15 +256,6 @@ namespace Sistema_Heladeria
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView Facts_Seleccionar_list;
-
-        /// <summary>
-        /// Control Seleccionar_Facts_btn.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Seleccionar_Facts_btn;
 
         /// <summary>
         /// Control UpdatePanel7.
