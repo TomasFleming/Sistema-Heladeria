@@ -123,6 +123,15 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.Label Correo_lb;
 
         /// <summary>
+        /// Control CompareValidator3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator3;
+
+        /// <summary>
         /// Control Pop_Facts_bt.
         /// </summary>
         /// <remarks>

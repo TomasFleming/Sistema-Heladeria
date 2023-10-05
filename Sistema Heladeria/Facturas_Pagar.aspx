@@ -41,7 +41,7 @@
             <td style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; height: 56px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px;">
                 <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
                     Forma de Pago :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>&nbsp;&nbsp;&nbsp; </strong>
-                    <asp:DropDownList ID="Forma_Pago_tx" runat="server" onchange="mostrarOcultarContenido();">
+                    <asp:DropDownList ID="Forma_Pago_tx" runat="server">
                         <%--<asp:ListItem>Efectivo</asp:ListItem>--%>
                         <asp:ListItem>Transferencia</asp:ListItem>
                         <asp:ListItem>Depósito</asp:ListItem>
@@ -69,6 +69,7 @@
                 <div id="Transferencias" style="display:block;font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
                     Numero Cuenta :
                     <asp:TextBox ID="Num_Cuenta_tx" runat="server" TextMode="Number" Width="140px"></asp:TextBox>
+                    
                 </div>
             </td>
         </tr>
@@ -76,7 +77,7 @@
             <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; border-bottom: 3px solid #C0C0C0; width: 525px; border-top-color: #C0C0C0; border-top-width: 3px;">Correo:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<asp:Label ID="Correo_lb" runat="server" style="font-size: 20px"></asp:Label>
             </td>
             <td class="modal-sm" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 70px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide;">&nbsp;</td>
-            <td style="border-width: 3px; border-color: #C0C0C0; border-right-style: solid; border-left-style: solid; border-bottom-style: solid;">&nbsp;</td>
+            <td style="border-width: 3px; border-color: #C0C0C0; border-right-style: solid; border-left-style: solid; border-bottom-style: solid;"><asp:CompareValidator ID="CompareValidator3" runat="server" ControlToValidate="Num_Cuenta_tx" ErrorMessage="Debe incluir un Numero de cuenta en el registro" ForeColor="Red" Operator="GreaterThan" ValueToCompare="0"></asp:CompareValidator>&nbsp;</td>
         </tr>
     </table>
                     </ContentTemplate>

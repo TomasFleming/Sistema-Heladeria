@@ -111,6 +111,7 @@
     <Content Include="Depositos.aspx" />
     <Content Include="Facturas_Crear_Nueva.aspx" />
     <Content Include="Facturas_Pagar.aspx" />
+    <Content Include="Facturas_Pagos_Ver.aspx" />
     <Content Include="Facturas_Ver.aspx" />
     <Content Include="Imagenes\categoria1.png" />
     <Content Include="Imagenes\categorias.png" />
@@ -227,6 +228,13 @@
     </Compile>
     <Compile Include="Facturas_Pagar.aspx.designer.cs">
       <DependentUpon>Facturas_Pagar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Facturas_Pagos_Ver.aspx.cs">
+      <DependentUpon>Facturas_Pagos_Ver.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Facturas_Pagos_Ver.aspx.designer.cs">
+      <DependentUpon>Facturas_Pagos_Ver.aspx</DependentUpon>
     </Compile>
     <Compile Include="Facturas_Ver.aspx.cs">
       <DependentUpon>Facturas_Ver.aspx</DependentUpon>

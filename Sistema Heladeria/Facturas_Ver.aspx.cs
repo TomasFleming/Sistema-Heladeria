@@ -51,7 +51,7 @@ namespace Sistema_Heladeria
             //Lista_facturas.DataBind();
             //con.Close();
             con.Open();
-            string comando = "select * from Facturas_Proveedor FP left join Factura_Prov_Pagada Fpp on FP.ID=Fpp.ID_fact inner join Proveedores P on P.ID=Fp.ID_prov where FP.ID like '" + Buscador_Fact_tx.Text + "'  or P.NombreCompleto like '%" + Buscador_Fact_tx.Text + "%' ";//and Total>=@prTotMin and Total<=@prTotMax and Fecha_Emision>=@prFechaInicio and Fecha_Emision<=@prFechaFin and ID_prov=@prProveedor";
+            string comando = "select * from Facturas_Proveedor FP left join Detalle_Pago Fpp on FP.ID=Fpp.ID_fact inner join Proveedores P on P.ID=Fp.ID_prov where FP.ID like '" + Buscador_Fact_tx.Text + "'  or P.NombreCompleto like '%" + Buscador_Fact_tx.Text + "%' ";//and Total>=@prTotMin and Total<=@prTotMax and Fecha_Emision>=@prFechaInicio and Fecha_Emision<=@prFechaFin and ID_prov=@prProveedor";
 
             if (!string.IsNullOrWhiteSpace(Precio_min_tx.Text))//quiere decir que si selecciono algo 
             {
