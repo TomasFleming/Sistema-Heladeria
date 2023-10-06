@@ -86,7 +86,13 @@
         </div>
         <%-- ------------------------------------------------------------------------------------------------------------------------------------------------  --%>
             <center>
-        <img src="Imagenes/fondo3.jpg" class="full-width-image" />
+
+        <%--<img src="Imagenes/fondo3.jpg" class="full-width-image" />--%>
+                <header class="jumbotron text-center">
+        <h1>Bienvenidos a Heladería Fili</h1>
+        <p>Los mejores helados artesanales en la ciudad</p>
+        <%--<a href="#" class="btn btn-primary">Ver nuestros sabores</a>--%>
+    </header>
     </center>
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">

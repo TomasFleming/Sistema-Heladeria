@@ -113,6 +113,13 @@
     <Content Include="Facturas_Pagar.aspx" />
     <Content Include="Facturas_Pagos_Ver.aspx" />
     <Content Include="Facturas_Ver.aspx" />
+    <Content Include="imagenes 2-0\articulos.jpg" />
+    <Content Include="imagenes 2-0\categoria.jpg" />
+    <Content Include="imagenes 2-0\deposito.jpg" />
+    <Content Include="imagenes 2-0\distribuidores.jpg" />
+    <Content Include="imagenes 2-0\facturacion.jpg" />
+    <Content Include="imagenes 2-0\helados.jpg" />
+    <Content Include="imagenes 2-0\orden de compra.jpg" />
     <Content Include="Imagenes\categoria1.png" />
     <Content Include="Imagenes\categorias.png" />
     <Content Include="Imagenes\deposito.png" />
