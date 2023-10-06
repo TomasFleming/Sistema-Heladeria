@@ -1,19 +1,23 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Facturas_Crear_Nueva.aspx.cs" Inherits="Sistema_Heladeria.Facturas_Crear_Nueva" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <header class="jumbotron text-center">
+     <h2><strong>Registro de Factura</strong></h2>
+    </header>
+
     <table class="nav-justified">
         <tr>
     <td rowspan="2" style="width: 603px; font-size: 50px; color: #000000;">
-                <center>
+                <%--<center>
                     Registro Factura<br />
-                </center>
-            </td>
-            <td style="height: 38px">
-    <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;">
-        &nbsp;</p>
+                </center>--%>
                 <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;">
         Numero de Factura a Crear:&nbsp;&nbsp;&nbsp;
         <asp:Label ID="Nro_Fact_lb" runat="server"></asp:Label>
     </p>
+            </td>
+            <td style="height: 38px">
+    <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;">
+        &nbsp;</p>
             </td>
         </tr>
         <tr>

@@ -33,7 +33,7 @@ namespace Sistema_Heladeria
             cs.UserID = "Visual";
             cs.Password = "123456";
             string ad = "prueba";
-
+           
             con = new SqlConnection(cs.ConnectionString);
         }
         public void Close()

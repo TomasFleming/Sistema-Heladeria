@@ -1,6 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ListasCompras_Ver.aspx.cs" Inherits="Sistema_Heladeria.ListasCompras_Ver" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <center><p style="font-size: 40px; font-weight: bold; color:#0094ff;font-family: Arial, sans-serif;">Listas De Ordenes de Compra</p></center>
+
+    <header class="jumbotron text-center">
+     <h2><strong>Lista de Ordenes de Compra</strong></h2>
+    </header>
+
+<%--    <center><p style="font-size: 40px; font-weight: bold; color:#0094ff;font-family: Arial, sans-serif;">Listas De Ordenes de Compra</p></center>--%>
     <div class="row">
     <div class="col-md-4"> <!-- Columna para el textbox -->
         <asp:TextBox ID="Buscador_Ord" runat="server" class="form-control" placeholder="Insertar COD lista" style="width: 350px"></asp:TextBox>

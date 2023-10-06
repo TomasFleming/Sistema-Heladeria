@@ -1,6 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Facturas_Pagos_Ver.aspx.cs" Inherits="Sistema_Heladeria.Facturas_Pagos_Ver" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <center><p style="font-size: 40px; font-weight: bold; color:#0094ff;font-family: Arial, sans-serif;">Pagos Realizados</p></center>
+
+    <header class="jumbotron text-center">
+     <h2><strong>Pagos Realizados</strong></h2>
+    </header>
+
+<%--    <center><p style="font-size: 40px; font-weight: bold; color:#0094ff;font-family: Arial, sans-serif;">Pagos Realizados</p></center>--%>
     <div class="row">
     <div class="col-md-4"> <!-- Columna para el textbox -->
         <asp:TextBox ID="Buscador_Pago_tx" runat="server" class="form-control" placeholder="Insertar N° de Pago" style="width: 350px"></asp:TextBox>    </div>

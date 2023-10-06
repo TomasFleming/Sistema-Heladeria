@@ -1,6 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Depositos.aspx.cs" Inherits="Sistema_Heladeria.Depositos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <center><p style="font-size: 40px; font-weight: bold; color:#0094ff;font-family: Arial, sans-serif;">Depositos Registrados</p></center>
+    
+    <header class="jumbotron text-center">
+     <h2><strong>Depósito</strong></h2>
+    </header>
+
     <div class="col-md-4"> <!-- Columna para el textbox -->
      <table class="nav-justified">
          <tr>
@@ -17,11 +22,11 @@
              </td>
              <td>&nbsp;&nbsp; &nbsp;</td>
              <td>
-     <asp:Button ID="Button1" runat="server" Text="Realizar Movimientos" CssClass="btn btn-default" PostBackUrl="~/Movimientos_Stocks.aspx" />
+     <asp:Button ID="Button1" runat="server" Text="Realizar Movimientos" CssClass="btn btn-default" PostBackUrl="~/Movimientos_Stocks.aspx" Visible="False" />
              </td>
              <td>&nbsp;&nbsp; &nbsp;</td>
              <td>
-     <asp:Button ID="Historial_Movs_btn" runat="server" Text="Historial De Movimientos" CssClass="btn btn-default" OnClick="Historial_Movs_btn_Click" />
+     <asp:Button ID="Historial_Movs_btn" runat="server" Text="Historial De Movimientos" CssClass="btn btn-default" OnClick="Historial_Movs_btn_Click" Visible="False" />
              </td>
          </tr>
      </table>

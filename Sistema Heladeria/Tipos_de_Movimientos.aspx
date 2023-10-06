@@ -1,6 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Tipos_de_Movimientos.aspx.cs" Inherits="Sistema_Heladeria.Tipos_de_Movimientos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <center><p style="font-size: 40px;font-weight: bold; color:#0094ff;font-family: Arial, sans-serif;">Tipos de Movimientos</p></center>
+
+    <header class="jumbotron text-center">
+     <h2><strong>Tipos de movimientos</strong></h2>
+    </header>
+    <center>
+<%--    <center><p style="font-size: 40px;font-weight: bold; color:#0094ff;font-family: Arial, sans-serif;">Tipos de Movimientos</p></center>--%>
+   
     <div class="row">
     <div class="col-md-4"> <!-- Columna para el textbox -->
         <asp:TextBox ID="Buscador_mov" runat="server" class="form-control" placeholder="Ingresar Articulo" style="width: 350px"></asp:TextBox>

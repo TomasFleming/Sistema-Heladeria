@@ -1,18 +1,21 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ListasCompras_Nueva.aspx.cs" Inherits="Sistema_Heladeria.ListasCompras_Nueva" EnableSessionState="True" EnableEventValidation="False" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <header class="jumbotron text-center">
+     <h2><strong>Orden de Compra</strong></h2>
+    </header>
     <table class="nav-justified">
         <tr>
             <td rowspan="2" style="width: 618px; font-size: 50px; color: #000000;">
                 <center>
-                    Orden De compra
-                </center>
-            </td>
-            <td style="height: 38px">
+                    <%--Orden De compra--%>
     <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;">
         Numero de Orden a Crear:&nbsp;&nbsp;&nbsp;
         <asp:Label ID="Nro_ord_lb" runat="server"></asp:Label>
     </p>
+                </center>
             </td>
+            <td style="height: 38px">
+                &nbsp;</td>
         </tr>
         <tr>
             <td>

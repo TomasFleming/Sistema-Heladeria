@@ -1,7 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Articulos.aspx.cs" Inherits="Sistema_Heladeria.Insertar_y_mostrar" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-    <center><p style="font-size: 40px;font-weight: bold; color:#0094ff;font-family: Arial, sans-serif;">Articulos Registrados</p></center>
+    <header class="jumbotron text-center">
+     <h2><strong>Articulos Registrados</strong></h2>
+    </header>
+
+<%--    <center><p style="font-size: 40px;font-weight: bold; color:#0094ff;font-family: Arial, sans-serif;">Articulos Registrados</p></center>--%>
+    
     <div class="row">
     <div class="col-md-4"> <!-- Columna para el textbox -->
         <asp:TextBox ID="Buscador_art" runat="server" class="form-control" placeholder="Ingresar Articulo" style="width: 350px"></asp:TextBox>

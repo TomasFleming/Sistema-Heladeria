@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Movimientos_Stocks.aspx.cs" Inherits="Sistema_Heladeria.Movimientos_Stocks" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <center><p style="font-size: 40px; color: #CC3300">Registro de Movimientos de Stock</p></center>
+    <header class="jumbotron text-center">
+     <h2><strong>Registro de Movimientos de Stock</strong></h2>
+    </header>
+<%--    <center><p style="font-size: 40px; color: #CC3300">Registro de Movimientos de Stock</p></center>--%>
     <p style="font-size: 22px">
         <asp:UpdatePanel ID="UpdatePanel5" runat="server"><ContentTemplate>
         Tipo de Movimiento a realizar :

@@ -1,20 +1,23 @@
 ﻿    <%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Facturas_Pagar.aspx.cs" Inherits="Sistema_Heladeria.Facturas_Pagar" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <header class="jumbotron text-center">
+     <h2><strong>Pago de Factura</strong></h2>
+    </header>
         <table class="nav-justified">
         <tr>
     <td rowspan="2" style="width: 603px; font-size: 50px; color: #FF6666;">
                 <center>
-                    <asp:Label ID="Label1" runat="server" ForeColor="Black" Text="Pago Factura"></asp:Label>
-                    <br />
+                    <%--<asp:Label ID="Label1" runat="server" ForeColor="Black" Text="Pago Factura"></asp:Label>
+                    <br />--%>
+                <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;">
+        Numero de Pago:&nbsp;&nbsp;&nbsp;
+        <asp:Label ID="Nro_Fact_lb" runat="server"></asp:Label>
+    </p>
                 </center>
             </td>
             <td style="height: 38px">
                 <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;">
                     &nbsp;</p>
-                <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;">
-        Numero de Pago:&nbsp;&nbsp;&nbsp;
-        <asp:Label ID="Nro_Fact_lb" runat="server"></asp:Label>
-    </p>
                 </td>
         </tr>
         <tr>

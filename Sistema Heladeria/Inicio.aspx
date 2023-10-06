@@ -6,6 +6,11 @@
      <%--   <center>
         <Titulos style="font-size: 45pt">Heladeria Fili</Titulos>
     </center>--%>
+    <header class="jumbotron text-center">
+     <h1>Bienvenidos a Heladería Fili</h1>
+        <p>Los mejores helados artesanales en la ciudad</p>
+    </header>
+
     <center>
                 <div class="row">
     <div class="col-md-4"> 
