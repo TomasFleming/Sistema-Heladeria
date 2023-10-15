@@ -141,6 +141,15 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.GridView Lista_facturas;
 
         /// <summary>
+        /// Control UpdatePanel4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel4;
+
+        /// <summary>
         /// Control ID_Ord_lb.
         /// </summary>
         /// <remarks>

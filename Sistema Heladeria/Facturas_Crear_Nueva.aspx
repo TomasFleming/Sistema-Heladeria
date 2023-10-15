@@ -267,8 +267,9 @@
             <td style="width: 116px; height: 36px; font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
                 ID:</td>
             <td style="height: 36px; width: 646px">
-                   <asp:TextBox ID="ID_art_tx" runat="server" ReadOnly="false"></asp:TextBox>
-                   <asp:Button ID="Cargar_Art_btn" runat="server" OnClick="Cargar_Art_btn_Click" CssClass="btn btn-default" Text="Buscar" />
+                   <asp:TextBox ID="ID_art_tx" runat="server"  TextMode="Number"></asp:TextBox>
+                   <asp:Button ID="Cargar_Art_btn" runat="server" OnClick="Cargar_Art_btn_Click" CssClass="btn btn-default" Text="Cargar" />
+                <asp:Button ID="Buscar_btn" runat="server" CssClass="btn btn-primary" OnClick="Buscar_btn_Click" Text="Buscar" />
             </td>
         </tr>
         <tr>

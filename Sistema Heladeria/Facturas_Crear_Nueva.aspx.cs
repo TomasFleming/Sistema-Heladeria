@@ -200,17 +200,26 @@ namespace Sistema_Heladeria
         {
             try
             {
+                con.Open();
+                SqlCommand Com = new SqlCommand("Select A.ID,A.Nombre,C.Nombre_Categoria,A.Descripcion from Articulos A inner join Categorias C on C.ID=A.Categoria where A.ID=" + ID_art_tx.Text, con.GetConnection());
+                SqlDataReader Leer = Com.ExecuteReader();
+                Leer.Read();
+                ID_Art_sel_lb.Text = Leer["ID"].ToString();
+                //ID_art_tx.Text = Leer["ID"].ToString();
+                Nomb_art_lb.Text = Leer["Nombre"].ToString();
+                Cat_art_lb.Text = Leer["Nombre_Categoria"].ToString();
+                Desc_art_lb.Text = Leer["Descripcion"].ToString();
+                con.Close();
                 //con.Open();
-                //SqlCommand Com = new SqlCommand("Select A.ID,A.Nombre,C.Nombre_Categoria,A.Descripcion from Articulos A inner join Categorias C on C.ID=A.Categoria where A.ID=" + ID_art_tx.Text, con.GetConnection());
-                //SqlDataReader Leer = Com.ExecuteReader();
-                //Leer.Read();
-                //ID_Art_sel_lb.Text = Leer["ID"].ToString();
-                ////ID_art_tx.Text = Leer["ID"].ToString();
-                //Nomb_art_lb.Text = Leer["Nombre"].ToString();
-                //Cat_art_lb.Text = Leer["Nombre_Categoria"].ToString();
-                //Desc_art_lb.Text = Leer["Descripcion"].ToString();
-                //con.Close();
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalArt();", true);
+                //string qry = "select A.ID, A.Nombre,C.Nombre_Categoria, A.Descripcion, A.Precio from Articulos A inner join Categorias C on A.Categoria=C.ID where A.ID like '" + ID_art_tx.Text + "' or A.Nombre like '%" + Buscador_art.Text + "%' or C.Nombre_Categoria like '%" + Buscador_art.Text + "%' ";
+                //SqlCommand Com = new SqlCommand(qry, con.GetConnection());
+                //Com.ExecuteNonQuery();
+                //SqlDataAdapter Articulos = new SqlDataAdapter(Com);
+                //DataTable art = new DataTable();
+                //Articulos.Fill(art);
+                //Lista_Articulos.DataSource = art;
+                //Lista_Articulos.DataBind();
+                //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalArt();", true);
             }
             catch
             {
@@ -258,8 +267,8 @@ namespace Sistema_Heladeria
                 Subtotal = Subtotal + Cant * Precio;
             }
             double Total = Subtotal + (Subtotal * 0.30);
-            Sub_tot_lb.Text = Subtotal.ToString();
-            Total_lb.Text = Total.ToString();
+            Sub_tot_lb.Text = Subtotal.ToString(".00");
+            Total_lb.Text = Total.ToString(".00");
         }
         class ItemFactura
         {
@@ -269,6 +278,21 @@ namespace Sistema_Heladeria
             public string Descripcion { get; set; }
             public int Cantidad { get; set; }
             public int Precio { get; set; }
+        }
+
+        protected void Buscar_btn_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalArt();", true);
+            con.Open();
+            string qry = "select A.ID, A.Nombre,C.Nombre_Categoria, A.Descripcion, A.Precio from Articulos A inner join Categorias C on A.Categoria=C.ID where A.ID like '" + ID_art_tx.Text + "' or A.Nombre like '%" + ID_art_tx.Text + "%' or C.Nombre_Categoria like '%" + ID_art_tx.Text + "%' ";
+            SqlCommand Com = new SqlCommand(qry, con.GetConnection());
+            Com.ExecuteNonQuery();
+            SqlDataAdapter Articulos = new SqlDataAdapter(Com);
+            DataTable art = new DataTable();
+            Articulos.Fill(art);
+            Lista_Articulos.DataSource = art;
+            Lista_Articulos.DataBind();
+            
         }
     }
 }
