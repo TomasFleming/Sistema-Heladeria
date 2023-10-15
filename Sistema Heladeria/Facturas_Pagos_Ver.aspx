@@ -88,7 +88,7 @@
                     <asp:TemplateField HeaderText="">
                     <ItemTemplate>
                         <center>
-                        <asp:Button ID="Ver_Detalle_btn" runat="server" Text="Ver Facturas" OnClick="Ver_Detalle_btn_Click" CssClass="btn btn-primary" />
+                        <asp:Button ID="Ver_Detalle_btn" runat="server" Text="Ver Detalle" OnClick="Ver_Detalle_btn_Click" CssClass="btn btn-primary" />
                     </center>
                        </ItemTemplate>
                 </asp:TemplateField>
@@ -99,7 +99,8 @@
                 </ContentTemplate></asp:UpdatePanel>
         </center>
     </p>
-
+    
+    
     <div id="ModalFact" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -109,13 +110,33 @@
 
         <button type="button" class="close" data-dismiss="modal">&times;</button>
           <asp:UpdatePanel ID="UpdatePanel5" runat="server"><ContentTemplate>
-        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Facturas del Pago N°<asp:Label ID="ID_Pago_lb" runat="server" Visible="true"></asp:Label></h4></center></ContentTemplate></asp:UpdatePanel>
+        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Detalles del Pago N°<asp:Label ID="ID_Pago_lb" runat="server" Visible="true"></asp:Label></h4></center></ContentTemplate></asp:UpdatePanel>
       </div>
       <div class="modal-body">
         <p></p>
           <%--aasasdasasadsads--%>
           <asp:UpdatePanel ID="UpdatePanel6" runat="server">
               <ContentTemplate>
+                  <table class="nav-justified" style="width: 50%; font-family: Arial; font-size: 18px; white-space:nowrap;">
+        <tr>
+            <td style="height: 28px; width: 320px">Nombre :&nbsp;&nbsp; <asp:Label ID="Prov_nom_lb" runat="server" style="font-size: 20px"></asp:Label>
+            </td>
+            <td style="height: 28px">N° Cuenta :&nbsp;&nbsp; <asp:Label ID="Num_Cuenta_lb" runat="server" style="font-size: 20px"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 320px">Fecha de Pago :&nbsp;&nbsp; <asp:Label ID="Fecha_Pago_lb" runat="server" style="font-size: 20px"></asp:Label>
+            </td>
+            <td>Fecha Registro :&nbsp;&nbsp; <asp:Label ID="Fecha_Reg_lb" runat="server" style="font-size: 20px"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 320px">Metodo Pago :&nbsp;&nbsp; <asp:Label ID="Met_Pago_lb" runat="server" style="font-size: 20px"></asp:Label>
+            </td>
+            <td>Importe Total :&nbsp;&nbsp; <asp:Label ID="Total_lb" runat="server" style="font-size: 20px"></asp:Label>
+            </td>
+        </tr>
+    </table>
         <center>
             <asp:GridView ID="Facts_Seleccionar_list" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt">
 <AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>

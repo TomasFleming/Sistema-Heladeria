@@ -5,7 +5,7 @@
     </header>
         <table class="nav-justified">
         <tr>
-    <td style="width: 603px; font-size: 50px; color: #FF6666;">
+    <td style="width: 603px; font-size: 50px; color: #FF6666; height: 38px;">
                 <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;" class="text-left">
         Numero de Pago:&nbsp;&nbsp;&nbsp;
         <asp:Label ID="Nro_Pago_lb" runat="server"></asp:Label>

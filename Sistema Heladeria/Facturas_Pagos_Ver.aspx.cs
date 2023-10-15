@@ -72,6 +72,17 @@ namespace Sistema_Heladeria
             int ID = Convert.ToInt32(Lista_Pagos.DataKeys[Lista_Pagos.SelectedIndex].Value);
             ID_Pago_lb.Text = ID.ToString();
             con.Open();
+            SqlCommand sql = new SqlCommand("select NombreCompleto,Numero_Cuenta,CONVERT(varchar, Fecha_Pago, 103) as Fecha_Pago,CONVERT(varchar, Fecha_Registro, 103) as Fecha_Registro,MetodoPago,Total from Registro_Pagos Rp inner join Proveedores P on P.ID=Rp.ID_Prov where Rp.ID= "+ID, con.GetConnection());
+            SqlDataReader leer = sql.ExecuteReader();
+            leer.Read();
+            Prov_nom_lb.Text = leer["NombreCompleto"].ToString();
+            Num_Cuenta_lb.Text = leer["Numero_Cuenta"].ToString();
+            Fecha_Pago_lb.Text = leer["Fecha_Pago"].ToString();
+            Fecha_Reg_lb.Text = leer["Fecha_Registro"].ToString();
+            Met_Pago_lb.Text = leer["MetodoPago"].ToString();
+            Total_lb.Text = leer["Total"].ToString();
+            con.Close();
+            con.Open();
             SqlCommand detalle = new SqlCommand("select FP.ID,NombreCompleto,Cod_Prov,Tipo,Estado,Fecha_Emision,FP.Total from Facturas_Proveedor FP inner join Proveedores P on FP.ID_Prov=P.ID inner join Detalle_Pago DP on DP.ID_Fact=FP.ID inner join Registro_Pagos RP on RP.ID=DP.ID_Pago where RP.ID=" + ID, con.GetConnection());
             detalle.ExecuteNonQuery();
 
