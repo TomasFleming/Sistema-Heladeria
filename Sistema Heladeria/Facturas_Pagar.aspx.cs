@@ -16,15 +16,12 @@ namespace Sistema_Heladeria
         protected void Page_Load(object sender, EventArgs e)
         {
             con.CrearConexion();
-            //con.Open();
-            //SqlCommand sql = new SqlCommand("select * from Facturas_Proveedor FP left join Factura_Prov_Pagada Fpp on FP.ID=Fpp.ID_fact inner join Proveedores P on P.ID=Fp.ID_prov where P.ID=2", con.GetConnection());
-            //sql.ExecuteNonQuery();
-            //SqlDataAdapter Facts = new SqlDataAdapter(sql);
-            //DataTable art = new DataTable();
-            //Facts.Fill(art);
-            //Lista_facturas.DataSource = art;
-            //Lista_facturas.DataBind();
-            //con.Close();
+            con.Open();
+            SqlCommand sql = new SqlCommand("SELECT TOP 1 * FROM Registro_Pagos ORDER BY ID DESC", con.GetConnection());
+            SqlDataReader leer= sql.ExecuteReader();
+            leer.Read();
+            Nro_Pago_lb.Text = (Convert.ToInt32(leer["ID"])+1).ToString();
+            con.Close();
             if (Session["ListaFacturasPago"] == null)
             {
                 List<Facturas> ListaFactura = new List<Facturas>();
@@ -256,7 +253,7 @@ namespace Sistema_Heladeria
 
         protected void Guardar_Pagos_btn_Click(object sender, EventArgs e)
         {
-            if (Total_lb.Text != "" && Prov_ID_lb.Text != "")
+            if (Total_lb.Text != "" && Prov_ID_lb.Text != "" && Num_Cuenta_tx.Text!="" && Num_Cuenta_tx.Text!=null)
             {
                 try
                 {

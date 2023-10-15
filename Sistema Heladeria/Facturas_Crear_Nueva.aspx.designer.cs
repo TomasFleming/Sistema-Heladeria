@@ -276,24 +276,6 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.UpdatePanel UpdatePanel6;
 
         /// <summary>
-        /// Control Buscador_art.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Buscador_art;
-
-        /// <summary>
-        /// Control Buscar_art_btn.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Buscar_art_btn;
-
-        /// <summary>
         /// Control ID_art_tx.
         /// </summary>
         /// <remarks>
@@ -409,6 +391,24 @@ namespace Sistema_Heladeria
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel4;
+
+        /// <summary>
+        /// Control Buscador_art.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Buscador_art;
+
+        /// <summary>
+        /// Control Buscar_art_btn.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Buscar_art_btn;
 
         /// <summary>
         /// Control Lista_Articulos.

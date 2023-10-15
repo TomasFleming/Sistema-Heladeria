@@ -5,26 +5,20 @@
     </header>
         <table class="nav-justified">
         <tr>
-    <td rowspan="2" style="width: 603px; font-size: 50px; color: #FF6666;">
-                <center>
-                    <%--<asp:Label ID="Label1" runat="server" ForeColor="Black" Text="Pago Factura"></asp:Label>
-                    <br />--%>
-                <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;">
+    <td style="width: 603px; font-size: 50px; color: #FF6666;">
+                <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;" class="text-left">
         Numero de Pago:&nbsp;&nbsp;&nbsp;
-        <asp:Label ID="Nro_Fact_lb" runat="server"></asp:Label>
+        <asp:Label ID="Nro_Pago_lb" runat="server"></asp:Label>
     </p>
-                </center>
+                <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;" class="text-left">
+                    &nbsp;</p>
             </td>
             <td style="height: 38px">
                 <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;">
                     &nbsp;</p>
                 </td>
         </tr>
-        <tr>
-            <td style="height: 47px">
-                &nbsp;</td>
-        </tr>
-    </table>
+        </table>
     <asp:UpdatePanel ID="UpdatePanel5" runat="server">
         <ContentTemplate>
     <table class="tableDist" border="0" style="border-style: solid; border-width: 0px 3px 0px 3px; border-color: #CCCCCC; padding: 0px; clip: rect(0px, 0px, 0px, 0px); font-family: Arial; font-size: 20px;">
@@ -231,7 +225,7 @@
       <div class="modal-header">
 
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Seleccionar Facturas sin pagar de <asp:Label ID="label2" runat="server" Text="Label" Visible="true"></asp:Label></h4></center>
+        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Seleccionar Facturas sin pagar de <asp:Label ID="label2" runat="server" Visible="true"></asp:Label></h4></center>
       </div>
       <div class="modal-body">
         <p></p>
@@ -250,12 +244,12 @@
                         <input type="checkbox" class="chkSingle" />
                     </ItemTemplate>
                 </asp:TemplateField>--%>
-                <asp:BoundField DataField="ID" HeaderText="COD" >
+                <asp:BoundField DataField="ID" HeaderText="N°" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
-                <asp:BoundField DataField="NombreCompleto" HeaderText="Proveedor" >
+                <%--<asp:BoundField DataField="NombreCompleto" HeaderText="Proveedor" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
+                    </asp:BoundField>--%>
                 <asp:BoundField DataField="Cod_Prov" HeaderText="Numero Factura Proveedor" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
@@ -265,9 +259,9 @@
                 <asp:BoundField DataField="Estado" HeaderText="Estado" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
-                <asp:BoundField DataField="Fecha_Emision" HeaderText="Fecha Emision" >
+                <%--<asp:BoundField DataField="Fecha_Emision" HeaderText="Fecha Emision" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
+                    </asp:BoundField>--%>
                     <asp:BoundField DataField="Fecha_Vencimiento" HeaderText="Fecha Vencimiento" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>

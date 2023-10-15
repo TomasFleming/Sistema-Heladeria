@@ -40,7 +40,7 @@
                         <div class="image-button-container" style="width: 207px">
                             <img alt="Imagen" src="imagenes 2-0/historial.jpg"  width="200" height="200" />
                         </div>
-                        <asp:Label ID="Label2" runat="server" CssClass="btn btn-primary" width="200" Text="Historial de Facturas"></asp:Label>
+                        <asp:Label ID="Label2" runat="server" CssClass="btn btn-primary" width="200" Text="Historial de Pagos"></asp:Label>
                         </a>
                     </center>
     </div>

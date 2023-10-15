@@ -15,13 +15,13 @@ namespace Sistema_Heladeria
     {
 
         /// <summary>
-        /// Control Nro_Fact_lb.
+        /// Control Nro_Pago_lb.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Nro_Fact_lb;
+        protected global::System.Web.UI.WebControls.Label Nro_Pago_lb;
 
         /// <summary>
         /// Control UpdatePanel5.
