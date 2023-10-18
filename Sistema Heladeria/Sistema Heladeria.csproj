@@ -191,6 +191,8 @@
     <Content Include="Site.Master" />
     <Content Include="Testeos.aspx" />
     <Content Include="Tipos_de_Movimientos.aspx" />
+    <Content Include="Ventas_Crear_Nueva.aspx" />
+    <Content Include="Ventas_Ver.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -337,6 +339,20 @@
     </Compile>
     <Compile Include="Tipos_de_Movimientos.aspx.designer.cs">
       <DependentUpon>Tipos_de_Movimientos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas_Crear_Nueva.aspx.cs">
+      <DependentUpon>Ventas_Crear_Nueva.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ventas_Crear_Nueva.aspx.designer.cs">
+      <DependentUpon>Ventas_Crear_Nueva.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas_Ver.aspx.cs">
+      <DependentUpon>Ventas_Ver.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ventas_Ver.aspx.designer.cs">
+      <DependentUpon>Ventas_Ver.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

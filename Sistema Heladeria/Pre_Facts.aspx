@@ -4,13 +4,14 @@
      <h5></h5>
     </header>
     <center>
+        <div class="row">
         <div class="col-md-4"> 
          <center style="width: 200px">
         <a href="Facturas_Ver.aspx" runat="server">
         <div class="image-button-container" style="width: 200px">
             <img src="imagenes 2-0/registrar.jpg"  width="200" height="200" alt="Imagen">
         </div>
-            <asp:Label ID="Label1" runat="server" Text="Registrar Facturas" CssClass="btn btn-primary" width="200"></asp:Label>
+            <asp:Label ID="Label1" runat="server" Text="Facturas Registradas" CssClass="btn btn-primary" width="200"></asp:Label>
         </a>
     </center>
     </div>
@@ -44,5 +45,18 @@
                         </a>
                     </center>
     </div>
+            </div><p></p>
+        <div class="row">
+            <div class="col-md-4"> 
+         <center style="width: 200px">
+        <a href="Ventas_Ver.aspx" runat="server">
+        <div class="image-button-container" style="width: 200px">
+            <img src="imagenes 2-0/registrar.jpg"  width="200" height="200" alt="Imagen">
+        </div>
+            <asp:Label ID="Label3" runat="server" Text="Registro Ventas" CssClass="btn btn-primary" width="200"></asp:Label>
+        </a>
+    </center>
+    </div>
+        </div>
     </center>
 </asp:Content>
