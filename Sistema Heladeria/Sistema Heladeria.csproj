@@ -106,6 +106,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Categorias.aspx" />
+    <Content Include="Clientes.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Depositos.aspx" />
@@ -223,6 +224,13 @@
       <DependentUpon>Categorias.aspx</DependentUpon>
     </Compile>
     <Compile Include="Clases.cs" />
+    <Compile Include="Clientes.aspx.cs">
+      <DependentUpon>Clientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Clientes.aspx.designer.cs">
+      <DependentUpon>Clientes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Depositos.aspx.cs">
       <DependentUpon>Depositos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

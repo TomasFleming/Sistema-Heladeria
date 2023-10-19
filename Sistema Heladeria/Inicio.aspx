@@ -93,6 +93,21 @@
                    </center>
     </div>
 </div>
+        <p></p>
+        <div class="row">
+            <div class="col-md-4"> 
+        <center style="width: 200px">
+                            <a runat="server" href="Clientes.aspx">
+                            <div class="image-button-container" style="width: 195px">
+                                <img alt="Imagen" src="imagenes 2-0/distribuidores.jpg" width="150" height="150"/>
+                            </div>
+                                </a>
+                        </center>
+        <center>
+                            <asp:Label ID="Label6" runat="server" CssClass="btn btn-primary" Text="Clientes" width="150"></asp:Label>
+                     </center>       
+    </div>
+        </div>
     </center>
     <center>
         
