@@ -34,7 +34,7 @@
                 <asp:BoundField DataField="NombreCompleto" HeaderText="Nombre" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
-                <asp:BoundField DataField="Documento" HeaderText="Documento" >
+                <asp:BoundField DataField="DNI" HeaderText="Documento" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
                 <asp:BoundField DataField="Telefono" HeaderText="Telefono" >
