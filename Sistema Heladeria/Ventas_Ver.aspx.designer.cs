@@ -123,13 +123,13 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.GridView Lista_facturas;
 
         /// <summary>
-        /// Control label2.
+        /// Control ID_Vemta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label2;
+        protected global::System.Web.UI.WebControls.Label ID_Vemta;
 
         /// <summary>
         /// Control UpdatePanel3.
@@ -139,5 +139,14 @@ namespace Sistema_Heladeria
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel3;
+
+        /// <summary>
+        /// Control Lista_Detalle.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView Lista_Detalle;
     }
 }

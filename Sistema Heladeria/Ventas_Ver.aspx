@@ -51,7 +51,7 @@
                     <asp:TextBox ID="Precio_Max_tx" runat="server" TextMode="Number" Width="100px"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:Button ID="Lipiar_Filt_btn" runat="server" Text="Limpiar" />
+                    <asp:Button ID="Lipiar_Filt_btn" runat="server" OnClick="Lipiar_Filt_btn_Click" Text="Limpiar" />
                 </td>
             </tr>
         </table>
@@ -69,7 +69,10 @@
                 <asp:BoundField DataField="NombreCompleto" HeaderText="Cliente" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
-                <asp:BoundField DataField="Fecha_Emision" HeaderText="Fecha Emision" >
+                <asp:BoundField DataField="Fecha" HeaderText="Fecha Emision" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="MetodoPago" HeaderText="Metodo de Pago" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
                      <asp:BoundField DataField="Total" HeaderText="Total" >
@@ -98,7 +101,7 @@
       <div class="modal-header">
 
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Seleccionar Articulo<asp:Label ID="label2" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
+        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Articulos de la Venta N°<asp:Label ID="ID_Vemta" runat="server" Visible="true"></asp:Label>:</h4></center>
       </div>
       <div class="modal-body">
         <p></p>
@@ -106,7 +109,36 @@
           <asp:UpdatePanel ID="UpdatePanel3" runat="server">
               <ContentTemplate>
         <center>
-            
+            <asp:GridView ID="Lista_Detalle" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt">
+<AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
+                <Columns>
+                <asp:BoundField DataField="ID" HeaderText="COD" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Nombre" HeaderText="Nombre" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Nombre_Categoria" HeaderText="Categoria" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                    <asp:BoundField DataField="PrecioUnid" HeaderText="Precio Unitario" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                    <asp:TemplateField HeaderText="Total">
+            <ItemTemplate>
+                <asp:Label ID="lblTotal" runat="server" Text='<%# (Convert.ToDecimal(Eval("PrecioUnid")) * Convert.ToInt32(Eval("Cantidad"))).ToString("0.00") %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
+            </Columns>
+
+<PagerStyle CssClass="pgr"></PagerStyle>
+            </asp:GridView>
         </center>
                   </ContentTemplate>
           </asp:UpdatePanel>
