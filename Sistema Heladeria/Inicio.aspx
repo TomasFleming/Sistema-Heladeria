@@ -99,7 +99,7 @@
         <center style="width: 200px">
                             <a runat="server" href="Clientes.aspx">
                             <div class="image-button-container" style="width: 195px">
-                                <img alt="Imagen" src="imagenes 2-0/distribuidores.jpg" width="150" height="150"/>
+                                <img alt="Imagen" src="imagenes 2-0/clientes.jpg" width="150" height="150"/>
                             </div>
                                 </a>
                         </center>

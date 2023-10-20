@@ -1,8 +1,19 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Pre_Deposit_Movs.aspx.cs" Inherits="Sistema_Heladeria.Pre_Deposit_Movs" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-<header class="jumbotron text-center">
-     <h5></h5>
+<%--<header class="jumbotron text-center">
+     <h3><strong>Menú - Depositos</strong></h3>
+    </header>--%>
+     <header class="jumbotron text-center">
+        <div class="header-left">
+            <h3><strong>Menú - Depositos</strong></h3>
+        </div>
+        <div class="header-right">
+            <div class="date-time">
+                <span id="currentDate"></span>
+                <span id="currentTime"></span>
+            </div>
+        </div>
     </header>
     <center>
         <div class="col-md-4"> 
@@ -44,5 +55,22 @@
 
 
     </center>
+    <script>
+    function updateDateTime() {
+        var now = new Date();
+        var currentDate = now.toLocaleDateString();
+        var currentTime = now.toLocaleTimeString();
+
+        document.getElementById("currentDate").textContent = "Fecha: " + currentDate;
+        document.getElementById("currentTime").textContent = " - Hora: " + currentTime;
+    }
+
+    // Actualiza la fecha y hora cada segundo
+    setInterval(updateDateTime, 1000);
+
+    // Ejecuta la función una vez para mostrar la fecha y hora de inmediato
+    updateDateTime();
+    </script>
+
 
 </asp:Content>
