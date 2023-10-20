@@ -15,6 +15,8 @@ namespace Sistema_Heladeria
         protected void Page_Load(object sender, EventArgs e)
         {
             con.CrearConexion();
+            Efectivo.Checked = true;
+            Fecha_Creacion_tx.Text = (DateTime.Now).ToString();
             try
             {
                 con.Open();
@@ -98,22 +100,29 @@ namespace Sistema_Heladeria
 
         protected void Art_Agregar_btn_Click(object sender, EventArgs e)
         {
-            List<ItemVenta> ListaFactura = (List<ItemVenta>)Session["ListaVenta"];
-            ListaFactura.Add(new ItemVenta { ID = Convert.ToInt32(ID_Art_sel_lb.Text), Nombre = Nomb_art_lb.Text, Categoria = Cat_art_lb.Text, Descripcion = Desc_art_lb.Text, Cantidad = Convert.ToInt32(Cantidad_tx.Text), Precio=Convert.ToInt32(Precio_tx.Text) });
+            try
+            {
+                List<ItemVenta> ListaFactura = (List<ItemVenta>)Session["ListaVenta"];
+                ListaFactura.Add(new ItemVenta { ID = Convert.ToInt32(ID_Art_sel_lb.Text), Nombre = Nomb_art_lb.Text, Categoria = Cat_art_lb.Text, Descripcion = Desc_art_lb.Text, Cantidad = Convert.ToInt32(Cantidad_tx.Text), Precio = Convert.ToInt32(Precio_tx.Text) });
 
-            Lista_Art_Fact.DataSource = ListaFactura;
-            Lista_Art_Fact.DataBind();
+                Lista_Art_Fact.DataSource = ListaFactura;
+                Lista_Art_Fact.DataBind();
 
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalSelectArt();", true);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalSelectArt();", true);
 
-            ID_art_tx.Text = "";
-            Nomb_art_lb.Text = "";
-            Desc_art_lb.Text = "";
-            Cantidad_tx.Text = "";
-            Cat_art_lb.Text = "";
-            Precio_tx.Text = "";
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalArt();", true);
-            CalcularTotales(sender, e);
+                ID_art_tx.Text = "";
+                Nomb_art_lb.Text = "";
+                Desc_art_lb.Text = "";
+                Cantidad_tx.Text = "";
+                Cat_art_lb.Text = "";
+                Precio_tx.Text = "";
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalArt();", true);
+                CalcularTotales(sender, e);
+            }
+            catch(Exception ex)
+            {
+
+            }
         }
 
         protected void Art_Cancelar_btn_Click(object sender, EventArgs e)
@@ -213,12 +222,60 @@ namespace Sistema_Heladeria
 
         protected void Guardar_Venta_btn_Click(object sender, EventArgs e)
         {
+            try
+            {
+                con.Open();
+                //primero creo orden
+                string query = "insert into Ventas (ID_Cliente,Total";
+                if (Efectivo.Checked == true)
+                {
+                    query = query + ",MetodoPago) values(@prID,@prTotal,'Efectivo')";
+                }
+                else
+                {
+                    query = query + ",NumeroCuenta,MetodoPago) values ((@prID,@prTotal,"+Numero_tj_tx.Text+",'Tarjeta'))";
+                }
+                SqlCommand Orden = new SqlCommand(query, con.GetConnection());
+                //Orden.Parameters.Add(new SqlParameter("@FechaEmision", Fecha_Creacion_tx.Text));
+                //Orden.Parameters.Add(new SqlParameter("@FechaVencimiento", Fecha_Venc_tx.Text));
+                Orden.Parameters.Add(new SqlParameter("@prID", Client_ID_lb.Text));
+                Orden.Parameters.Add(new SqlParameter("@prTotal", Convert.ToDouble(Total_lb.Text)));
+                Orden.ExecuteNonQuery();
+                con.Close();
+                //Luego el detalle
 
+                con.Open();
+                SqlCommand Detalle = new SqlCommand("SELECT TOP 1 * FROM Ventas ORDER BY ID DESC", con.GetConnection());
+                SqlDataReader Leer = Detalle.ExecuteReader();
+                Leer.Read();
+                int ID_Fact = Convert.ToInt32(Leer["ID"].ToString());
+                con.Close();
+                List<ItemVenta> ListaVenta = (List<ItemVenta>)Session["ListaVenta"];
+                foreach (var item in ListaVenta)
+                {
+                    int ID = item.ID;
+                    int Cant = item.Cantidad;
+                    con.Open();
+                    SqlCommand Detalle2 = new SqlCommand("insert into DetalleVentas(ID_Venta,ID_Articulo,Cantidad,PrecioUnid) values (" + ID_Fact + "," + ID + "," + Cant + "," + item.Precio + ")", con.GetConnection());
+                    Detalle2.ExecuteNonQuery();
+                    con.Close();
+
+                }
+                ListaVenta.Clear();
+
+                Response.Redirect("~/Facturas_Ver.aspx");
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert(' Error : Todos los campos del formulario deben estar completos');</script>");
+            }
         }
 
         protected void Cancelar_Venta_btn_Click(object sender, EventArgs e)
         {
-
+            List<ItemVenta> ListaVenta = (List<ItemVenta>)Session["ListaVenta"];
+            ListaVenta.Clear();
+            Response.Redirect("~/Ventas_Ver.aspx");
         }
 
         protected void Buscar_client_btn_Click(object sender, EventArgs e)
@@ -247,6 +304,36 @@ namespace Sistema_Heladeria
             double Total = Subtotal + (Subtotal * 0.30);
             Sub_tot_lb.Text = Subtotal.ToString(".00");
             Total_lb.Text = Total.ToString(".00");
+        }
+
+        protected void Efectivo_CheckedChanged(object sender, EventArgs e)
+        {
+            Tarjeta.Checked = false;
+            Det_tj_lb.Visible = false;
+            Nomb_tj_lb.Visible = false;
+            Nombre_tj_tx.Visible = false;
+            Num_tarj_lb.Visible = false;
+            Numero_tj_tx.Visible = false;
+            Cod_tj_lb.Visible = false;
+            Cod_tj_tx.Visible = false;
+            Fecha_tj_lb.Visible = false;
+            Fecha_Tarjeta_tx.Visible = false;
+            Fecha_Tarjeta_tx0.Visible = false;
+        }
+
+        protected void Tarjeta_CheckedChanged(object sender, EventArgs e)
+        {
+            Efectivo.Checked = false;
+            Det_tj_lb.Visible = true;
+            Nomb_tj_lb.Visible = true;
+            Nombre_tj_tx.Visible = true;
+            Num_tarj_lb.Visible = true;
+            Numero_tj_tx.Visible = true;
+            Cod_tj_lb.Visible = true;
+            Cod_tj_tx.Visible = true;
+            Fecha_tj_lb.Visible = true;
+            Fecha_Tarjeta_tx.Visible = true;
+            Fecha_Tarjeta_tx0.Visible = true;
         }
     }
 }

@@ -41,39 +41,57 @@
             <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; width: 525px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px; height: 56px;">Numero Proveedor:
                 <asp:Label ID="Client_ID_lb" runat="server" style="font-size: 20px"></asp:Label>
                 <br />
-                Nombre :&nbsp;&nbsp; <asp:Label ID="Client_nom_lb" runat="server" style="font-size: 20px"></asp:Label>
+                Nombre :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="Client_nom_lb" runat="server" style="font-size: 20px"></asp:Label>
             </td>
             <td class="modal-sm" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 70px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide; height: 56px;"></td>
             <td style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; height: 56px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px;">
                 <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
-                    Forma de Pago :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>&nbsp;&nbsp;&nbsp; </strong>
-                    <asp:RadioButton ID="RadioButton1" runat="server" Text="Efectivo" />&nbsp;&nbsp;&nbsp;
-                    <asp:RadioButton ID="RadioButton2" runat="server" Text="Targeta" />
+                    Forma de Pago :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>&nbsp;<asp:RadioButton ID="Efectivo" runat="server" AutoPostBack="True" OnCheckedChanged="Efectivo_CheckedChanged" Text="Efectivo" />
+                    &nbsp;&nbsp; </strong>
+                    &nbsp;&nbsp;&nbsp;<asp:RadioButton ID="Tarjeta" runat="server" AutoPostBack="True" OnCheckedChanged="Tarjeta_CheckedChanged" Text="Tarjeta" />
+                    <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
+                        <asp:Label ID="Det_tj_lb" runat="server" Text="Detalles de la Tarjeta :" Visible="False"></asp:Label>
+                    </p>
+                    
                 </p>
             </td>
         </tr>
         <tr>
-            <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; width: 525px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px;">Documento:&nbsp;&nbsp;<asp:Label ID="DNI_lb" runat="server" style="font-size: 20px"></asp:Label>
+            <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; width: 525px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px;">Documento:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:Label ID="DNI_lb" runat="server" style="font-size: 20px"></asp:Label>
             </td>
             <td class="modal-sm" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 70px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide;">&nbsp;</td>
             <td style="border-width: 3px; border-color: #C0C0C0; border-right-style: solid; border-left-style: solid;">
+                <p>
+                <asp:Label ID="Num_tarj_lb" runat="server" Text="Numero:" Visible="False"></asp:Label>
+                &nbsp;<asp:TextBox ID="Numero_tj_tx" runat="server" Visible="False" TextMode="Number" Width="130px"></asp:TextBox>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><asp:Label ID="Cod_tj_lb" runat="server" Text="Cod Lateral:" Visible="False"></asp:Label>
+                &nbsp;<asp:TextBox ID="Cod_tj_tx" runat="server" Height="25px" Visible="False" Width="57px"></asp:TextBox></p>
                 
             </td>
         </tr>
         <tr>
-            <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; width: 525px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px;">Telefono:&nbsp;&nbsp;<asp:Label ID="Telf_lb" runat="server" style="font-size: 20px"></asp:Label>
+            <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; width: 525px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px;">Telefono:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="Telf_lb" runat="server" style="font-size: 20px"></asp:Label>
             </td>
             <td class="modal-lg" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 70px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide;">&nbsp;</td>
             <td style="border-width: 3px; border-color: #C0C0C0; border-right-style: solid; border-left-style: solid;">
-                
+                <p>
+                <asp:Label ID="Nomb_tj_lb" runat="server" Text="Nombre:" Visible="False"></asp:Label>
+                &nbsp;<asp:TextBox ID="Nombre_tj_tx" runat="server" Visible="False" Width="130px"></asp:TextBox>
+                </p>
             </td>
         </tr>
         
         <tr>
-            <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; border-bottom: 3px solid #C0C0C0; width: 525px; border-top-color: #C0C0C0; border-top-width: 3px;">Correo:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<asp:Label ID="Correo_lb" runat="server" style="font-size: 20px"></asp:Label>
+            <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; border-bottom: 3px solid #C0C0C0; width: 525px; border-top-color: #C0C0C0; border-top-width: 3px;">Correo:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:Label ID="Correo_lb" runat="server" style="font-size: 20px"></asp:Label>
             </td>
             <td class="modal-sm" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 70px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide;">&nbsp;</td>
-            <td style="border-width: 3px; border-color: #C0C0C0; border-right-style: solid; border-left-style: solid; border-bottom-style: solid;">&nbsp;</td>
+            <td style="border-width: 3px; border-color: #C0C0C0; border-right-style: solid; border-left-style: solid; border-bottom-style: solid;">
+                <p>
+                <asp:Label ID="Fecha_tj_lb" runat="server" Text="Vencimiento: " Visible="False"></asp:Label>
+                &nbsp;<strong><asp:TextBox ID="Fecha_Tarjeta_tx" runat="server" Height="23px" style="font-size: 13pt; font-weight: bold" TextMode="Number" Visible="False" Width="57px"></asp:TextBox>
+                &nbsp;
+                <asp:TextBox ID="Fecha_Tarjeta_tx0" runat="server" Height="23px" style="font-size: 13pt; font-weight: bold" TextMode="Number" Visible="False" Width="57px"></asp:TextBox>
+                </strong></p></td>
         </tr>
     </table>
                     </ContentTemplate>

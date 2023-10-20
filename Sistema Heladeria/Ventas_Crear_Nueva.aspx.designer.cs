@@ -69,22 +69,31 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.Label Client_nom_lb;
 
         /// <summary>
-        /// Control RadioButton1.
+        /// Control Efectivo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton1;
+        protected global::System.Web.UI.WebControls.RadioButton Efectivo;
 
         /// <summary>
-        /// Control RadioButton2.
+        /// Control Tarjeta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton RadioButton2;
+        protected global::System.Web.UI.WebControls.RadioButton Tarjeta;
+
+        /// <summary>
+        /// Control Det_tj_lb.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Det_tj_lb;
 
         /// <summary>
         /// Control DNI_lb.
@@ -96,6 +105,42 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.Label DNI_lb;
 
         /// <summary>
+        /// Control Num_tarj_lb.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Num_tarj_lb;
+
+        /// <summary>
+        /// Control Numero_tj_tx.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Numero_tj_tx;
+
+        /// <summary>
+        /// Control Cod_tj_lb.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Cod_tj_lb;
+
+        /// <summary>
+        /// Control Cod_tj_tx.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Cod_tj_tx;
+
+        /// <summary>
         /// Control Telf_lb.
         /// </summary>
         /// <remarks>
@@ -105,6 +150,24 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.Label Telf_lb;
 
         /// <summary>
+        /// Control Nomb_tj_lb.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Nomb_tj_lb;
+
+        /// <summary>
+        /// Control Nombre_tj_tx.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Nombre_tj_tx;
+
+        /// <summary>
         /// Control Correo_lb.
         /// </summary>
         /// <remarks>
@@ -112,6 +175,33 @@ namespace Sistema_Heladeria
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Correo_lb;
+
+        /// <summary>
+        /// Control Fecha_tj_lb.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Fecha_tj_lb;
+
+        /// <summary>
+        /// Control Fecha_Tarjeta_tx.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Fecha_Tarjeta_tx;
+
+        /// <summary>
+        /// Control Fecha_Tarjeta_tx0.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Fecha_Tarjeta_tx0;
 
         /// <summary>
         /// Control Pop_Art_bt.

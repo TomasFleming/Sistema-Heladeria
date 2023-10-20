@@ -72,13 +72,13 @@ namespace Sistema_Heladeria
                 //primero creo orden
                 string query = "INSERT INTO Facturas_Proveedor (Fecha_Emision, Fecha_Vencimiento, Cod_Prov, Total, ID_prov, Fecha_Registro, Tipo) VALUES (@FechaEmision, @FechaVencimiento, @CodProv, @Total, @IDProv, @FechaRegistro, @Tipo)";
                 SqlCommand Orden = new SqlCommand(query, con.GetConnection());
-                Orden.Parameters.Add("@FechaEmision",Fecha_Creacion_tx.Text);
-                Orden.Parameters.Add("@FechaVencimiento", Fecha_Venc_tx.Text);
-                Orden.Parameters.Add("@CodProv",Cod_Prov_tx.Text);
-                Orden.Parameters.Add("@Total",Convert.ToDouble(Total_lb.Text));
-                Orden.Parameters.Add("@IDProv",Prov_ID_lb.Text);
-                Orden.Parameters.Add("@FechaRegistro", DateTime.Now);
-                Orden.Parameters.Add("@Tipo", Tipo_Fact.Text);
+                Orden.Parameters.Add(new SqlParameter("@FechaEmision",Fecha_Creacion_tx.Text));
+                Orden.Parameters.Add(new SqlParameter("@FechaVencimiento", Fecha_Venc_tx.Text));
+                Orden.Parameters.Add(new SqlParameter("@CodProv",Cod_Prov_tx.Text));
+                Orden.Parameters.Add(new SqlParameter("@Total",Convert.ToDouble(Total_lb.Text)));
+                Orden.Parameters.Add(new SqlParameter("@IDProv",Prov_ID_lb.Text));
+                Orden.Parameters.Add(new SqlParameter("@FechaRegistro", DateTime.Now));
+                Orden.Parameters.Add(new SqlParameter("@Tipo", Tipo_Fact.Text));
                 Orden.ExecuteNonQuery();
                 con.Close();
                 //Luego el detalle
