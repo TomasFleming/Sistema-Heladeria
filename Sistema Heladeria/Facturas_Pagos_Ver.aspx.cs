@@ -21,7 +21,7 @@ namespace Sistema_Heladeria
         protected void Buscar_Pago_btn_Click(object sender, EventArgs e)
         {
             con.Open();
-            string comando = "select RP.ID,P.NombreCompleto,Numero_Cuenta,Fecha_Pago,MetodoPago,RP.Total  from Registro_Pagos RP left join Proveedores P on P.ID=RP.ID_Prov where RP.ID like '" + Buscador_Pago_tx.Text+"' or P.NombreCompleto like '%"+Buscador_Pago_tx.Text+"%'";
+            string comando = "select RP.ID,P.NombreCompleto,Numero_Cuenta,Fecha_Pago,MetodoPago,RP.Total  from Registro_Pagos RP left join Proveedores P on P.ID=RP.ID_Prov where RP.ID like '%" + Buscador_Pago_tx.Text+"%'";
 
             if (!string.IsNullOrWhiteSpace(Precio_min_tx.Text))//quiere decir que si selecciono algo 
             {
@@ -39,10 +39,10 @@ namespace Sistema_Heladeria
             {
                 comando = comando + " and Fecha_Pago<='" + Fecha_Max_tx.Text + "' ";
             }
-            //if (Prov_select_lt.SelectedValue != "0")
-            //{
-            //    comando = comando + " and ID_prov=" + Prov_select_lt.SelectedValue + " ";
-            //}
+            if (!string.IsNullOrWhiteSpace(Prov_Filt_tx.Text))
+            {
+                comando = comando + " and P.NombreCompleto='" + Prov_Filt_tx.Text + "' ";
+            }
             SqlCommand Com = new SqlCommand(comando, con.GetConnection());
             Com.ExecuteNonQuery();
             SqlDataAdapter Proveedores = new SqlDataAdapter(Com);
@@ -60,7 +60,11 @@ namespace Sistema_Heladeria
 
         protected void Lipiar_Filt_btn_Click(object sender, EventArgs e)
         {
-
+            Precio_Max_tx.Text = "";
+            Precio_min_tx.Text = "";
+            Prov_Filt_tx.Text = "";
+            Fecha_Max_tx.Text = "";
+            Fecha_min_tx.Text = "";
         }
 
         protected void Ver_Detalle_btn_Click(object sender, EventArgs e)//es para ver las facturas del pago
@@ -114,6 +118,47 @@ namespace Sistema_Heladeria
             Lista_Detalle.DataBind();
             con.Close();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalArt();", true);
+        }
+
+        protected void Popup_Prov_bt_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalProv();", true);
+        }
+
+        protected void Selecc_Prov_btn_Click(object sender, EventArgs e)
+        {
+            Button IDBtn_ = sender as Button;
+            GridViewRow row = (GridViewRow)IDBtn_.NamingContainer;
+            int I = row.RowIndex;
+            Lista_Proveedores.SelectedIndex = I;
+            int ID = Convert.ToInt32(Lista_Proveedores.DataKeys[Lista_Proveedores.SelectedIndex].Value);
+
+            con.Open();
+            string qry = "select * from Proveedores where ID=" + ID;
+            SqlCommand Com = new SqlCommand(qry, con.GetConnection());
+            SqlDataReader Leer = Com.ExecuteReader();
+            Leer.Read();
+            Prov_Filt_tx.Text = Leer["NombreCompleto"].ToString();
+            con.Close();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalProv();", true);
+            //Para dejar bacio
+            DataTable clrear = new DataTable();
+            Lista_Proveedores.DataSource = clrear;
+            Lista_Proveedores.DataBind();
+        }
+
+        protected void Buscar_prov_btn_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            string qry = "select * from Proveedores ";
+            SqlCommand Com = new SqlCommand(qry, con.GetConnection());
+            Com.ExecuteNonQuery();
+            SqlDataAdapter Proveedores = new SqlDataAdapter(Com);
+            DataTable prov = new DataTable();
+            Proveedores.Fill(prov);
+            Lista_Proveedores.DataSource = prov;
+            Lista_Proveedores.DataBind();
+            con.Close();
         }
     }
 }
