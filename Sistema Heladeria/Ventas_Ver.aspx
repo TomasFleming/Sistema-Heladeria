@@ -19,7 +19,8 @@
             <tr>
                 <td>
                     Cliente:
-                    
+                    <asp:TextBox ID="Cliente_Filt_tx" runat="server" Width="100px" ReadOnly="True"></asp:TextBox>&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="Popup_Client_bt" runat="server" CssClass="btn btn-primary" OnClick="Popup_Client_bt_Click" Text="Seleccionar" />
                 </td>
                 <td>
                     &nbsp;</td>
@@ -38,7 +39,7 @@
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>
-                    <asp:Button ID="Filtrar_btn" runat="server" Text="Filtrar" />
+                    <asp:Button ID="Filtrar_btn" runat="server" OnClick="Buscar_Vent_btn_Click" Text="Filtrar" />
                 </td>
             </tr>
             <tr>
@@ -153,6 +154,67 @@
 
   </div>
 </div>
+    <div id="ModalProv" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Seleccionar Cliente<asp:Label ID="label55" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
+      </div>
+      <div class="modal-body">
+        <p></p><%--aasasdasasadsads--%>
+          <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+              <ContentTemplate>
+                        <asp:TextBox ID="Buscador_cliente" runat="server" Width="257px" style="font-size: 15pt" Height="27px"></asp:TextBox>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="Buscar_client_btn" CssClass="btn btn-primary" runat="server"  Text="Buscar" OnClick="Buscar_client_btn_Click" />
+        <center>
+            <asp:GridView ID="Lista_Clientes" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt">
+<AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
+                <Columns>
+                <asp:BoundField DataField="ID" HeaderText="COD" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="NombreCompleto" HeaderText="Nombre" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="DNI" HeaderText="Documento" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Telefono" HeaderText="Telefono" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                <asp:BoundField DataField="Correo" HeaderText="Correo" >
+                    <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                    </asp:BoundField>
+                    <asp:TemplateField HeaderText="">
+                    <ItemTemplate>
+                        <center>
+                        <asp:Button ID="Selecc_Cliente_btn" runat="server" OnClick="Selecc_Cliente_btn_Click" Text="Seleccionar" CssClass="btn btn-primary" />
+                    </center>
+                       </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
+
+<PagerStyle CssClass="pgr"></PagerStyle>
+            </asp:GridView>
+        </center>
+                                    </ContentTemplate>
+          </asp:UpdatePanel>    
+          <%--ass--%>
+          
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
     <script type="text/javascript">
         function openModalArt() {
             $('#ModalArt').modal('show');
@@ -170,5 +232,11 @@
                 this.innerHTML = "Cambiar Filtros";
             }
         });
+        function openModalProv() {
+            $('#ModalProv').modal('show');
+        }
+        function closeModalProv() {
+            $('#ModalProv').modal('hide');
+        }
     </script>
 </asp:Content>

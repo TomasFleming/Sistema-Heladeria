@@ -21,8 +21,16 @@ namespace Sistema_Heladeria
         protected void Buscar_Vent_btn_Click(object sender, EventArgs e)
         {
             con.Open();
-            string comando = "select * from Ventas V inner join Clientes C on C.ID=V.ID_Cliente where V.ID like '" + Buscador_Vents_tx.Text + "'  or C.NombreCompleto like '%" + Buscador_Vents_tx.Text + "%' ";//and Total>=@prTotMin and Total<=@prTotMax and Fecha_Emision>=@prFechaInicio and Fecha_Emision<=@prFechaFin and ID_prov=@prProveedor";
+            string comando = "select * from Ventas V inner join Clientes C on C.ID=V.ID_Cliente where V.ID ";//and Total>=@prTotMin and Total<=@prTotMax and Fecha_Emision>=@prFechaInicio and Fecha_Emision<=@prFechaFin and ID_prov=@prProveedor";
 
+            if (!string.IsNullOrWhiteSpace(Buscador_Vents_tx.Text))
+            {
+                comando = comando + "= " + Buscador_Vents_tx.Text + " ";
+            }
+            else
+            {
+                comando = comando + "like '%" + Buscador_Vents_tx.Text + "%'";
+            }
             if (!string.IsNullOrWhiteSpace(Precio_min_tx.Text))//quiere decir que si selecciono algo 
             {
                 comando = comando + " and Total>=" + Precio_min_tx.Text + " ";
@@ -39,10 +47,10 @@ namespace Sistema_Heladeria
             {
                 comando = comando + " and Fecha<='" + Fecha_Max_tx.Text + "' ";
             }
-            //if (Prov_select_lt.SelectedValue != "0")
-            //{
-            //    comando = comando + " and ID_prov=" + Prov_select_lt.SelectedValue + " ";
-            //}
+            if (!string.IsNullOrWhiteSpace(Cliente_Filt_tx.Text))
+            {
+                comando = comando + " and C.NombreCompleto='" + Cliente_Filt_tx.Text + "' ";
+            }
             SqlCommand Com = new SqlCommand(comando, con.GetConnection());
 
             Com.ExecuteNonQuery();
@@ -81,6 +89,48 @@ namespace Sistema_Heladeria
             Fecha_Max_tx.Text = "";
             Precio_min_tx.Text = "";
             Precio_Max_tx.Text = "";
+            Cliente_Filt_tx.Text = "";
+            Buscar_Vent_btn_Click(sender, e);
+        }
+
+        protected void Popup_Client_bt_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalProv();", true);
+        }
+
+        protected void Selecc_Cliente_btn_Click(object sender, EventArgs e)
+        {
+            Button IDBtn_ = sender as Button;
+            GridViewRow row = (GridViewRow)IDBtn_.NamingContainer;
+            int I = row.RowIndex;
+            Lista_Clientes.SelectedIndex = I;
+            int ID = Convert.ToInt32(Lista_Clientes.DataKeys[Lista_Clientes.SelectedIndex].Value);
+
+            con.Open();
+            string qry = "select * from Clientes where ID=" + ID;
+            SqlCommand Com = new SqlCommand(qry, con.GetConnection());
+            SqlDataReader Leer = Com.ExecuteReader();
+            Leer.Read();
+            Cliente_Filt_tx.Text = Leer["NombreCompleto"].ToString();
+            con.Close();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalProv();", true);
+            //Para dejar bacio
+            DataTable clrear = new DataTable();
+            Lista_Clientes.DataSource = clrear;
+            Lista_Clientes.DataBind();
+        }
+
+        protected void Buscar_client_btn_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            string qry = "select * from Clientes where ID like '%" + Buscador_cliente.Text + "%' ";
+            SqlCommand Com = new SqlCommand(qry, con.GetConnection());
+            Com.ExecuteNonQuery();
+            SqlDataAdapter Articulos = new SqlDataAdapter(Com);
+            DataTable art = new DataTable();
+            Articulos.Fill(art);
+            Lista_Clientes.DataSource = art;
+            Lista_Clientes.DataBind();
         }
     }
 }

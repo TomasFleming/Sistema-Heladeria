@@ -51,8 +51,16 @@ namespace Sistema_Heladeria
             //Lista_facturas.DataBind();
             //con.Close();
             con.Open();
-            string comando = "select * from Facturas_Proveedor FP left join Detalle_Pago Fpp on FP.ID=Fpp.ID_fact inner join Proveedores P on P.ID=Fp.ID_prov where FP.ID like '" + Buscador_Fact_tx.Text + "'  or P.NombreCompleto like '%" + Buscador_Fact_tx.Text + "%' ";//and Total>=@prTotMin and Total<=@prTotMax and Fecha_Emision>=@prFechaInicio and Fecha_Emision<=@prFechaFin and ID_prov=@prProveedor";
-
+            string comando = "select * from Facturas_Proveedor FP left join Detalle_Pago Fpp on FP.ID=Fpp.ID_fact inner join Proveedores P on P.ID=Fp.ID_prov  where FP.ID ";//and Total>=@prTotMin and Total<=@prTotMax and Fecha_Emision>=@prFechaInicio and Fecha_Emision<=@prFechaFin and ID_prov=@prProveedor";
+            if (!string.IsNullOrWhiteSpace(Buscador_Fact_tx.Text))
+            {
+                comando = comando + "= " + Buscador_Fact_tx.Text + " ";
+                
+            }
+            else
+            {
+                comando = comando + "like '%" + Buscador_Fact_tx.Text + "%'";
+            }
             if (!string.IsNullOrWhiteSpace(Precio_min_tx.Text))//quiere decir que si selecciono algo 
             {
                 comando = comando + " and Total>=" + Precio_min_tx.Text + " ";
@@ -69,9 +77,9 @@ namespace Sistema_Heladeria
             {
                 comando = comando + " and Fecha_Emision<='" + Fecha_Max_tx.Text + "' ";
             }
-            if (Prov_select_lt.SelectedValue != "0")
+            if (!string.IsNullOrWhiteSpace(Prov_Filt_tx.Text))
             {
-                comando = comando + " and ID_prov=" + Prov_select_lt.SelectedValue + " ";
+                comando = comando + " and P.NombreCompleto='" + Prov_Filt_tx.Text + "' ";
             }
             SqlCommand Com = new SqlCommand(comando, con.GetConnection());
 
@@ -99,53 +107,89 @@ namespace Sistema_Heladeria
             Fecha_Max_tx.Text = "";
             Precio_min_tx.Text = "";
             Precio_Max_tx.Text = "";
-            Prov_select_lt.SelectedIndex = 0;
+            Prov_Filt_tx.Text = "";
+            Buscar_fact_btn_Click(sender, e);
         }
 
         protected void Filtrar_btn_Click(object sender, EventArgs e)
         {
-            con.Open();
-            string comando = "select * from Facturas_Proveedor FP left join Factura_Prov_Pagada Fpp on FP.ID=Fpp.ID_fact inner join Proveedores P on P.ID=Fp.ID_prov where FP.ID like '" + Buscador_Fact_tx.Text + "'  or P.NombreCompleto like '%" + Buscador_Fact_tx.Text + "%' ";//and Total>=@prTotMin and Total<=@prTotMax and Fecha_Emision>=@prFechaInicio and Fecha_Emision<=@prFechaFin and ID_prov=@prProveedor";
+            //con.Open();
+            //string comando = "select * from Facturas_Proveedor FP left join Factura_Prov_Pagada Fpp on FP.ID=Fpp.ID_fact inner join Proveedores P on P.ID=Fp.ID_prov where FP.ID like '" + Buscador_Fact_tx.Text + "'  or P.NombreCompleto like '%" + Buscador_Fact_tx.Text + "%' ";//and Total>=@prTotMin and Total<=@prTotMax and Fecha_Emision>=@prFechaInicio and Fecha_Emision<=@prFechaFin and ID_prov=@prProveedor";
             
-            if (!string.IsNullOrWhiteSpace(Precio_min_tx.Text))//quiere decir que si selecciono algo 
-            {
-                comando = comando + " and Total>="+Precio_min_tx.Text+" ";
-            }
-            if (!string.IsNullOrWhiteSpace(Precio_Max_tx.Text))
-            {
-                comando = comando + " and Total<=" + Precio_Max_tx.Text + " ";
-            }
-            if (!string.IsNullOrWhiteSpace(Fecha_min_tx.Text))
-            {
-                comando = comando + " and Fecha_Emision>='" + Fecha_min_tx.Text + "' ";
-            }
-            if (!string.IsNullOrWhiteSpace(Fecha_Max_tx.Text))
-            {
-                comando = comando + " and Fecha_Emision<='" + Fecha_Max_tx.Text + "' ";
-            }
-            if (Prov_select_lt.SelectedValue!="0")
-            {
-                comando = comando + " and ID_prov=" + Prov_select_lt.SelectedValue + " ";
-            }
-            SqlCommand Com = new SqlCommand(comando, con.GetConnection());
+            //if (!string.IsNullOrWhiteSpace(Precio_min_tx.Text))//quiere decir que si selecciono algo 
+            //{
+            //    comando = comando + " and Total>="+Precio_min_tx.Text+" ";
+            //}
+            //if (!string.IsNullOrWhiteSpace(Precio_Max_tx.Text))
+            //{
+            //    comando = comando + " and Total<=" + Precio_Max_tx.Text + " ";
+            //}
+            //if (!string.IsNullOrWhiteSpace(Fecha_min_tx.Text))
+            //{
+            //    comando = comando + " and Fecha_Emision>='" + Fecha_min_tx.Text + "' ";
+            //}
+            //if (!string.IsNullOrWhiteSpace(Fecha_Max_tx.Text))
+            //{
+            //    comando = comando + " and Fecha_Emision<='" + Fecha_Max_tx.Text + "' ";
+            //}
+            //if (Prov_select_lt.SelectedValue!="0")
+            //{
+            //    comando = comando + " and ID_prov=" + Prov_select_lt.SelectedValue + " ";
+            //}
+            //SqlCommand Com = new SqlCommand(comando, con.GetConnection());
 
-            //Com.Parameters.Add(new SqlParameter("@prTotMax", Precio_Max_tx.Text));
-            //Com.Parameters.Add(new SqlParameter("@prFechaInicio", Fecha_min_tx.Text));
-            //Com.Parameters.Add(new SqlParameter("@prFechaFin", Fecha_Max_tx.Text));
-            //Com.Parameters.Add(new SqlParameter("@prProveedor", (Prov_select_lt.SelectedValue)));
+            ////Com.Parameters.Add(new SqlParameter("@prTotMax", Precio_Max_tx.Text));
+            ////Com.Parameters.Add(new SqlParameter("@prFechaInicio", Fecha_min_tx.Text));
+            ////Com.Parameters.Add(new SqlParameter("@prFechaFin", Fecha_Max_tx.Text));
+            ////Com.Parameters.Add(new SqlParameter("@prProveedor", (Prov_select_lt.SelectedValue)));
+            //Com.ExecuteNonQuery();
+            //SqlDataAdapter Proveedores = new SqlDataAdapter(Com);
+            //DataTable prov = new DataTable();
+            //Proveedores.Fill(prov);
+            //Lista_facturas.DataSource = prov;
+            //Lista_facturas.DataBind();
+            //con.Close();
+        }
+
+        protected void Popup_Prov_bt_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalProv();", true);
+        }
+
+        protected void Selecc_Prov_btn_Click(object sender, EventArgs e)
+        {
+            Button IDBtn_ = sender as Button;
+            GridViewRow row = (GridViewRow)IDBtn_.NamingContainer;
+            int I = row.RowIndex;
+            Lista_Proveedores.SelectedIndex = I;
+            int ID = Convert.ToInt32(Lista_Proveedores.DataKeys[Lista_Proveedores.SelectedIndex].Value);
+
+            con.Open();
+            string qry = "select * from Proveedores where ID=" + ID;
+            SqlCommand Com = new SqlCommand(qry, con.GetConnection());
+            SqlDataReader Leer = Com.ExecuteReader();
+            Leer.Read();
+            Prov_Filt_tx.Text = Leer["NombreCompleto"].ToString();
+            con.Close();
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalProv();", true);
+            //Para dejar bacio
+            DataTable clrear = new DataTable();
+            Lista_Proveedores.DataSource = clrear;
+            Lista_Proveedores.DataBind();
+        }
+
+        protected void Buscar_prov_btn_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            string qry = "select * from Proveedores ";
+            SqlCommand Com = new SqlCommand(qry, con.GetConnection());
             Com.ExecuteNonQuery();
             SqlDataAdapter Proveedores = new SqlDataAdapter(Com);
             DataTable prov = new DataTable();
             Proveedores.Fill(prov);
-            Lista_facturas.DataSource = prov;
-            Lista_facturas.DataBind();
+            Lista_Proveedores.DataSource = prov;
+            Lista_Proveedores.DataBind();
             con.Close();
-        }
-
-        protected void Prov_select_lt_DataBound(object sender, EventArgs e)
-        {
-            Prov_select_lt.Items.Insert(0, new ListItem("-- Cualquiera --", "0"));
-            Prov_select_lt.SelectedIndex = 0;
         }
     }
 }

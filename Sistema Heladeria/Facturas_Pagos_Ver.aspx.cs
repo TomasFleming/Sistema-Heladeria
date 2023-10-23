@@ -21,8 +21,16 @@ namespace Sistema_Heladeria
         protected void Buscar_Pago_btn_Click(object sender, EventArgs e)
         {
             con.Open();
-            string comando = "select RP.ID,P.NombreCompleto,Numero_Cuenta,Fecha_Pago,MetodoPago,RP.Total  from Registro_Pagos RP left join Proveedores P on P.ID=RP.ID_Prov where RP.ID like '%" + Buscador_Pago_tx.Text+"%'";
+            string comando = "select RP.ID,P.NombreCompleto,Numero_Cuenta,Fecha_Pago,MetodoPago,RP.Total  from Registro_Pagos RP left join Proveedores P on P.ID=RP.ID_Prov where RP.ID ";
 
+            if (!string.IsNullOrWhiteSpace(Buscador_Pago_tx.Text))
+            {
+                comando = comando + "= " + Buscador_Pago_tx.Text + " ";
+            }
+            else
+            {
+                comando = comando + "like '%" + Buscador_Pago_tx.Text + "%'";
+            }
             if (!string.IsNullOrWhiteSpace(Precio_min_tx.Text))//quiere decir que si selecciono algo 
             {
                 comando = comando + " and RP.Total>=" + Precio_min_tx.Text + " ";
@@ -65,6 +73,7 @@ namespace Sistema_Heladeria
             Prov_Filt_tx.Text = "";
             Fecha_Max_tx.Text = "";
             Fecha_min_tx.Text = "";
+            Buscar_Pago_btn_Click(sender, e);
         }
 
         protected void Ver_Detalle_btn_Click(object sender, EventArgs e)//es para ver las facturas del pago
