@@ -108,7 +108,7 @@ namespace Sistema_Heladeria
             Precio_min_tx.Text = "";
             Precio_Max_tx.Text = "";
             Prov_Filt_tx.Text = "";
-            Buscar_fact_btn_Click(sender, e);
+            Buscar_fact_btn_Click(sender, e);//aaaaa ojala siga funcionando
         }
 
         protected void Filtrar_btn_Click(object sender, EventArgs e)
