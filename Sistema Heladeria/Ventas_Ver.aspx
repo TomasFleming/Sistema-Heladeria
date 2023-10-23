@@ -38,7 +38,7 @@
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>
-                    <asp:Button ID="Filtrar_btn" runat="server" Text="Filtrar" />
+                    <asp:Button ID="Filtrar_btn" runat="server" OnClick="Buscar_Vent_btn_Click" Text="Filtrar" />
                 </td>
             </tr>
             <tr>
