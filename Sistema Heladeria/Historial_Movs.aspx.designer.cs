@@ -11,7 +11,7 @@ namespace Sistema_Heladeria
 {
 
 
-    public partial class Graficos
+    public partial class Historial_Movs
     {
 
         /// <summary>
@@ -22,15 +22,6 @@ namespace Sistema_Heladeria
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel2;
-
-        /// <summary>
-        /// Control Flitrar_Ganancias.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Flitrar_Ganancias;
 
         /// <summary>
         /// Control Fecha_min_tx.
@@ -51,30 +42,57 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.TextBox Fecha_Max_tx;
 
         /// <summary>
-        /// Control Lipiar_Ganancias_btn.
+        /// Control Filtrar_btn.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Lipiar_Ganancias_btn;
+        protected global::System.Web.UI.WebControls.Button Filtrar_btn;
 
         /// <summary>
-        /// Control UpdatePanel1.
+        /// Control Precio_min_tx.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        protected global::System.Web.UI.WebControls.TextBox Precio_min_tx;
 
         /// <summary>
-        /// Control GraficoGanancias.
+        /// Control Precio_Max_tx.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.DataVisualization.Charting.Chart GraficoGanancias;
+        protected global::System.Web.UI.WebControls.TextBox Precio_Max_tx;
+
+        /// <summary>
+        /// Control Lipiar_Filt_btn.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Lipiar_Filt_btn;
+
+        /// <summary>
+        /// Control UpdatePanel4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel4;
+
+        /// <summary>
+        /// Control Lista_Historial.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView Lista_Historial;
     }
 }

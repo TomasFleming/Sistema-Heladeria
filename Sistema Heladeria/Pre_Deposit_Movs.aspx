@@ -43,7 +43,7 @@
 
     <div class="col-md-4"> 
         <center style="width: 200px">
-                        <a runat="server" href="Articulos.aspx">
+                        <a runat="server" href="Historial_Movs.aspx">
                         <div class="image-button-container" style="width: 200px">
                             &nbsp;&nbsp;
                             <img alt="Imagen" src="imagenes 2-0/depositoHistorial.jpg" width="200" height="200"/>

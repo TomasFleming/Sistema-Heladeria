@@ -263,7 +263,7 @@ namespace Sistema_Heladeria
                 }
                 ListaVenta.Clear();
 
-                Response.Redirect("~/Facturas_Ver.aspx");
+                Response.Redirect("~/Ventas_Ver.aspx");
             }
             catch (Exception ex)
             {

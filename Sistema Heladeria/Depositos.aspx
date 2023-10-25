@@ -22,7 +22,7 @@
              </td>
              <td>&nbsp;&nbsp; &nbsp;</td>
              <td>
-     <asp:Button ID="Button1" runat="server" Text="Realizar Movimientos" CssClass="btn btn-default" PostBackUrl="~/Movimientos_Stocks.aspx" Visible="False" />
+     <asp:Button ID="Button1" runat="server" Text="Realizar Movimientos" CssClass="btn btn-default" PostBackUrl="~/Movimientos_Stocks.aspx" />
              </td>
              <td>&nbsp;&nbsp; &nbsp;</td>
              <td>

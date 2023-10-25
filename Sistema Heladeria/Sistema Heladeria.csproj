@@ -67,6 +67,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -115,6 +116,7 @@
     <Content Include="Facturas_Pagos_Ver.aspx" />
     <Content Include="Facturas_Ver.aspx" />
     <Content Include="Graficos.aspx" />
+    <Content Include="Historial_Movs.aspx" />
     <Content Include="imagenes 2-0\articulos.jpg" />
     <Content Include="imagenes 2-0\categoria.jpg" />
     <Content Include="imagenes 2-0\clientes.jpg" />
@@ -277,6 +279,13 @@
     </Compile>
     <Compile Include="Graficos.aspx.designer.cs">
       <DependentUpon>Graficos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Historial_Movs.aspx.cs">
+      <DependentUpon>Historial_Movs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Historial_Movs.aspx.designer.cs">
+      <DependentUpon>Historial_Movs.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListasCompras_Nueva.aspx.cs">
       <DependentUpon>ListasCompras_Nueva.aspx</DependentUpon>
