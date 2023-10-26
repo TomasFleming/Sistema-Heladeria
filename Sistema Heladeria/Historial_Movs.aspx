@@ -9,7 +9,7 @@
         <table class="nav-justified">
             <tr>
                 <td>
-                    Movimiento: 
+                    Actividad: 
                 </td>
                 <td>
                     &nbsp;</td>
@@ -28,7 +28,7 @@
                 <td>Articulo:</td>
                 <td>Deposito:</td>
                 <td>
-                    <asp:Button ID="Filtrar_btn" runat="server" OnClick="Buscar_Vent_btn_Click" Text="Filtrar" />
+                    <asp:Button ID="Filtrar_btn" runat="server" OnClick="Filtrar_btn_Click" Text="Filtrar" />
                 </td>
             </tr>
             <tr>

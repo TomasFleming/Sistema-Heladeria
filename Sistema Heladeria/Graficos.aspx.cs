@@ -17,6 +17,7 @@ namespace Sistema_Heladeria
         protected void Page_Load(object sender, EventArgs e)
         {
             con.CrearConexion();
+            //Fecha_Max_tx.SelectedValue = "12";
         }
 
         protected void Flitrar_Ganancias_Click(object sender, EventArgs e)
@@ -85,7 +86,9 @@ namespace Sistema_Heladeria
 
         protected void Lipiar_Ganancias_btn_Click(object sender, EventArgs e)
         {
-
+            //Fecha_Max_tx.SelectedValue = "12";
+            //Fecha_min_tx.SelectedValue = "1";
+            //Lipiar_Ganancias_btn_Click(sender, e);
         }
     }
 }
