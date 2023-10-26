@@ -74,6 +74,7 @@
                         <asp:ChartArea Name="ChartArea1">
                             <AxisX Title="Meses"></AxisX>
                             <AxisY Title="Capital"></AxisY>
+                            <%--<Area3DStyle Enable3D="true" />--%>
                         </asp:ChartArea>
                     </ChartAreas>
                 </asp:Chart>

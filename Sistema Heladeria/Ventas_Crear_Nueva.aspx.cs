@@ -16,7 +16,8 @@ namespace Sistema_Heladeria
         {
             con.CrearConexion();
             Efectivo.Checked = true;
-            Fecha_Creacion_tx.Text = (DateTime.Now).ToString();
+            DateTime fechaActual = DateTime.Now;
+            Fecha_Creacion_tx.Text = fechaActual.ToString("yyyy-MM-dd");
             try
             {
                 con.Open();
