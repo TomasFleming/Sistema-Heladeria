@@ -1,43 +1,43 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Historial_Movs.aspx.cs" Inherits="Sistema_Heladeria.Historial_Movs" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <header class="jumbotron text-center">
-     <h2><strong>Historial De Movimiento</strong></h2>
+     <h2><strong>Historial De Movimientos</strong></h2>
     </header>
     <p>    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
         <ContentTemplate>
     <div id="menu" style="display: block;">
         <table class="nav-justified">
             <tr>
-                <td>
-                    Actividad: 
+                <td style="width: 409px">
+                    <span style="font-size: large">Período de movimientos:</span> 
                 </td>
-                <td>
+                <td style="width: 388px">
                     &nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td>Fecha Minima:
+                <td style="width: 409px"><span style="font-size: large">Fecha Mínima:</span>
                     <asp:TextBox ID="Fecha_min_tx" runat="server" TextMode="Date" Width="100px"></asp:TextBox>
                 </td>
-                <td>Fecha Maxima:
+                <td style="width: 388px"><span style="font-size: large">Fecha Máxima:</span>
                     <asp:TextBox ID="Fecha_Max_tx" runat="server" TextMode="Date" Width="100px"></asp:TextBox>
                 </td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td>Articulo:</td>
-                <td>Deposito:</td>
+                <td style="font-size: large; width: 409px">Artículo:</td>
+                <td style="font-size: large; width: 388px">Depósito:</td>
                 <td>
                     <asp:Button ID="Filtrar_btn" runat="server" OnClick="Filtrar_btn_Click" Text="Filtrar" />
                 </td>
             </tr>
             <tr>
-                <td>
-                    Cantidad Minimo:
+                <td style="width: 409px">
+                    <span style="font-size: large">Cantidad Mínimo:</span>
                     <asp:TextBox ID="Precio_min_tx" runat="server" TextMode="Number" Width="100px"></asp:TextBox>
                 </td>
-                <td>
-                    Cantidad Maximo:
+                <td style="width: 388px">
+                    <span style="font-size: large">Cantidad Máximo:</span>
                     <asp:TextBox ID="Precio_Max_tx" runat="server" TextMode="Number" Width="100px"></asp:TextBox>
                 </td>
                 <td>

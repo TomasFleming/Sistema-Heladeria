@@ -222,21 +222,21 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.TextBox Desc_Edit_tx;
 
         /// <summary>
-        /// Control Cambiar_Mov_bt.
+        /// Control ButtonGuardarCambios.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Cambiar_Mov_bt;
+        protected global::System.Web.UI.WebControls.Button ButtonGuardarCambios;
 
         /// <summary>
-        /// Control Eliminar_Mov_btn.
+        /// Control ButtonCancelar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Eliminar_Mov_btn;
+        protected global::System.Web.UI.WebControls.Button ButtonCancelar;
     }
 }

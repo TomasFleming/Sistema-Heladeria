@@ -16,6 +16,7 @@
         </div>
     </header>
     <center>
+    <p>&nbsp;</p>
         <div class="col-md-4"> 
          <center style="width: 200px">
         <a href="Depositos.aspx" runat="server">
@@ -24,7 +25,7 @@
             <img src="imagenes 2-0/depositos.jpg" width="200" height="200" alt="Imagen">
         </div>
           
-         <asp:Label ID="Label1" runat="server" Text="Depositos" CssClass="btn btn-primary" width="200"></asp:Label>
+         <asp:Label ID="Label1" runat="server" Text="Depósitos" CssClass="btn btn-primary" width="200"></asp:Label>
           </a>
     </center> 
 
@@ -72,5 +73,14 @@
     updateDateTime();
     </script>
 
-
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 </asp:Content>

@@ -3,7 +3,7 @@
 <%@ Register Assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <header class="jumbotron text-center">
-     <h2><strong>Resumenes de Ingresos y Costos</strong></h2>
+     <h2><strong>Resumen de Ingresos y Egresos</strong></h2>
     </header>
     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
         <ContentTemplate>
@@ -11,17 +11,17 @@
         <table class="nav-justified">
             <tr>
                 <td>
-                    Movimiento: 
+                    <span style="font-size: large">Movimiento:</span> 
                 </td>
                 <td>
                     &nbsp;</td>
                 <td>
-                    <asp:Button ID="Flitrar_Ganancias" runat="server" OnClick="Flitrar_Ganancias_Click" Text="Filtrar" />
+                    <asp:Button ID="Flitrar_Ganancias" runat="server" OnClick="Flitrar_Ganancias_Click" Text="Filtrar" style="width: 80px;"/>
                 </td>
             </tr>
             <tr>
-                <td>Fecha Minima:
-                    <asp:DropDownList ID="Fecha_min_tx" runat="server" Width="150px">
+                <td style="height: 26px"><span style="font-size: large">Fecha Mínima: </span>
+                    <asp:DropDownList ID="Fecha_min_tx" runat="server" Width="150px" style="font-size: medium">
                         <asp:ListItem Value="1">Enero</asp:ListItem>
                         <asp:ListItem Value="2">Febrero</asp:ListItem>
                         <asp:ListItem Value="3">Marzo</asp:ListItem>
@@ -36,8 +36,8 @@
                         <asp:ListItem Value="12">Diciembre</asp:ListItem>
                     </asp:DropDownList>
                 </td>
-                <td>Fecha Maxima:
-                    <asp:DropDownList ID="Fecha_Max_tx" runat="server" Width="150px">
+                <td style="height: 26px"><span style="font-size: large">Fecha Máxima:</span>
+                    <asp:DropDownList ID="Fecha_Max_tx" runat="server" Width="150px" style="font-size: medium">
                         <asp:ListItem Value="1">Enero</asp:ListItem>
                         <asp:ListItem Value="2">Febrero</asp:ListItem>
                         <asp:ListItem Value="3">Marzo</asp:ListItem>
@@ -52,8 +52,8 @@
                         <asp:ListItem Value="12">Diciembre</asp:ListItem>
                     </asp:DropDownList>
                 </td>
-                <td>
-                    <asp:Button ID="Lipiar_Ganancias_btn" runat="server" OnClick="Lipiar_Ganancias_btn_Click" Text="Limpiar" />
+                <td style="height: 26px">
+                    <asp:Button ID="Lipiar_Ganancias_btn" runat="server" OnClick="Lipiar_Ganancias_btn_Click" Text="Limpiar" style="width: 80px;"/>
                 </td>
             </tr>
         </table>

@@ -118,6 +118,7 @@
     <Content Include="Graficos.aspx" />
     <Content Include="Historial_Movs.aspx" />
     <Content Include="imagenes 2-0\articulos.jpg" />
+    <Content Include="imagenes 2-0\balance.jpg" />
     <Content Include="imagenes 2-0\categoria.jpg" />
     <Content Include="imagenes 2-0\clientes.jpg" />
     <Content Include="imagenes 2-0\deposito.jpg" />

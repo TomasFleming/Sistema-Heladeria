@@ -1,16 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Depositos.aspx.cs" Inherits="Sistema_Heladeria.Depositos" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <center><p style="font-size: 40px; font-weight: bold; color:#0094ff;font-family: Arial, sans-serif;">Depositos Registrados</p></center>
+    <%--<center><p style="font-size: 40px; font-weight: bold; color:#0094ff;font-family: Arial, sans-serif;">Depositos Registrados</p></center>--%>
     
     <header class="jumbotron text-center">
      <h2><strong>Depósito</strong></h2>
     </header>
+  
 
     <div class="col-md-4"> <!-- Columna para el textbox -->
      <table class="nav-justified">
          <tr>
              <td>
-     <asp:TextBox ID="Buscador_dep" runat="server" class="form-control" placeholder="Insertar Deposito" style="width: 350px"></asp:TextBox>
+     <asp:TextBox ID="Buscador_dep" runat="server" class="form-control" placeholder="Ingrese nombre o número del depósito" style="width: 350px"></asp:TextBox>
              </td>
              <td>&nbsp; &nbsp;&nbsp; &nbsp;</td>
              <td>
@@ -18,11 +19,11 @@
              </td>
              <td>&nbsp;&nbsp; &nbsp; &nbsp;</td>
              <td>
-     <asp:Button ID="Agregar_dep_btn" CssClass="btn btn-default" runat="server" Text="Agregar Deposito" OnClick="Agregar_dep_btn_Click"  />
+     <asp:Button ID="Agregar_dep_btn" CssClass="btn btn-default" runat="server" Text="Agregar Depósito" OnClick="Agregar_dep_btn_Click"  />
              </td>
              <td>&nbsp;&nbsp; &nbsp;</td>
              <td>
-     <asp:Button ID="Button1" runat="server" Text="Realizar Movimientos" CssClass="btn btn-default" PostBackUrl="~/Movimientos_Stocks.aspx" />
+     <asp:Button ID="Button1" runat="server" Text="Realizar nuevo movimiento" CssClass="btn btn-default" PostBackUrl="~/Movimientos_Stocks.aspx" />
              </td>
              <td>&nbsp;&nbsp; &nbsp;</td>
              <td>
