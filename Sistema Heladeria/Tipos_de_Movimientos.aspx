@@ -17,6 +17,7 @@
     </div>
 </div>
     <p></p>
+        <asp:UpdatePanel ID="UpdatePanel2" runat="server"><ContentTemplate>
     <center>
             <asp:GridView ID="Lista_Movimientos" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt" Width="1200px">
 <AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
@@ -44,7 +45,7 @@
 
 <PagerStyle CssClass="pgr"></PagerStyle>
             </asp:GridView>
-        </center>
+        </center></ContentTemplate></asp:UpdatePanel>
     <p>
         
         
@@ -97,7 +98,7 @@
         </tr>
         <tr>
             <td colspan="2">
-                <center><asp:Button ID="Mov_guard_btn" CssClass="btn btn-primary" runat="server" Text="Guardar Movimiento" OnClick="Mov_guard_btn_Click"/>
+                <center><asp:Button ID="Mov_guard_btn" CssClass="btn btn-primary" runat="server" Text="Guardar Movimiento" OnClick="Guardar_Mov_bt_Click"/>
             &nbsp;<asp:Button ID="Cancelar_mov_btn" CssClass="btn btn-danger" runat="server" Text="Cancelar" OnClick="Cancelar_mov_btn_Click" /></center>
             </td>
         </tr>
