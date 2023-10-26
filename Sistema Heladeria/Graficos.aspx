@@ -21,10 +21,36 @@
             </tr>
             <tr>
                 <td>Fecha Minima:
-                    <asp:TextBox ID="Fecha_min_tx" runat="server" TextMode="Month" Width="150px"></asp:TextBox>
+                    <asp:DropDownList ID="Fecha_min_tx" runat="server" Width="150px">
+                        <asp:ListItem Value="1">Enero</asp:ListItem>
+                        <asp:ListItem Value="2">Febrero</asp:ListItem>
+                        <asp:ListItem Value="3">Marzo</asp:ListItem>
+                        <asp:ListItem Value="4">Abril</asp:ListItem>
+                        <asp:ListItem Value="5">Mayo</asp:ListItem>
+                        <asp:ListItem Value="6">Junio</asp:ListItem>
+                        <asp:ListItem Value="7">Julio</asp:ListItem>
+                        <asp:ListItem Value="8">Agosto</asp:ListItem>
+                        <asp:ListItem Value="9">Septiembre</asp:ListItem>
+                        <asp:ListItem Value="10">Octubre</asp:ListItem>
+                        <asp:ListItem Value="11">Noviembre</asp:ListItem>
+                        <asp:ListItem Value="12">Diciembre</asp:ListItem>
+                    </asp:DropDownList>
                 </td>
                 <td>Fecha Maxima:
-                    <asp:TextBox ID="Fecha_Max_tx" runat="server" TextMode="Month" Width="150px"></asp:TextBox>
+                    <asp:DropDownList ID="Fecha_Max_tx" runat="server" Width="150px">
+                        <asp:ListItem Value="1">Enero</asp:ListItem>
+                        <asp:ListItem Value="2">Febrero</asp:ListItem>
+                        <asp:ListItem Value="3">Marzo</asp:ListItem>
+                        <asp:ListItem Value="4">Abril</asp:ListItem>
+                        <asp:ListItem Value="5">Mayo</asp:ListItem>
+                        <asp:ListItem Value="6">Junio</asp:ListItem>
+                        <asp:ListItem Value="7">Julio</asp:ListItem>
+                        <asp:ListItem Value="8">Agosto</asp:ListItem>
+                        <asp:ListItem Value="9">Septiembre</asp:ListItem>
+                        <asp:ListItem Value="10">Octubre</asp:ListItem>
+                        <asp:ListItem Value="11">Noviembre</asp:ListItem>
+                        <asp:ListItem Value="12">Diciembre</asp:ListItem>
+                    </asp:DropDownList>
                 </td>
                 <td>
                     <asp:Button ID="Lipiar_Ganancias_btn" runat="server" OnClick="Lipiar_Ganancias_btn_Click" Text="Limpiar" />

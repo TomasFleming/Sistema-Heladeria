@@ -39,7 +39,7 @@ namespace Sistema_Heladeria
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Fecha_min_tx;
+        protected global::System.Web.UI.WebControls.DropDownList Fecha_min_tx;
 
         /// <summary>
         /// Control Fecha_Max_tx.
@@ -48,7 +48,7 @@ namespace Sistema_Heladeria
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Fecha_Max_tx;
+        protected global::System.Web.UI.WebControls.DropDownList Fecha_Max_tx;
 
         /// <summary>
         /// Control Lipiar_Ganancias_btn.
