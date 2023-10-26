@@ -12,7 +12,7 @@
     
     <div class="row">
     <div class="col-md-4"> <!-- Columna para el textbox -->
-        <asp:TextBox ID="Buscador_cat" runat="server" class="form-control" placeholder="Ingrese nombre de la cateogría" style="width: 400px"></asp:TextBox>
+        <asp:TextBox ID="Buscador_cat" runat="server" class="form-control" placeholder="Ingrese nombre de la categoría" style="width: 400px" OnTextChanged="Buscador_cat_TextChanged"></asp:TextBox>
     </div>
     <div class="col-md-4"> <!-- Columna para los botones -->
         <asp:Button ID="Buscar_cat_btn" CssClass="btn btn-primary" runat="server" OnClick="Buscar_cat_btn_Click" Text="Buscar" />

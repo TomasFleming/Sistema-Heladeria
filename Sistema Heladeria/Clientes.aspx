@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Clientes.aspx.cs" Inherits="Sistema_Heladeria.Clientes" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <header class="jumbotron text-center">
-     <h2><strong>Cartera de Clientes</strong></h2>
+     <h2><strong>Lista de Clientes</strong></h2>
     </header>
 
 <%--    <center><p style="font-size: 40px;font-weight: bold; color:#0094ff;font-family: Arial, sans-serif;">Articulos Registrados</p></center>--%>

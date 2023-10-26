@@ -95,5 +95,10 @@ namespace Sistema_Heladeria
             con.Close();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal2();", true);
         }
+
+        protected void Buscador_cat_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

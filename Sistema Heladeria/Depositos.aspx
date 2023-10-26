@@ -3,7 +3,7 @@
     <%--<center><p style="font-size: 40px; font-weight: bold; color:#0094ff;font-family: Arial, sans-serif;">Depositos Registrados</p></center>--%>
     
     <header class="jumbotron text-center">
-     <h2><strong>Cartera De Depósitos</strong></h2>
+     <h2>L<strong>ista De Depósitos</strong></h2>
     </header>
   
 
@@ -100,8 +100,8 @@
         </tr>
         <tr>
             <td colspan="2">
-                <center><asp:Button ID="Deposit_guard_btn" CssClass="btn btn-primary" runat="server" Text="Guardar Cambios" OnClick="Dep_guard_btn_Click" />
-            &nbsp;&nbsp;&nbsp;<asp:Button ID="Deposit_elin_byn" CssClass="btn btn-danger" runat="server" Text="Borrar Articulo" OnClick="Dep_elin_byn_Click"  /></center>
+                <center><asp:Button ID="Deposit_guard_btn" CssClass="btn btn-primary" runat="server" Text="Guardar Depósito" OnClick="Dep_guard_btn_Click" />
+            &nbsp;&nbsp;&nbsp;<asp:Button ID="Deposit_elin_byn" CssClass="btn btn-danger" runat="server" Text="Cancelar " OnClick="Dep_elin_byn_Click"  /></center>
             </td>
         </tr>
     </table>
@@ -213,7 +213,7 @@
         </tr>
         <tr>
             <td colspan="2" style="font-family: Arial; font-size: 16px; font-style: inherit; color: #000000;"> <center>
-                <asp:Button ID="Guardar_MinStock_btn" runat="server" CssClass="btn btn-success" Text="Guardar Cambio" OnClick="Guardar_MinStock_btn_Click" /></center><center>
+                <asp:Button ID="Guardar_MinStock_btn" runat="server" CssClass="btn btn-success" Text="Guardar Stock Minimo" OnClick="Guardar_MinStock_btn_Click" /></center><center>
                     <asp:Button ID="Cancelar_MinStk_btn" runat="server" CssClass="btn btn-danger" Text="Cancelar" OnClick="Cancelar_MinStk_btn_Click" /></center>&nbsp;</td>
         </tr>
     </table>
