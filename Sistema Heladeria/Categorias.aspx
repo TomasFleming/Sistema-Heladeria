@@ -12,7 +12,7 @@
     
     <div class="row">
     <div class="col-md-4"> <!-- Columna para el textbox -->
-        <asp:TextBox ID="Buscador_cat" runat="server" class="form-control" placeholder="Ingrese nombre de la cateogría" style="width: 350px"></asp:TextBox>
+        <asp:TextBox ID="Buscador_cat" runat="server" class="form-control" placeholder="Ingrese nombre de la cateogría" style="width: 400px"></asp:TextBox>
     </div>
     <div class="col-md-4"> <!-- Columna para los botones -->
         <asp:Button ID="Buscar_cat_btn" CssClass="btn btn-primary" runat="server" OnClick="Buscar_cat_btn_Click" Text="Buscar" />
@@ -66,7 +66,7 @@
       <div class="modal-header">
 
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <center><h4 class="modal-title"style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Agregar nueva Categoria<asp:Label ID="label55" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
+        <center><h4 class="modal-title"style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Agregar Nueva Categoria<asp:Label ID="label55" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
       </div>
       <div class="modal-body">
         <p></p><%--aasasdasasadsads--%>

@@ -6,10 +6,10 @@
 <%--    <center><p style="font-size: 40px; font-weight: bold; color:#0094ff;font-family: Arial, sans-serif;">Proveedores Afiliados</p></center>--%>
     <div class="row">
     <div class="col-md-4"> <!-- Columna para el textbox -->
-        <asp:TextBox ID="Buscador_prov" runat="server" class="form-control" placeholder="Buscador" style="width: 350px"></asp:TextBox>
+        <asp:TextBox ID="Buscador_prov" runat="server" class="form-control" placeholder="Ingrese nombre o número de proveedor" style="width: 400px"></asp:TextBox>
     </div>
     <div class="col-md-4"> <!-- Columna para los botones -->
-        <asp:Button ID="Buscar_prov_btn" CssClass="btn btn-primary" runat="server"  Text="Buscar" OnClick="Buscar_prov_btn_Click" />
+        <asp:Button ID="Buscar_prov_btn" CssClass="btn btn-primary" runat="server"  Text="Buscar" OnClick="Buscar_prov_btn_Click" /> &nbsp;&nbsp;&nbsp;
         <asp:Button ID="Agregar_prov_btn" CssClass="btn btn-default" runat="server" Text="Agregar Proveedor" OnClick="Agregar_prov_btn_Click"  />
     </div>
 </div>
@@ -66,7 +66,7 @@
       <div class="modal-header">
 
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Agregar nuevo Proveedor<asp:Label ID="label55" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
+        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Agregar Nuevo Proveedor<asp:Label ID="label55" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
       </div>
       <div class="modal-body">
         <p></p><%--aasasdasasadsads--%>
@@ -76,7 +76,7 @@
                           <table id="Tabla_cat1" style="width: 36%; height: 207px;">
         <tr>
             <td style="height: 20px; width: 228px">
-                <asp:Label ID="Art_nom_lb" runat="server" Text="Nombre" style="font-size: 20px"></asp:Label>
+                <asp:Label ID="Art_nom_lb" runat="server" Text="Nombre:" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 20px; width: 646px">
                 <asp:TextBox ID="Nomb_tx" runat="server" style="font-size: 15pt" Width="300px"></asp:TextBox>
@@ -85,7 +85,7 @@
         </tr>
         <tr>
             <td style="width: 228px; height: 22px">
-                <asp:Label ID="Telf_lb" runat="server" Text="Telefono" style="font-size: 20px"></asp:Label>
+                <asp:Label ID="Telf_lb" runat="server" Text="Teléfono:" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 22px; width: 646px">
                 <asp:TextBox ID="Telefono_tx" runat="server" TextMode="Number" style="font-size: 15pt" Width="302px"></asp:TextBox>
@@ -94,7 +94,7 @@
         </tr>
             <tr>
             <td style="width: 228px; height: 22px">
-                <asp:Label ID="Direc_lb" runat="server" Text="Direccion" style="font-size: 20px"></asp:Label>
+                <asp:Label ID="Direc_lb" runat="server" Text="Dirección:" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 22px; width: 646px">
                 <asp:TextBox ID="Direcc_tx" runat="server" style="font-size: 15pt" Width="302px"></asp:TextBox>
@@ -103,7 +103,7 @@
             </tr>
             <tr>
             <td style="width: 228px; height: 22px">
-                <asp:Label ID="Correo_lb" runat="server" Text="Correo" style="font-size: 20px"></asp:Label>
+                <asp:Label ID="Correo_lb" runat="server" Text="Correo:" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 22px; width: 646px">
                 <asp:TextBox ID="Correo_tx" runat="server" style="font-size: 15pt" Width="302px"></asp:TextBox>

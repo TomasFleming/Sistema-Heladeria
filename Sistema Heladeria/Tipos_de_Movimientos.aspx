@@ -9,10 +9,10 @@
    
     <div class="row">
     <div class="col-md-4"> <!-- Columna para el textbox -->
-        <asp:TextBox ID="Buscador_mov" runat="server" class="form-control" placeholder="Ingrese tipo de movimiento" style="width: 350px"></asp:TextBox>
+        <asp:TextBox ID="Buscador_mov" runat="server" class="form-control" placeholder="Ingrese tipo de movimiento" style="width: 400px"></asp:TextBox>
     </div>
     <div class="col-md-4"> <!-- Columna para los botones -->
-        <asp:Button ID="Buscar_mov_btn" CssClass="btn btn-primary" runat="server" OnClick="Buscar_mov_btn_Click" Text="Buscar" />
+        <asp:Button ID="Buscar_mov_btn" CssClass="btn btn-primary" runat="server" OnClick="Buscar_mov_btn_Click" Text="Buscar"/>&nbsp;
         <asp:Button ID="Agregar_mov_btn" CssClass="btn btn-default" runat="server" Text="Agregar Nueva Categoría de Movimiento" OnClick="Agregar_mov_btn_Click" />
     </div>
 </div>

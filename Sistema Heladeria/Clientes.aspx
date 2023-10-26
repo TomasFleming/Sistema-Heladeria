@@ -1,17 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Clientes.aspx.cs" Inherits="Sistema_Heladeria.Clientes" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <header class="jumbotron text-center">
-     <h2><strong>Clientes Registrados</strong></h2>
+     <h2><strong>Cartera de Clientes</strong></h2>
     </header>
 
 <%--    <center><p style="font-size: 40px;font-weight: bold; color:#0094ff;font-family: Arial, sans-serif;">Articulos Registrados</p></center>--%>
     
     <div class="row">
     <div class="col-md-4"> <!-- Columna para el textbox -->
-        <asp:TextBox ID="Buscador_client" runat="server" class="form-control" placeholder="Ingresar Cliente" style="width: 350px"></asp:TextBox>
+        <asp:TextBox ID="Buscador_client" runat="server" class="form-control" placeholder="Ingrese nombre o número de cliente" style="width: 400px"></asp:TextBox>
     </div>
     <div class="col-md-4"> <!-- Columna para los botones -->
-        <asp:Button ID="Buscar_client_btn" CssClass="btn btn-primary" runat="server" OnClick="Buscar_client_btn_Click" Text="Buscar" />
+        <asp:Button ID="Buscar_client_btn" CssClass="btn btn-primary" runat="server" OnClick="Buscar_client_btn_Click" Text="Buscar" /> &nbsp;&nbsp;
         <asp:Button ID="Agregar_Client_btn" CssClass="btn btn-default" runat="server" Text="Agregar Cliente" OnClick="Agregar_Client_btn_Click" />
     </div>
 </div>
@@ -71,7 +71,7 @@
       <div class="modal-header">
 
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Agregar nuevo articulo<asp:Label ID="label55" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
+        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Agregar Nuevo Artículo<asp:Label ID="label55" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
       </div>
       <div class="modal-body">
         <p></p><%--aasasdasasadsads--%>
@@ -81,29 +81,29 @@
                           <table id="Tabla_cat1" style="width: 36%; height: 207px;">
         <tr>
             <td style="height: 66px; width: 228px">
-                <asp:Label ID="Client_nom_lb" runat="server" Text="Nombre :" style="font-size: 20px"></asp:Label>
+                <asp:Label ID="Client_nom_lb" runat="server" Text="Nombre:" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 66px; width: 646px">
-                <asp:TextBox ID="Nombre_tx" runat="server" style="font-size: 15pt" Width="300px"></asp:TextBox>
+                <asp:TextBox ID="Nombre_tx" runat="server" style="font-size: 15pt" Width="250px"></asp:TextBox>
                 <asp:Label ID="Alert_lb" runat="server" Text="Ya existe un articulo con ese nombre" Visible="False" ForeColor="Red"></asp:Label>
             </td>
         </tr>
         
         <tr>
             <td style="height: 40px; width: 228px">
-                <asp:Label ID="Doc_lb" runat="server" Text="Documento :" style="font-size: 20px"></asp:Label>
+                <asp:Label ID="Doc_lb" runat="server" Text="Documento:" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 40px; width: 646px">
-                <asp:TextBox ID="Doc_tx" runat="server" style="font-size: 15pt" Width="300px"></asp:TextBox>
+                <asp:TextBox ID="Doc_tx" runat="server" style="font-size: 15pt" Width="250px"></asp:TextBox>
             </td>
         </tr>
         
         <tr>
             <td style="width: 228px; height: 22px">
-                <asp:Label ID="Art_Pre_lb" runat="server" Text="Telefono :" style="font-size: 20px"></asp:Label>
+                <asp:Label ID="Art_Pre_lb" runat="server" Text="Teléfono:" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 22px; width: 646px">
-                <asp:TextBox ID="Telefono_tx" runat="server" TextMode="Number" style="font-size: 15pt" Width="302px"></asp:TextBox>
+                <asp:TextBox ID="Telefono_tx" runat="server" TextMode="Number" style="font-size: 15pt" Width="250px"></asp:TextBox>
 
                 <%--<asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Debe ser un valor superior a 0" ControlToValidate="Precio_tx" Operator="GreaterThan" Type="Integer" ValueToCompare="0"></asp:CompareValidator>--%>
 
@@ -111,10 +111,10 @@
         </tr>
         <tr>
             <td style="width: 228px; height: 22px">
-                <asp:Label ID="Art_desc_lb" runat="server" Text="Correo :" style="font-size: 20px"></asp:Label>
+                <asp:Label ID="Art_desc_lb" runat="server" Text="Correo:" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 22px; width: 646px">
-                <asp:TextBox ID="Mail_tx" runat="server" Height="34px" style="margin-left: 0" Width="302px"></asp:TextBox>
+                <asp:TextBox ID="Mail_tx" runat="server" Height="34px" style="margin-left: 0" Width="250px"></asp:TextBox>
             </td>
         </tr>
         <tr>

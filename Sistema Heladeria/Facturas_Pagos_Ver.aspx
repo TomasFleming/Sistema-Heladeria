@@ -8,7 +8,7 @@
 <%--    <center><p style="font-size: 40px; font-weight: bold; color:#0094ff;font-family: Arial, sans-serif;">Pagos Realizados</p></center>--%>
     <div class="row">
     <div class="col-md-4"> <!-- Columna para el textbox -->
-        <asp:TextBox ID="Buscador_Pago_tx" runat="server" class="form-control" placeholder="Insertar N° de Pago" style="width: 350px"></asp:TextBox>    </div>
+        <asp:TextBox ID="Buscador_Pago_tx" runat="server" class="form-control" placeholder="Insertar N° de Pago" style="width: 400px"></asp:TextBox>    </div>
     <div class="col-md-4"> <!-- Columna para los botones -->
          <asp:Button ID="Buscar_Pago_btn" CssClass="btn btn-primary" runat="server"  Text="Buscar" OnClick="Buscar_Pago_btn_Click"  />
          <asp:Button ID="Realizar_Pago_btn" CssClass="btn btn-default" runat="server" Text="Realiar Pago" OnClick="Realizar_Pago_btn_Click" PostBackUrl="~/Facturas_Pagar.aspx"  />

@@ -5,7 +5,7 @@
     </header>
      <div class="row">
     <div class="col-md-4"> <!-- Columna para el textbox -->
-        <asp:TextBox ID="Buscador_Vents_tx" runat="server" class="form-control" placeholder="Insertar N° de Venta" style="width: 350px"></asp:TextBox>    </div>
+        <asp:TextBox ID="Buscador_Vents_tx" runat="server" class="form-control" placeholder="Insertar N° de Venta" style="width: 400px"></asp:TextBox>    </div>
     <div class="col-md-4"> <!-- Columna para los botones -->
          <asp:Button ID="Buscar_Vent_btn" CssClass="btn btn-primary" runat="server"  Text="Buscar" OnClick="Buscar_Vent_btn_Click"  />
          <asp:Button ID="Crear_Vent_btn" CssClass="btn btn-default" runat="server" Text="Crear Nueva Venta" PostBackUrl="~/Ventas_Crear_Nueva.aspx"  />

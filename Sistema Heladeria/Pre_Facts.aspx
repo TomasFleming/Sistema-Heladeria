@@ -17,27 +17,43 @@
 
 
     <center>
+
         <div class="row">
+
         <div class="col-md-4"> 
          <center style="width: 200px">
         <a href="Facturas_Ver.aspx" runat="server">
         <div class="image-button-container" style="width: 200px">
             <img src="imagenes 2-0/registrar.jpg"  width="200" height="200" alt="Imagen">
         </div>
-            <asp:Label ID="Label1" runat="server" Text="Facturas Registradas" CssClass="btn btn-primary" width="200"></asp:Label>
+
         </a>
-    </center>
+         </center>
+        <center>
+            <asp:Label ID="Label1" runat="server" Text="Facturas Registradas" CssClass="btn btn-primary" width="200"></asp:Label>
+        </center>
+    <p>
+            &nbsp;</p>
     </div>
+
     <div class="col-md-4" style="display:none">
         <center style="width: 200px">
                         <a href="Tipos_.aspx" runat="server">
                     <div class="image-button-container" style="width: 200px">
                         <img src="Imagenes/realizar_movimiento.png"  width="200" height="200" />
                     </div>
-                        <asp:Label ID="lb" runat="server" Text="Emitir Factura" CssClass="btn btn-primary" width="200"></asp:Label>
-                        </a>
+
+                    </a>
                     </center>
+                    <center>
+                        <asp:Label ID="lb" runat="server" Text="Emitir Factura" CssClass="btn btn-primary" width="200"></asp:Label>
+                    </center>
+
+        <p>
+            &nbsp;</p>
     </div>
+
+
     <div class="col-md-4"> 
         <center style="width: 200px">
                         <a runat="server" href="Facturas_Pagar.aspx">
@@ -48,17 +64,10 @@
                         </a>
                     </center>
     </div>
-        <div class="col-md-4"> 
-        <center style="width: 200px">
-                        <a runat="server" href="Facturas_Pagos_Ver.aspx">
-                        <div class="image-button-container" style="width: 200px">
-                            <img alt="Imagen" src="imagenes 2-0/historialPago.jpg"  width="200" height="200" />
-                        </div>
-                        <asp:Label ID="Label2" runat="server" CssClass="btn btn-primary" width="200" Text="Historial de Pagos"></asp:Label>
-                        </a>
-                    </center>
-    </div>
-            </div><p></p>
+       
+            </div>
+        <p>&nbsp;</p>
+
         <div class="row">
             <div class="col-md-4"> 
          <center style="width: 200px">
@@ -69,6 +78,17 @@
             <asp:Label ID="Label3" runat="server" Text="Registro Ventas" CssClass="btn btn-primary" width="200"></asp:Label>
         </a>
     </center>
+    </div>
+
+    <div class="col-md-4"> 
+        <center style="width: 200px">
+                        <a runat="server" href="Facturas_Pagos_Ver.aspx">
+                        <div class="image-button-container" style="width: 200px">
+                            <img alt="Imagen" src="imagenes 2-0/historialPago.jpg"  width="200" height="200" />
+                        </div>
+                        <asp:Label ID="Label2" runat="server" CssClass="btn btn-primary" width="200" Text="Historial de Pagos"></asp:Label>
+                        </a>
+                    </center>
     </div>
         </div>
     </center>

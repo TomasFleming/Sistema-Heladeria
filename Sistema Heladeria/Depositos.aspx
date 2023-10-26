@@ -3,7 +3,7 @@
     <%--<center><p style="font-size: 40px; font-weight: bold; color:#0094ff;font-family: Arial, sans-serif;">Depositos Registrados</p></center>--%>
     
     <header class="jumbotron text-center">
-     <h2><strong>Depósito</strong></h2>
+     <h2><strong>Cartera De Depósitos</strong></h2>
     </header>
   
 
@@ -11,9 +11,9 @@
      <table class="nav-justified">
          <tr>
              <td>
-     <asp:TextBox ID="Buscador_dep" runat="server" class="form-control" placeholder="Ingrese nombre o número del depósito" style="width: 350px"></asp:TextBox>
+     <asp:TextBox ID="Buscador_dep" runat="server" class="form-control" placeholder="Ingrese nombre o número del depósito" style="width: 400px"></asp:TextBox>
              </td>
-             <td>&nbsp; &nbsp;&nbsp; &nbsp;</td>
+             <td></td>
              <td>
      <asp:Button ID="Buscar_dep_btn" CssClass="btn btn-primary" runat="server"  Text="Buscar" OnClick="Buscar_dep_btn_Click"  />
              </td>
@@ -23,7 +23,7 @@
              </td>
              <td>&nbsp;&nbsp; &nbsp;</td>
              <td>
-     <asp:Button ID="Button1" runat="server" Text="Realizar nuevo movimiento" CssClass="btn btn-default" PostBackUrl="~/Movimientos_Stocks.aspx" />
+     <asp:Button ID="Button1" runat="server" Text="Realizar Nuevo Movimiento" CssClass="btn btn-default" PostBackUrl="~/Movimientos_Stocks.aspx" />
              </td>
              <td>&nbsp;&nbsp; &nbsp;</td>
              <td>
