@@ -123,7 +123,7 @@
                     <asp:TemplateField HeaderText="Total">
                         <ItemStyle HorizontalAlign="Right" VerticalAlign="Middle" />
             <ItemTemplate>
-                <asp:Label ID="lblTotal" runat="server" Text='<%# (Convert.ToDecimal(Eval("Precio")) * Convert.ToInt32(Eval("Cantidad"))).ToString("0.00") %>'></asp:Label>
+                <asp:Label ID="lblTotal" runat="server" Text='<%# (Convert.ToDecimal(Eval("Precio")) * Convert.ToInt32(Eval("Cantidad"))).ToString("N2") %>'></asp:Label>
             </ItemTemplate>
         </asp:TemplateField>
                     <asp:TemplateField HeaderText="">

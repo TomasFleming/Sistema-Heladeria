@@ -54,7 +54,7 @@ namespace Sistema_Heladeria
                 decimal Precio = item.Total;
                 total = total + Precio;
             }
-            Total_lb.Text = total.ToString();
+            Total_lb.Text = total.ToString("N2");
         }
         protected void ReActualizar(object sender, EventArgs e)
         {

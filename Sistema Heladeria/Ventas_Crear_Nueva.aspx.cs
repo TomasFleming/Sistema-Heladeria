@@ -303,8 +303,8 @@ namespace Sistema_Heladeria
                 Subtotal = Subtotal + Cant * Precio;
             }
             double Total = Subtotal + (Subtotal * 0.30);
-            Sub_tot_lb.Text = Subtotal.ToString(".00");
-            Total_lb.Text = Total.ToString(".00");
+            Sub_tot_lb.Text = Subtotal.ToString("N2");
+            Total_lb.Text = Total.ToString("N2");
         }
 
         protected void Efectivo_CheckedChanged(object sender, EventArgs e)

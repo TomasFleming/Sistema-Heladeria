@@ -86,6 +86,7 @@
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
                      <asp:BoundField DataField="Total" HeaderText="Importe" >
+                         <ItemStyle HorizontalAlign="Right" VerticalAlign="Middle" />
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
                     <asp:TemplateField HeaderText="">
@@ -227,8 +228,9 @@
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
                     <asp:TemplateField HeaderText="Total">
+                        <ItemStyle HorizontalAlign="Right" VerticalAlign="Middle" />
             <ItemTemplate>
-                <asp:Label ID="lblTotal" runat="server" Text='<%# (Convert.ToDecimal(Eval("Precio_Unit")) * Convert.ToInt32(Eval("Cant_fact"))).ToString("0.00") %>'></asp:Label>
+                <asp:Label ID="lblTotal" runat="server" Text='<%# (Convert.ToDecimal(Eval("Precio_Unit")) * Convert.ToInt32(Eval("Cant_fact"))).ToString("N2") %>'></asp:Label>
             </ItemTemplate>
         </asp:TemplateField>
             </Columns>
