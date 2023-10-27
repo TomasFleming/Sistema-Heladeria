@@ -9,6 +9,7 @@
                 <span id="currentDate"></span>
                 <span id="currentTime"></span>
             </div>
+            <p><asp:Button ID="CargaTotal_btn" runat="server" CssClass="btn btn-primary" OnClick="CargaTotal_btn_Click" Text="Filtrar Todo" style="width: 80px;"/></p>
         </div>
     </header>
     <div>
@@ -17,8 +18,8 @@
     <div id="menu" style="display: block;">
         <table class="nav-justified">
             <tr>
-                <td class="text-center" colspan="2" style="font-size: large">
-                    Ganancias Finales</td>
+                <td class="text-center" colspan="2" style="font-size: x-large">
+                    <strong>Ganancias Finales</strong></td>
                 <td>
                     <asp:Button ID="Flitrar_Ganancias" runat="server" CssClass="btn btn-primary" OnClick="Flitrar_Ganancias_Click" Text="Filtrar" style="width: 80px;"/>
                 </td>
@@ -90,8 +91,8 @@
     <div id="menu2" style="display: block;">
         <table class="nav-justified">
             <tr>
-                <td class="text-center" colspan="2" style="font-size: large">
-                    &nbsp;Ingresos</td>
+                <td class="text-center" colspan="2" style="font-size: x-large">
+                    <strong>&nbsp;Ingresos</strong></td>
                 <td>
                     <asp:Button ID="Filtro_Ingresos" runat="server" CssClass="btn btn-primary" OnClick="Filtro_Ingresos_Click" Text="Filtrar" style="width: 80px;"/>
                 </td>
@@ -163,8 +164,8 @@
     <div id="menu3" style="display: block;">
         <table class="nav-justified">
             <tr>
-                <td class="text-center" colspan="2" style="font-size: large">
-                    Salidas</td>
+                <td class="text-center" colspan="2" style="font-size: x-large">
+                    <strong>Salidas</strong></td>
                 <td>
                     <asp:Button ID="Filtro_Retiro" runat="server" CssClass="btn btn-primary" OnClick="Filtro_Retiro_Click" Text="Filtrar" style="width: 80px;"/>
                 </td>

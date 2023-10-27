@@ -213,5 +213,12 @@ namespace Sistema_Heladeria
             Fecha_min_Retiro.SelectedValue = "1";
             Filtro_Retiro_Click(sender, e);
         }
+
+        protected void CargaTotal_btn_Click(object sender, EventArgs e)
+        {
+            Lipiar_Ganancias_btn_Click(sender, e);
+            Limpiar_Ingresos_Click(sender, e);
+            Limpiar_Retiro_Click(sender, e);
+        }
     }
 }
