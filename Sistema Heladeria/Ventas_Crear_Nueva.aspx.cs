@@ -104,21 +104,31 @@ namespace Sistema_Heladeria
             try
             {
                 List<ItemVenta> ListaFactura = (List<ItemVenta>)Session["ListaVenta"];
-                ListaFactura.Add(new ItemVenta { ID = Convert.ToInt32(ID_Art_sel_lb.Text), Nombre = Nomb_art_lb.Text, Categoria = Cat_art_lb.Text, Descripcion = Desc_art_lb.Text, Cantidad = Convert.ToInt32(Cantidad_tx.Text), Precio = Convert.ToInt32(Precio_tx.Text) });
 
-                Lista_Art_Fact.DataSource = ListaFactura;
-                Lista_Art_Fact.DataBind();
+                Boolean check = ListaFactura.Any(item => item.ID == Convert.ToInt32(ID_Art_sel_lb.Text));
+                if (check)
+                {
 
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalSelectArt();", true);
+                }
+                else
+                {
+                    ListaFactura.Add(new ItemVenta { ID = Convert.ToInt32(ID_Art_sel_lb.Text), Nombre = Nomb_art_lb.Text, Categoria = Cat_art_lb.Text, Descripcion = Desc_art_lb.Text, Cantidad = Convert.ToInt32(Cantidad_tx.Text), Precio = Convert.ToInt32(Precio_tx.Text) });
 
-                ID_art_tx.Text = "";
-                Nomb_art_lb.Text = "";
-                Desc_art_lb.Text = "";
-                Cantidad_tx.Text = "";
-                Cat_art_lb.Text = "";
-                Precio_tx.Text = "";
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalArt();", true);
-                CalcularTotales(sender, e);
+                    Lista_Art_Fact.DataSource = ListaFactura;
+                    Lista_Art_Fact.DataBind();
+
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalSelectArt();", true);
+
+                    ID_art_tx.Text = "";
+                    Nomb_art_lb.Text = "";
+                    Desc_art_lb.Text = "";
+                    Cantidad_tx.Text = "";
+                    Cat_art_lb.Text = "";
+                    Precio_tx.Text = "";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalArt();", true);
+                    CalcularTotales(sender, e);
+                }
+                
             }
             catch(Exception ex)
             {

@@ -124,22 +124,38 @@ namespace Sistema_Heladeria
         }
         protected void Art_Agregar_btn_Click(object sender, EventArgs e)
         {
-            List<ItemFactura> ListaFactura = (List<ItemFactura>)Session["ListaFactura"];
-            ListaFactura.Add(new ItemFactura { ID = Convert.ToInt32(ID_Art_sel_lb.Text), Nombre = Nomb_art_lb.Text, Categoria = Cat_art_lb.Text, Descripcion = Desc_art_lb.Text, Cantidad = Convert.ToInt32(Cantidad_tx.Text),Precio=Convert.ToInt32(Precio_tx.Text) });
+            try
+            {
+                List<ItemFactura> ListaFactura = (List<ItemFactura>)Session["ListaFactura"];
+                Boolean check = ListaFactura.Any(item => item.ID == Convert.ToInt32(ID_Art_sel_lb.Text));
 
-            Lista_Art_Fact.DataSource = ListaFactura;
-            Lista_Art_Fact.DataBind();
+                if (check)
+                {
 
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalSelectArt();", true);
+                }
+                else
+                {
+                    ListaFactura.Add(new ItemFactura { ID = Convert.ToInt32(ID_Art_sel_lb.Text), Nombre = Nomb_art_lb.Text, Categoria = Cat_art_lb.Text, Descripcion = Desc_art_lb.Text, Cantidad = Convert.ToInt32(Cantidad_tx.Text), Precio = Convert.ToInt32(Precio_tx.Text) });
 
-            ID_art_tx.Text = "";
-            Nomb_art_lb.Text = "";
-            Desc_art_lb.Text = "";
-            Cantidad_tx.Text = "";
-            Cat_art_lb.Text = "";
-            Precio_tx.Text = "";
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalArt();", true);
-            CalcularTotales(sender, e);
+                    Lista_Art_Fact.DataSource = ListaFactura;
+                    Lista_Art_Fact.DataBind();
+
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalSelectArt();", true);
+
+                    ID_art_tx.Text = "";
+                    Nomb_art_lb.Text = "";
+                    Desc_art_lb.Text = "";
+                    Cantidad_tx.Text = "";
+                    Cat_art_lb.Text = "";
+                    Precio_tx.Text = "";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalArt();", true);
+                    CalcularTotales(sender, e);
+                }
+            }
+            catch (Exception)
+            {
+
+            }
         }
         protected void Art_Cancelar_btn_Click(object sender, EventArgs e)
         {
