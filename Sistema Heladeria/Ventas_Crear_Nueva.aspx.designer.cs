@@ -51,6 +51,15 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.Button PopUp_Cliente_btn;
 
         /// <summary>
+        /// Control Cliente_Default_btn.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Cliente_Default_btn;
+
+        /// <summary>
         /// Control Client_ID_lb.
         /// </summary>
         /// <remarks>

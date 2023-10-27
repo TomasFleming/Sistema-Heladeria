@@ -320,5 +320,19 @@ namespace Sistema_Heladeria
 
             }
         }
+
+        protected void Buscar_btn_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalArt();", true);
+            con.Open();
+            string qry = "select A.ID, A.Nombre,C.Nombre_Categoria, A.Descripcion, A.Precio from Articulos A inner join Categorias C on A.Categoria=C.ID where A.ID like '" + ID_art_tx.Text + "' or A.Nombre like '%" + ID_art_tx.Text + "%' or C.Nombre_Categoria like '%" + ID_art_tx.Text + "%' ";
+            SqlCommand Com = new SqlCommand(qry, con.GetConnection());
+            Com.ExecuteNonQuery();
+            SqlDataAdapter Articulos = new SqlDataAdapter(Com);
+            DataTable art = new DataTable();
+            Articulos.Fill(art);
+            Lista_Articulos.DataSource = art;
+            Lista_Articulos.DataBind();
+        }
     }
 }

@@ -336,5 +336,17 @@ namespace Sistema_Heladeria
             Fecha_Tarjeta_tx.Visible = true;
             Fecha_Tarjeta_tx0.Visible = true;
         }
+
+        protected void Cliente_Default_btn_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            SqlCommand Com = new SqlCommand("Select * from Clientes where ID=2 ", con.GetConnection());
+            SqlDataReader Leer = Com.ExecuteReader();
+            Leer.Read();
+            Client_ID_lb.Text = Leer["ID"].ToString();
+            //ID_art_tx.Text = Leer["ID"].ToString();
+            Client_nom_lb.Text = Leer["NombreCompleto"].ToString();
+            con.Close();
+        }
     }
 }
