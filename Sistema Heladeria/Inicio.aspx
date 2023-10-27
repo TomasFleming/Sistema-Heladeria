@@ -22,12 +22,13 @@
         <div class="image-button-container" style="width: 200px">
             <img src="imagenes 2-0/deposito.jpg" width="200" height="200" alt="Imagen">
         </div>
+            <center>
+            <asp:Label ID="Label1" runat="server" Text="Depósitos" CssClass="btn btn-primary" width="200"></asp:Label>
+        </center>
         </a>
 
         </center>
-        <center>
-            <asp:Label ID="Label1" runat="server" Text="Depósitos" CssClass="btn btn-primary" width="200"></asp:Label>
-        </center>
+        
     
         <p>
             &nbsp;</p>
@@ -39,11 +40,12 @@
                         <div class="image-button-container" style="width: 200px">
                             <img alt="Imagen" src="imagenes 2-0/articulos.jpg" width="200" height="200" />
                         </div>
+                          <center>
+              <asp:Label ID="Label4" runat="server" CssClass="btn btn-primary" Text="Artículos" width="200"></asp:Label>
+        </center>
                       </a>
         </center>
-        <center>
-              <asp:Label ID="Label4" runat="server" CssClass="btn btn-primary" Text="Artículos" width="200"></asp:Label>
-        </center>       
+               
     </div>
 
 
@@ -53,10 +55,10 @@
                     <div class="image-button-container" style="width: 200px">
                         <img src="imagenes 2-0/categoria.jpg" width="200" height="200" />
                     </div>
-                        </a>
-        </center>
-        <center>
+                            <center>
                  <asp:Label ID="lb" runat="server" Text="Categorías" CssClass="btn btn-primary" width="200"></asp:Label>
+        </center>
+                        </a>
         </center>     
     </div>
 
@@ -66,10 +68,10 @@
                             <div class="image-button-container" style="width: 200px">
                                 <img alt="Imagen" src="imagenes 2-0/balance.jpg" width="200" height="200"/>
                             </div>
-                                </a>
-        </center>
-        <center>
+                                <center>
                 <asp:Label ID="Label7" runat="server" CssClass="btn btn-primary" Text="Balance" width="200"></asp:Label>
+        </center>
+                                </a>
         </center>       
     </div>
     
@@ -87,11 +89,12 @@
                             <div class="image-button-container" style="width: 200px">
                                 <img alt="Imagen" src="imagenes 2-0/distribuidores.jpg" width="200" height="200"/>
                             </div>
+                                <center>
+                            <asp:Label ID="Label2" runat="server" CssClass="btn btn-primary" Text="Proveedores" width="200"></asp:Label>
+                     </center>
                                 </a>
                         </center>
-        <center>
-                            <asp:Label ID="Label2" runat="server" CssClass="btn btn-primary" Text="Proveedores" width="200"></asp:Label>
-                     </center>       
+               
     </div>
 
     <div class="col-md-3"> 
@@ -100,10 +103,10 @@
                             <div class="image-button-container" style="width: 200px">
                                 <img alt="Imagen" src="imagenes 2-0/clientes.jpg" width="200" height="200"/>
                             </div>
-                                </a>
-        </center>
-        <center>
+                                <center>
                 <asp:Label ID="Label6" runat="server" CssClass="btn btn-primary" Text="Clientes" width="200"></asp:Label>
+        </center>
+                                </a>
         </center>       
     </div>
 
@@ -114,10 +117,10 @@
                         <div class="image-button-container" style="width: 200px">
                             <img alt="Imagen" src="imagenes 2-0/orden de compra.jpg" width="200" height="200" />
                         </div>
-                            </a>
-                    </center>
-        <center>
+                            <center>
                         <asp:Label ID="Label3" runat="server" CssClass="btn btn-primary" Text="Ordenes de Compra" width="200"></asp:Label>
+                    </center>
+                            </a>
                     </center>
     </div>
 
@@ -127,11 +130,11 @@
                         <div class="image-button-container" style="width: 200px">
                             <img alt="Imagen" src="imagenes 2-0/facturacion.jpg" width="200" height="200" />
                         </div>
-                     </a>
-                    </center>
-        <center>
+                <center>
                         <asp:Label ID="Label5" runat="server" CssClass="btn btn-primary" Text="Facturación" width="200"></asp:Label>
                    </center>
+                     </a>
+                    </center>
     </div>
 </div>
         <p></p>
