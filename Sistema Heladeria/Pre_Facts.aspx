@@ -91,7 +91,7 @@
         <center style="width: 200px">
                         <a runat="server" href="Ventas_Crear_Nueva.aspx">
                         <div class="image-button-container" style="width: 200px">
-                            <img alt="Imagen" src="imagenes 2-0/pagarFactura.jpg"  width="200" height="200"/>
+                            <img alt="Imagen" src="imagenes 2-0/ventaFact.jpg"  width="200" height="200"/>
                         </div>
                         <asp:Label ID="Label6" runat="server" CssClass="btn btn-primary" width="200" Text="Crear Venta"></asp:Label>
                         </a>
@@ -101,7 +101,7 @@
         <center style="width: 200px">
                         <a runat="server" href="Facturas_Pagar.aspx">
                         <div class="image-button-container" style="width: 200px">
-                            <img alt="Imagen" src="imagenes 2-0/pagarFactura.jpg"  width="200" height="200"/>
+                            <img alt="Imagen" src="imagenes 2-0/pagarFact.jpg"  width="200" height="200"/>
                         </div>
                         <asp:Label ID="Label4" runat="server" CssClass="btn btn-primary" width="200" Text="Pagar Facturas"></asp:Label>
                         </a>

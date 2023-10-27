@@ -118,7 +118,7 @@
     <Content Include="Graficos.aspx" />
     <Content Include="Historial_Movs.aspx" />
     <Content Include="imagenes 2-0\articulos.jpg" />
-    <Content Include="imagenes 2-0\balance.jpg" />
+    <Content Include="imagenes 2-0\balances.jpg" />
     <Content Include="imagenes 2-0\categoria.jpg" />
     <Content Include="imagenes 2-0\clientes.jpg" />
     <Content Include="imagenes 2-0\deposito.jpg" />
@@ -132,9 +132,11 @@
     <Content Include="imagenes 2-0\historialPago.jpg" />
     <Content Include="imagenes 2-0\orden de compra.jpg" />
     <Content Include="imagenes 2-0\pagar.jpg" />
+    <Content Include="imagenes 2-0\pagarFact.jpg" />
     <Content Include="imagenes 2-0\pagarFactura.jpg" />
     <Content Include="imagenes 2-0\registrar.jpg" />
     <Content Include="imagenes 2-0\registro.jpg" />
+    <Content Include="imagenes 2-0\ventaFact.jpg" />
     <Content Include="Imagenes\categoria1.png" />
     <Content Include="Imagenes\categorias.png" />
     <Content Include="Imagenes\deposito.png" />
@@ -168,6 +170,7 @@
     <Content Include="Movimientos_Stocks.aspx" />
     <Content Include="Pre_Deposit_Movs.aspx" />
     <Content Include="Pre_Facts.aspx" />
+    <Content Include="Properties\balance.jpg" />
     <Content Include="Proveedores.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

@@ -66,7 +66,7 @@
         <center style="width: 200px">
                             <a runat="server" href="Graficos.aspx">
                             <div class="image-button-container" style="width: 200px">
-                                <img alt="Imagen" src="imagenes 2-0/balance.jpg" width="200" height="200"/>
+                                <img alt="Imagen" src="imagenes 2-0/balances.jpg" width="200" height="200"/>
                             </div>
                                 <center>
                 <asp:Label ID="Label7" runat="server" CssClass="btn btn-primary" Text="Balance" width="200"></asp:Label>

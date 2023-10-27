@@ -169,3 +169,6 @@ Titulos {
     /*.tableDist th {
         background-color: gray;*/ /* Color de fondo más oscuro para las cabeceras */
     /*}*/
+.imagen-con-borde {
+    border: 1px solid black;
+}
