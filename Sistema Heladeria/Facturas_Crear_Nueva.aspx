@@ -150,7 +150,7 @@
             </td>
         </tr>
         <tr>
-            <td style="height: 28px; width: 1040px;" class="text-right">Total:
+            <td style="height: 28px; width: 1040px;" class="text-right">(+25% IVA)Total:
             </td>
             <td class="text-right" style="height: 28px">
                 <asp:Label ID="Total_lb" runat="server" Font-Bold="True"></asp:Label>

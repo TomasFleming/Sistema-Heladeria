@@ -4,35 +4,12 @@
     <header class="jumbotron text-center">
      <h2><strong>Categorías</strong></h2>
 
-         <table border="1"> <!-- "border" agrega bordes para visualización -->
-        <tr> <!-- Primera fila -->
-            <td>
-                <div class="header-right">
-            <div class="date-time">
-                <span id="currentDate"></span>
-            </div>
-        </div>
-            </td>
-            <td>
-                <div class="header-right">
-            <div class="date-time">
-                <span id="currentTime"></span>
-            </div>
-        </div>
-            </td>
-        </tr>
-        <tr> <!-- Segunda fila -->
-            <td>Celda 2,1</td>
-            <td>Celda 2,2</td>
-        </tr>
-    </table>
-
-        <%--<div class="header-right">
+        <div class="header-right">
             <div class="date-time">
                 <span id="currentDate"></span>
                 <span id="currentTime"></span>
             </div>
-        </div>--%>
+        </div>
     </header>
 <%--    <center><p style="font-size: 40px; font-weight: bold; color:#0094ff;font-family: Arial, sans-serif;">Categorias</p></center>--%>
     

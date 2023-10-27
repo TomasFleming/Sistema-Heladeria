@@ -18,9 +18,9 @@
         <table class="nav-justified">
             <tr>
                 <td class="text-center" colspan="2" style="font-size: large">
-                    Ganancias</td>
+                    Ganancias Finales</td>
                 <td>
-                    <asp:Button ID="Flitrar_Ganancias" runat="server" OnClick="Flitrar_Ganancias_Click" Text="Filtrar" style="width: 80px;"/>
+                    <asp:Button ID="Flitrar_Ganancias" runat="server" CssClass="btn btn-primary" OnClick="Flitrar_Ganancias_Click" Text="Filtrar" style="width: 80px;"/>
                 </td>
             </tr>
             <tr>
@@ -57,7 +57,7 @@
                     </asp:DropDownList>
                 </td>
                 <td style="height: 26px">
-                    <asp:Button ID="Lipiar_Ganancias_btn" runat="server" OnClick="Lipiar_Ganancias_btn_Click" Text="Limpiar" style="width: 80px;"/>
+                    <asp:Button ID="Lipiar_Ganancias_btn" runat="server" CssClass="btn btn-default" OnClick="Lipiar_Ganancias_btn_Click" Text="Anual" style="width: 80px;"/>
                 </td>
             </tr>
         </table>
@@ -93,7 +93,7 @@
                 <td class="text-center" colspan="2" style="font-size: large">
                     &nbsp;Ingresos</td>
                 <td>
-                    <asp:Button ID="Filtro_Ingresos" runat="server" OnClick="Filtro_Ingresos_Click" Text="Filtrar" style="width: 80px;"/>
+                    <asp:Button ID="Filtro_Ingresos" runat="server" CssClass="btn btn-primary" OnClick="Filtro_Ingresos_Click" Text="Filtrar" style="width: 80px;"/>
                 </td>
             </tr>
             <tr>
@@ -130,7 +130,7 @@
                     </asp:DropDownList>
                 </td>
                 <td style="height: 26px">
-                    <asp:Button ID="Limpiar_Ingresos" runat="server" OnClick="Limpiar_Ingresos_Click" Text="Limpiar" style="width: 80px;"/>
+                    <asp:Button ID="Limpiar_Ingresos" runat="server" CssClass="btn btn-default" OnClick="Limpiar_Ingresos_Click" Text="Anual" style="width: 80px;"/>
                 </td>
             </tr>
         </table>
@@ -142,7 +142,7 @@
             <ContentTemplate>
                 <asp:Chart ID="GraficoIngresos" runat="server" Width="1100px" BorderlineColor="Maroon" BorderlineDashStyle="Solid" Palette="None" PaletteCustomColors="SpringGreen" TextAntiAliasingQuality="Normal">
                     <Titles>
-                        <asp:Title Text="Ganancias" TextStyle="Emboss" BorderWidth="6"></asp:Title>
+                        <asp:Title Text="Ingresos" TextStyle="Emboss" BorderWidth="6"></asp:Title>
                     </Titles>
                     <Series>
                         <asp:Series Name="Series1" ChartType="Line" XValueMember="NombreMes" YValueMembers="Ganancias" IsValueShownAsLabel="True" Font="Microsoft Sans Serif, 10.2pt, style=Bold"></asp:Series>
@@ -166,7 +166,7 @@
                 <td class="text-center" colspan="2" style="font-size: large">
                     Salidas</td>
                 <td>
-                    <asp:Button ID="Filtro_Retiro" runat="server" OnClick="Filtro_Retiro_Click" Text="Filtrar" style="width: 80px;"/>
+                    <asp:Button ID="Filtro_Retiro" runat="server" CssClass="btn btn-primary" OnClick="Filtro_Retiro_Click" Text="Filtrar" style="width: 80px;"/>
                 </td>
             </tr>
             <tr>
@@ -203,7 +203,7 @@
                     </asp:DropDownList>
                 </td>
                 <td style="height: 26px">
-                    <asp:Button ID="Limpiar_Retiro" runat="server" OnClick="Limpiar_Retiro_Click" Text="Limpiar" style="width: 80px;"/>
+                    <asp:Button ID="Limpiar_Retiro" runat="server" CssClass="btn btn-default" OnClick="Limpiar_Retiro_Click" Text="Anual" style="width: 80px;"/>
                 </td>
             </tr>
         </table>
@@ -215,7 +215,7 @@
             <ContentTemplate>
                 <asp:Chart ID="GraficoSalidas" runat="server" Width="1100px" BorderlineColor="Maroon" BorderlineDashStyle="Solid" Palette="None" PaletteCustomColors="Red" TextAntiAliasingQuality="Normal">
                     <Titles>
-                        <asp:Title Text="Ganancias" TextStyle="Emboss" BorderWidth="6"></asp:Title>
+                        <asp:Title Text="Salidas" TextStyle="Emboss" BorderWidth="6"></asp:Title>
                     </Titles>
                     <Series>
                         <asp:Series Name="Series1" ChartType="Line" XValueMember="NombreMes" YValueMembers="Ganancias" IsValueShownAsLabel="True" Font="Microsoft Sans Serif, 10.2pt, style=Bold"></asp:Series>
