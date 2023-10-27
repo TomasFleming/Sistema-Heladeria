@@ -83,7 +83,7 @@
                         <div class="image-button-container" style="width: 200px">
                             <img alt="Imagen" src="imagenes 2-0/pagarFactura.jpg"  width="200" height="200"/>
                         </div>
-                        <asp:Label ID="Label5" runat="server" CssClass="btn btn-primary" width="200" Text="Crear Factura"></asp:Label>
+                        <asp:Label ID="Label5" runat="server" CssClass="btn btn-primary" width="200px" Text="Registrar Factura"></asp:Label>
                         </a>
                     </center>
     </div>
@@ -93,7 +93,7 @@
                         <div class="image-button-container" style="width: 200px">
                             <img alt="Imagen" src="imagenes 2-0/ventaFact.jpg"  width="200" height="200"/>
                         </div>
-                        <asp:Label ID="Label6" runat="server" CssClass="btn btn-primary" width="200" Text="Crear Venta"></asp:Label>
+                        <asp:Label ID="Label6" runat="server" CssClass="btn btn-primary" width="200px" Text="Generar Venta"></asp:Label>
                         </a>
                     </center>
     </div>
