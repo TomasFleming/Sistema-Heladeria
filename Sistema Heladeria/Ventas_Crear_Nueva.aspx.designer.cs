@@ -105,6 +105,15 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.Label Det_tj_lb;
 
         /// <summary>
+        /// Control Label_Tarjeta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label_Tarjeta;
+
+        /// <summary>
         /// Control DNI_lb.
         /// </summary>
         /// <remarks>

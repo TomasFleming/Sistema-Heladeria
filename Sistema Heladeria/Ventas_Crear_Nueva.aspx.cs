@@ -15,7 +15,7 @@ namespace Sistema_Heladeria
         protected void Page_Load(object sender, EventArgs e)
         {
             con.CrearConexion();
-            Efectivo.Checked = true;
+            //Efectivo.Checked = true;
             DateTime fechaActual = DateTime.Now;
             Fecha_Creacion_tx.Text = fechaActual.ToString("yyyy-MM-dd");
             try
@@ -223,53 +223,61 @@ namespace Sistema_Heladeria
 
         protected void Guardar_Venta_btn_Click(object sender, EventArgs e)
         {
-            try
+            if (Tarjeta.Checked == true && (string.IsNullOrEmpty(Numero_tj_tx.Text) || string.IsNullOrEmpty(Cod_tj_tx.Text) || string.IsNullOrEmpty(Nomb_tj_lb.Text) || string.IsNullOrEmpty(Fecha_Tarjeta_tx.Text) || string.IsNullOrEmpty(Fecha_Tarjeta_tx0.Text)))
             {
-                con.Open();
-                //primero creo orden
-                string query = "insert into Ventas (ID_Cliente,Total";
-                if (Efectivo.Checked == true)
+                Label_Tarjeta.Visible = true;
+            }
+            else
+            {
+                try
                 {
-                    query = query + ",MetodoPago) values(@prID,@prTotal,'Efectivo')";
-                }
-                else
-                {
-                    query = query + ",NumeroCuenta,MetodoPago) values ((@prID,@prTotal,"+Numero_tj_tx.Text+",'Tarjeta'))";
-                }
-                SqlCommand Orden = new SqlCommand(query, con.GetConnection());
-                //Orden.Parameters.Add(new SqlParameter("@FechaEmision", Fecha_Creacion_tx.Text));
-                //Orden.Parameters.Add(new SqlParameter("@FechaVencimiento", Fecha_Venc_tx.Text));
-                Orden.Parameters.Add(new SqlParameter("@prID", Client_ID_lb.Text));
-                Orden.Parameters.Add(new SqlParameter("@prTotal", Convert.ToDouble(Total_lb.Text)));
-                Orden.ExecuteNonQuery();
-                con.Close();
-                //Luego el detalle
-
-                con.Open();
-                SqlCommand Detalle = new SqlCommand("SELECT TOP 1 * FROM Ventas ORDER BY ID DESC", con.GetConnection());
-                SqlDataReader Leer = Detalle.ExecuteReader();
-                Leer.Read();
-                int ID_Fact = Convert.ToInt32(Leer["ID"].ToString());
-                con.Close();
-                List<ItemVenta> ListaVenta = (List<ItemVenta>)Session["ListaVenta"];
-                foreach (var item in ListaVenta)
-                {
-                    int ID = item.ID;
-                    int Cant = item.Cantidad;
                     con.Open();
-                    SqlCommand Detalle2 = new SqlCommand("insert into DetalleVentas(ID_Venta,ID_Articulo,Cantidad,PrecioUnid) values (" + ID_Fact + "," + ID + "," + Cant + "," + item.Precio + ")", con.GetConnection());
-                    Detalle2.ExecuteNonQuery();
+                    //primero creo orden
+                    string query = "insert into Ventas (ID_Cliente,Total";
+                    if (Efectivo.Checked== true)
+                    {
+                        query = query + ",MetodoPago) values(@prID,@prTotal,'Efectivo')";
+                    }
+                    else
+                    {
+                        query = query + ",NumeroCuenta,MetodoPago) values (@prID,@prTotal," + Numero_tj_tx.Text + ",'Tarjeta')";
+                    }
+                    SqlCommand Orden = new SqlCommand(query, con.GetConnection());
+                    //Orden.Parameters.Add(new SqlParameter("@FechaEmision", Fecha_Creacion_tx.Text));
+                    //Orden.Parameters.Add(new SqlParameter("@FechaVencimiento", Fecha_Venc_tx.Text));
+                    Orden.Parameters.Add(new SqlParameter("@prID", Client_ID_lb.Text));
+                    Orden.Parameters.Add(new SqlParameter("@prTotal", Convert.ToDouble(Total_lb.Text)));
+                    Orden.ExecuteNonQuery();
                     con.Close();
+                    //Luego el detalle
 
+                    con.Open();
+                    SqlCommand Detalle = new SqlCommand("SELECT TOP 1 * FROM Ventas ORDER BY ID DESC", con.GetConnection());
+                    SqlDataReader Leer = Detalle.ExecuteReader();
+                    Leer.Read();
+                    int ID_Fact = Convert.ToInt32(Leer["ID"].ToString());
+                    con.Close();
+                    List<ItemVenta> ListaVenta = (List<ItemVenta>)Session["ListaVenta"];
+                    foreach (var item in ListaVenta)
+                    {
+                        int ID = item.ID;
+                        int Cant = item.Cantidad;
+                        con.Open();
+                        SqlCommand Detalle2 = new SqlCommand("insert into DetalleVentas(ID_Venta,ID_Articulo,Cantidad,PrecioUnid) values (" + ID_Fact + "," + ID + "," + Cant + "," + item.Precio + ")", con.GetConnection());
+                        Detalle2.ExecuteNonQuery();
+                        con.Close();
+
+                    }
+                    ListaVenta.Clear();
+
+                    Response.Redirect("~/Ventas_Ver.aspx");
                 }
-                ListaVenta.Clear();
-
-                Response.Redirect("~/Ventas_Ver.aspx");
+                catch (Exception ex)
+                {
+                    Response.Write("<script>alert(' Error : Todos los campos del formulario deben estar completos');</script>");
+                }
             }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert(' Error : Todos los campos del formulario deben estar completos');</script>");
-            }
+            
         }
 
         protected void Cancelar_Venta_btn_Click(object sender, EventArgs e)

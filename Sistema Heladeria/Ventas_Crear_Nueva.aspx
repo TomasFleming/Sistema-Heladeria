@@ -52,6 +52,7 @@
                     &nbsp;&nbsp;&nbsp;<asp:RadioButton ID="Tarjeta" runat="server" AutoPostBack="True" OnCheckedChanged="Tarjeta_CheckedChanged" Text="Tarjeta" />
                     <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
                         <asp:Label ID="Det_tj_lb" runat="server" Text="Detalles de la Tarjeta :" Visible="False"></asp:Label>
+                        <asp:Label ID="Label_Tarjeta" runat="server" Text="Por Favor asegurese de ingresar todos los datos correctamente" ForeColor="Red" Visible="false"></asp:Label>
                     </p>
                     
                     <p>
