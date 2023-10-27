@@ -168,15 +168,6 @@
           <asp:UpdatePanel ID="UpdatePanel6" runat="server">
               <ContentTemplate>
                   <center>
-                  <div class="row">
-    <div class="col-md-5"> <!-- Columna para el textbox -->
-         <asp:TextBox ID="Buscador_art" runat="server" class="form-control" placeholder="Buscador" style="width: 300px"></asp:TextBox>
-    </div>
-    <div class="col-md-4"> <!-- Columna para los botones -->
-        <asp:Button ID="Buscar_art_btn" CssClass="btn btn-primary" runat="server" OnClick="Buscar_art_btn_Click" Text="Buscar" />
-    </div>
-</div></center>
-                  <center>
         
 
     <table id="Tabla_cat1" style="width: 27%; height: 212px;">
@@ -186,6 +177,7 @@
             <td style="height: 36px; width: 646px">
                    <asp:TextBox ID="ID_art_tx" runat="server" ReadOnly="false"></asp:TextBox>
                    <asp:Button ID="Cargar_Art_btn" runat="server" OnClick="Cargar_Art_btn_Click" CssClass="btn btn-default" Text="Cargar" />
+                <asp:Button ID="Buscar_btn" runat="server" CssClass="btn btn-primary" OnClick="Buscar_btn_Click" Text="Buscar" />
             </td>
         </tr>
         <tr>
@@ -268,6 +260,16 @@
           <%-- aca deberia empesar el asp:UpdatePanel y el contentemplate, pero solo los nesesitaria para aquellos que nesesito para editar --%>
           <asp:UpdatePanel ID="UpdatePanel4" runat="server">
               <ContentTemplate>
+                  <center><div class="row">
+                      <div class="col-md-3"> <!-- Columna para que quede bien centrado -->
+                      </div>
+    <div class="col-md-4"> <!-- Columna para el textbox -->
+         <asp:TextBox ID="Buscador_art" runat="server" class="form-control" placeholder="Buscador" style="width: 250px"></asp:TextBox>
+    </div>
+    <div class="col-md-4"> <!-- Columna para los botones -->
+        <asp:Button ID="Buscar_art_btn" CssClass="btn btn-primary" runat="server" OnClick="Buscar_art_btn_Click" Text="Buscar" />
+    </div>
+</div></center><p></p>
          <%-- <asp:TextBox ID="Buscador_art" runat="server" Width="257px" style="font-size: 15pt" Height="27px"></asp:TextBox>--%>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <%--<asp:Button ID="Buscar_art_btn" CssClass="btn btn-primary" runat="server" OnClick="Buscar_art_btn_Click" Text="Buscar" />--%>
