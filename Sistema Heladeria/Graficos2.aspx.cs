@@ -157,7 +157,7 @@ namespace Sistema_Heladeria
 
                 SELECT
                     Meses.NombreMes,
-                    - ISNULL(Salidas, 0) AS Ganancias
+                     ISNULL(Salidas, 0) AS Ganancias
                 FROM Meses
                 LEFT JOIN PagosGanancias ON Meses.MesNumero = PagosGanancias.MesNumero
                 WHERE Meses.MesNumero BETWEEN @MesInicio AND @MesFin

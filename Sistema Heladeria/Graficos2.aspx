@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Graficos2.aspx.cs" Inherits="Sistema_Heladeria.Graficos2" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" EnableViewState="true" runat="server">
     <header class="jumbotron text-center">
      <h2><strong>Resumen de Ingresos y Egresos</strong></h2>
         <div class="header-right">
@@ -66,7 +66,7 @@
     <p>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>
-                <asp:Chart ID="GraficoGanancias" runat="server" Width="1100px" BorderlineColor="Maroon" BorderlineDashStyle="Solid" Palette="Berry" PaletteCustomColors="Lime" TextAntiAliasingQuality="Normal" EnableTheming="True">
+                <asp:Chart ID="GraficoGanancias" runat="server" Width="1220px" BorderlineColor="Maroon" BorderlineDashStyle="Solid" Palette="Berry" PaletteCustomColors="Lime" TextAntiAliasingQuality="Normal" EnableTheming="True">
                     <Titles>
                         <asp:Title Text="Ganancias" TextStyle="Emboss" BorderWidth="6"></asp:Title>
                     </Titles>
@@ -95,63 +95,52 @@
                     <strong>Salidas o como era?</strong></td>
             </tr>
             <tr>
-                <td style="height: 26px">
-                    <asp:Chart ID="GraficoIngresos" runat="server" BorderlineColor="Maroon" BorderlineDashStyle="Solid" Palette="None" PaletteCustomColors="SpringGreen" TextAntiAliasingQuality="Normal" Width="1100px">
-                        <Titles>
+                <td style="font-size: x-large;" class="text-center">
+                    <asp:Chart ID="GraficoIngresos" runat="server" BorderlineColor="Maroon" BorderlineDashStyle="Solid" Palette="None" PaletteCustomColors="SpringGreen" TextAntiAliasingQuality="Normal" Width="792px" Height="185px">
+                    <Titles>
                             <asp:Title BorderWidth="6" Text="Ingresos" TextStyle="Emboss">
                             </asp:Title>
-                        </Titles>
-                        <Series>
+                    </Titles>
+                    <Series>
                             <asp:Series ChartType="Column" Font="Microsoft Sans Serif, 10.2pt, style=Bold" IsValueShownAsLabel="True" Name="Series1" XValueMember="NombreMes" YValueMembers="Ganancias">
                             </asp:Series>
-                        </Series>
-                        <ChartAreas>
-                            <asp:ChartArea Name="ChartArea1">
+                    </Series>
+                    <ChartAreas>
+                        <asp:ChartArea Name="ChartArea1">
                                 <AxisX Title="Meses">
                                 </AxisX>
                                 <AxisY Title="Capital">
                                 </AxisY>
-                                <%--<Area3DStyle Enable3D="true" />--%>
-                            </asp:ChartArea>
-                        </ChartAreas>
-                    </asp:Chart>
+                            <%--<Area3DStyle Enable3D="true" />--%>
+                        </asp:ChartArea>
+                    </ChartAreas>
+                </asp:Chart>
+                    <td class="text-center" style="font-size: x-large">
+                        <asp:Chart ID="GraficoSalidas" runat="server" BorderlineColor="Maroon" BorderlineDashStyle="Solid" Height="185px" Palette="None" PaletteCustomColors="Crimson" TextAntiAliasingQuality="Normal" Width="792px">
+                            <Titles>
+                                <asp:Title BorderWidth="6" Text="Salidas" TextStyle="Emboss">
+                                </asp:Title>
+                            </Titles>
+                            <Series>
+                                <asp:Series ChartType="Column" Font="Microsoft Sans Serif, 10.2pt, style=Bold" IsValueShownAsLabel="True" Name="Series1" XValueMember="NombreMes" YValueMembers="Ganancias">
+                                </asp:Series>
+                            </Series>
+                            <ChartAreas>
+                                <asp:ChartArea Name="ChartArea1">
+                                    <AxisX Title="Meses">
+                                    </AxisX>
+                                    <AxisY Title="Capital">
+                                    </AxisY>
+                                    <%--<Area3DStyle Enable3D="true" />--%>
+                                </asp:ChartArea>
+                            </ChartAreas>
+                        </asp:Chart>
                 </td>
+            <tr>
                 <td style="height: 26px">
-                    <asp:Chart ID="GraficoSalidas" runat="server" BorderlineColor="Maroon" BorderlineDashStyle="Solid" Palette="None" PaletteCustomColors="Red" TextAntiAliasingQuality="Normal" Width="1100px">
-                        <Titles>
-                            <asp:Title BorderWidth="6" Text="Salidas" TextStyle="Emboss">
-                            </asp:Title>
-                        </Titles>
-                        <Series>
-                            <asp:Series ChartType="Column" Font="Microsoft Sans Serif, 10.2pt, style=Bold" IsValueShownAsLabel="True" Name="Series1" XValueMember="NombreMes" YValueMembers="Ganancias">
-                            </asp:Series>
-                        </Series>
-                        <ChartAreas>
-                            <asp:ChartArea Name="ChartArea1">
-                                <AxisX Title="Meses">
-                                </AxisX>
-                                <AxisY Title="Capital">
-                                </AxisY>
-                                <%--<Area3DStyle Enable3D="true" />--%>
-                            </asp:ChartArea>
-                        </ChartAreas>
-                    </asp:Chart>
-                </td>
-            </tr>
-        </table>
-    </div>
+                    &nbsp;
             </ContentTemplate>
-    </asp:UpdatePanel>
-    <p>
-        <asp:UpdatePanel ID="UpdatePanel4" runat="server">
         </asp:UpdatePanel>
-    </p>
-        <asp:UpdatePanel ID="UpdatePanel5" runat="server">
-        <ContentTemplate>
-    <div id="menu3" style="display: block;">
-    </div>
-            </ContentTemplate>
-    </asp:UpdatePanel>
     <p>
     </p>
     <script>
