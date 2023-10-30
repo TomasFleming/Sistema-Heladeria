@@ -64,7 +64,7 @@
 
     <div class="col-md-3"> 
         <center style="width: 200px">
-                            <a runat="server" href="Graficos.aspx">
+                            <a runat="server" href="Graficos2.aspx">
                             <div class="image-button-container" style="width: 200px">
                                 <img alt="Imagen" src="imagenes 2-0/balances.jpg" width="200" height="200"/>
                             </div>

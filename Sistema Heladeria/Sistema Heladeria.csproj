@@ -116,6 +116,7 @@
     <Content Include="Facturas_Pagos_Ver.aspx" />
     <Content Include="Facturas_Ver.aspx" />
     <Content Include="Graficos.aspx" />
+    <Content Include="Graficos2.aspx" />
     <Content Include="Historial_Movs.aspx" />
     <Content Include="imagenes 2-0\articulos.jpg" />
     <Content Include="imagenes 2-0\balances.jpg" />
@@ -283,6 +284,13 @@
     </Compile>
     <Compile Include="Graficos.aspx.designer.cs">
       <DependentUpon>Graficos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Graficos2.aspx.cs">
+      <DependentUpon>Graficos2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Graficos2.aspx.designer.cs">
+      <DependentUpon>Graficos2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Historial_Movs.aspx.cs">
       <DependentUpon>Historial_Movs.aspx</DependentUpon>
