@@ -141,13 +141,22 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.GridView Lista_facturas;
 
         /// <summary>
-        /// Control ID_Vemta.
+        /// Control UpdatePanel5.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ID_Vemta;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel5;
+
+        /// <summary>
+        /// Control ID_venta_lb.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ID_venta_lb;
 
         /// <summary>
         /// Control UpdatePanel3.

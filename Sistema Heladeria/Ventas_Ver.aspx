@@ -103,7 +103,7 @@
       <div class="modal-header">
 
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Articulos de la Venta N°<asp:Label ID="ID_Vemta" runat="server" Visible="true"></asp:Label>:</h4></center>
+          <asp:UpdatePanel ID="UpdatePanel5" runat="server"><ContentTemplate><center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Articulos de la Venta N°<asp:Label ID="ID_venta_lb" Visible="true" runat="server"></asp:Label>:</h4></center></ContentTemplate></asp:UpdatePanel>
       </div>
       <div class="modal-body">
         <p></p>

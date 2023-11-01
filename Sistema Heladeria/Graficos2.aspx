@@ -71,7 +71,7 @@
                         <asp:Title Text="Ganancias" TextStyle="Emboss" BorderWidth="6"></asp:Title>
                     </Titles>
                     <Series>
-                        <asp:Series Name="Series1" ChartType="Line" XValueMember="NombreMes" YValueMembers="Ganancias" IsValueShownAsLabel="True" Font="Microsoft Sans Serif, 10.2pt, style=Bold"></asp:Series>
+                        <asp:Series Name="Series1" ChartType="Line" XValueMember="NombreMes" YValueMembers="Ganancias" IsValueShownAsLabel="True" Font="Microsoft Sans Serif, 10.2pt, style=Bold" LabelFormat="N2"></asp:Series>
                     </Series>
                     <ChartAreas>
                         <asp:ChartArea Name="ChartArea1">
@@ -84,29 +84,20 @@
             </ContentTemplate>
         </asp:UpdatePanel>
     </p></div>
-        <asp:UpdatePanel ID="UpdatePanel3" runat="server">
-        <ContentTemplate>
-    <div id="menu2" style="display: block;">
-        <table class="nav-justified">
-            <tr>
-                <td class="text-center" style="font-size: x-large">
-                    <strong>&nbsp;Ingresos</strong></td>
-                <td class="text-center" style="font-size: x-large">
-                    <strong>Salidas o como era?</strong></td>
-            </tr>
-            <tr>
-                <td style="font-size: x-large;" class="text-center">
-                    <asp:Chart ID="GraficoIngresos" runat="server" BorderlineColor="Maroon" BorderlineDashStyle="Solid" Palette="None" PaletteCustomColors="SpringGreen" TextAntiAliasingQuality="Normal" Width="792px" Height="185px">
+    <asp:UpdatePanel ID="UpdatePanel4" runat="server"><ContentTemplate>
+        <asp:Chart ID="GraficoComparativo" runat="server" BorderlineColor="Maroon" BorderlineDashStyle="Solid" Palette="None" PaletteCustomColors="SpringGreen" TextAntiAliasingQuality="Normal" Width="1220px" Height="300px" BackColor="AliceBlue" BackGradientStyle="TopBottom" BackSecondaryColor="LightCyan">
                     <Titles>
-                            <asp:Title BorderWidth="6" Text="Ingresos" TextStyle="Emboss">
+                            <asp:Title BorderWidth="10" Text="Comparacion" TextStyle="Frame" Font="Microsoft Sans Serif; 20pt">
                             </asp:Title>
                     </Titles>
                     <Series>
-                            <asp:Series ChartType="Column" Font="Microsoft Sans Serif, 10.2pt, style=Bold" IsValueShownAsLabel="True" Name="Series1" XValueMember="NombreMes" YValueMembers="Ganancias">
+                            <asp:Series ChartType="Column" Font="Microsoft Sans Serif, 8.2pt, style=Bold" IsValueShownAsLabel="True" Name="Series1" XValueMember="NombreMes" YValueMembers="Capital" MarkerStyle="Triangle" LabelFormat="N0">
+                            </asp:Series>
+                        <asp:Series ChartType="Column" Font="Microsoft Sans Serif, 8.2pt, style=Bold" IsValueShownAsLabel="True" Name="Series2" XValueMember="NombreMes" YValueMembers="Capital" LabelFormat="N0" MarkerStyle="Triangle">
                             </asp:Series>
                     </Series>
                     <ChartAreas>
-                        <asp:ChartArea Name="ChartArea1">
+                        <asp:ChartArea Name="ChartArea1" BackGradientStyle="TopBottom" BackColor="White" BackSecondaryColor="#99CCFF">
                                 <AxisX Title="Meses">
                                 </AxisX>
                                 <AxisY Title="Capital">
@@ -114,33 +105,10 @@
                             <%--<Area3DStyle Enable3D="true" />--%>
                         </asp:ChartArea>
                     </ChartAreas>
+                    <BorderSkin BackColor="LightSteelBlue" BackGradientStyle="TopBottom" />
                 </asp:Chart>
-                    <td class="text-center" style="font-size: x-large">
-                        <asp:Chart ID="GraficoSalidas" runat="server" BorderlineColor="Maroon" BorderlineDashStyle="Solid" Height="185px" Palette="None" PaletteCustomColors="Crimson" TextAntiAliasingQuality="Normal" Width="792px">
-                            <Titles>
-                                <asp:Title BorderWidth="6" Text="Salidas" TextStyle="Emboss">
-                                </asp:Title>
-                            </Titles>
-                            <Series>
-                                <asp:Series ChartType="Column" Font="Microsoft Sans Serif, 10.2pt, style=Bold" IsValueShownAsLabel="True" Name="Series1" XValueMember="NombreMes" YValueMembers="Ganancias">
-                                </asp:Series>
-                            </Series>
-                            <ChartAreas>
-                                <asp:ChartArea Name="ChartArea1">
-                                    <AxisX Title="Meses">
-                                    </AxisX>
-                                    <AxisY Title="Capital">
-                                    </AxisY>
-                                    <%--<Area3DStyle Enable3D="true" />--%>
-                                </asp:ChartArea>
-                            </ChartAreas>
-                        </asp:Chart>
-                </td>
-            <tr>
-                <td style="height: 26px">
-                    &nbsp;
-            </ContentTemplate>
-        </asp:UpdatePanel>
+                                                      </ContentTemplate></asp:UpdatePanel>
+
     <p>
     </p>
     <script>

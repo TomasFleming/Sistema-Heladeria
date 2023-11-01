@@ -69,11 +69,10 @@ namespace Sistema_Heladeria
             int I = row.RowIndex;
             Lista_facturas.SelectedIndex = I;
             int ID = Convert.ToInt32(Lista_facturas.DataKeys[Lista_facturas.SelectedIndex].Value);
-            ID_Vemta.Text = ID.ToString();
+            ID_venta_lb.Text = ID.ToString();
             con.Open();
-            SqlCommand detalle = new SqlCommand("select A.ID,A.Nombre,A.Descripcion,C.Nombre_Categoria,DV.Cantidad,DV.PrecioUnid  from DetalleVentas DV inner join Articulos A on A.ID=DV.ID_Articulo inner join Categorias C on C.ID=A.Categoria  where DV.ID_Venta= " + ID + "", con.GetConnection());
+            SqlCommand detalle = new SqlCommand("select A.ID,A.Nombre,A.Descripcion,C.Nombre_Categoria,DV.Cantidad,DV.PrecioUnid,ID_Venta  from DetalleVentas DV inner join Articulos A on A.ID=DV.ID_Articulo inner join Categorias C on C.ID=A.Categoria  where DV.ID_Venta= " + ID + "", con.GetConnection());
             detalle.ExecuteNonQuery();
-
             SqlDataAdapter Depositos = new SqlDataAdapter(detalle);
             DataTable det = new DataTable();
             Depositos.Fill(det);

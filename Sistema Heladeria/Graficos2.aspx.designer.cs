@@ -87,30 +87,21 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.DataVisualization.Charting.Chart GraficoGanancias;
 
         /// <summary>
-        /// Control UpdatePanel3.
+        /// Control UpdatePanel4.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel3;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel4;
 
         /// <summary>
-        /// Control GraficoIngresos.
+        /// Control GraficoComparativo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.DataVisualization.Charting.Chart GraficoIngresos;
-
-        /// <summary>
-        /// Control GraficoSalidas.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.DataVisualization.Charting.Chart GraficoSalidas;
+        protected global::System.Web.UI.DataVisualization.Charting.Chart GraficoComparativo;
     }
 }
