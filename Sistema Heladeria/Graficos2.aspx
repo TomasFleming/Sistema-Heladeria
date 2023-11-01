@@ -71,7 +71,7 @@
                         <asp:Title Text="Ganancias" TextStyle="Emboss" BorderWidth="6"></asp:Title>
                     </Titles>
                     <Series>
-                        <asp:Series Name="Series1" ChartType="Line" XValueMember="NombreMes" YValueMembers="Ganancias" IsValueShownAsLabel="True" Font="Microsoft Sans Serif, 10.2pt, style=Bold" LabelFormat="N2"></asp:Series>
+                        <asp:Series Name="Series1" ChartType="Line" XValueMember="NombreMes" YValueMembers="Ganancias" IsValueShownAsLabel="True" Font="Microsoft Sans Serif, 10.2pt, style=Bold" LabelFormat="N2" MarkerStyle="Circle"></asp:Series>
                     </Series>
                     <ChartAreas>
                         <asp:ChartArea Name="ChartArea1">
@@ -85,7 +85,7 @@
         </asp:UpdatePanel>
     </p></div>
     <asp:UpdatePanel ID="UpdatePanel4" runat="server"><ContentTemplate>
-        <asp:Chart ID="GraficoComparativo" runat="server" BorderlineColor="Maroon" BorderlineDashStyle="Solid" Palette="None" PaletteCustomColors="SpringGreen" TextAntiAliasingQuality="Normal" Width="1220px" Height="300px" BackColor="AliceBlue" BackGradientStyle="TopBottom" BackSecondaryColor="LightCyan">
+        <asp:Chart ID="GraficoComparativo" runat="server" BorderlineColor="Maroon" BorderlineDashStyle="Solid" Palette="None" PaletteCustomColors="SpringGreen" TextAntiAliasingQuality="Normal" Width="1220px" Height="300px" BackColor="LightCyan" BackGradientStyle="TopBottom" BackSecondaryColor="White">
                     <Titles>
                             <asp:Title BorderWidth="10" Text="Comparacion" TextStyle="Frame" Font="Microsoft Sans Serif; 20pt">
                             </asp:Title>
