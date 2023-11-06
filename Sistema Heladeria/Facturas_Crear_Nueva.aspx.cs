@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
 using System.Net;
-using System.Globalization;
+
 
 namespace Sistema_Heladeria
 {
@@ -66,48 +66,59 @@ namespace Sistema_Heladeria
 
         protected void Guardar_Fact_btn_Click(object sender, EventArgs e)
         {
-            try
-            {
-                con.Open();
-                //primero creo orden
-                string query = "INSERT INTO Facturas_Proveedor (Fecha_Emision, Fecha_Vencimiento, Cod_Prov, Total, ID_prov, Fecha_Registro, Tipo) VALUES (@FechaEmision, @FechaVencimiento, @CodProv, @Total, @IDProv, @FechaRegistro, @Tipo)";
-                SqlCommand Orden = new SqlCommand(query, con.GetConnection());
-                Orden.Parameters.Add(new SqlParameter("@FechaEmision",Fecha_Creacion_tx.Text));
-                Orden.Parameters.Add(new SqlParameter("@FechaVencimiento", Fecha_Venc_tx.Text));
-                Orden.Parameters.Add(new SqlParameter("@CodProv",Cod_Prov_tx.Text));
-                Orden.Parameters.Add(new SqlParameter("@Total",Convert.ToDouble(Total_lb.Text)));
-                Orden.Parameters.Add(new SqlParameter("@IDProv",Prov_ID_lb.Text));
-                Orden.Parameters.Add(new SqlParameter("@FechaRegistro", DateTime.Now));
-                Orden.Parameters.Add(new SqlParameter("@Tipo", Tipo_Fact.Text));
-                Orden.ExecuteNonQuery();
-                con.Close();
-                //Luego el detalle
+            DateTime fechaEmitido = DateTime.Parse(Fecha_Creacion_tx.Text);
+            DateTime fechaVencimiento = DateTime.Parse(Fecha_Venc_tx.Text);
 
-                con.Open();
-                SqlCommand Detalle = new SqlCommand("SELECT TOP 1 * FROM Facturas_Proveedor ORDER BY ID DESC", con.GetConnection());
-                SqlDataReader Leer = Detalle.ExecuteReader();
-                Leer.Read();
-                int ID_Fact = Convert.ToInt32(Leer["ID"].ToString());
-                con.Close();
-                List<ItemFactura> ListaFactura = (List<ItemFactura>)Session["ListaFactura"];
-                foreach (var item in ListaFactura)
+            if (fechaVencimiento <= fechaEmitido)
+            {
+                Alert_lb.Visible = true;
+            }
+            else
+            {
+                try
                 {
-                    int ID = item.ID;
-                    int Cant = item.Cantidad;
                     con.Open();
-                    SqlCommand Detalle2 = new SqlCommand("insert into Detalle_Fact_Prov(ID_fact,ID_art,Cant_fact,Precio_Unit) values (" + ID_Fact + "," + ID + "," + Cant + ","+item.Precio+")", con.GetConnection());
-                    Detalle2.ExecuteNonQuery();
+                    //primero creo orden
+                    string query = "INSERT INTO Facturas_Proveedor (Fecha_Emision, Fecha_Vencimiento, Cod_Prov, Total, ID_prov, Fecha_Registro, Tipo) VALUES (@FechaEmision, @FechaVencimiento, @CodProv, @Total, @IDProv, @FechaRegistro, @Tipo)";
+                    SqlCommand Orden = new SqlCommand(query, con.GetConnection());
+                    Orden.Parameters.Add(new SqlParameter("@FechaEmision", Fecha_Creacion_tx.Text));
+                    Orden.Parameters.Add(new SqlParameter("@FechaVencimiento", Fecha_Venc_tx.Text));
+                    Orden.Parameters.Add(new SqlParameter("@CodProv", Cod_Prov_tx.Text));
+                    Orden.Parameters.Add(new SqlParameter("@Total", Convert.ToDouble(Total_lb.Text)));
+                    Orden.Parameters.Add(new SqlParameter("@IDProv", Prov_ID_lb.Text));
+                    Orden.Parameters.Add(new SqlParameter("@FechaRegistro", DateTime.Now));
+                    Orden.Parameters.Add(new SqlParameter("@Tipo", Tipo_Fact.Text));
+                    Orden.ExecuteNonQuery();
                     con.Close();
+                    //Luego el detalle
 
+                    con.Open();
+                    SqlCommand Detalle = new SqlCommand("SELECT TOP 1 * FROM Facturas_Proveedor ORDER BY ID DESC", con.GetConnection());
+                    SqlDataReader Leer = Detalle.ExecuteReader();
+                    Leer.Read();
+                    int ID_Fact = Convert.ToInt32(Leer["ID"].ToString());
+                    con.Close();
+                    List<ItemFactura> ListaFactura = (List<ItemFactura>)Session["ListaFactura"];
+                    foreach (var item in ListaFactura)
+                    {
+                        int ID = item.ID;
+                        int Cant = item.Cantidad;
+                        con.Open();
+                        SqlCommand Detalle2 = new SqlCommand("insert into Detalle_Fact_Prov(ID_fact,ID_art,Cant_fact,Precio_Unit) values (" + ID_Fact + "," + ID + "," + Cant + "," + item.Precio + ")", con.GetConnection());
+                        Detalle2.ExecuteNonQuery();
+                        con.Close();
+
+                    }
+                    ListaFactura.Clear();
+
+                    Response.Redirect("~/Facturas_Ver.aspx");
                 }
-                ListaFactura.Clear();
-
-                Response.Redirect("~/Facturas_Ver.aspx");
+                catch (Exception ex)
+                {
+                    Response.Write("<script>alert(' Error : Todos los campos del formulario deben estar completos');</script>");
+                }
             }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert(' Error : Todos los campos del formulario deben estar completos');</script>");
-            }
+            
             //finally
             //{
 

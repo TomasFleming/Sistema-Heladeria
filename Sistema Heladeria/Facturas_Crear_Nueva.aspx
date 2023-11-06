@@ -7,9 +7,7 @@
     <table class="nav-justified">
         <tr>
     <td rowspan="2" style="width: 603px; font-size: 50px; color: #000000;">
-                <%--<center>
-                    Registro Factura<br />
-                </center>--%>
+                <%--aasasdasasadsads--%>
                 <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;">
         Numero de Factura a Crear:&nbsp;&nbsp;&nbsp;
         <asp:Label ID="Nro_Fact_lb" runat="server"></asp:Label>
@@ -86,7 +84,9 @@
             <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; border-bottom: 3px solid #C0C0C0; width: 525px; border-top-color: #C0C0C0; border-top-width: 3px;">Correo:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<asp:Label ID="Correo_lb" runat="server" style="font-size: 20px"></asp:Label>
             </td>
             <td class="modal-sm" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 70px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide;">&nbsp;</td>
-            <td style="border-width: 3px; border-color: #C0C0C0; border-right-style: solid; border-left-style: solid; border-bottom-style: solid;">&nbsp;</td>
+            <td style="border-width: 3px; border-color: #C0C0C0; border-right-style: solid; border-left-style: solid; border-bottom-style: solid;">
+                <asp:Label ID="Alert_lb" runat="server" ForeColor="Red" Text="Asegurese que la fecha de vencimiento sea posterior a la emision" Visible="False"></asp:Label>
+            </td>
         </tr>
     </table>
                     </ContentTemplate>
@@ -418,6 +418,15 @@
       }
       function closeModalArt() {
           $('#ModalArt').modal('hide');
-      }
+        }
+        //function validarFechas() {
+        //    var fechaEmitido = new Date(document.getElementById("Fecha_Creacion_tx").value);
+        //    var fechaVencimiento = new Date(document.getElementById("Fecha_Venc_tx").value);
+
+        //    if (fechaVencimiento < fechaEmitido) {
+        //        alert("La fecha de vencimiento no puede ser anterior a la fecha de emitido.");
+        //        return false;
+        //    }
+        //    return true;
     </script>
 </asp:Content>
