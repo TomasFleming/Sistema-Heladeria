@@ -181,7 +181,7 @@
             </td>
             <td style="height: 66px; width: 646px">
                 <asp:TextBox ID="Nomb_Edit_tx" runat="server" style="font-size: 15pt" Width="300px"></asp:TextBox>
-                <asp:Label ID="Label4" runat="server" Text="Ya existe un articulo con ese nombre" Visible="False" ForeColor="Red"></asp:Label>
+                <asp:Label ID="Alert_Edit_lb" runat="server" Text="Ya existe un articulo con ese nombre" Visible="False" ForeColor="Red"></asp:Label>
             </td>
         </tr>
         
@@ -208,6 +208,8 @@
             <td colspan="2">
                 <center><asp:Button ID="Guardar_Camb_bt" CssClass="btn btn-primary" runat="server" Text="Guardar Cambios" OnClick="Guardar_Camb_bt_Click"/>
             &nbsp;<asp:Button ID="Eliminar_Art_btn" CssClass="btn btn-danger" runat="server" Text="Borrar Articulo" OnClick="Eliminar_Art_btn_Click" /></center>
+                <p>
+                    <asp:Label ID="Completos_Edit_lb" runat="server" Text="Por favor ingrese todos los campos" Visible="false" ForeColor="Red"></asp:Label></p>
             </td>
         </tr>
     </table>
