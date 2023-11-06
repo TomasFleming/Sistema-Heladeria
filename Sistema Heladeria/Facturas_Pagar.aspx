@@ -55,6 +55,7 @@
                     Fecha de Pago :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>
                     <asp:TextBox ID="Fecha_Pago_tx" runat="server" style="font-size: 13pt; font-weight: bold" TextMode="Date" Width="190px"></asp:TextBox>
                     </strong>
+                    <asp:Label ID="Corregir_Fecha_lb" runat="server" ForeColor="#FF3300" Text="Debe ser antes del vencimieto y despues del registro" Visible="False"></asp:Label>
                 </p>
             </td>
         </tr>
@@ -164,7 +165,7 @@
         <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Seleccionar Proveedor<asp:Label ID="label55" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
       </div>
       <div class="modal-body">
-        <p></p><%--ass--%>
+        <p></p><%--aasasdasasadsads--%>
           <asp:UpdatePanel ID="UpdatePanel3" runat="server">
               <ContentTemplate>
                         <asp:TextBox ID="Buscador_prov" runat="server" Width="257px" style="font-size: 15pt" Height="27px"></asp:TextBox>
@@ -203,7 +204,7 @@
         </center>
                                     </ContentTemplate>
           </asp:UpdatePanel>    
-          <%--ass--%>
+          <%-- aca deberia empesar el asp:UpdatePanel y el contentemplate, pero solo los nesesitaria para aquellos que nesesito para editar --%>
           
           
       </div>
@@ -216,7 +217,7 @@
 </div>
 
     
-    <%-- Inicia el popup Para seleccionar Facturas --%>
+    <%--ass--%>
     <div id="ModalFact" class="modal fade" role="dialog">
   <div class="modal-dialog">
 

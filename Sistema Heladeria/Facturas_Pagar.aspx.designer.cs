@@ -87,6 +87,15 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.TextBox Fecha_Pago_tx;
 
         /// <summary>
+        /// Control Corregir_Fecha_lb.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Corregir_Fecha_lb;
+
+        /// <summary>
         /// Control Direc_lb.
         /// </summary>
         /// <remarks>
