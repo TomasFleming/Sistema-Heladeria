@@ -74,8 +74,11 @@ namespace Sistema_Heladeria
             }
             else
             {
-                Completos_lb.Visible = true;
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                if (Alert_lb.Visible == false)
+                {
+                    Completos_lb.Visible = true;
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                }
             }
             
         }
@@ -121,6 +124,7 @@ namespace Sistema_Heladeria
                 sql.ExecuteNonQuery();
                 con.Close();
                 Completos_Edit_lb.Visible = false;
+                Alert_Edit_lb.Visible = false;
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal2();", true);
                 Buscar_art_btn_Click(sender, e);
             }
@@ -129,7 +133,7 @@ namespace Sistema_Heladeria
                 if (Alert_Edit_lb.Visible == false)
                 {
                     Completos_Edit_lb.Visible = true;
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal2();", true);
+                    //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal2();", true);
                 }
             }
         }
@@ -140,6 +144,8 @@ namespace Sistema_Heladeria
             SqlCommand sql = new SqlCommand("delete Articulos where ID= "+ID_Art_edit_lb.Text, con.GetConnection());
             sql.ExecuteNonQuery();
             con.Close();
+            Completos_Edit_lb.Visible = false;
+            Alert_Edit_lb.Visible = false;
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal2();", true);
             Buscar_art_btn_Click(sender, e);
         }
@@ -152,6 +158,7 @@ namespace Sistema_Heladeria
             Descrip_tx.Text = "";
             Categorias_list.SelectedValue = "1";
             Completos_lb.Visible = false;
+            Alert_lb.Visible = false;
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
         }
     }

@@ -24,17 +24,42 @@ namespace Sistema_Heladeria
 
         }
 
-        protected void Art_camb_btn_Click(object sender, EventArgs e)
+        protected void Art_camb_btn_Click(object sender, EventArgs e)//los guarda por primera vez
         {
             con.Open();
-            SqlCommand sqlc = new SqlCommand("insert into Categorias(Nombre_Categoria,Descripcion) values (@prNomb, @prDesc)", con.GetConnection());
-            sqlc.Parameters.Add(new SqlParameter("@prNomb",Nomb_tx.Text));
-            sqlc.Parameters.Add(new SqlParameter("@prDesc", Descrip_tx.Text));
-            sqlc.ExecuteNonQuery();
+            SqlCommand check = new SqlCommand("select * from Categorias where Nombre_Categoria='" + Nomb_tx.Text + "'", con.GetConnection());
+            SqlDataReader leer = check.ExecuteReader();
+            if (leer.Read())
+            {
+                Alert_lb.Visible = true;
+            }
+            else
+            {
+                Alert_lb.Visible = false;
+            }
             con.Close();
-            Nomb_tx.Text = "";
-            Descrip_tx.Text = "";
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
+            if (Nomb_tx.Text != "" && Descrip_tx.Text != "" && Alert_lb.Visible == false)
+            {
+                con.Open();
+                SqlCommand sqlc = new SqlCommand("insert into Categorias(Nombre_Categoria,Descripcion) values (@prNomb, @prDesc)", con.GetConnection());
+                sqlc.Parameters.Add(new SqlParameter("@prNomb", Nomb_tx.Text));
+                sqlc.Parameters.Add(new SqlParameter("@prDesc", Descrip_tx.Text));
+                sqlc.ExecuteNonQuery();
+                con.Close();
+                Nomb_tx.Text = "";
+                Descrip_tx.Text = "";
+                Completos_lb.Visible = false;
+                Buscar_cat_btn_Click(sender, e);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
+            }
+            else
+            {
+                if (Alert_lb.Visible == false)
+                {
+                    Completos_lb.Visible = true;
+                    //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                }
+            }
 
         }
 
@@ -74,7 +99,10 @@ namespace Sistema_Heladeria
 
         protected void Cancelar_btn_Click(object sender, EventArgs e)
         {
-
+            Nomb_tx.Text = "";
+            Descrip_tx.Text="";
+            Alert_lb.Visible = false;
+            Completos_lb.Visible = false;
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
         }
 
@@ -84,16 +112,41 @@ namespace Sistema_Heladeria
             SqlCommand sql = new SqlCommand("delete Categorias where ID= " + ID_cat_edit.Text, con.GetConnection());
             sql.ExecuteNonQuery();
             con.Close();
+            Buscar_cat_btn_Click(sender, e);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal2();", true);
         }
 
-        protected void Guardar_Editado_bt_Click(object sender, EventArgs e)
+        protected void Guardar_Editado_bt_Click(object sender, EventArgs e)//este los edita
         {
             con.Open();
-            SqlCommand sql = new SqlCommand("update Categorias set Nombre_Categoria='"+Nomb_Edit_tx.Text+"', Descripcion='"+Descrip_Edit_tx.Text+"' where ID= "+ID_cat_edit.Text, con.GetConnection());
-            sql.ExecuteNonQuery();
+            SqlCommand check = new SqlCommand("select * from Categorias where Nombre_Categoria='" + Nomb_Edit_tx.Text + "' and ID!="+ID_cat_edit.Text, con.GetConnection());
+            SqlDataReader leer = check.ExecuteReader();
+            if (leer.Read())
+            {
+                Alert_edit_lb.Visible = true;
+            }
+            else
+            {
+                Alert_edit_lb.Visible = false;
+            }
             con.Close();
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal2();", true);
+            if (Nomb_Edit_tx.Text != "" && Descrip_Edit_tx.Text != "" && Alert_edit_lb.Visible == false)
+            {
+                con.Open();
+                SqlCommand sql = new SqlCommand("update Categorias set Nombre_Categoria='" + Nomb_Edit_tx.Text + "', Descripcion='" + Descrip_Edit_tx.Text + "' where ID= " + ID_cat_edit.Text, con.GetConnection());
+                sql.ExecuteNonQuery();
+                con.Close();
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal2();", true);
+                Buscar_cat_btn_Click(sender, e);
+            }
+            else
+            {
+                if (Alert_edit_lb.Visible == false)
+                {
+                    Completo_edit_lb.Visible = true;
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal2();", true);
+                }
+            }
         }
 
         protected void Buscador_cat_TextChanged(object sender, EventArgs e)

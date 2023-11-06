@@ -60,6 +60,15 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.Label label55;
 
         /// <summary>
+        /// Control UpdatePanel2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
+
+        /// <summary>
         /// Control Art_nom_lb.
         /// </summary>
         /// <remarks>
@@ -123,6 +132,15 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.Button Cancelar_btn;
 
         /// <summary>
+        /// Control Completos_lb.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Completos_lb;
+
+        /// <summary>
         /// Control ID_cat_edit.
         /// </summary>
         /// <remarks>
@@ -159,13 +177,13 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.TextBox Nomb_Edit_tx;
 
         /// <summary>
-        /// Control Label3.
+        /// Control Alert_edit_lb.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label Alert_edit_lb;
 
         /// <summary>
         /// Control Label4.
@@ -202,5 +220,14 @@ namespace Sistema_Heladeria
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Borrar_cat_btn;
+
+        /// <summary>
+        /// Control Completo_edit_lb.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Completo_edit_lb;
     }
 }

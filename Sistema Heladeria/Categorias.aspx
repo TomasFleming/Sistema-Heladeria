@@ -74,6 +74,7 @@
       <div class="modal-body">
         <p></p><%--aasasdasasadsads--%>
           <%-- aca deberia empesar el asp:UpdatePanel y el contentemplate, pero solo los nesesitaria para aquellos que nesesito para editar --%>
+          <asp:UpdatePanel ID="UpdatePanel2" runat="server"><ContentTemplate>
                   <center>
                       <table id="Tabla_cat1" style="width: 36%; height: 207px;">
         <tr>
@@ -100,10 +101,13 @@
             <center>
             <asp:Button ID="Cat_guardar_btn" CssClass="btn btn-primary" runat="server" Text="Guardar Categoria" OnClick="Art_camb_btn_Click"/>
             &nbsp;<asp:Button ID="Cancelar_btn" CssClass="btn btn-danger" runat="server" Text="Cancelar" OnClick="Cancelar_btn_Click" /></center>
+                <p>
+                    <asp:Label ID="Completos_lb" runat="server" Text="Por favor ingrese todos los campos" Visible="false" ForeColor="Red"></asp:Label>
+                </p>
             </td>
         </tr>
     </table>
-                  </center>
+                  </center></ContentTemplate></asp:UpdatePanel>
           <%--ass--%>
       </div>
       <div class="modal-footer">
@@ -137,7 +141,7 @@
             <td style="height: 20px; width: 646px">
                 <asp:TextBox ID="Nomb_Edit_tx" runat="server" style="font-size: 15pt" Width="300px"></asp:TextBox>
                 <br />
-                <asp:Label ID="Label3" runat="server" Text="Ya existe una categoria con ese nombre" Visible="False" ForeColor="Red"></asp:Label>
+                <asp:Label ID="Alert_edit_lb" runat="server" Text="Ya existe una categoria con ese nombre" Visible="False" ForeColor="Red"></asp:Label>
             </td>
         </tr>
         
@@ -155,6 +159,9 @@
             &nbsp;&nbsp;<asp:Button ID="Guardar_Editado_bt" CssClass="btn btn-primary" runat="server" Text="Guardar Cambios" OnClick="Guardar_Editado_bt_Click"/>
             &nbsp;<asp:Button ID="Borrar_cat_btn" CssClass="btn btn-danger" runat="server" Text="Borrar Categoria" OnClick="Borrar_cat_btn_Click" />
             </center>
+                <p>
+                    <asp:Label ID="Completo_edit_lb" runat="server" Text="Por favor ingrese todos los campos" Visible="false" ForeColor="Red"></asp:Label>
+                </p>
             </td>
         </tr>
     </table>

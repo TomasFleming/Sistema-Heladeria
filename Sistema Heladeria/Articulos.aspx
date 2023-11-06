@@ -82,7 +82,7 @@
       <div class="modal-body">
         <p></p><%--aasasdasasadsads--%>
           <%-- aca deberia empesar el asp:UpdatePanel y el contentemplate, pero solo los nesesitaria para aquellos que nesesito para editar --%>
-          
+          <asp:UpdatePanel ID="UpdatePanel2" runat="server"><ContentTemplate>
                 <center>
                           <table id="Tabla_cat1" style="width: 36%; height: 207px;">
         <tr>
@@ -135,7 +135,7 @@
     </table>
                       </center>  
                   
-                          
+                          </ContentTemplate></asp:UpdatePanel>
           <%--ass--%>
 
 
