@@ -177,6 +177,15 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.Button Cancelar_art_btn;
 
         /// <summary>
+        /// Control Completos_lb.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Completos_lb;
+
+        /// <summary>
         /// Control ID_Art_edit_lb.
         /// </summary>
         /// <remarks>

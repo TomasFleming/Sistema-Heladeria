@@ -128,6 +128,8 @@
             <td colspan="2">
                 <center><asp:Button ID="Art_camb_btn" CssClass="btn btn-primary" runat="server" Text="Guardar Articulo" OnClick="Art_camb_btn_Click"/>
             &nbsp;<asp:Button ID="Cancelar_art_btn" CssClass="btn btn-danger" runat="server" Text="Cancelar" OnClick="Cancelar_art_btn_Click" /></center>
+                <p>
+                    <asp:Label ID="Completos_lb" runat="server" Text="Por favor ingrese todos los campos" Visible="false" ForeColor="Red"></asp:Label></p>
             </td>
         </tr>
     </table>

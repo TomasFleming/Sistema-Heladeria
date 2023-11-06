@@ -40,21 +40,31 @@ namespace Sistema_Heladeria
             Lista_Articulos.DataBind();
         }
 
-        protected void Art_camb_btn_Click(object sender, EventArgs e)
+        protected void Art_camb_btn_Click(object sender, EventArgs e)//este los guarda por primera vez
         {
-            con.Open();
-            SqlCommand sql = new SqlCommand("insert into Articulos(Nombre,Categoria,Precio,Descripcion) values (@prNombre,@prCat,@prPrecio,@prDesc)", con.GetConnection());
-            sql.Parameters.Add(new SqlParameter("@prNombre",Nomb_tx.Text));
-            sql.Parameters.Add(new SqlParameter("@prCat",Categorias_list.SelectedValue));
-            sql.Parameters.Add(new SqlParameter("@prPrecio",Precio_tx.Text));
-            sql.Parameters.Add(new SqlParameter("@prDesc",Descrip_tx.Text));
-            sql.ExecuteNonQuery();
-            con.Close();
-            Nomb_tx.Text = "";
-            Precio_tx.Text = "";
-            Descrip_tx.Text = "";
-            Categorias_list.SelectedValue = "1";
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
+            if (Nomb_tx.Text != "" && Precio_tx.Text != "" && Descrip_tx.Text != "")
+            {
+                con.Open();
+                SqlCommand sql = new SqlCommand("insert into Articulos(Nombre,Categoria,Precio,Descripcion) values (@prNombre,@prCat,@prPrecio,@prDesc)", con.GetConnection());
+                sql.Parameters.Add(new SqlParameter("@prNombre", Nomb_tx.Text));
+                sql.Parameters.Add(new SqlParameter("@prCat", Categorias_list.SelectedValue));
+                sql.Parameters.Add(new SqlParameter("@prPrecio", Precio_tx.Text));
+                sql.Parameters.Add(new SqlParameter("@prDesc", Descrip_tx.Text));
+                sql.ExecuteNonQuery();
+                con.Close();
+                Nomb_tx.Text = "";
+                Precio_tx.Text = "";
+                Descrip_tx.Text = "";
+                Categorias_list.SelectedValue = "1";
+                Completos_lb.Visible = false;
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
+            }
+            else
+            {
+                Completos_lb.Visible = true;
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+            }
+            
         }
         protected void Editar_art_Click(object sender, EventArgs e)
         {
@@ -77,7 +87,7 @@ namespace Sistema_Heladeria
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal2();", true);
         }
 
-        protected void Guardar_Camb_bt_Click(object sender, EventArgs e)
+        protected void Guardar_Camb_bt_Click(object sender, EventArgs e)//este edita al articulo
         {
             con.Open();
             SqlCommand sql = new SqlCommand("update Articulos set Nombre='"+Nomb_Edit_tx.Text+"',Categoria="+Categoria_Edit_tx.SelectedValue+",Descripcion='"+Descript_Edit_tx.Text+"',Precio='"+Precio_Edit_tx.Text+"' where ID= "+ID_Art_edit_lb.Text+" ",con.GetConnection());
@@ -102,6 +112,7 @@ namespace Sistema_Heladeria
             Precio_tx.Text = "";
             Descrip_tx.Text = "";
             Categorias_list.SelectedValue = "1";
+            Completos_lb.Visible = false;
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
         }
     }
