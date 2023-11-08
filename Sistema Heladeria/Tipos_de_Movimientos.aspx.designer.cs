@@ -69,6 +69,15 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.Label label55;
 
         /// <summary>
+        /// Control UpdatePanel3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel3;
+
+        /// <summary>
         /// Control Art_nom_lb.
         /// </summary>
         /// <remarks>
@@ -123,13 +132,13 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.Label Art_desc_lb;
 
         /// <summary>
-        /// Control Detalle_tx.
+        /// Control Detalle_list.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Detalle_tx;
+        protected global::System.Web.UI.WebControls.DropDownList Detalle_list;
 
         /// <summary>
         /// Control Mov_guard_btn.

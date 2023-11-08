@@ -65,7 +65,7 @@
       <div class="modal-body">
         <p></p><%--aasasdasasadsads--%>
           <%-- aca deberia empesar el asp:UpdatePanel y el contentemplate, pero solo los nesesitaria para aquellos que nesesito para editar --%>
-          
+          <asp:UpdatePanel ID="UpdatePanel3" runat="server"><ContentTemplate>
                 <center>
                           <table id="Tabla_cat1" style="width: 36%; height: 300px;">
         <tr>
@@ -93,7 +93,10 @@
                 <asp:Label ID="Art_desc_lb" runat="server" Text="Detalle:" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 22px; width: 300px">
-                <asp:TextBox ID="Detalle_tx" runat="server" Width="300px"></asp:TextBox>
+                <asp:DropDownList ID="Detalle_list" runat="server">
+                    <asp:ListItem>Ingreso</asp:ListItem>
+                    <asp:ListItem>Retiro</asp:ListItem>
+                </asp:DropDownList>
             </td>
         </tr>
         <tr>
@@ -105,7 +108,7 @@
     </table>
                       </center>  
                   
-                          
+                          </ContentTemplate></asp:UpdatePanel>
           <%--ass--%>
 
 
@@ -158,7 +161,7 @@
                     <asp:Label ID="Label6" runat="server" style="font-size: 20px" Text="Detalle:"></asp:Label>
                 </td>
                 <td style="height: 22px; width: 646px">
-                    <asp:TextBox ID="Desc_Edit_tx" runat="server" style="font-size: 15pt" Width="300px"></asp:TextBox>
+                    <asp:TextBox ID="Desc_Edit_tx" runat="server" ReadOnly="true" style="font-size: 15pt" Width="300px"></asp:TextBox>
                     </td>
             </tr>
             <%--<tr>
