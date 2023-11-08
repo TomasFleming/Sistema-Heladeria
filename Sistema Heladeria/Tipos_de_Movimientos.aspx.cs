@@ -81,12 +81,18 @@ namespace Sistema_Heladeria
 
         protected void Cancelar_mov_btn_Click(object sender, EventArgs e)
         {
-
+            Nombre_mov_tx.Text = "";
+            Descp_tx.Text = "";
         }
 
         protected void Eliminar_Mov_btn_Click(object sender, EventArgs e)
         {
-
+            con.Open();
+            SqlCommand sql = new SqlCommand("delete Actividades where ID=" + ID_Art_edit_lb.Text, con.GetConnection());
+            sql.ExecuteNonQuery();
+            con.Close();
+            Buscar_mov_btn_Click(sender, e);
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal2();", true);
         }
     }
 }

@@ -93,7 +93,7 @@
                 <asp:Label ID="Art_desc_lb" runat="server" Text="Detalle:" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 22px; width: 300px">
-                <asp:DropDownList ID="Detalle_list" runat="server">
+                <asp:DropDownList ID="Detalle_list" runat="server" Width="300px">
                     <asp:ListItem>Ingreso</asp:ListItem>
                     <asp:ListItem>Retiro</asp:ListItem>
                 </asp:DropDownList>
@@ -178,7 +178,7 @@
         <tr>
             <td colspan="2">
                 <center><asp:Button ID="ButtonGuardarCambios" CssClass="btn btn-primary" runat="server" Text="Guardar Cambios" OnClick="Mov_guard_btn_Click"/>
-            &nbsp;<asp:Button ID="ButtonCancelar" CssClass="btn btn-danger" runat="server" Text="Cancelar" OnClick="Cancelar_mov_btn_Click" /></center>
+            &nbsp;<asp:Button ID="ButtonCancelar" CssClass="btn btn-danger" runat="server" Text="Eliminar" OnClick="Eliminar_Mov_btn_Click" /></center>
             </td>
         </tr>
            
