@@ -60,6 +60,15 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.Label label55;
 
         /// <summary>
+        /// Control UpdatePanel2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
+
+        /// <summary>
         /// Control Client_nom_lb.
         /// </summary>
         /// <remarks>
@@ -159,6 +168,15 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.Button Cancelar_client_btn;
 
         /// <summary>
+        /// Control Completos_lb.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Completos_lb;
+
+        /// <summary>
         /// Control ID_Art_edit_lb.
         /// </summary>
         /// <remarks>
@@ -195,13 +213,13 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.TextBox Nomb_Edit_tx;
 
         /// <summary>
-        /// Control Label2.
+        /// Control Alert_Edit_lb.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label Alert_Edit_lb;
 
         /// <summary>
         /// Control Label3.
@@ -274,5 +292,14 @@ namespace Sistema_Heladeria
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Eliminar_Client_btn;
+
+        /// <summary>
+        /// Control Completos_Edit_lb.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Completos_Edit_lb;
     }
 }

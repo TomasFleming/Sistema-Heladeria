@@ -82,7 +82,7 @@
       <div class="modal-body">
         <p></p><%--aasasdasasadsads--%>
           <%-- aca deberia empesar el asp:UpdatePanel y el contentemplate, pero solo los nesesitaria para aquellos que nesesito para editar --%>
-          
+          <asp:UpdatePanel ID="UpdatePanel2" runat="server"><ContentTemplate>
                 <center>
                           <table id="Tabla_cat1" style="width: 36%; height: 207px;">
         <tr>
@@ -91,7 +91,7 @@
             </td>
             <td style="height: 66px; width: 646px">
                 <asp:TextBox ID="Nombre_tx" runat="server" style="font-size: 15pt" Width="250px"></asp:TextBox>
-                <asp:Label ID="Alert_lb" runat="server" Text="Ya existe un articulo con ese nombre" Visible="False" ForeColor="Red"></asp:Label>
+                <asp:Label ID="Alert_lb" runat="server" Text="Ya existe un Cliente con ese nombre" Visible="False" ForeColor="Red"></asp:Label>
             </td>
         </tr>
         
@@ -127,11 +127,14 @@
             <td colspan="2">
                 <center><asp:Button ID="Cliente_guard_btn" CssClass="btn btn-primary" runat="server" Text="Guardar Cliente" OnClick="Cliente_guard_btn_Click"/>
             &nbsp;<asp:Button ID="Cancelar_client_btn" CssClass="btn btn-danger" runat="server" Text="Cancelar" OnClick="Cancelar_client_btn_Click" /></center>
+                <p>
+                    <asp:Label ID="Completos_lb" runat="server" Text="Por favor ingrese todos los campos" Visible="false" ForeColor="Red"></asp:Label>
+</p>
             </td>
         </tr>
     </table>
                       </center>  
-                  
+                  </ContentTemplate></asp:UpdatePanel>
                           
           <%--ass--%>
 
@@ -168,7 +171,7 @@
             </td>
             <td style="height: 66px; width: 646px">
                 <asp:TextBox ID="Nomb_Edit_tx" runat="server" style="font-size: 15pt" Width="300px"></asp:TextBox>
-                <asp:Label ID="Label2" runat="server" Text="Ya existe un articulo con ese nombre" Visible="False" ForeColor="Red"></asp:Label>
+                <asp:Label ID="Alert_Edit_lb" runat="server" Text="Ya existe un Cliente con ese nombre" Visible="False" ForeColor="Red"></asp:Label>
             </td>
         </tr>
         
@@ -204,6 +207,9 @@
             <td colspan="2">
                 <center><asp:Button ID="Guardar_Camb_bt" CssClass="btn btn-primary" OnClick="Guardar_Camb_bt_Click" runat="server" Text="Guardar Cambios"/>
             &nbsp;<asp:Button ID="Eliminar_Client_btn" CssClass="btn btn-danger" runat="server" Text="Borrar Articulo" OnClick="Eliminar_Client_btn_Click" /></center>
+                <p>
+                    <asp:Label ID="Completos_Edit_lb" runat="server" Text="Por favor ingrese todos los campos" Visible="false" ForeColor="Red"></asp:Label>
+</p>
             </td>
         </tr>
     </table>

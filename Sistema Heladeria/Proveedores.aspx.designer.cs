@@ -159,6 +159,15 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.Button Cancelar;
 
         /// <summary>
+        /// Control Completos_lb.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Completos_lb;
+
+        /// <summary>
         /// Control ID_Prov_edit.
         /// </summary>
         /// <remarks>
@@ -195,13 +204,13 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.TextBox Nomb_Edit_tx;
 
         /// <summary>
-        /// Control Label3.
+        /// Control Alert_Edit_lb.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label Alert_Edit_lb;
 
         /// <summary>
         /// Control Label4.
@@ -274,5 +283,14 @@ namespace Sistema_Heladeria
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Eliminar_Prov_btn;
+
+        /// <summary>
+        /// Control Completos_Edit_lb.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Completos_Edit_lb;
     }
 }

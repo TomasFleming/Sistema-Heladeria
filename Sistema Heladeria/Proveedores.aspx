@@ -126,6 +126,9 @@
             <td colspan="2">
                 <center><asp:Button ID="Prov_guard_btn" CssClass="btn btn-primary" runat="server" Text="Guardar Cambios" OnClick="Prov_guard_btn_Click" />
             &nbsp;<asp:Button ID="Cancelar" CssClass="btn btn-danger" runat="server" Text="Cancelar" OnClick="Prov_elin_byn_Click"  /></center>
+                <p>
+                    <asp:Label ID="Completos_lb" runat="server" Text="Por favor ingrese todos los campos" Visible="false" ForeColor="Red"></asp:Label>
+</p>
             </td>
         </tr>
     </table>
@@ -167,7 +170,7 @@
             </td>
             <td style="height: 20px; width: 646px">
                 <asp:TextBox ID="Nomb_Edit_tx" runat="server" style="font-size: 15pt" Width="300px"></asp:TextBox>
-                <asp:Label ID="Label3" runat="server" Text="Ya existe un proveedor con ese nombre" Visible="False" ForeColor="Red"></asp:Label>
+                <asp:Label ID="Alert_Edit_lb" runat="server" Text="Ya existe un proveedor con ese nombre" Visible="False" ForeColor="Red"></asp:Label>
             </td>
         </tr>
         <tr>
@@ -207,6 +210,9 @@
             <td colspan="2">
                 <center><asp:Button ID="Guardar_Edit_btn" CssClass="btn btn-primary" runat="server" Text="Guardar Cambios" OnClick="Guardar_Edit_btn_Click" />
             &nbsp;<asp:Button ID="Eliminar_Prov_btn" CssClass="btn btn-danger" runat="server" Text="Borrar Proveedor" OnClick="Eliminar_Prov_btn_Click"  /></center>
+                <p>
+                    <asp:Label ID="Completos_Edit_lb" runat="server" Text="Por favor ingrese todos los campos" Visible="false" ForeColor="Red"></asp:Label>
+</p>
             </td>
         </tr>
     </table>

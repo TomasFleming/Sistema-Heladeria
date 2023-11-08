@@ -87,7 +87,7 @@
             </td>
             <td style="height: 20px; width: 646px">
                 <asp:TextBox ID="Nomb_tx" runat="server" style="font-size: 15pt" Width="300px"></asp:TextBox>
-                <asp:Label ID="Alert_lb" runat="server" Text="Ya existe un proveedor con ese nombre" Visible="False" ForeColor="Red"></asp:Label>
+                <asp:Label ID="Alert_lb" runat="server" Text="Ya existe un Deposito con ese nombre registrado" Visible="False" ForeColor="Red"></asp:Label>
             </td>
         </tr>
         <tr>

@@ -338,6 +338,7 @@ namespace Sistema_Heladeria
             Fecha_tj_lb.Visible = false;
             Fecha_Tarjeta_tx.Visible = false;
             Fecha_Tarjeta_tx0.Visible = false;
+            Label_Tarjeta.Visible = false;
         }
 
         protected void Tarjeta_CheckedChanged(object sender, EventArgs e)
