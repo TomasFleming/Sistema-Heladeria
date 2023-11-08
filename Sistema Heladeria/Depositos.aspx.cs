@@ -41,19 +41,48 @@ namespace Sistema_Heladeria
         protected void Dep_guard_btn_Click(object sender, EventArgs e)
         {
             con.Open();
-            SqlCommand sql = new SqlCommand("insert into Depositos(Nombre,Ubicacion) values (@prNombre,@prUbic)", con.GetConnection());
-            sql.Parameters.Add(new SqlParameter("@prNombre", Nomb_tx.Text));
-            sql.Parameters.Add(new SqlParameter("@prUbic", Ubic_tx.Text));
-            sql.ExecuteNonQuery();
+            SqlCommand check = new SqlCommand("select * from Depositos where Nombre='" + Nomb_tx.Text + "'", con.GetConnection());
+            SqlDataReader leer = check.ExecuteReader();
+            if (leer.Read())
+            {
+                Alert_lb.Visible = true;
+            }
+            else
+            {
+                Alert_lb.Visible = false;
+            }
             con.Close();
-            Nomb_tx.Text = "";
-            Ubic_tx.Text = "";
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
+            if (Nomb_tx.Text != "" && Ubic_tx.Text != "" && Alert_lb.Visible == false)
+            {
+                con.Open();
+                SqlCommand sql = new SqlCommand("insert into Depositos(Nombre,Ubicacion) values (@prNombre,@prUbic)", con.GetConnection());
+                sql.Parameters.Add(new SqlParameter("@prNombre", Nomb_tx.Text));
+                sql.Parameters.Add(new SqlParameter("@prUbic", Ubic_tx.Text));
+                sql.ExecuteNonQuery();
+                con.Close();
+                Nomb_tx.Text = "";
+                Ubic_tx.Text = "";
+                Completos_lb.Visible = false;
+                Buscar_dep_btn_Click(sender, e);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
+            }
+            else
+            {
+                if (Alert_lb.Visible == false)
+                {
+                    Completos_lb.Visible = true;
+                    //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                }
+            }
         }
 
-        protected void Dep_elin_byn_Click(object sender, EventArgs e)
+        protected void Dep_elin_byn_Click(object sender, EventArgs e)//cancelar el deposito
         {
-
+            Nomb_tx.Text = "";
+            Ubic_tx.Text = "";
+            Alert_lb.Visible = false;
+            Completos_lb.Visible = false;
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
         }
 
         protected void Ver_Articulos_btn_Click(object sender, EventArgs e)

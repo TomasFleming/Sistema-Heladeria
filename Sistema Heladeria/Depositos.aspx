@@ -78,6 +78,7 @@
       </div>
       <div class="modal-body">
         <p></p><%--aasasdasasadsads--%><%--ass--%>
+          <asp:UpdatePanel ID="UpdatePanel5" runat="server"><ContentTemplate>
           <center>
                           <table id="Tabla_cat1" style="width: 36%; height: 207px;">
         <tr>
@@ -102,10 +103,13 @@
             <td colspan="2">
                 <center><asp:Button ID="Deposit_guard_btn" CssClass="btn btn-primary" runat="server" Text="Guardar Depósito" OnClick="Dep_guard_btn_Click" />
             &nbsp;&nbsp;&nbsp;<asp:Button ID="Deposit_elin_byn" CssClass="btn btn-danger" runat="server" Text="Cancelar " OnClick="Dep_elin_byn_Click"  /></center>
+                <p>
+                    <asp:Label ID="Completos_lb" runat="server" Text="Por favor ingrese todos los campos" Visible="false" ForeColor="Red"></asp:Label>
+</p>
             </td>
         </tr>
     </table>
-                      </center>
+                      </center></ContentTemplate></asp:UpdatePanel>
           <%--ass--%>
 
 
