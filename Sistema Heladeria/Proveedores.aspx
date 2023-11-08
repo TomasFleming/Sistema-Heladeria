@@ -77,7 +77,7 @@
       <div class="modal-body">
         <p></p><%--aasasdasasadsads--%>
           <%-- aca deberia empesar el asp:UpdatePanel y el contentemplate, pero solo los nesesitaria para aquellos que nesesito para editar --%>
-          
+          <asp:UpdatePanel ID="UpdatePanel2" runat="server"><ContentTemplate>
                   <center>
                           <table id="Tabla_cat1" style="width: 36%; height: 207px;">
         <tr>
@@ -86,7 +86,7 @@
             </td>
             <td style="height: 20px; width: 646px">
                 <asp:TextBox ID="Nomb_tx" runat="server" style="font-size: 15pt" Width="300px"></asp:TextBox>
-                <asp:Label ID="Alert_lb" runat="server" Text="Ya existe un proveedor con ese nombre" Visible="False" ForeColor="Red"></asp:Label>
+                <asp:Label ID="Alert_lb" runat="server" Text="Ya existe un Proveedor con ese nombre" Visible="False" ForeColor="Red"></asp:Label>
             </td>
         </tr>
         <tr>
@@ -113,6 +113,7 @@
             </td>
             <td style="height: 22px; width: 646px">
                 <asp:TextBox ID="Correo_tx" runat="server" style="font-size: 15pt" Width="302px"></asp:TextBox>
+                <asp:Label ID="Alert_correo_lb" runat="server" Text="Ya existe un Proveedor con ese Correo" Visible="False" ForeColor="Red"></asp:Label>
 
             </td>
             </tr>
@@ -132,7 +133,7 @@
             </td>
         </tr>
     </table>
-                      </center>
+                      </center></ContentTemplate></asp:UpdatePanel>
                   
                           
           <%--ass--%>
@@ -170,7 +171,7 @@
             </td>
             <td style="height: 20px; width: 646px">
                 <asp:TextBox ID="Nomb_Edit_tx" runat="server" style="font-size: 15pt" Width="300px"></asp:TextBox>
-                <asp:Label ID="Alert_Edit_lb" runat="server" Text="Ya existe un proveedor con ese nombre" Visible="False" ForeColor="Red"></asp:Label>
+                <asp:Label ID="Alert_Edit_lb" runat="server" Text="Ya existe un Proveedor con ese nombre" Visible="False" ForeColor="Red"></asp:Label>
             </td>
         </tr>
         <tr>
@@ -197,6 +198,7 @@
             </td>
             <td style="height: 22px; width: 646px">
                 <asp:TextBox ID="Correo_Edit_tx" runat="server" style="font-size: 15pt" Width="300px"></asp:TextBox>
+                <asp:Label ID="Alert_Correo_Edit_lb" runat="server" Text="Ya existe un Proveedor con ese Correo" Visible="False" ForeColor="Red"></asp:Label>
 
             </td>
             </tr>

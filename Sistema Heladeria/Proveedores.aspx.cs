@@ -43,18 +43,51 @@ namespace Sistema_Heladeria
         protected void Prov_guard_btn_Click(object sender, EventArgs e)
         {
             con.Open();
-            SqlCommand sql = new SqlCommand("insert into Proveedores(NombreCompleto,Telefono,Correo,Direccion) values (@prNombre,@prTelf,@prCorre,@prDirecc)", con.GetConnection());
-            sql.Parameters.Add(new SqlParameter("@prNombre", Nomb_tx.Text));
-            sql.Parameters.Add(new SqlParameter("@prTelf", Telefono_tx.Text));
-            sql.Parameters.Add(new SqlParameter("@prCorre", Correo_tx.Text));
-            sql.Parameters.Add(new SqlParameter("@prDirecc", Direcc_tx.Text));
-            sql.ExecuteNonQuery();
+            SqlCommand check = new SqlCommand("select * from Proveedores where NombreCompleto='" + Nomb_tx.Text + "' or Correo='" + Correo_tx.Text + "'", con.GetConnection());
+            SqlDataReader leer = check.ExecuteReader();
+            if (leer.Read())
+            {
+                if (leer["Correo"].ToString() == Correo_tx.Text)
+                {
+                    Alert_correo_lb.Visible = true;
+                }
+                else
+                {
+                    Alert_lb.Visible = true;
+                }
+            }
+            else
+            {
+                Alert_correo_lb.Visible = false;
+                Alert_lb.Visible = false;
+            }
             con.Close();
-            Nomb_tx.Text = "";
-            Direcc_tx.Text = "";
-            Telefono_tx.Text = "";
-            Correo_tx.Text = "";
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
+            if (Nomb_tx.Text != "" && Telefono_tx.Text != "" && Correo_tx.Text != "" && Direcc_tx.Text!="" && Alert_lb.Visible == false && Alert_correo_lb.Visible == false)
+            {
+
+                con.Open();
+                SqlCommand sql = new SqlCommand("insert into Proveedores(NombreCompleto,Telefono,Correo,Direccion) values (@prNombre,@prTelf,@prCorre,@prDirecc)", con.GetConnection());
+                sql.Parameters.Add(new SqlParameter("@prNombre", Nomb_tx.Text));
+                sql.Parameters.Add(new SqlParameter("@prTelf", Telefono_tx.Text));
+                sql.Parameters.Add(new SqlParameter("@prCorre", Correo_tx.Text));
+                sql.Parameters.Add(new SqlParameter("@prDirecc", Direcc_tx.Text));
+                sql.ExecuteNonQuery();
+                con.Close();
+                Nomb_tx.Text = "";
+                Direcc_tx.Text = "";
+                Telefono_tx.Text = "";
+                Correo_tx.Text = "";
+                Completos_lb.Visible = false;
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
+            }
+            else
+            {
+                if (Alert_lb.Visible == false && Alert_correo_lb.Visible == false)
+                {
+                    Completos_lb.Visible = true;
+                    //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                }
+            }
         }
 
         protected void Prov_elin_byn_Click(object sender, EventArgs e)//cancelar proveedor
@@ -63,6 +96,9 @@ namespace Sistema_Heladeria
             Direcc_tx.Text = "";
             Telefono_tx.Text = "";
             Correo_tx.Text = "";
+            Completos_lb.Visible = false; 
+            Alert_lb.Visible = false;
+            Alert_correo_lb.Visible = false;
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
         }
 
@@ -72,16 +108,51 @@ namespace Sistema_Heladeria
             SqlCommand sql = new SqlCommand("delete Proveedores where ID= " + ID_Prov_edit.Text, con.GetConnection());
             sql.ExecuteNonQuery();
             con.Close();
+            Alert_Edit_lb.Visible = false;
+            Alert_Correo_Edit_lb.Visible = false;
+            Completos_Edit_lb.Visible = false;
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal2();", true);
         }
 
         protected void Guardar_Edit_btn_Click(object sender, EventArgs e)
         {
             con.Open();
-            SqlCommand sql = new SqlCommand("update Proveedores set NombreCompleto='"+Nomb_Edit_tx.Text+"',Telefono="+Telf_Edit_tx.Text+",Direccion='"+Direcc_Edit_tx.Text+"',Correo='"+Correo_Edit_tx.Text+"' where ID= "+ID_Prov_edit.Text, con.GetConnection());
-            sql.ExecuteNonQuery();
+            SqlCommand check = new SqlCommand("select * from Proveedores where (NombreCompleto='" + Nomb_Edit_tx.Text + "' or Correo='" + Correo_Edit_tx.Text + "') and ID!="+ID_Prov_edit.Text, con.GetConnection());
+            SqlDataReader leer = check.ExecuteReader();
+            if (leer.Read())
+            {
+                if (leer["Correo"].ToString() == Correo_Edit_tx.Text)
+                {
+                    Alert_Correo_Edit_lb.Visible = true;
+                }
+                else
+                {
+                    Alert_Edit_lb.Visible = true;
+                }
+            }
+            else
+            {
+                Alert_Correo_Edit_lb.Visible = false;
+                Alert_Edit_lb.Visible = false;
+            }
             con.Close();
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal2();", true);
+            if (Nomb_Edit_tx.Text != "" && Telf_Edit_tx.Text != "" && Correo_Edit_tx.Text != "" && Direcc_Edit_tx.Text != "" && Alert_Edit_lb.Visible == false && Alert_Correo_Edit_lb.Visible == false)
+            {
+                con.Open();
+                SqlCommand sql = new SqlCommand("update Proveedores set NombreCompleto='" + Nomb_Edit_tx.Text + "',Telefono=" + Telf_Edit_tx.Text + ",Direccion='" + Direcc_Edit_tx.Text + "',Correo='" + Correo_Edit_tx.Text + "' where ID= " + ID_Prov_edit.Text, con.GetConnection());
+                sql.ExecuteNonQuery();
+                con.Close();
+                Completos_Edit_lb.Visible = false;
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal2();", true);
+            }
+            else
+            {
+                if (Alert_Edit_lb.Visible == false && Alert_Correo_Edit_lb.Visible == false)
+                {
+                    Completos_Edit_lb.Visible = true;
+                    //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                }
+            }
         }
 
         protected void Edit_prov_btn_Click(object sender, EventArgs e)
@@ -102,6 +173,9 @@ namespace Sistema_Heladeria
             Correo_Edit_tx.Text = leer["Correo"].ToString();
             Direcc_Edit_tx.Text = leer["Direccion"].ToString();
             con.Close();
+            Alert_Correo_Edit_lb.Visible = false;
+            Alert_Edit_lb.Visible = false;
+            Completos_Edit_lb.Visible = false;
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal2();", true);
         }
     }
