@@ -121,6 +121,7 @@
             </td>
             <td style="height: 22px; width: 646px">
                 <asp:TextBox ID="Mail_tx" runat="server" Height="34px" style="margin-left: 0" Width="250px"></asp:TextBox>
+                <asp:Label ID="Alert_correo_lb" runat="server" Text="Ya existe un Cliente con ese Correo" Visible="False" ForeColor="Red"></asp:Label>
             </td>
         </tr>
         <tr>
@@ -201,12 +202,13 @@
             </td>
             <td style="height: 22px; width: 646px">
                 <asp:TextBox ID="Correo_Edit_tx" runat="server" Height="34px" style="margin-left: 0" Width="302px"></asp:TextBox>
+                <asp:Label ID="Alert_Correo_Edit_lb" runat="server" Text="Ya existe un Cliente con ese Correo" Visible="False" ForeColor="Red"></asp:Label>
             </td>
         </tr>
         <tr>
             <td colspan="2">
                 <center><asp:Button ID="Guardar_Camb_bt" CssClass="btn btn-primary" OnClick="Guardar_Camb_bt_Click" runat="server" Text="Guardar Cambios"/>
-            &nbsp;<asp:Button ID="Eliminar_Client_btn" CssClass="btn btn-danger" runat="server" Text="Borrar Articulo" OnClick="Eliminar_Client_btn_Click" /></center>
+            &nbsp;<asp:Button ID="Eliminar_Client_btn" CssClass="btn btn-danger" runat="server" Text="Borrar CLiente" OnClick="Eliminar_Client_btn_Click" /></center>
                 <p>
                     <asp:Label ID="Completos_Edit_lb" runat="server" Text="Por favor ingrese todos los campos" Visible="false" ForeColor="Red"></asp:Label>
 </p>

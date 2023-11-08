@@ -59,18 +59,26 @@ namespace Sistema_Heladeria
         protected void Cliente_guard_btn_Click(object sender, EventArgs e)
         {
             con.Open();
-            SqlCommand check = new SqlCommand("select * from Clientes where NombreCompleto='" + Nombre_tx.Text + "'", con.GetConnection());
+            SqlCommand check = new SqlCommand("select * from Clientes where NombreCompleto='" + Nombre_tx.Text + "' or Correo='"+Mail_tx.Text+"'", con.GetConnection());
             SqlDataReader leer = check.ExecuteReader();
             if (leer.Read())
             {
-                Alert_lb.Visible = true;
+                if (leer["Correo"].ToString() == Mail_tx.Text)
+                {
+                    Alert_correo_lb.Visible = true;
+                }
+                else
+                {
+                    Alert_lb.Visible = true;
+                }
             }
             else
             {
+                Alert_correo_lb.Visible = false;
                 Alert_lb.Visible = false;
             }
             con.Close();
-            if (Nombre_tx.Text != "" && Telefono_tx.Text != "" && Doc_tx.Text != "" && Mail_tx.Text != "" && Alert_lb.Visible == false)
+            if (Nombre_tx.Text != "" && Telefono_tx.Text != "" && Doc_tx.Text != "" && Mail_tx.Text != "" && Alert_lb.Visible == false && Alert_correo_lb.Visible==false)
             {
                 con.Open();
                 SqlCommand sql = new SqlCommand("insert into Clientes(NombreCompleto,Telefono,DNI,Correo) values (@prNombre,@prTelf,@prDNI,@prCorreo)", con.GetConnection());
@@ -89,7 +97,7 @@ namespace Sistema_Heladeria
             }
             else
             {
-                if (Alert_lb.Visible == false)
+                if (Alert_lb.Visible == false || Alert_correo_lb.Visible==false)
                 {
                     Completos_lb.Visible = true;
                     //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
@@ -104,6 +112,7 @@ namespace Sistema_Heladeria
             Doc_tx.Text = "";
             Mail_tx.Text = "";
             Alert_lb.Visible = false;
+            Alert_correo_lb.Visible = false;
             Completos_lb.Visible = false;
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
         }
@@ -115,14 +124,22 @@ namespace Sistema_Heladeria
             SqlDataReader leer = check.ExecuteReader();
             if (leer.Read())
             {
-                Alert_Edit_lb.Visible = true;
+                if (leer["Correo"].ToString() == Correo_Edit_tx.Text)
+                {
+                    Alert_Correo_Edit_lb.Visible = true;
+                }
+                else
+                {
+                    Alert_Edit_lb.Visible = true;
+                }
             }
             else
             {
+                Alert_Correo_Edit_lb.Visible = false;
                 Alert_Edit_lb.Visible = false;
             }
             con.Close();
-            if (Nomb_Edit_tx.Text != "" && Doc_Edit_tx.Text != "" && Telf_Edit_tx.Text != "" && Correo_Edit_tx.Text != "" && Alert_Edit_lb.Visible == false)
+            if (Nomb_Edit_tx.Text != "" && Doc_Edit_tx.Text != "" && Telf_Edit_tx.Text != "" && Correo_Edit_tx.Text != "" && Alert_Edit_lb.Visible == false && Alert_Correo_Edit_lb.Visible==false)
             {
                 con.Open();
                 SqlCommand sql = new SqlCommand("update Clientes set NombreCompleto='" + Nomb_Edit_tx.Text + "', DNI=" + Doc_Edit_tx.Text + ", Telefono=" + Telf_Edit_tx.Text + ", Correo='" + Correo_Edit_tx.Text + "' where ID=" + ID_Art_edit_lb.Text, con.GetConnection());
@@ -133,7 +150,7 @@ namespace Sistema_Heladeria
             }
             else
             {
-                if (Alert_Edit_lb.Visible == false)
+                if (Alert_Edit_lb.Visible == false || Alert_Correo_Edit_lb.Visible==false)
                 {
                     Completos_Edit_lb.Visible = true;
                     //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal2();", true);
@@ -148,6 +165,7 @@ namespace Sistema_Heladeria
             sql.ExecuteNonQuery();
             con.Close();
             Alert_Edit_lb.Visible = false;
+            Alert_Correo_Edit_lb.Visible = false;
             Completos_Edit_lb.Visible = false;
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal2();", true);
         }
