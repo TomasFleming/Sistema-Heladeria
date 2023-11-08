@@ -77,7 +77,7 @@ namespace Sistema_Heladeria
                 if (Alert_lb.Visible == false)
                 {
                     Completos_lb.Visible = true;
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                    //ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
                 }
             }
             
