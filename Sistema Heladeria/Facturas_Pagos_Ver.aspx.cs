@@ -96,7 +96,7 @@ namespace Sistema_Heladeria
             Total_lb.Text = leer["Total"].ToString();
             con.Close();
             con.Open();
-            SqlCommand detalle = new SqlCommand("select FP.ID,NombreCompleto,Cod_Prov,Tipo,Estado,Fecha_Emision,FP.Total from Facturas_Proveedor FP inner join Proveedores P on FP.ID_Prov=P.ID inner join Detalle_Pago DP on DP.ID_Fact=FP.ID inner join Registro_Pagos RP on RP.ID=DP.ID_Pago where RP.ID=" + ID, con.GetConnection());
+            SqlCommand detalle = new SqlCommand("select FP.ID,NombreCompleto,Cod_Prov,Tipo,FP.Estado,Fecha_Emision,FP.Total from Facturas_Proveedor FP inner join Proveedores P on FP.ID_Prov=P.ID inner join Detalle_Pago DP on DP.ID_Fact=FP.ID inner join Registro_Pagos RP on RP.ID=DP.ID_Pago where RP.ID=" + ID, con.GetConnection());
             detalle.ExecuteNonQuery();
 
             SqlDataAdapter Depositos = new SqlDataAdapter(detalle);

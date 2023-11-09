@@ -21,7 +21,7 @@ namespace Sistema_Heladeria
         protected void Buscar_Ord_btn_Click(object sender, EventArgs e)
         {
             con.Open();
-            SqlCommand Com = new SqlCommand("select OC.ID,P.NombreCompleto,ID_Deposito,Estado,CONVERT(varchar, Fecha_Creacion, 3) as 'Fecha_Creacion',CONVERT(varchar, Fecha_Entrega, 3)as 'Fecha_Entrega' from OrdenesCompra OC inner join Proveedores P on P.ID=OC.ID_Proveedor inner join Depositos D on D.ID=OC.ID_Deposito where OC.ID like '%" + Buscador_Ord.Text+"%'", con.GetConnection());
+            SqlCommand Com = new SqlCommand("select OC.ID,P.NombreCompleto,ID_Deposito,OC.Estado,CONVERT(varchar, Fecha_Creacion, 3) as 'Fecha_Creacion',CONVERT(varchar, Fecha_Entrega, 3)as 'Fecha_Entrega' from OrdenesCompra OC inner join Proveedores P on P.ID=OC.ID_Proveedor inner join Depositos D on D.ID=OC.ID_Deposito where OC.ID like '%" + Buscador_Ord.Text+"%'", con.GetConnection());
             Com.ExecuteNonQuery();
             SqlDataAdapter Proveedores = new SqlDataAdapter(Com);
             DataTable prov = new DataTable();

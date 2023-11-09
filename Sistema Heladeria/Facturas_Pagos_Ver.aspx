@@ -92,7 +92,7 @@
                     <asp:TemplateField HeaderText="">
                     <ItemTemplate>
                         <center>
-                        <asp:Button ID="Ver_Detalle_btn" runat="server" Text="Ver Detalle" OnClick="Ver_Detalle_btn_Click" CssClass="btn btn-primary" />
+                        <asp:Button ID="Ver_Detalle_btn" runat="server" Text="Ver Facturas" OnClick="Ver_Detalle_btn_Click" CssClass="btn btn-primary" />
                     </center>
                        </ItemTemplate>
                 </asp:TemplateField>
