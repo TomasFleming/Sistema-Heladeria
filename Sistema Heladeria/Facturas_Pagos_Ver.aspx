@@ -121,26 +121,37 @@
           <%--aasasdasasadsads--%>
           <asp:UpdatePanel ID="UpdatePanel6" runat="server">
               <ContentTemplate>
-                  <table class="nav-justified" style="width: 50%; font-family: Arial; font-size: 18px; white-space:nowrap;">
+                 <table class="nav-justified" style="width: 60%; font-family: Arial; font-size: 18px; white-space:nowrap; height: 79px;">
         <tr>
-            <td style="height: 28px; width: 320px">Proveedor :&nbsp;&nbsp; <asp:Label ID="Prov_nom_lb" runat="server" style="font-size: 20px"></asp:Label>
+            <td style="height: 28px; width: 144px">Proveedor :<br />
             </td>
-            <td style="height: 28px">N° Cuenta :&nbsp;&nbsp; <asp:Label ID="Num_Cuenta_lb" runat="server" style="font-size: 20px"></asp:Label>
+            <td style="height: 28px; width: 199px"> <asp:Label ID="Prov_nom_lb" runat="server" style="font-size: 20px"></asp:Label>
+            &nbsp;
+            </td>
+            <td style="height: 28px; width: 155px;">N° Cuenta :</td>
+            <td style="height: 28px"> <asp:Label ID="Num_Cuenta_lb" runat="server" style="font-size: 20px"></asp:Label>
             </td>
         </tr>
         <tr>
-            <td style="width: 320px">Fecha de Pago :&nbsp;&nbsp; <asp:Label ID="Fecha_Pago_lb" runat="server" style="font-size: 20px"></asp:Label>
+            <td style="width: 144px">Fecha de Pago :<br />
             </td>
-            <td>Fecha Registro :&nbsp;&nbsp; <asp:Label ID="Fecha_Reg_lb" runat="server" style="font-size: 20px"></asp:Label>
+            <td style="width: 199px" class="modal-sm"> <asp:Label ID="Fecha_Pago_lb" runat="server" style="font-size: 20px"></asp:Label>
+            </td>
+            <td style="width: 155px">Fecha Registro :</td>
+            <td> <asp:Label ID="Fecha_Reg_lb" runat="server" style="font-size: 20px"></asp:Label>
             </td>
         </tr>
         <tr>
-            <td style="width: 320px">Metodo Pago :&nbsp;&nbsp; <asp:Label ID="Met_Pago_lb" runat="server" style="font-size: 20px"></asp:Label>
+            <td style="width: 144px">Metodo Pago :<br />
             </td>
-            <td>Importe Total :&nbsp;&nbsp; <asp:Label ID="Total_lb" runat="server" style="font-size: 20px"></asp:Label>
+            <td style="width: 199px" class="modal-sm"> <asp:Label ID="Met_Pago_lb" runat="server" style="font-size: 20px"></asp:Label>
+            </td>
+            <td style="width: 155px">Importe Total :</td>
+            <td> <asp:Label ID="Total_lb" runat="server" style="font-size: 20px"></asp:Label>
             </td>
         </tr>
-    </table>
+    </table> 
+                  
         <center>
             <asp:GridView ID="Facts_Seleccionar_list" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt">
 <AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
