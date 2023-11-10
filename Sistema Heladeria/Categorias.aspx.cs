@@ -27,7 +27,7 @@ namespace Sistema_Heladeria
         protected void Art_camb_btn_Click(object sender, EventArgs e)//los guarda por primera vez
         {
             con.Open();
-            SqlCommand check = new SqlCommand("select * from Categorias where Nombre_Categoria='" + Nomb_tx.Text + "'", con.GetConnection());
+            SqlCommand check = new SqlCommand("select * from Categorias where Nombre_Categoria='" + Nomb_tx.Text + "' and Estado!='Desactivado'", con.GetConnection());
             SqlDataReader leer = check.ExecuteReader();
             if (leer.Read())
             {
@@ -66,7 +66,7 @@ namespace Sistema_Heladeria
         protected void Buscar_cat_btn_Click(object sender, EventArgs e)
         {
             con.Open();
-            SqlCommand sqlc = new SqlCommand("select * from Categorias where Nombre_Categoria like '%"+Buscador_cat.Text+ "%' or ID like '" + Buscador_cat.Text+"'", con.GetConnection());
+            SqlCommand sqlc = new SqlCommand("select * from Categorias where (Nombre_Categoria like '%"+Buscador_cat.Text+ "%' or ID like '" + Buscador_cat.Text+ "') and Estado!='Desactivado'", con.GetConnection());
             sqlc.ExecuteNonQuery();
             SqlDataAdapter Categorias = new SqlDataAdapter(sqlc);
             DataTable cat = new DataTable();
@@ -109,7 +109,7 @@ namespace Sistema_Heladeria
         protected void Borrar_cat_btn_Click(object sender, EventArgs e)
         {
             con.Open();
-            SqlCommand sql = new SqlCommand("delete Categorias where ID= " + ID_cat_edit.Text, con.GetConnection());
+            SqlCommand sql = new SqlCommand("update Categorias set Estado='Desactivado' where ID= " + ID_cat_edit.Text, con.GetConnection());
             sql.ExecuteNonQuery();
             con.Close();
             Buscar_cat_btn_Click(sender, e);
@@ -119,7 +119,7 @@ namespace Sistema_Heladeria
         protected void Guardar_Editado_bt_Click(object sender, EventArgs e)//este los edita
         {
             con.Open();
-            SqlCommand check = new SqlCommand("select * from Categorias where Nombre_Categoria='" + Nomb_Edit_tx.Text + "' and ID!="+ID_cat_edit.Text, con.GetConnection());
+            SqlCommand check = new SqlCommand("select * from Categorias where Nombre_Categoria='" + Nomb_Edit_tx.Text + "' and Estado!='Desactivado' and ID!="+ID_cat_edit.Text, con.GetConnection());
             SqlDataReader leer = check.ExecuteReader();
             if (leer.Read())
             {

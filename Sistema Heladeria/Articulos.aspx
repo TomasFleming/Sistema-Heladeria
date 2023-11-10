@@ -92,7 +92,7 @@
             <td style="height: 22px; width: 646px">
                    <asp:DropDownList ID="Categorias_list" runat="server" DataSourceID="SqlDataSource2" DataTextField="Nombre_Categoria" DataValueField="ID">
         </asp:DropDownList>
-        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Heladeria Sistemas 3ConnectionString %>" SelectCommand="SELECT * FROM [Categorias]"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:Heladeria Sistemas 3ConnectionString %>" SelectCommand="SELECT * FROM [Categorias] where Estado not like 'Desactivado'"></asp:SqlDataSource>
             </td>
         </tr>
         <tr>
@@ -185,7 +185,7 @@
             <td style="height: 22px; width: 646px">
                    <asp:DropDownList ID="Categoria_Edit_tx" runat="server" DataSourceID="SqlDataSource2" DataTextField="Nombre_Categoria" DataValueField="ID">
         </asp:DropDownList>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Heladeria Sistemas 3ConnectionString %>" SelectCommand="SELECT * FROM [Categorias]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Heladeria Sistemas 3ConnectionString %>" SelectCommand="SELECT * FROM [Categorias] where Estado not like 'Desactivado'"></asp:SqlDataSource>
             </td>
         </tr>
         <tr>

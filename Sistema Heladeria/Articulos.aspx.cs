@@ -53,7 +53,7 @@ namespace Sistema_Heladeria
         protected void Art_camb_btn_Click(object sender, EventArgs e)//este los guarda por primera vez
         {
             con.Open();
-            SqlCommand check = new SqlCommand("select * from Articulos where Nombre='"+Nomb_tx.Text+"'", con.GetConnection());
+            SqlCommand check = new SqlCommand("select * from Articulos where Nombre='"+Nomb_tx.Text+ "' and Estado!='Desactivado'", con.GetConnection());
             SqlDataReader leer = check.ExecuteReader();
             if (leer.Read())
             {
@@ -145,7 +145,7 @@ namespace Sistema_Heladeria
         protected void Guardar_Camb_bt_Click(object sender, EventArgs e)//este edita al articulo
         {
             con.Open();
-            SqlCommand check = new SqlCommand("select * from Articulos where Nombre='" + Nomb_Edit_tx.Text + "' and ID!="+ ID_Art_edit_lb.Text, con.GetConnection());
+            SqlCommand check = new SqlCommand("select * from Articulos where Nombre='" + Nomb_Edit_tx.Text + "' and Estado!='Desactivado' and ID!=" + ID_Art_edit_lb.Text, con.GetConnection());
             SqlDataReader leer = check.ExecuteReader();
             if (leer.Read())
             {
