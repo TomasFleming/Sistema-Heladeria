@@ -8,6 +8,11 @@
         <tr>
     <td rowspan="2" style="width: 603px; font-size: 50px; color: #000000;">
                 <%--aasasdasasadsads--%>
+                <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;" __designer:mapid="26c">
+                    Numero Ticket Proveedor:
+                    <asp:TextBox ID="Cod_Prov_tx" runat="server" TextMode="Number" Width="140px"></asp:TextBox>
+                    <asp:CompareValidator ID="CompareValidator3" runat="server" ErrorMessage="Debe tener un codigo de identificacion perteneciente al Proveedor" ControlToValidate="Cod_Prov_tx" Operator="GreaterThan" ValueToCompare="0" ForeColor="Red"></asp:CompareValidator>
+    </p>
                 <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;">
         Numero de Factura a Crear:&nbsp;&nbsp;&nbsp;
         <asp:Label ID="Nro_Fact_lb" runat="server"></asp:Label>
@@ -20,12 +25,7 @@
         </tr>
         <tr>
             <td style="height: 47px">
-                <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;" __designer:mapid="26c">
-                    Numero Ticket Proveedor:
-                    <asp:TextBox ID="Cod_Prov_tx" runat="server" TextMode="Number" Width="140px"></asp:TextBox>
-                    <asp:CompareValidator ID="CompareValidator3" runat="server" ErrorMessage="Debe tener un codigo de identificacion perteneciente al Proveedor" ControlToValidate="Cod_Prov_tx" Operator="GreaterThan" ValueToCompare="0" ForeColor="Red"></asp:CompareValidator>
-    </p>
-            </td>
+                &nbsp;</td>
         </tr>
     </table>
     <asp:UpdatePanel ID="UpdatePanel5" runat="server">
@@ -38,7 +38,7 @@
             <td style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; border-top: 3px solid #C0C0C0; height: 39px; border-bottom-color: #C0C0C0; border-bottom-width: 3px; background-color: #6495ED;">Observaciones de la Factura:&nbsp;&nbsp;&nbsp;</td>
         </tr>
         <tr>
-            <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; width: 525px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px; height: 56px;">Numero Proveedor:
+            <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; width: 525px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px; height: 56px;">COD Proveedor:
                 <asp:Label ID="Prov_ID_lb" runat="server" style="font-size: 20px"></asp:Label>
                 <br />
                 Nombre :&nbsp;&nbsp; <asp:Label ID="Prov_nom_lb" runat="server" style="font-size: 20px"></asp:Label>

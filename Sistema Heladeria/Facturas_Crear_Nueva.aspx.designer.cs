@@ -15,15 +15,6 @@ namespace Sistema_Heladeria
     {
 
         /// <summary>
-        /// Control Nro_Fact_lb.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Nro_Fact_lb;
-
-        /// <summary>
         /// Control Cod_Prov_tx.
         /// </summary>
         /// <remarks>
@@ -40,6 +31,15 @@ namespace Sistema_Heladeria
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CompareValidator CompareValidator3;
+
+        /// <summary>
+        /// Control Nro_Fact_lb.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Nro_Fact_lb;
 
         /// <summary>
         /// Control UpdatePanel5.

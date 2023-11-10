@@ -7,19 +7,19 @@
         <tr>
     <td rowspan="2" style="width: 603px; font-size: 50px; color: #000000;">
                 <%--ass--%>
-                <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;">
-                    Numero de Venta a Crear:&nbsp;&nbsp;&nbsp;
-        <asp:Label ID="Nro_Venta_lb" runat="server"></asp:Label>
-    </p>
-            </td>
-            <td style="height: 38px">
                 <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
                     Fecha de Emision :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>
                     <asp:TextBox ID="Fecha_Creacion_tx" runat="server" style="font-size: 13pt; font-weight: bold" TextMode="Date" Width="190px" ReadOnly="True"></asp:TextBox>
 <%--                    <ajaxToolkit:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="Fecha_Creacion_tx" />--%>
                     </strong>
                 </p>
+                <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;">
+                    Numero de Venta a Crear:&nbsp;&nbsp;&nbsp;
+        <asp:Label ID="Nro_Venta_lb" runat="server"></asp:Label>
+    </p>
             </td>
+            <td style="height: 38px">
+                &nbsp;</td>
         </tr>
         <tr>
             <td style="height: 47px">
@@ -39,7 +39,7 @@
             <td style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; border-top: 3px solid #C0C0C0; height: 39px; border-bottom-color: #C0C0C0; border-bottom-width: 3px; background-color: #6495ED;">Detalles de Venta:&nbsp;&nbsp;&nbsp;</td>
         </tr>
         <tr>
-            <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; width: 525px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px; height: 56px;">Numero Proveedor:
+            <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; width: 525px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px; height: 56px;">COD Cliente:
                 <asp:Label ID="Client_ID_lb" runat="server" style="font-size: 20px"></asp:Label>
                 <br />
                 Nombre :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="Client_nom_lb" runat="server" style="font-size: 20px"></asp:Label>
@@ -61,6 +61,12 @@
                     <p>
                     </p>
                     
+                    <p>
+                    </p>
+                    
+                    <p>
+                    </p>
+                    
                 </p>
             </td>
         </tr>
@@ -71,9 +77,8 @@
             <td style="border-width: 3px; border-color: #C0C0C0; border-right-style: solid; border-left-style: solid;">
                 <p>
                 <asp:Label ID="Num_tarj_lb" runat="server" Text="Numero:" Visible="False"></asp:Label>
-                &nbsp;<asp:TextBox ID="Numero_tj_tx" runat="server" Visible="False" TextMode="Number" Width="130px"></asp:TextBox>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><asp:Label ID="Cod_tj_lb" runat="server" Text="Cod Lateral:" Visible="False"></asp:Label>
-                &nbsp;<asp:TextBox ID="Cod_tj_tx" runat="server" Height="25px" Visible="False" Width="57px"></asp:TextBox></p>
+                &nbsp;<asp:TextBox ID="Numero_tj_tx" runat="server" Visible="False" TextMode="Number" Width="300px"></asp:TextBox>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>&nbsp;</p>
                 
             </td>
         </tr>
@@ -84,7 +89,7 @@
             <td style="border-width: 3px; border-color: #C0C0C0; border-right-style: solid; border-left-style: solid;">
                 <p>
                 <asp:Label ID="Nomb_tj_lb" runat="server" Text="Nombre:" Visible="False"></asp:Label>
-                &nbsp;<asp:TextBox ID="Nombre_tj_tx" runat="server" Visible="False" Width="130px"></asp:TextBox>
+                &nbsp;<asp:TextBox ID="Nombre_tj_tx" runat="server" Visible="False" Width="300px"></asp:TextBox>
                 </p>
             </td>
         </tr>
@@ -96,9 +101,12 @@
             <td style="border-width: 3px; border-color: #C0C0C0; border-right-style: solid; border-left-style: solid; border-bottom-style: solid;">
                 <p>
                 <asp:Label ID="Fecha_tj_lb" runat="server" Text="Vencimiento: " Visible="False"></asp:Label>
-                &nbsp;<strong><asp:TextBox ID="Fecha_Tarjeta_tx" runat="server" Height="23px" style="font-size: 13pt; font-weight: bold" TextMode="Number" Visible="False" Width="57px"></asp:TextBox>
-                &nbsp;
-                <asp:TextBox ID="Fecha_Tarjeta_tx0" runat="server" Height="23px" style="font-size: 13pt; font-weight: bold" TextMode="Number" Visible="False" Width="57px"></asp:TextBox>
+                &nbsp;<strong><asp:TextBox ID="Fecha_Tarjeta_tx" runat="server" Height="23px" style="font-size: 13pt; font-weight: bold" TextMode="Number" Visible="False" MaxLength="2" Width="57px"></asp:TextBox>
+                    &nbsp;&nbsp;
+                <asp:TextBox ID="Fecha_Tarjeta_tx0" runat="server" Height="23px" style="font-size: 13pt; font-weight: bold" TextMode="Number" MaxLength="2" Visible="False" Width="57px"></asp:TextBox>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Label ID="Cod_tj_lb" runat="server" Text="COD:" Visible="False" Font-Bold="False"></asp:Label>
+                    <asp:TextBox ID="Cod_tj_tx" runat="server" Height="25px" Visible="False" Width="55px"></asp:TextBox>
                 </strong></p></td>
         </tr>
     </table>

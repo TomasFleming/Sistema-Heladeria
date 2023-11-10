@@ -6,12 +6,16 @@
         <table class="nav-justified">
         <tr>
     <td style="width: 603px; font-size: 50px; color: #FF6666; height: 38px;">
+                <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
+                    Fecha de Emision :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>
+                    <asp:TextBox ID="Fecha_Creacion_tx" runat="server" style="font-size: 13pt; font-weight: bold" TextMode="Date" Width="190px" ReadOnly="True"></asp:TextBox>
+<%--                    <ajaxToolkit:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="Fecha_Creacion_tx" />--%>
+                    </strong>
+                </p>
                 <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;" class="text-left">
         Numero de Pago:&nbsp;&nbsp;&nbsp;
         <asp:Label ID="Nro_Pago_lb" runat="server"></asp:Label>
     </p>
-                <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;" class="text-left">
-                    &nbsp;</p>
             </td>
             <td style="height: 38px">
                 <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;">
@@ -37,12 +41,9 @@
             <td class="modal-sm" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 70px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide; height: 56px;"></td>
             <td style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; height: 56px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px;">
                 <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
-                    Forma de Pago :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>&nbsp;&nbsp;&nbsp; </strong>
-                    <asp:DropDownList ID="Forma_Pago_tx" runat="server">
-                        <%--<asp:ListItem>Efectivo</asp:ListItem>--%>
-                        <asp:ListItem>Transferencia</asp:ListItem>
-                        <asp:ListItem>Depósito</asp:ListItem>
-                    </asp:DropDownList>
+                    Fecha de Pago :<strong><asp:TextBox ID="Fecha_Pago_tx" runat="server" style="font-size: 13pt; font-weight: bold" TextMode="Date" Width="190px"></asp:TextBox>
+                    </strong>
+                    <asp:Label ID="Corregir_Fecha_lb" runat="server" ForeColor="#FF3300" Text="Debe ser antes del vencimieto y despues del registro" Visible="False"></asp:Label>
                 </p>
             </td>
         </tr>
@@ -52,10 +53,11 @@
             <td class="modal-lg" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 70px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide; height: 47px;"></td>
             <td style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; height: 47px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px;">
                 <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
-                    Fecha de Pago :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>
-                    <asp:TextBox ID="Fecha_Pago_tx" runat="server" style="font-size: 13pt; font-weight: bold" TextMode="Date" Width="190px"></asp:TextBox>
-                    </strong>
-                    <asp:Label ID="Corregir_Fecha_lb" runat="server" ForeColor="#FF3300" Text="Debe ser antes del vencimieto y despues del registro" Visible="False"></asp:Label>
+                    Forma de Pago :<asp:DropDownList ID="Forma_Pago_tx" runat="server" Width="190px">
+                        <%--<asp:ListItem>Efectivo</asp:ListItem>--%>
+                        <asp:ListItem>Transferencia</asp:ListItem>
+                        <asp:ListItem>Depósito</asp:ListItem>
+                    </asp:DropDownList>
                 </p>
             </td>
         </tr>
@@ -65,8 +67,7 @@
             <td class="modal-sm" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 70px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide;">&nbsp;</td>
             <td style="border-width: 3px; border-color: #C0C0C0; border-right-style: solid; border-left-style: solid;">
                 <div id="Transferencias" style="display:block;font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
-                    Numero Cuenta :
-                    <asp:TextBox ID="Num_Cuenta_tx" runat="server" TextMode="Number" Width="140px"></asp:TextBox>
+                    Numero Cuenta :<asp:TextBox ID="Num_Cuenta_tx" runat="server" TextMode="Number" Width="190px"></asp:TextBox>
                     
                 </div>
             </td>
@@ -160,9 +161,7 @@
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
-
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Seleccionar Proveedor<asp:Label ID="label55" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>     <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Seleccionar Proveedor<asp:Label ID="label55" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
       </div>
       <div class="modal-body">
         <p></p><%--aasasdasasadsads--%>

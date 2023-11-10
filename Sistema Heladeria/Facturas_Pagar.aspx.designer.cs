@@ -15,6 +15,15 @@ namespace Sistema_Heladeria
     {
 
         /// <summary>
+        /// Control Fecha_Creacion_tx.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Fecha_Creacion_tx;
+
+        /// <summary>
         /// Control Nro_Pago_lb.
         /// </summary>
         /// <remarks>
@@ -60,24 +69,6 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.Label Prov_nom_lb;
 
         /// <summary>
-        /// Control Forma_Pago_tx.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Forma_Pago_tx;
-
-        /// <summary>
-        /// Control Telf_lb.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Telf_lb;
-
-        /// <summary>
         /// Control Fecha_Pago_tx.
         /// </summary>
         /// <remarks>
@@ -94,6 +85,24 @@ namespace Sistema_Heladeria
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Corregir_Fecha_lb;
+
+        /// <summary>
+        /// Control Telf_lb.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Telf_lb;
+
+        /// <summary>
+        /// Control Forma_Pago_tx.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList Forma_Pago_tx;
 
         /// <summary>
         /// Control Direc_lb.

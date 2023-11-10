@@ -353,7 +353,7 @@ namespace Sistema_Heladeria
             Cod_tj_tx.Visible = true;
             Fecha_tj_lb.Visible = true;
             Fecha_Tarjeta_tx.Visible = true;
-            Fecha_Tarjeta_tx0.Visible = true;
+            //Fecha_Tarjeta_tx0.Visible = true;
         }
 
         protected void Cliente_Default_btn_Click(object sender, EventArgs e)
