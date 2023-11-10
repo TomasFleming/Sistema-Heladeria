@@ -94,7 +94,7 @@
                 <asp:Label ID="Art_desc_lb" runat="server" Text="Descripción:" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 22px; width: 646px">
-                <asp:TextBox ID="Descrip_tx" runat="server" TextMode="MultiLine" Height="65px" style="margin-left: 0" Width="300px"></asp:TextBox>
+                <asp:TextBox ID="Descrip_tx" runat="server" TextMode="MultiLine" Height="65px" style="font-size:20px;margin-left: 0" Width="300px"></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -152,7 +152,7 @@
                 <asp:Label ID="Label4" runat="server" Text="Descripción:" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 22px; width: 646px">
-                <asp:TextBox ID="Descrip_Edit_tx" runat="server" TextMode="MultiLine" Height="65px" style="margin-left: 0" Width="300px"></asp:TextBox>
+                <asp:TextBox ID="Descrip_Edit_tx" runat="server" TextMode="MultiLine" Height="65px" style="font-size:20px;margin-left: 0" Width="300px"></asp:TextBox>
             </td>
         </tr>
         <tr>

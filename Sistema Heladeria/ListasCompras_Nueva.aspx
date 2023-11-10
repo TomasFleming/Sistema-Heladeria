@@ -12,26 +12,26 @@
     <table class="nav-justified">
         <tr>
             <td rowspan="2" style="width: 618px; font-size: 50px; color: #000000;">
-                <center>
+                
                     <%--Orden De compra--%>
-    <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;">
-        Número de Orden a Crear:&nbsp;&nbsp;&nbsp;
-        <asp:Label ID="Nro_ord_lb" runat="server"></asp:Label>
-    </p>
-                </center>
-            </td>
-            <td style="height: 38px">
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td>
     <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
         Fecha de Creación :&nbsp;&nbsp;&nbsp;<strong>
         <asp:TextBox ID="Fecha_Creacion_lb" runat="server" TextMode="DateTime" Width="190px" style="font-size: 13pt; font-weight: bold"></asp:TextBox>
             <ajaxToolkit:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="Fecha_Creacion_lb" />
                                              </strong>
     </p>
+    <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;">
+        Número de Orden a Crear:&nbsp;&nbsp;&nbsp;
+        <asp:Label ID="Nro_ord_lb" runat="server"></asp:Label>
+    </p>
+                
             </td>
+            <td style="height: 38px">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
         </tr>
     </table>
     <asp:UpdatePanel ID="UpdatePanel5" runat="server">

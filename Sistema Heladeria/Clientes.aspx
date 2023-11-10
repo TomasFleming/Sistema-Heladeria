@@ -77,7 +77,7 @@
       <div class="modal-header">
 
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Agregar Nuevo Artículo<asp:Label ID="label55" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
+        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Agregar Nuevo Cliente<asp:Label ID="label55" runat="server" Text="Label" Visible="False"></asp:Label></h4></center>
       </div>
       <div class="modal-body">
         <p></p><%--aasasdasasadsads--%>
@@ -120,7 +120,7 @@
                 <asp:Label ID="Art_desc_lb" runat="server" Text="Correo:" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 22px; width: 646px">
-                <asp:TextBox ID="Mail_tx" runat="server" Height="34px" style="margin-left: 0" Width="250px"></asp:TextBox>
+                <asp:TextBox ID="Mail_tx" runat="server" Height="34px" style="font-size:20px;margin-left: 0" Width="250px"></asp:TextBox>
                 <asp:Label ID="Alert_correo_lb" runat="server" Text="Ya existe un Cliente con ese Correo" Visible="False" ForeColor="Red"></asp:Label>
             </td>
         </tr>
@@ -157,7 +157,7 @@
       <div class="modal-header">
 
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Editar Articulo N° <asp:Label ID="ID_Art_edit_lb" runat="server"  Visible="True"></asp:Label></h4></center>
+        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Editar Cliente N° <asp:Label ID="ID_Art_edit_lb" runat="server"  Visible="True"></asp:Label></h4></center>
       </div>
       <div class="modal-body">
         <p></p><%--aasasdasasadsads--%>
@@ -178,7 +178,7 @@
         
         <tr>
             <td style="height: 40px; width: 228px">
-                <asp:Label ID="Label3" runat="server" Text="Documento :" style="font-size: 20px"></asp:Label>
+                <asp:Label ID="Label3" runat="server" Text="Documento:" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 40px; width: 646px">
                 <asp:TextBox ID="Doc_Edit_tx" runat="server" style="font-size: 15pt" Width="300px"></asp:TextBox>
@@ -201,14 +201,14 @@
                 <asp:Label ID="Label5" runat="server" Text="Correo :" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 22px; width: 646px">
-                <asp:TextBox ID="Correo_Edit_tx" runat="server" Height="34px" style="margin-left: 0" Width="302px"></asp:TextBox>
+                <asp:TextBox ID="Correo_Edit_tx" runat="server" Height="34px" style="font-size:20px; margin-left: 0" Width="302px"></asp:TextBox>
                 <asp:Label ID="Alert_Correo_Edit_lb" runat="server" Text="Ya existe un Cliente con ese Correo" Visible="False" ForeColor="Red"></asp:Label>
             </td>
         </tr>
         <tr>
             <td colspan="2">
                 <center><asp:Button ID="Guardar_Camb_bt" CssClass="btn btn-primary" OnClick="Guardar_Camb_bt_Click" runat="server" Text="Guardar Cambios"/>
-            &nbsp;<asp:Button ID="Eliminar_Client_btn" CssClass="btn btn-danger" runat="server" Text="Borrar CLiente" OnClick="Eliminar_Client_btn_Click" /></center>
+            &nbsp;<asp:Button ID="Eliminar_Client_btn" CssClass="btn btn-danger" runat="server" Text="Borrar Cliente" OnClick="Eliminar_Client_btn_Click" /></center>
                 <p>
                     <asp:Label ID="Completos_Edit_lb" runat="server" Text="Por favor ingrese todos los campos" Visible="false" ForeColor="Red"></asp:Label>
 </p>

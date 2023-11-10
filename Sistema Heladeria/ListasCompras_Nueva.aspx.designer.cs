@@ -15,15 +15,6 @@ namespace Sistema_Heladeria
     {
 
         /// <summary>
-        /// Control Nro_ord_lb.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Nro_ord_lb;
-
-        /// <summary>
         /// Control Fecha_Creacion_lb.
         /// </summary>
         /// <remarks>
@@ -40,6 +31,15 @@ namespace Sistema_Heladeria
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::AjaxControlToolkit.CalendarExtender CalendarExtender2;
+
+        /// <summary>
+        /// Control Nro_ord_lb.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Nro_ord_lb;
 
         /// <summary>
         /// Control UpdatePanel5.
