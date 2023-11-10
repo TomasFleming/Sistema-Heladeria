@@ -61,7 +61,7 @@ namespace Sistema_Heladeria
         protected void ReActualizar(object sender, EventArgs e)
         {
             con.Open();
-            SqlCommand sql = new SqlCommand("select * from Facturas_Proveedor FP left join Detalle_Pago Fpp on FP.ID=Fpp.ID_fact inner join Proveedores P on P.ID=Fp.ID_prov where P.ID=" + Prov_ID_lb.Text + " and Estado='Pendiente'", con.GetConnection());
+            SqlCommand sql = new SqlCommand("select * from Facturas_Proveedor FP left join Detalle_Pago Fpp on FP.ID=Fpp.ID_fact inner join Proveedores P on P.ID=Fp.ID_prov where P.ID=" + Prov_ID_lb.Text + " and FP.Estado='Pendiente'", con.GetConnection());
             sql.ExecuteNonQuery();
             SqlDataAdapter fact = new SqlDataAdapter(sql);
             DataTable f = new DataTable();
@@ -108,7 +108,7 @@ namespace Sistema_Heladeria
             try
             {
                 con.Open();
-                SqlCommand sql = new SqlCommand("select * from Facturas_Proveedor FP left join Detalle_Pago Fpp on FP.ID=Fpp.ID_fact inner join Proveedores P on P.ID=Fp.ID_prov where P.ID=" + Prov_ID_lb.Text + " and Estado='Pendiente'", con.GetConnection());
+                SqlCommand sql = new SqlCommand("select * from Facturas_Proveedor FP left join Detalle_Pago Fpp on FP.ID=Fpp.ID_fact inner join Proveedores P on P.ID=Fp.ID_prov where P.ID=" + Prov_ID_lb.Text + " and FP.Estado='Pendiente'", con.GetConnection());
                 sql.ExecuteNonQuery();
                 SqlDataAdapter fact = new SqlDataAdapter(sql);
                 DataTable f = new DataTable();
@@ -199,7 +199,7 @@ namespace Sistema_Heladeria
         protected void Buscar_prov_btn_Click(object sender, EventArgs e)
         {
             con.Open();
-            string qry = "select * from Proveedores ";
+            string qry = "select * from Proveedores where Estado!='Desactivado' and (ID like '%" + Buscador_prov.Text + "%' or NombreCompleto like '%" + Buscador_prov.Text + "%')";
             SqlCommand Com = new SqlCommand(qry, con.GetConnection());
             Com.ExecuteNonQuery();
             SqlDataAdapter Proveedores = new SqlDataAdapter(Com);
@@ -255,78 +255,85 @@ namespace Sistema_Heladeria
 
         protected void Guardar_Pagos_btn_Click(object sender, EventArgs e)
         {
+            
             List<Facturas> ListaFactura = (List<Facturas>)Session["ListaFacturasPago"];
             
             if (Total_lb.Text != "" && Prov_ID_lb.Text != "" && Num_Cuenta_tx.Text!="" && Num_Cuenta_tx.Text!=null)
             {
-                DateTime FechaPago = DateTime.Parse(Fecha_Pago_tx.Text);
-                Boolean FechaPagoVerificado = true;
-                foreach (var item in ListaFactura)
+                try
                 {
-                    DateTime Registro = DateTime.Parse(item.Fecha_Emision);
-                    DateTime Vencimiento = DateTime.Parse(item.Fecha_Vencimiento);
-                    if (FechaPago<Registro || FechaPago>Vencimiento)
+                    DateTime FechaPago = DateTime.Parse(Fecha_Pago_tx.Text);
+                    Boolean FechaPagoVerificado = true;
+                    foreach (var item in ListaFactura)
                     {
-                        FechaPagoVerificado = false;
-                    }
-                }
-                if (FechaPagoVerificado == false)
-                {//quiere decir que es antes del registro o despues de vencido
-                    Corregir_Fecha_lb.Visible = true;
-                }
-                else
-                {//son validas las fechas
-                    try
-                    {
-                        //Primero creo el registro
-                        con.Open();
-                        SqlCommand sql = new SqlCommand("insert into Registro_Pagos(ID_Prov,Numero_Cuenta,Fecha_Pago,MetodoPago,Total) values (" + Prov_ID_lb.Text + "," + Num_Cuenta_tx.Text + ",'" + Fecha_Pago_tx.Text + "','" + Forma_Pago_tx.SelectedValue + "',@Total)", con.GetConnection());
-                        //SqlCommand sql = new SqlCommand("insert into Registro_Pagos(ID_Prov,Numero_Cuenta,Fecha_Pago,MetodoPago,Total) values (@ID_Prov,@NumCuent,@Fecha,@FormaPago,@Total)", con.GetConnection());
-                        //sql.Parameters.Add(new SqlParameter("@ID_Prov", Prov_ID_lb.Text));
-                        //sql.Parameters.Add(new SqlParameter("@FormaPago", Forma_Pago_tx.Text));
-                        sql.Parameters.Add(new SqlParameter("@Total", Convert.ToDouble(Total_lb.Text)));
-                        //sql.Parameters.Add(new SqlParameter("@NumCuent", Num_Cuenta_tx.Text));
-                        //sql.Parameters.Add(new SqlParameter("@Fecha", Fecha_Pago_tx.Text));
-                        sql.ExecuteNonQuery();
-                        con.Close();
-
-                        //Luego el detalle y cambio los estados
-                        con.Open();
-                        SqlCommand Detalle = new SqlCommand("SELECT TOP 1 * FROM Registro_Pagos ORDER BY ID DESC", con.GetConnection());
-                        SqlDataReader Leer = Detalle.ExecuteReader();
-                        Leer.Read();
-                        int ID_Pago = Convert.ToInt32(Leer["ID"].ToString());
-                        con.Close();
-                        //List<Facturas> ListaFactura = (List<Facturas>)Session["ListaFacturasPago"];
-                        foreach (var item in ListaFactura)
+                        DateTime Registro = DateTime.Parse(item.Fecha_Emision);
+                        DateTime Vencimiento = DateTime.Parse(item.Fecha_Vencimiento);
+                        if (FechaPago < Registro || FechaPago > Vencimiento)
                         {
-                            int ID = item.ID;
+                            FechaPagoVerificado = false;
+                        }
+                    }
+                    if (FechaPagoVerificado == false)
+                    {//quiere decir que es antes del registro o despues de vencido
+                        Corregir_Fecha_lb.Visible = true;
+                    }
+                    else
+                    {//son validas las fechas
+                        try
+                        {
+                            //Primero creo el registro
                             con.Open();
-                            SqlCommand Detalle2 = new SqlCommand("insert into Detalle_Pago (ID_pago,ID_fact) values (" + ID_Pago + "," + ID + ")", con.GetConnection());
-                            Detalle2.ExecuteNonQuery();
+                            SqlCommand sql = new SqlCommand("insert into Registro_Pagos(ID_Prov,Numero_Cuenta,Fecha_Pago,MetodoPago,Total) values (" + Prov_ID_lb.Text + "," + Num_Cuenta_tx.Text + ",'" + Fecha_Pago_tx.Text + "','" + Forma_Pago_tx.SelectedValue + "',@Total)", con.GetConnection());
+                            //SqlCommand sql = new SqlCommand("insert into Registro_Pagos(ID_Prov,Numero_Cuenta,Fecha_Pago,MetodoPago,Total) values (@ID_Prov,@NumCuent,@Fecha,@FormaPago,@Total)", con.GetConnection());
+                            //sql.Parameters.Add(new SqlParameter("@ID_Prov", Prov_ID_lb.Text));
+                            //sql.Parameters.Add(new SqlParameter("@FormaPago", Forma_Pago_tx.Text));
+                            sql.Parameters.Add(new SqlParameter("@Total", Convert.ToDouble(Total_lb.Text)));
+                            //sql.Parameters.Add(new SqlParameter("@NumCuent", Num_Cuenta_tx.Text));
+                            //sql.Parameters.Add(new SqlParameter("@Fecha", Fecha_Pago_tx.Text));
+                            sql.ExecuteNonQuery();
                             con.Close();
 
+                            //Luego el detalle y cambio los estados
                             con.Open();
-                            SqlCommand Estado = new SqlCommand("update Facturas_Proveedor set Estado ='Pagada' where ID=" + ID, con.GetConnection());
-                            Estado.ExecuteNonQuery();
+                            SqlCommand Detalle = new SqlCommand("SELECT TOP 1 * FROM Registro_Pagos ORDER BY ID DESC", con.GetConnection());
+                            SqlDataReader Leer = Detalle.ExecuteReader();
+                            Leer.Read();
+                            int ID_Pago = Convert.ToInt32(Leer["ID"].ToString());
                             con.Close();
+                            //List<Facturas> ListaFactura = (List<Facturas>)Session["ListaFacturasPago"];
+                            foreach (var item in ListaFactura)
+                            {
+                                int ID = item.ID;
+                                con.Open();
+                                SqlCommand Detalle2 = new SqlCommand("insert into Detalle_Pago (ID_pago,ID_fact) values (" + ID_Pago + "," + ID + ")", con.GetConnection());
+                                Detalle2.ExecuteNonQuery();
+                                con.Close();
+
+                                con.Open();
+                                SqlCommand Estado = new SqlCommand("update Facturas_Proveedor set Estado ='Pagada' where ID=" + ID, con.GetConnection());
+                                Estado.ExecuteNonQuery();
+                                con.Close();
+
+                            }
+                            ListaFactura.Clear();
+
+                            Response.Redirect("~/Pre_Facts.aspx");
+                        }
+                        catch (Exception ex)
+                        {
+                            Response.Write("<script>alert(' Error : Todos los campos del formulario deben estar completos');</script>");
+                        }
+                        finally
+                        {
 
                         }
-                        ListaFactura.Clear();
-
-                        Response.Redirect("~/Pre_Facts.aspx");
                     }
-                    catch (Exception ex)
-                    {
 
-                    }
-                    finally
-                    {
-
-                    }
                 }
-
-                
+                catch(Exception ex)
+                {
+                    Response.Write("<script>alert(' Error : Todos los campos del formulario deben estar completos');</script>");
+                }
             }
 
 

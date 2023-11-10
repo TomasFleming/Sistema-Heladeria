@@ -57,7 +57,7 @@ namespace Sistema_Heladeria
             //Lista_facturas.DataBind();
             //con.Close();
             con.Open();
-            string comando = "select * from Facturas_Proveedor FP left join Detalle_Pago Fpp on FP.ID=Fpp.ID_fact inner join Proveedores P on P.ID=Fp.ID_prov  where FP.ID ";//and Total>=@prTotMin and Total<=@prTotMax and Fecha_Emision>=@prFechaInicio and Fecha_Emision<=@prFechaFin and ID_prov=@prProveedor";
+            string comando = "select FP.ID,NombreCompleto,Cod_Prov,FORMAT(Fecha_Vencimiento, 'dd/MM/yyyy') AS Fecha_Vencimiento,FORMAT(Fecha_Emision, 'dd/MM/yyyy') AS Fecha_Emision,Tipo,ID_prov,FP.Estado,Total  from Facturas_Proveedor FP left join Detalle_Pago Fpp on FP.ID=Fpp.ID_fact inner join Proveedores P on P.ID=Fp.ID_prov  where FP.ID ";//and Total>=@prTotMin and Total<=@prTotMax and Fecha_Emision>=@prFechaInicio and Fecha_Emision<=@prFechaFin and ID_prov=@prProveedor";
             if (!string.IsNullOrWhiteSpace(Buscador_Fact_tx.Text))
             {
                 comando = comando + "= " + Buscador_Fact_tx.Text + " ";
