@@ -60,6 +60,15 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.Button Historial_Movs_btn;
 
         /// <summary>
+        /// Control UpdatePanel6.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel6;
+
+        /// <summary>
         /// Control Lista_Depositos.
         /// </summary>
         /// <remarks>
@@ -157,6 +166,15 @@ namespace Sistema_Heladeria
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Completos_lb;
+
+        /// <summary>
+        /// Control UpdatePanel7.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel7;
 
         /// <summary>
         /// Control Num_Dep.

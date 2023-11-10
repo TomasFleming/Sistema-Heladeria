@@ -132,7 +132,7 @@
             <td style="height: 28px; width: 244px"> <asp:Label ID="Prov_nom_lb" runat="server" style="font-size: 17px"></asp:Label>
             &nbsp;
             </td>
-            <td style="height: 28px; width: 155px;">Estado:</td>
+            <td style="height: 28px; width: 155px;">Estado  :</td>
             <td style="height: 28px"> <asp:Label ID="Estado_Fact_lb" runat="server" style="font-size: 17px"></asp:Label>
             </td>
         </tr>

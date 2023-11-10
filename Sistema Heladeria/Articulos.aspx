@@ -30,7 +30,7 @@
         
     </p>
     <p>
-        
+        <asp:UpdatePanel ID="UpdatePanel3" runat="server"><ContentTemplate>
         <center>
             <asp:GridView ID="Lista_Articulos" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt" Width="1235px">
 <AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
@@ -61,7 +61,7 @@
 
 <PagerStyle CssClass="pgr"></PagerStyle>
             </asp:GridView>
-        </center>
+        </center></ContentTemplate></asp:UpdatePanel>
     </p>
     <p><%-- termina  --%>
         <center>
@@ -156,7 +156,8 @@
       <div class="modal-header">
 
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Editar Articulo N° <asp:Label ID="ID_Art_edit_lb" runat="server"  Visible="True"></asp:Label></h4></center>
+          <asp:UpdatePanel ID="UpdatePanel4" runat="server"><ContentTemplate>
+        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Editar Articulo N° <asp:Label ID="ID_Art_edit_lb" runat="server"  Visible="True"></asp:Label></h4></center></ContentTemplate></asp:UpdatePanel>
       </div>
       <div class="modal-body">
         <p></p><%--aasasdasasadsads--%>

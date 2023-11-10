@@ -40,7 +40,7 @@
         &nbsp;&nbsp;&nbsp;
         
     </p>
-    <%--ass--%>
+    <%--ass--%><asp:UpdatePanel ID="UpdatePanel6" runat="server"><ContentTemplate>
     <asp:GridView ID="Lista_Depositos" runat="server" AlternatingRowStyle-CssClass="alt" AutoGenerateColumns="False" CssClass="mGrid" DataKeyNames="ID" PagerStyle-CssClass="pgr" Width="1235px">
         <AlternatingRowStyle CssClass="alt" />
         <Columns>
@@ -62,7 +62,7 @@
             </asp:TemplateField>
         </Columns>
         <PagerStyle CssClass="pgr" />
-    </asp:GridView>
+    </asp:GridView></ContentTemplate></asp:UpdatePanel>
     
 
     <%-- Inicia el popup  ModalMin_Stock--%>
@@ -130,7 +130,8 @@
       <div class="modal-header">
 
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Articulos del Deposito N° <asp:Label ID="Num_Dep" runat="server" Text="Label" Visible="True"></asp:Label> :</h4></center>
+          <asp:UpdatePanel ID="UpdatePanel7" runat="server"><ContentTemplate>
+          <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Articulos del Deposito N° <asp:Label ID="Num_Dep" runat="server" Text="Label" Visible="True"></asp:Label> :</h4></center></ContentTemplate></asp:UpdatePanel>
       </div>
       <div class="modal-body">
         <p></p><%--aasasdasasadsads--%>
