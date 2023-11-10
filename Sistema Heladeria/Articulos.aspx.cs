@@ -22,6 +22,16 @@ namespace Sistema_Heladeria
 
         protected void Agregar_Art_btn_Click(object sender, EventArgs e)
         {
+            Nomb_tx.Text = "";
+            Descrip_tx.Text = "";
+            Precio_tx.Text = "";
+            Descrip_tx.Text = "";
+            Categorias_list.SelectedValue = "1";
+            Completos_lb.Visible = false;
+            Alert_lb.Visible = false;
+            Mat_Prima_bt.Checked = false;
+            Vendible_btn.Checked = false;
+            Mat_Prima_bt_CheckedChanged(sender, e);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
 
             
@@ -30,7 +40,7 @@ namespace Sistema_Heladeria
         protected void Buscar_art_btn_Click(object sender, EventArgs e)
         {
             con.Open();
-            string qry = "select A.ID, A.Nombre,C.Nombre_Categoria, A.Descripcion, A.Precio from Articulos A inner join Categorias C on A.Categoria=C.ID where A.ID like '"+Buscador_art.Text+ "' or A.Nombre like '%" + Buscador_art.Text + "%' or C.Nombre_Categoria like '%" + Buscador_art.Text + "%' ";
+            string qry = "select A.ID, A.Nombre,C.Nombre_Categoria, A.Descripcion, A.Precio from Articulos A inner join Categorias C on A.Categoria=C.ID where (A.ID like '"+Buscador_art.Text+ "' or A.Nombre like '%" + Buscador_art.Text + "%' or C.Nombre_Categoria like '%" + Buscador_art.Text + "%') and A.Estado!='Desactivado' ";
             SqlCommand Com = new SqlCommand(qry, con.GetConnection());
             Com.ExecuteNonQuery();
             SqlDataAdapter Articulos = new SqlDataAdapter(Com);
@@ -54,23 +64,52 @@ namespace Sistema_Heladeria
                 Alert_lb.Visible = false;
             }
             con.Close();
-            if (Nomb_tx.Text != "" && Precio_tx.Text != "" && Descrip_tx.Text != "" && Alert_lb.Visible==false && (Mat_Prima_bt.Checked==true || Vendible_btn.Checked==true))
+            if (Nomb_tx.Text != "" && Descrip_tx.Text != "" && Alert_lb.Visible==false && (Mat_Prima_bt.Checked==true || Vendible_btn.Checked==true))
             {
-                con.Open();
-                SqlCommand sql = new SqlCommand("insert into Articulos(Nombre,Categoria,Precio,Descripcion) values (@prNombre,@prCat,@prPrecio,@prDesc)", con.GetConnection());
-                sql.Parameters.Add(new SqlParameter("@prNombre", Nomb_tx.Text));
-                sql.Parameters.Add(new SqlParameter("@prCat", Categorias_list.SelectedValue));
-                sql.Parameters.Add(new SqlParameter("@prPrecio", Precio_tx.Text));
-                sql.Parameters.Add(new SqlParameter("@prDesc", Descrip_tx.Text));
-                sql.ExecuteNonQuery();
-                con.Close();
-                Nomb_tx.Text = "";
-                Precio_tx.Text = "";
-                Descrip_tx.Text = "";
-                Categorias_list.SelectedValue = "1";
-                Completos_lb.Visible = false;
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
-                Buscar_art_btn_Click(sender, e);
+                if (Vendible_btn.Checked == true && Precio_tx.Text!="")
+                {
+                    con.Open();
+                    SqlCommand sql = new SqlCommand("insert into Articulos(Nombre,Categoria,Precio,Descripcion,Destino) values (@prNombre,@prCat,@prPrecio,@prDesc,'Venta')", con.GetConnection());
+                    sql.Parameters.Add(new SqlParameter("@prNombre", Nomb_tx.Text));
+                    sql.Parameters.Add(new SqlParameter("@prCat", Categorias_list.SelectedValue));
+                    sql.Parameters.Add(new SqlParameter("@prPrecio", Precio_tx.Text));
+                    sql.Parameters.Add(new SqlParameter("@prDesc", Descrip_tx.Text));
+                    sql.ExecuteNonQuery();
+                    con.Close();
+                    Nomb_tx.Text = "";
+                    Precio_tx.Text = "";
+                    Descrip_tx.Text = "";
+                    Categorias_list.SelectedValue = "1";
+                    Completos_lb.Visible = false;
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
+                    Buscar_art_btn_Click(sender, e);
+                }
+                else
+                {
+                    if (Precio_tx.Text=="" && Vendible_btn.Checked==true)
+                    {
+                        Completos_lb.Visible = true;
+                    }
+                    else
+                    {
+                        con.Open();
+                        SqlCommand sql = new SqlCommand("insert into Articulos(Nombre,Categoria,Precio,Descripcion) values (@prNombre,@prCat,@prPrecio,@prDesc)", con.GetConnection());
+                        sql.Parameters.Add(new SqlParameter("@prNombre", Nomb_tx.Text));
+                        sql.Parameters.Add(new SqlParameter("@prCat", Categorias_list.SelectedValue));
+                        sql.Parameters.Add(new SqlParameter("@prPrecio", 1));
+                        sql.Parameters.Add(new SqlParameter("@prDesc", Descrip_tx.Text));
+                        sql.ExecuteNonQuery();
+                        con.Close();
+                        Nomb_tx.Text = "";
+                        Precio_tx.Text = "";
+                        Descrip_tx.Text = "";
+                        Categorias_list.SelectedValue = "1";
+                        Completos_lb.Visible = false;
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
+                        Buscar_art_btn_Click(sender, e);
+                    }
+                }
+                
             }
             else
             {
@@ -141,7 +180,7 @@ namespace Sistema_Heladeria
         protected void Eliminar_Art_btn_Click(object sender, EventArgs e)
         {
             con.Open();
-            SqlCommand sql = new SqlCommand("delete Articulos where ID= "+ID_Art_edit_lb.Text, con.GetConnection());
+            SqlCommand sql = new SqlCommand("update Articulos set Estado='Desactivado' where ID= "+ID_Art_edit_lb.Text, con.GetConnection());
             sql.ExecuteNonQuery();
             con.Close();
             Completos_Edit_lb.Visible = false;
@@ -169,6 +208,7 @@ namespace Sistema_Heladeria
         {
             Vendible_btn.Checked = false;
             Precio_tx.Visible = false;
+            Precio_tx.Text = "";
             Art_Pre_lb.Visible = false;
         }
 
