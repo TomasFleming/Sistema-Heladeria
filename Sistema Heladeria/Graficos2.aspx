@@ -68,7 +68,7 @@
             <ContentTemplate>
                 <asp:Chart ID="GraficoGanancias" runat="server" Width="1220px" BorderlineColor="Maroon" BorderlineDashStyle="Solid" Palette="Berry" PaletteCustomColors="Lime" TextAntiAliasingQuality="Normal" EnableTheming="True">
                     <Titles>
-                        <asp:Title Text="Ganancias" TextStyle="Emboss" BorderWidth="6"></asp:Title>
+                        <asp:Title Text="Balance Final" TextStyle="Emboss" BorderWidth="6" Font="Microsoft Sans Serif; 20pt"></asp:Title>
                     </Titles>
                     <Series>
                         <asp:Series Name="Series1" ChartType="Line" XValueMember="NombreMes" YValueMembers="Ganancias" IsValueShownAsLabel="True" Font="Microsoft Sans Serif, 10.2pt, style=Bold" LabelFormat="N2" MarkerStyle="Circle"></asp:Series>

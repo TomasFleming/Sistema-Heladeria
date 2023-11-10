@@ -50,7 +50,7 @@
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>
-                    <asp:Button ID="Filtrar_btn" runat="server" OnClick="Buscar_Pago_btn_Click" Text="Filtrar" />
+                    <asp:Button ID="Filtrar_btn" runat="server" OnClick="Buscar_Pago_btn_Click" Visible="false" Text="Filtrar" />
                 </td>
             </tr>
             <tr>
@@ -63,7 +63,7 @@
                     <asp:TextBox ID="Precio_Max_tx" runat="server" TextMode="Number" Width="100px"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:Button ID="Lipiar_Filt_btn" runat="server" Text="Limpiar" OnClick="Lipiar_Filt_btn_Click" />
+                    <asp:Button ID="Lipiar_Filt_btn" runat="server" Text="Limpiar" CssClass="btn btn-default" OnClick="Lipiar_Filt_btn_Click" />
                 </td>
             </tr>
         </table>

@@ -14,40 +14,36 @@
     <div id="menu" style="display: block;">
         <table class="nav-justified">
             <tr>
-                <td style="width: 409px">
-                    <span style="font-size: large">Período de movimientos:</span> 
-                </td>
-                <td style="width: 388px">
-                    &nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
             <tr>
-                <td style="width: 409px"><span style="font-size: large">Fecha Mínima:</span>
+                <td style="width: 409px"><span style="font-size: large">Fecha Inicio:</span>
                     <asp:TextBox ID="Fecha_min_tx" runat="server" TextMode="Date" Width="100px"></asp:TextBox>
                 </td>
-                <td style="width: 388px"><span style="font-size: large">Fecha Máxima:</span>
+                <td style="width: 388px"><span style="font-size: large">Fecha Final:</span>
                     <asp:TextBox ID="Fecha_Max_tx" runat="server" TextMode="Date" Width="100px"></asp:TextBox>
                 </td>
-                <td>&nbsp;</td>
+                <td>
+                    <asp:Button ID="Filtrar_btn" runat="server" CssClass="btn btn-primary" OnClick="Filtrar_btn_Click" Text="Filtrar" Width="90px" />
+                </td>
             </tr>
             <tr>
-                <td style="font-size: large; width: 409px">Artículo:</td>
-                <td style="font-size: large; width: 388px">Depósito:</td>
+                <td style="font-size: large; width: 409px">&nbsp;</td>
+                <td style="font-size: large; width: 388px">&nbsp;</td>
                 <td>
-                    <asp:Button ID="Filtrar_btn" runat="server" OnClick="Filtrar_btn_Click" Text="Filtrar" />
-                </td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td style="width: 409px">
-                    <span style="font-size: large">Cantidad Mínimo:</span>
+                    <span style="font-size: large">Cantidad Mínima:</span>
                     <asp:TextBox ID="Precio_min_tx" runat="server" TextMode="Number" Width="100px"></asp:TextBox>
                 </td>
                 <td style="width: 388px">
-                    <span style="font-size: large">Cantidad Máximo:</span>
+                    <span style="font-size: large">Cantidad Máxima:</span>
                     <asp:TextBox ID="Precio_Max_tx" runat="server" TextMode="Number" Width="100px"></asp:TextBox>
                 </td>
                 <td>
-                    <asp:Button ID="Lipiar_Filt_btn" runat="server" OnClick="Lipiar_Filt_btn_Click" Text="Limpiar" />
+                    <asp:Button ID="Lipiar_Filt_btn" runat="server" OnClick="Lipiar_Filt_btn_Click" CssClass="btn btn-default" Text="Limpiar" Width="90px" />
                 </td>
             </tr>
         </table>

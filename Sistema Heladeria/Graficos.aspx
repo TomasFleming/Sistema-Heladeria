@@ -146,7 +146,7 @@
                         <asp:Title Text="Ingresos" TextStyle="Emboss" BorderWidth="6"></asp:Title>
                     </Titles>
                     <Series>
-                        <asp:Series Name="Series1" ChartType="Line" XValueMember="NombreMes" YValueMembers="Ganancias" IsValueShownAsLabel="True" Font="Microsoft Sans Serif, 10.2pt, style=Bold"></asp:Series>
+                        <asp:Series Name="Series1" XValueMember="NombreMes" YValueMembers="Ganancias" IsValueShownAsLabel="True" Font="Microsoft Sans Serif, 10.2pt, style=Bold"></asp:Series>
                     </Series>
                     <ChartAreas>
                         <asp:ChartArea Name="ChartArea1">
@@ -219,7 +219,7 @@
                         <asp:Title Text="Salidas" TextStyle="Emboss" BorderWidth="6"></asp:Title>
                     </Titles>
                     <Series>
-                        <asp:Series Name="Series1" XValueMember="NombreMes" YValueMembers="Ganancias" IsValueShownAsLabel="True" Font="Microsoft Sans Serif, 10.2pt, style=Bold" ChartType="Line"></asp:Series>
+                        <asp:Series Name="Series1" XValueMember="NombreMes" YValueMembers="Ganancias" IsValueShownAsLabel="True" Font="Microsoft Sans Serif, 10.2pt, style=Bold"></asp:Series>
                     </Series>
                     <ChartAreas>
                         <asp:ChartArea Name="ChartArea1">

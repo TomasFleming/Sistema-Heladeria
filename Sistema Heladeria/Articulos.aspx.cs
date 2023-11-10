@@ -90,13 +90,13 @@ namespace Sistema_Heladeria
                     {
                         Completos_lb.Visible = true;
                     }
-                    else
+                    else//ocurre cuando es materia prima
                     {
                         con.Open();
                         SqlCommand sql = new SqlCommand("insert into Articulos(Nombre,Categoria,Precio,Descripcion) values (@prNombre,@prCat,@prPrecio,@prDesc)", con.GetConnection());
                         sql.Parameters.Add(new SqlParameter("@prNombre", Nomb_tx.Text));
                         sql.Parameters.Add(new SqlParameter("@prCat", Categorias_list.SelectedValue));
-                        sql.Parameters.Add(new SqlParameter("@prPrecio", 0));
+                        sql.Parameters.Add(new SqlParameter("@prPrecio", '0'));
                         sql.Parameters.Add(new SqlParameter("@prDesc", Descrip_tx.Text));
                         sql.ExecuteNonQuery();
                         con.Close();
