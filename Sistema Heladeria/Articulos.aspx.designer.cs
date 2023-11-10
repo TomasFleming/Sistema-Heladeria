@@ -132,6 +132,51 @@ namespace Sistema_Heladeria
         protected global::System.Web.UI.WebControls.Label Alert_lb;
 
         /// <summary>
+        /// Control Art_desc_lb.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Art_desc_lb;
+
+        /// <summary>
+        /// Control Descrip_tx.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Descrip_tx;
+
+        /// <summary>
+        /// Control Art_Final_lb.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Art_Final_lb;
+
+        /// <summary>
+        /// Control Mat_Prima_bt.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton Mat_Prima_bt;
+
+        /// <summary>
+        /// Control Vendible_btn.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton Vendible_btn;
+
+        /// <summary>
         /// Control Art_Pre_lb.
         /// </summary>
         /// <remarks>
@@ -157,24 +202,6 @@ namespace Sistema_Heladeria
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CompareValidator CompareValidator1;
-
-        /// <summary>
-        /// Control Art_desc_lb.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Art_desc_lb;
-
-        /// <summary>
-        /// Control Descrip_tx.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Descrip_tx;
 
         /// <summary>
         /// Control Art_camb_btn.

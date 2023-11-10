@@ -107,21 +107,33 @@
         
         <tr>
             <td style="width: 228px; height: 22px">
-                <asp:Label ID="Art_Pre_lb" runat="server" Text="Precio" style="font-size: 20px"></asp:Label>
+                <asp:Label ID="Art_desc_lb" runat="server" Text="Descripcion" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 22px; width: 646px">
-                <asp:TextBox ID="Precio_tx" runat="server" TextMode="Number" style="font-size: 15pt" Width="302px"></asp:TextBox>
-
-                <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Debe ser un valor superior a 0" ControlToValidate="Precio_tx" Operator="GreaterThan" Type="Integer" ValueToCompare="0"></asp:CompareValidator>
+                <asp:TextBox ID="Descrip_tx" runat="server" TextMode="MultiLine" Height="65px" style="margin-left: 0" Width="300px"></asp:TextBox>
+                <br />
 
             </td>
         </tr>
         <tr>
             <td style="width: 228px; height: 22px">
-                <asp:Label ID="Art_desc_lb" runat="server" Text="Descripcion" style="font-size: 20px"></asp:Label>
+                <asp:Label ID="Art_Final_lb" runat="server" Text="Destino" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 22px; width: 646px">
-                <asp:TextBox ID="Descrip_tx" runat="server" TextMode="MultiLine" Height="65px" style="margin-left: 0" Width="300px"></asp:TextBox>
+                <center><asp:RadioButton ID="Mat_Prima_bt" runat="server" Text="Materia Prima" OnCheckedChanged="Mat_Prima_bt_CheckedChanged" AutoPostBack="True" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:RadioButton ID="Vendible_btn" runat="server" Text="Venta" OnCheckedChanged="Vendible_btn_CheckedChanged" AutoPostBack="True" /></center>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 228px; height: 22px">
+                <asp:Label ID="Art_Pre_lb" runat="server" Text="Precio" style="font-size: 20px" Visible="false"></asp:Label>
+            </td>
+            <td style="height: 22px; width: 646px">
+                <asp:TextBox ID="Precio_tx" runat="server" TextMode="Number" style="font-size: 15pt" Width="302px" Visible="false"></asp:TextBox>
+
+                <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Debe ser un valor superior a 0" ControlToValidate="Precio_tx" Operator="GreaterThan" Type="Integer" ValueToCompare="0"></asp:CompareValidator>
+
             </td>
         </tr>
         <tr>

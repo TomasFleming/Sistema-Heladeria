@@ -54,7 +54,7 @@ namespace Sistema_Heladeria
                 Alert_lb.Visible = false;
             }
             con.Close();
-            if (Nomb_tx.Text != "" && Precio_tx.Text != "" && Descrip_tx.Text != "" && Alert_lb.Visible==false)
+            if (Nomb_tx.Text != "" && Precio_tx.Text != "" && Descrip_tx.Text != "" && Alert_lb.Visible==false && (Mat_Prima_bt.Checked==true || Vendible_btn.Checked==true))
             {
                 con.Open();
                 SqlCommand sql = new SqlCommand("insert into Articulos(Nombre,Categoria,Precio,Descripcion) values (@prNombre,@prCat,@prPrecio,@prDesc)", con.GetConnection());
@@ -159,7 +159,24 @@ namespace Sistema_Heladeria
             Categorias_list.SelectedValue = "1";
             Completos_lb.Visible = false;
             Alert_lb.Visible = false;
+            Mat_Prima_bt.Checked = false;
+            Vendible_btn.Checked = false;
+            Mat_Prima_bt_CheckedChanged(sender, e);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
+        }
+
+        protected void Mat_Prima_bt_CheckedChanged(object sender, EventArgs e)
+        {
+            Vendible_btn.Checked = false;
+            Precio_tx.Visible = false;
+            Art_Pre_lb.Visible = false;
+        }
+
+        protected void Vendible_btn_CheckedChanged(object sender, EventArgs e)
+        {
+            Mat_Prima_bt.Checked = false;
+            Precio_tx.Visible = true;
+            Art_Pre_lb.Visible = true;
         }
     }
 }
