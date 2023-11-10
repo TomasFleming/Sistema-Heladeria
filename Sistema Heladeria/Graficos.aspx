@@ -19,7 +19,7 @@
         <table class="nav-justified">
             <tr>
                 <td class="text-center" colspan="2" style="font-size: x-large">
-                    <strong>Ganancias Finales</strong></td>
+                    <strong>Gráficos</strong></td>
                 <td>
                     <asp:Button ID="Flitrar_Ganancias" runat="server" CssClass="btn btn-primary" OnClick="Flitrar_Ganancias_Click" Text="Filtrar" style="width: 80px;"/>
                 </td>
@@ -165,7 +165,7 @@
         <table class="nav-justified">
             <tr>
                 <td class="text-center" colspan="2" style="font-size: x-large">
-                    <strong>Salidas o como era?</strong></td>
+                    <strong>Egreso</strong></td>
                 <td>
                     <asp:Button ID="Filtro_Retiro" runat="server" CssClass="btn btn-primary" OnClick="Filtro_Retiro_Click" Text="Filtrar" style="width: 80px;"/>
                 </td>

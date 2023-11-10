@@ -4,6 +4,12 @@
     
     <header class="jumbotron text-center">
      <h2><strong>Lista De Depósitos</strong></h2>
+        <div class="header-right">
+            <div class="date-time">
+                <span id="currentDate"></span>
+                <span id="currentTime"></span>
+            </div>
+        </div>
     </header>
   
 
@@ -50,13 +56,13 @@
             <asp:BoundField DataField="Nombre" HeaderText="Nombre">
             <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:BoundField>
-            <asp:BoundField DataField="Ubicacion" HeaderText="Ubicacion">
+            <asp:BoundField DataField="Ubicacion" HeaderText="Ubicación">
             <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:BoundField>
             <asp:TemplateField HeaderText="">
                 <ItemTemplate>
                     <center>
-                        <asp:Button ID="Ver_Articulos_btn" runat="server" CssClass="btn btn-primary" OnClick="Ver_Articulos_btn_Click" Text="Ver Articulos" />
+                        <asp:Button ID="Ver_Articulos_btn" runat="server" CssClass="btn btn-primary" OnClick="Ver_Articulos_btn_Click" Text="Ver Artículos" />
                     </center>
                 </ItemTemplate>
             </asp:TemplateField>
@@ -317,5 +323,22 @@
           $('#ModalHistorial').modal('hide');
       }
   </script>
+
+    <script>
+        function updateDateTime() {
+            var now = new Date();
+            var currentDate = now.toLocaleDateString();
+            var currentTime = now.toLocaleTimeString();
+
+            document.getElementById("currentDate").textContent = "Fecha: " + currentDate;
+            document.getElementById("currentTime").textContent = " - Hora: " + currentTime;
+        }
+
+        // Actualiza la fecha y hora cada segundo
+        setInterval(updateDateTime, 1000);
+
+        // Ejecuta la función una vez para mostrar la fecha y hora de inmediato
+        updateDateTime();
+    </script>
 
 </asp:Content>

@@ -2,6 +2,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <header class="jumbotron text-center">
      <h2><strong>Orden de Compra</strong></h2>
+        <div class="header-right">
+            <div class="date-time">
+                <span id="currentDate"></span>
+                <span id="currentTime"></span>
+            </div>
+        </div>
     </header>
     <table class="nav-justified">
         <tr>
@@ -9,7 +15,7 @@
                 <center>
                     <%--Orden De compra--%>
     <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;">
-        Numero de Orden a Crear:&nbsp;&nbsp;&nbsp;
+        Número de Orden a Crear:&nbsp;&nbsp;&nbsp;
         <asp:Label ID="Nro_ord_lb" runat="server"></asp:Label>
     </p>
                 </center>
@@ -20,7 +26,7 @@
         <tr>
             <td>
     <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
-        Fecha de Creacion :&nbsp;&nbsp;&nbsp;<strong>
+        Fecha de Creación :&nbsp;&nbsp;&nbsp;<strong>
         <asp:TextBox ID="Fecha_Creacion_lb" runat="server" TextMode="DateTime" Width="190px" style="font-size: 13pt; font-weight: bold"></asp:TextBox>
             <ajaxToolkit:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="Fecha_Creacion_lb" />
                                              </strong>
@@ -35,11 +41,11 @@
             <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; border-top: 3px solid #C0C0C0; width: 525px; border-bottom-color: #C0C0C0; border-bottom-width: 3px; background-color: #6495ED;">Detalles del Proveedor :&nbsp;&nbsp;&nbsp;<asp:Button ID="PopUp_Prov_bt" runat="server" Text="Seleccionar Proveedor" CssClass="btn btn-default" OnClick="PopUp_Prov_bt_Click"/>
             </td>
             <td class="modal-lg" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 107px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide;">&nbsp;</td>
-            <td style="border-width: 3px; border-color: #C0C0C0; border-right-style: solid; border-left-style: solid; border-top-style: solid; background-color: #6495ED;">Detalles de Entrega:&nbsp;&nbsp;&nbsp;<asp:Button ID="PopUp_Depos_bt" runat="server" CssClass="btn btn-default" OnClick="PopUp_Depos_bt_Click" Text="Seleccionar Deposito" />
+            <td style="border-width: 3px; border-color: #C0C0C0; border-right-style: solid; border-left-style: solid; border-top-style: solid; background-color: #6495ED;">Detalles de Entrega:&nbsp;&nbsp;&nbsp;<asp:Button ID="PopUp_Depos_bt" runat="server" CssClass="btn btn-default" OnClick="PopUp_Depos_bt_Click" Text="Seleccionar Depósito" />
             </td>
         </tr>
         <tr>
-            <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; width: 525px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px;">Numero Proveedor:
+            <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; width: 525px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px;">Número Proveedor:
                 <asp:Label ID="Prov_ID_lb" runat="server" style="font-size: 20px"></asp:Label>
                 <br />
                 Nombre :&nbsp;&nbsp; <asp:Label ID="Prov_nom_lb" runat="server" style="font-size: 20px"></asp:Label>
@@ -50,15 +56,15 @@
                 </strong></td>
         </tr>
         <tr>
-            <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; width: 525px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px;">Telefono:&nbsp;&nbsp;<asp:Label ID="Telf_lb" runat="server" style="font-size: 20px"></asp:Label>
+            <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; width: 525px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px;">Teléfono:&nbsp;&nbsp;<asp:Label ID="Telf_lb" runat="server" style="font-size: 20px"></asp:Label>
             </td>
             <td class="modal-lg" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 107px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide;">&nbsp;</td>
-            <td style="border-width: 3px; border-color: #C0C0C0; border-right-style: solid; border-left-style: solid;">Numero de Deposito:
+            <td style="border-width: 3px; border-color: #C0C0C0; border-right-style: solid; border-left-style: solid;">Número de Depósito:
                 <asp:Label ID="Deposit_ID_lb" runat="server" style="font-size: 20px"></asp:Label>
             </td>
         </tr>
         <tr>
-            <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; width: 525px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px;">Direccion:&nbsp;&nbsp;<asp:Label ID="Direc_lb" runat="server" style="font-size: 20px"></asp:Label>
+            <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; width: 525px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px;">Dirección:&nbsp;&nbsp;<asp:Label ID="Direc_lb" runat="server" style="font-size: 20px"></asp:Label>
             </td>
             <td class="modal-sm" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 107px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide;">&nbsp;</td>
             <td style="border-width: 3px; border-color: #C0C0C0; border-right-style: solid; border-left-style: solid;">Nombre:&nbsp; <asp:Label ID="Deposit_nom_lb" runat="server" style="font-size: 20px"></asp:Label>
@@ -68,7 +74,7 @@
             <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; border-bottom: 3px solid #C0C0C0; width: 525px; border-top-color: #C0C0C0; border-top-width: 3px;">Correo:&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;<asp:Label ID="Correo_lb" runat="server" style="font-size: 20px"></asp:Label>
             </td>
             <td class="modal-sm" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 107px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide;">&nbsp;</td>
-            <td style="border-width: 3px; border-color: #C0C0C0; border-right-style: solid; border-left-style: solid; border-bottom-style: solid;">Ubicacion:&nbsp; <asp:Label ID="Deposit_Ubic_lb" runat="server" style="font-size: 20px"></asp:Label>
+            <td style="border-width: 3px; border-color: #C0C0C0; border-right-style: solid; border-left-style: solid; border-bottom-style: solid;">Ubicación:&nbsp; <asp:Label ID="Deposit_Ubic_lb" runat="server" style="font-size: 20px"></asp:Label>
             </td>
         </tr>
     </table>
@@ -76,7 +82,7 @@
     </asp:UpdatePanel>
     <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
         Articulos solicitados:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Pop_Art_bt" runat="server" Text="Agregar Articulo" CssClass="btn btn-default" OnClick="Pop_Art_bt_Click" />
+        <asp:Button ID="Pop_Art_bt" runat="server" Text="Agregar Artículo" CssClass="btn btn-default" OnClick="Pop_Art_bt_Click" />
         <asp:UpdatePanel ID="UpdatePanel2" runat="server">
             <ContentTemplate>
         <center>
@@ -89,10 +95,10 @@
                 <asp:BoundField DataField="Nombre" HeaderText="Nombre" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
-                <asp:BoundField DataField="Categoria" HeaderText="Categoria" >
+                <asp:BoundField DataField="Categoria" HeaderText="Categoría" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
-                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" >
+                <asp:BoundField DataField="Descripcion" HeaderText="Descripción" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
                 <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" >
@@ -435,5 +441,22 @@
       }
 
   </script>
+
+<script>
+    function updateDateTime() {
+        var now = new Date();
+        var currentDate = now.toLocaleDateString();
+        var currentTime = now.toLocaleTimeString();
+
+        document.getElementById("currentDate").textContent = "Fecha: " + currentDate;
+        document.getElementById("currentTime").textContent = " - Hora: " + currentTime;
+    }
+
+    // Actualiza la fecha y hora cada segundo
+    setInterval(updateDateTime, 1000);
+
+    // Ejecuta la función una vez para mostrar la fecha y hora de inmediato
+    updateDateTime();
+</script>
     
 </asp:Content>

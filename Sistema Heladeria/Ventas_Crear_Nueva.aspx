@@ -2,19 +2,25 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <header class="jumbotron text-center">
      <h2><strong>Generar Venta</strong></h2>
+        <div class="header-right">
+            <div class="date-time">
+                <span id="currentDate"></span>
+                <span id="currentTime"></span>
+            </div>
+        </div>
     </header>
     <table class="nav-justified">
         <tr>
     <td rowspan="2" style="width: 603px; font-size: 50px; color: #000000;">
                 <%--ass--%>
                 <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
-                    Fecha de Emision :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>
+                    Fecha de Emisión :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>
                     <asp:TextBox ID="Fecha_Creacion_tx" runat="server" style="font-size: 13pt; font-weight: bold" TextMode="Date" Width="190px" ReadOnly="True"></asp:TextBox>
 <%--                    <ajaxToolkit:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="Fecha_Creacion_tx" />--%>
                     </strong>
                 </p>
                 <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;">
-                    Numero de Venta:&nbsp;&nbsp;&nbsp;
+                    Número de Venta:&nbsp;&nbsp;&nbsp;
         <asp:Label ID="Nro_Venta_lb" runat="server"></asp:Label>
     </p>
             </td>
@@ -32,7 +38,7 @@
         <ContentTemplate>
     <table class="tableDist" border="0" style="border-style: solid; border-width: 0px 3px 0px 3px; border-color: #CCCCCC; padding: 0px; clip: rect(0px, 0px, 0px, 0px); font-family: Arial; font-size: 20px;">
         <tr>
-            <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; border-top: 3px solid #C0C0C0; width: 525px; border-bottom-color: #C0C0C0; border-bottom-width: 3px; height: 39px; background-color: #6495ED;">Detalles del Cliente :&nbsp;&nbsp;&nbsp;<asp:Button ID="PopUp_Cliente_btn" runat="server" Text="Seleccionar Cliente" CssClass="btn btn-default" OnClick="PopUp_Cliente_btn_Click"/>
+            <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; border-top: 3px solid #C0C0C0; width: 525px; border-bottom-color: #C0C0C0; border-bottom-width: 3px; height: 39px; background-color: #6495ED;">Detalles de Cliente :&nbsp;&nbsp;&nbsp;<asp:Button ID="PopUp_Cliente_btn" runat="server" Text="Seleccionar Cliente" CssClass="btn btn-default" OnClick="PopUp_Cliente_btn_Click"/>
                 &nbsp;<asp:Button ID="Cliente_Default_btn" runat="server" CssClass="btn btn-primary" OnClick="Cliente_Default_btn_Click" Text="Venta Caja" />
             </td>
             <td class="modal-lg" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 70px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide; height: 39px;"></td>
@@ -52,7 +58,10 @@
                     &nbsp;&nbsp;&nbsp;<asp:RadioButton ID="Tarjeta" runat="server" AutoPostBack="True" OnCheckedChanged="Tarjeta_CheckedChanged" Text="Tarjeta" />
                     <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
                         <asp:Label ID="Det_tj_lb" runat="server" Text="Detalles de la Tarjeta :" Visible="False"></asp:Label>
-                        <asp:Label ID="Label_Tarjeta" runat="server" Text="Por Favor asegurese de ingresar todos los datos correctamente" ForeColor="Red" Visible="false"></asp:Label>
+                        <asp:Label ID="Label_Tarjeta" runat="server" Text="Por Favor asegurese de ingresar todos los datos correctamente." ForeColor="Red" Visible="False"></asp:Label>
+                    </p>
+                    
+                    <p>
                     </p>
                     
                     <p>
@@ -79,14 +88,14 @@
             <td class="modal-sm" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 70px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide;">&nbsp;</td>
             <td style="border-width: 3px; border-color: #C0C0C0; border-right-style: solid; border-left-style: solid;">
                 <p>
-                <asp:Label ID="Num_tarj_lb" runat="server" Text="Numero:" Visible="False"></asp:Label>
+                <asp:Label ID="Num_tarj_lb" runat="server" Text="Número:" Visible="False"></asp:Label>
                 &nbsp;<asp:TextBox ID="Numero_tj_tx" runat="server" Visible="False" TextMode="Number" Width="300px"></asp:TextBox>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>&nbsp;</p>
                 
             </td>
         </tr>
         <tr>
-            <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; width: 525px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px;">Telefono:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="Telf_lb" runat="server" style="font-size: 20px"></asp:Label>
+            <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; width: 525px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px;">Teléfono:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="Telf_lb" runat="server" style="font-size: 20px"></asp:Label>
             </td>
             <td class="modal-lg" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 70px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide;">&nbsp;</td>
             <td style="border-width: 3px; border-color: #C0C0C0; border-right-style: solid; border-left-style: solid;">
@@ -116,8 +125,8 @@
                     </ContentTemplate>
     </asp:UpdatePanel>
     <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
-        Articulos a Comprar:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Pop_Art_bt" runat="server" Text="Agregar Articulo" CssClass="btn btn-default" OnClick="Pop_Art_bt_Click" />
+        Artículos a Comprar:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="Pop_Art_bt" runat="server" Text="Agregar Artículo" CssClass="btn btn-default" OnClick="Pop_Art_bt_Click" />
         <asp:UpdatePanel ID="UpdatePanel2" runat="server">
             <ContentTemplate>
         <center>
@@ -130,10 +139,10 @@
                 <asp:BoundField DataField="Nombre" HeaderText="Nombre" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
-                <asp:BoundField DataField="Categoria" HeaderText="Categoria" >
+                <asp:BoundField DataField="Categoria" HeaderText="Categoría" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
-                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" >
+                <asp:BoundField DataField="Descripcion" HeaderText="Descripción" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
                 <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" >
@@ -444,5 +453,22 @@
       function closeModalArt() {
           $('#ModalArt').modal('hide');
       }
+    </script>
+
+    <script>
+        function updateDateTime() {
+            var now = new Date();
+            var currentDate = now.toLocaleDateString();
+            var currentTime = now.toLocaleTimeString();
+
+            document.getElementById("currentDate").textContent = "Fecha: " + currentDate;
+            document.getElementById("currentTime").textContent = " - Hora: " + currentTime;
+        }
+
+        // Actualiza la fecha y hora cada segundo
+        setInterval(updateDateTime, 1000);
+
+        // Ejecuta la función una vez para mostrar la fecha y hora de inmediato
+        updateDateTime();
     </script>
 </asp:Content>

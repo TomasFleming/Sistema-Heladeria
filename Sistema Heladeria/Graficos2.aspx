@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Graficos2.aspx.cs" Inherits="Sistema_Heladeria.Graficos2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" EnableViewState="true" runat="server">
     <header class="jumbotron text-center">
-     <h2><strong>Resumen de Ingresos y Egresos</strong></h2>
+     <h2><strong>Ganancias Finales</strong></h2>
         <div class="header-right">
             <div class="date-time">
                 <span id="currentDate"></span>
@@ -17,13 +17,13 @@
         <table class="nav-justified">
             <tr>
                 <td class="text-center" colspan="2" style="font-size: x-large">
-                    <strong>Ganancias Finales</strong></td>
-                <td>
+                    <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Gráficos</strong></td>
+                <td class="text-right">
                     <asp:Button ID="Flitrar_Ganancias" runat="server" CssClass="btn btn-primary" OnClick="Flitrar_Ganancias_Click" Text="Filtrar" style="width: 80px;"/>
                 </td>
             </tr>
             <tr>
-                <td style="height: 26px"><span style="font-size: large">Fecha Mínima: </span>
+                <td style="height: 26px"><span style="font-size: large">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fecha Mínima: </span>
                     <asp:DropDownList ID="Fecha_min_tx" runat="server" Width="150px" style="font-size: medium">
                         <asp:ListItem Value="1">Enero</asp:ListItem>
                         <asp:ListItem Value="2">Febrero</asp:ListItem>
@@ -55,7 +55,7 @@
                         <asp:ListItem Value="12">Diciembre</asp:ListItem>
                     </asp:DropDownList>
                 </td>
-                <td style="height: 26px">
+                <td style="height: 26px" class="text-right">
                     <asp:Button ID="Lipiar_Ganancias_btn" runat="server" CssClass="btn btn-default" OnClick="Lipiar_Ganancias_btn_Click" Text="Anual" style="width: 80px;"/>
                 </td>
             </tr>

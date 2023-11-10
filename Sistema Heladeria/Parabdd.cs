@@ -28,7 +28,7 @@ namespace Sistema_Heladeria
             
             SqlConnectionStringBuilder cs = new SqlConnectionStringBuilder();
 
-            cs.DataSource = @"DESKTOP-EFUNQE4";
+            cs.DataSource = @"DESKTOP-EFUNQE434";
             cs.InitialCatalog = "Heladeria Sistemas 3";
             cs.UserID = "Visual";
             cs.Password = "123456";

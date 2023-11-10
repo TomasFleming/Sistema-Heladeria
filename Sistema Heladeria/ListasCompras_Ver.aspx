@@ -40,7 +40,7 @@
                 <asp:BoundField DataField="NombreCompleto" HeaderText="Proveedor" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
-                <asp:BoundField DataField="ID_Deposito" HeaderText="Deposito" >
+                <asp:BoundField DataField="ID_Deposito" HeaderText="Depósito" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
                 <asp:BoundField DataField="Estado" HeaderText="Estado" >

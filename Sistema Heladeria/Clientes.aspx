@@ -43,7 +43,7 @@
                 <asp:BoundField DataField="DNI" HeaderText="Documento" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
-                <asp:BoundField DataField="Telefono" HeaderText="Telefono" >
+                <asp:BoundField DataField="Telefono" HeaderText="Teléfono" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
                 <asp:BoundField DataField="Correo" HeaderText="Correo" >

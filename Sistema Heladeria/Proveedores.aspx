@@ -39,13 +39,13 @@
                 <asp:BoundField DataField="NombreCompleto" HeaderText="Nombre" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
-                <asp:BoundField DataField="Telefono" HeaderText="Telefono" >
+                <asp:BoundField DataField="Telefono" HeaderText="Teléfono" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
                 <asp:BoundField DataField="Correo" HeaderText="Correo" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
-                    <asp:BoundField DataField="Direccion" HeaderText="Direccion" >
+                    <asp:BoundField DataField="Direccion" HeaderText="Dirección" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
                     <asp:TemplateField HeaderText="">

@@ -3,6 +3,12 @@
 
     <header class="jumbotron text-center">
      <h2><strong>Tipo de Movimiento</strong></h2>
+        <div class="header-right">
+            <div class="date-time">
+                <span id="currentDate"></span>
+                <span id="currentTime"></span>
+            </div>
+        </div>
     </header>
     <center>
 <%--    <center><p style="font-size: 40px;font-weight: bold; color:#0094ff;font-family: Arial, sans-serif;">Tipos de Movimientos</p></center>--%>
@@ -28,7 +34,7 @@
                 <asp:BoundField DataField="Nombre" HeaderText="Actividad" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
-                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" ItemStyle-Width="350" >
+                <asp:BoundField DataField="Descripcion" HeaderText="Descripción" ItemStyle-Width="350" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
                 <asp:BoundField DataField="Detalle" HeaderText="Detalles" >
@@ -218,5 +224,22 @@
       function closeModal2() {
           $('#myModal2').modal('hide');
       }
+  </script>
+
+  <script>
+      function updateDateTime() {
+          var now = new Date();
+          var currentDate = now.toLocaleDateString();
+          var currentTime = now.toLocaleTimeString();
+
+          document.getElementById("currentDate").textContent = "Fecha: " + currentDate;
+          document.getElementById("currentTime").textContent = " - Hora: " + currentTime;
+      }
+
+      // Actualiza la fecha y hora cada segundo
+      setInterval(updateDateTime, 1000);
+
+      // Ejecuta la función una vez para mostrar la fecha y hora de inmediato
+      updateDateTime();
   </script>
 </asp:Content>

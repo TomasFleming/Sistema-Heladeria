@@ -2,6 +2,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <header class="jumbotron text-center">
      <h2><strong>Registro de Factura</strong></h2>
+        <div class="header-right">
+            <div class="date-time">
+                <span id="currentDate"></span>
+                <span id="currentTime"></span>
+            </div>
+        </div>
     </header>
 
     <table class="nav-justified">
@@ -9,13 +15,12 @@
     <td rowspan="2" style="width: 603px; font-size: 50px; color: #000000;">
                 <%--aasasdasasadsads--%>
                 <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;" __designer:mapid="26c">
-                    Numero Ticket Proveedor:
+                    Número Ticket Proveedor:
                     <asp:TextBox ID="Cod_Prov_tx" runat="server" TextMode="Number" Width="140px"></asp:TextBox>
-                    <asp:CompareValidator ID="CompareValidator3" runat="server" ErrorMessage="Debe tener un codigo de identificacion perteneciente al Proveedor" ControlToValidate="Cod_Prov_tx" Operator="GreaterThan" ValueToCompare="0" ForeColor="Red"></asp:CompareValidator>
+                    <asp:CompareValidator ID="CompareValidator3" runat="server" ErrorMessage="Debe tener un código de identificación perteneciente al Proveedor." ControlToValidate="Cod_Prov_tx" Operator="GreaterThan" ValueToCompare="0" ForeColor="Red"></asp:CompareValidator>
     </p>
                 <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;">
-        Numero de Factura a Crear:&nbsp;&nbsp;&nbsp;
-        <asp:Label ID="Nro_Fact_lb" runat="server"></asp:Label>
+        Número de Factura :&nbsp;&nbsp;&nbsp; <asp:Label ID="Nro_Fact_lb" runat="server"></asp:Label>
     </p>
             </td>
             <td style="height: 38px">
@@ -32,7 +37,7 @@
         <ContentTemplate>
     <table class="tableDist" border="0" style="border-style: solid; border-width: 0px 3px 0px 3px; border-color: #CCCCCC; padding: 0px; clip: rect(0px, 0px, 0px, 0px); font-family: Arial; font-size: 20px;">
         <tr>
-            <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; border-top: 3px solid #C0C0C0; width: 525px; border-bottom-color: #C0C0C0; border-bottom-width: 3px; height: 39px; background-color: #6495ED;">Detalles del Proveedor :&nbsp;&nbsp;&nbsp;<asp:Button ID="PopUp_Prov_bt" runat="server" Text="Seleccionar Proveedor" CssClass="btn btn-default" OnClick="PopUp_Prov_bt_Click"/>
+            <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; border-top: 3px solid #C0C0C0; width: 525px; border-bottom-color: #C0C0C0; border-bottom-width: 3px; height: 39px; background-color: #6495ED;">Detalles de Proveedor :&nbsp;&nbsp;&nbsp;<asp:Button ID="PopUp_Prov_bt" runat="server" Text="Seleccionar Proveedor" CssClass="btn btn-default" OnClick="PopUp_Prov_bt_Click"/>
             </td>
             <td class="modal-lg" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 70px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide; height: 39px;"></td>
             <td style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; border-top: 3px solid #C0C0C0; height: 39px; border-bottom-color: #C0C0C0; border-bottom-width: 3px; background-color: #6495ED;">Observaciones de la Factura:&nbsp;&nbsp;&nbsp;</td>
@@ -56,12 +61,12 @@
             </td>
         </tr>
         <tr>
-            <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; width: 525px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px;">Telefono:&nbsp;&nbsp;<asp:Label ID="Telf_lb" runat="server" style="font-size: 20px"></asp:Label>
+            <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; width: 525px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px;">Teléfono:&nbsp;&nbsp;<asp:Label ID="Telf_lb" runat="server" style="font-size: 20px"></asp:Label>
             </td>
             <td class="modal-lg" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 70px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide;">&nbsp;</td>
             <td style="border-width: 3px; border-color: #C0C0C0; border-right-style: solid; border-left-style: solid;">
                 <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
-                    Fecha de Emision :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>
+                    Fecha de Emisión :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>
                     <asp:TextBox ID="Fecha_Creacion_tx" runat="server" style="font-size: 13pt; font-weight: bold" TextMode="Date" Width="190px"></asp:TextBox>
 <%--                    <ajaxToolkit:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="Fecha_Creacion_tx" />--%>
                     </strong>
@@ -69,7 +74,7 @@
             </td>
         </tr>
         <tr>
-            <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; width: 525px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px;">Direccion:&nbsp;&nbsp;<asp:Label ID="Direc_lb" runat="server" style="font-size: 20px"></asp:Label>
+            <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; width: 525px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px;">Dirección:&nbsp;&nbsp;<asp:Label ID="Direc_lb" runat="server" style="font-size: 20px"></asp:Label>
             </td>
             <td class="modal-sm" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 70px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide;">&nbsp;</td>
             <td style="border-width: 3px; border-color: #C0C0C0; border-right-style: solid; border-left-style: solid;">
@@ -85,15 +90,15 @@
             </td>
             <td class="modal-sm" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 70px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide;">&nbsp;</td>
             <td style="border-width: 3px; border-color: #C0C0C0; border-right-style: solid; border-left-style: solid; border-bottom-style: solid;">
-                <asp:Label ID="Alert_lb" runat="server" ForeColor="Red" Text="Asegurese que la fecha de vencimiento sea posterior a la emision" Visible="False"></asp:Label>
+                <asp:Label ID="Alert_lb" runat="server" ForeColor="Red" Text="Asegurese que la fecha de vencimiento sea posterior a la emisión." Visible="False"></asp:Label>
             </td>
         </tr>
     </table>
                     </ContentTemplate>
     </asp:UpdatePanel>
     <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
-        Articulos solicitados:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="Pop_Art_bt" runat="server" Text="Agregar Articulo" CssClass="btn btn-default" OnClick="Pop_Art_bt_Click" />
+        Artículos solicitados:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="Pop_Art_bt" runat="server" Text="Agregar Artículo" CssClass="btn btn-default" OnClick="Pop_Art_bt_Click" />
         <asp:UpdatePanel ID="UpdatePanel2" runat="server">
             <ContentTemplate>
         <center>
@@ -106,10 +111,10 @@
                 <asp:BoundField DataField="Nombre" HeaderText="Nombre" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
-                <asp:BoundField DataField="Categoria" HeaderText="Categoria" >
+                <asp:BoundField DataField="Categoria" HeaderText="Categoría" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
-                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" >
+                <asp:BoundField DataField="Descripcion" HeaderText="Descripción" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
                 <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" >
@@ -428,5 +433,22 @@
         //        return false;
         //    }
         //    return true;
+    </script>
+
+    <script>
+        function updateDateTime() {
+            var now = new Date();
+            var currentDate = now.toLocaleDateString();
+            var currentTime = now.toLocaleTimeString();
+
+            document.getElementById("currentDate").textContent = "Fecha: " + currentDate;
+            document.getElementById("currentTime").textContent = " - Hora: " + currentTime;
+        }
+
+        // Actualiza la fecha y hora cada segundo
+        setInterval(updateDateTime, 1000);
+
+        // Ejecuta la función una vez para mostrar la fecha y hora de inmediato
+        updateDateTime();
     </script>
 </asp:Content>

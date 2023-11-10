@@ -2,6 +2,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <header class="jumbotron text-center">
      <h2><strong>Historial De Movimientos</strong></h2>
+        <div class="header-right">
+            <div class="date-time">
+                <span id="currentDate"></span>
+                <span id="currentTime"></span>
+            </div>
+        </div>
     </header>
     <p>    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
         <ContentTemplate>
@@ -54,13 +60,13 @@
             <asp:GridView ID="Lista_Historial" runat="server" AlternatingRowStyle-CssClass="alt" AutoGenerateColumns="False" CssClass="mGrid" DataKeyNames="ID" PagerStyle-CssClass="pgr">
         <AlternatingRowStyle CssClass="alt" />
         <Columns>
-            <asp:BoundField DataField="ID" HeaderText="N° Operacion">
+            <asp:BoundField DataField="ID" HeaderText="N° Operación">
             <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:BoundField>
-            <asp:BoundField DataField="Nombre" HeaderText="Articulo">
+            <asp:BoundField DataField="Nombre" HeaderText="Artículo">
             <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:BoundField>
-            <asp:BoundField DataField="Deposito" HeaderText="Deposito">
+            <asp:BoundField DataField="Deposito" HeaderText="Depósito">
             <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
             </asp:BoundField>
             <asp:BoundField DataField="Actividad" HeaderText="Actividad">
@@ -78,5 +84,23 @@
         </center>
                   </ContentTemplate>
           </asp:UpdatePanel>
+
+
+    <script>
+        function updateDateTime() {
+            var now = new Date();
+            var currentDate = now.toLocaleDateString();
+            var currentTime = now.toLocaleTimeString();
+
+            document.getElementById("currentDate").textContent = "Fecha: " + currentDate;
+            document.getElementById("currentTime").textContent = " - Hora: " + currentTime;
+        }
+
+        // Actualiza la fecha y hora cada segundo
+        setInterval(updateDateTime, 1000);
+
+        // Ejecuta la función una vez para mostrar la fecha y hora de inmediato
+        updateDateTime();
+    </script>
 
 </asp:Content>

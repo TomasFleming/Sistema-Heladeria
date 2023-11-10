@@ -69,7 +69,7 @@
                                 <img alt="Imagen" src="imagenes 2-0/balances.jpg" width="200" height="200"/>
                             </div>
                                 <center>
-                <asp:Label ID="Label7" runat="server" CssClass="btn btn-primary" Text="Balance" width="200"></asp:Label>
+                <asp:Label ID="Label7" runat="server" CssClass="btn btn-primary" Text="Gráficos" width="200px"></asp:Label>
         </center>
                                 </a>
         </center>       

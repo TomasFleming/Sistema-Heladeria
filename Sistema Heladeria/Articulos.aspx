@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <header class="jumbotron text-center">
-     <h2><strong>Lista De Articulos</strong></h2>
+     <h2><strong>Lista De Artículos</strong></h2>
          <div class="header-right">
             <div class="date-time">
                 <span id="currentDate"></span>
@@ -15,11 +15,11 @@
     
     <div class="row">
     <div class="col-md-4"> <!-- Columna para el textbox -->
-        <asp:TextBox ID="Buscador_art" runat="server" class="form-control" placeholder="Ingresar Articulo" style="width: 350px"></asp:TextBox>
+        <asp:TextBox ID="Buscador_art" runat="server" class="form-control" placeholder="Ingresar Articulo" style="width: 400px"></asp:TextBox>
     </div>
     <div class="col-md-4"> <!-- Columna para los botones -->
         <asp:Button ID="Buscar_art_btn" CssClass="btn btn-primary" runat="server" OnClick="Buscar_art_btn_Click" Text="Buscar" />
-        <asp:Button ID="Agregar_Art_btn" CssClass="btn btn-default" runat="server" Text="Agregar Articulo" OnClick="Agregar_Art_btn_Click" />
+        <asp:Button ID="Agregar_Art_btn" CssClass="btn btn-default" runat="server" Text="Agregar Artículo" OnClick="Agregar_Art_btn_Click" />
     </div>
 </div>
     <p>
@@ -41,10 +41,10 @@
                 <asp:BoundField DataField="Nombre" HeaderText="Nombre" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
-                <asp:BoundField DataField="Nombre_Categoria" HeaderText="Categoria" >
+                <asp:BoundField DataField="Nombre_Categoria" HeaderText="Categoría" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
-                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" >
+                <asp:BoundField DataField="Descripcion" HeaderText="Descripción" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
                 <asp:BoundField DataField="Precio" HeaderText="Precio" >

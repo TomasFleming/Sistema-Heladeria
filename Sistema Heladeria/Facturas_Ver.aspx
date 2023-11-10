@@ -3,6 +3,12 @@
 
     <header class="jumbotron text-center">
      <h2><strong>Lista de Facturas</strong></h2>
+        <div class="header-right">
+            <div class="date-time">
+                <span id="currentDate"></span>
+                <span id="currentTime"></span>
+            </div>
+        </div>
     </header>
 
 <%--    <center><p style="font-size: 40px; font-weight: bold; color:#0094ff;font-family: Arial, sans-serif;">Listas De Facturas</p></center>--%>
@@ -74,7 +80,7 @@
                 <asp:BoundField DataField="NombreCompleto" HeaderText="Proveedor" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
-                <asp:BoundField DataField="Cod_Prov" HeaderText="Numero Factura Proveedor" >
+                <asp:BoundField DataField="Cod_Prov" HeaderText="Número Factura Proveedor" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
                     <asp:BoundField DataField="Tipo" HeaderText="Tipo" >
@@ -83,7 +89,7 @@
                 <asp:BoundField DataField="Estado" HeaderText="Estado" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
-                <asp:BoundField DataField="Fecha_Emision" HeaderText="Fecha Emision" >
+                <asp:BoundField DataField="Fecha_Emision" HeaderText="Fecha Emisión" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
                     <asp:BoundField DataField="Fecha_Vencimiento" HeaderText="Fecha Vencimiento" >
@@ -297,4 +303,22 @@
             menuItems.classList.toggle('show');
         });
     </script>
+
+    <script>
+        function updateDateTime() {
+            var now = new Date();
+            var currentDate = now.toLocaleDateString();
+            var currentTime = now.toLocaleTimeString();
+
+            document.getElementById("currentDate").textContent = "Fecha: " + currentDate;
+            document.getElementById("currentTime").textContent = " - Hora: " + currentTime;
+        }
+
+        // Actualiza la fecha y hora cada segundo
+        setInterval(updateDateTime, 1000);
+
+        // Ejecuta la función una vez para mostrar la fecha y hora de inmediato
+        updateDateTime();
+    </script>
+
 </asp:Content>

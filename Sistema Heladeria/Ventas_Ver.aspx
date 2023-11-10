@@ -2,6 +2,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <header class="jumbotron text-center">
      <h2><strong>Registro de Ventas</strong></h2>
+        <div class="header-right">
+            <div class="date-time">
+                <span id="currentDate"></span>
+                <span id="currentTime"></span>
+            </div>
+        </div>
     </header>
      <div class="row">
     <div class="col-md-4"> <!-- Columna para el textbox -->
@@ -70,10 +76,10 @@
                 <asp:BoundField DataField="NombreCompleto" HeaderText="Cliente" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
-                <asp:BoundField DataField="Fecha" HeaderText="Fecha Emision" >
+                <asp:BoundField DataField="Fecha" HeaderText="Fecha Emisión" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
-                    <asp:BoundField DataField="MetodoPago" HeaderText="Metodo de Pago" >
+                    <asp:BoundField DataField="MetodoPago" HeaderText="Método de Pago" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
                      <asp:BoundField DataField="Total" HeaderText="Total" >
@@ -281,5 +287,22 @@
         function closeModalProv() {
             $('#ModalProv').modal('hide');
         }
+    </script>
+
+    <script>
+        function updateDateTime() {
+            var now = new Date();
+            var currentDate = now.toLocaleDateString();
+            var currentTime = now.toLocaleTimeString();
+
+            document.getElementById("currentDate").textContent = "Fecha: " + currentDate;
+            document.getElementById("currentTime").textContent = " - Hora: " + currentTime;
+        }
+
+        // Actualiza la fecha y hora cada segundo
+        setInterval(updateDateTime, 1000);
+
+        // Ejecuta la función una vez para mostrar la fecha y hora de inmediato
+        updateDateTime();
     </script>
 </asp:Content>

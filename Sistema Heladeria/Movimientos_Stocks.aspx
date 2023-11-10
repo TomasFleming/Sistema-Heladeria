@@ -2,6 +2,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <header class="jumbotron text-center">
      <h2><strong>Registro de Movimientos de Stock</strong></h2>
+        <div class="header-right">
+            <div class="date-time">
+                <span id="currentDate"></span>
+                <span id="currentTime"></span>
+            </div>
+        </div>
     </header>
 <%--    <center><p style="font-size: 40px; color: #CC3300">Registro de Movimientos de Stock</p></center>--%>
     <p style="font-size: 22px">
@@ -16,14 +22,14 @@
     </p>
     <p style="font-size: 22px">
         
-        Deposito en el que se realizaran los Movimientos: <asp:Button ID="PopUp_Depos_bt" runat="server" CssClass="btn btn-default" OnClick="PopUp_Depos_bt_Click" Text="Seleccionar Deposito" />
+        Depósito en el que se realizaran los Movimientos: <asp:Button ID="PopUp_Depos_bt" runat="server" CssClass="btn btn-default" OnClick="PopUp_Depos_bt_Click" Text="Seleccionar Depósito" />
 
         </p>
     <asp:UpdatePanel ID="UpdatePanel3" runat="server">
         <ContentTemplate>
     <table class="nav-justified" border="0" style="border-color: #CCCCCC; padding: 0px; clip: rect(0px, 0px, 0px, 0px); width: 29%;">
         <tr>
-            <td style="font-family: Arial; font-size: 16px; font-style: inherit; color: #000000; height: 28px;">Numero de Deposito:
+            <td style="font-family: Arial; font-size: 16px; font-style: inherit; color: #000000; height: 28px;">Número de Depósito:
                 <asp:Label ID="Deposit_ID_lb" runat="server" style="font-size: 20px"></asp:Label>
             </td>
         </tr>
@@ -32,15 +38,15 @@
             </td>
         </tr>
         <tr>
-            <td style="font-family: Arial; font-size: 16px; font-style: inherit; color: #000000;">Ubicacion:&nbsp; <asp:Label ID="Deposit_Ubic_lb" runat="server" style="font-size: 20px"></asp:Label>
+            <td style="font-family: Arial; font-size: 16px; font-style: inherit; color: #000000;">Ubicación:&nbsp; <asp:Label ID="Deposit_Ubic_lb" runat="server" style="font-size: 20px"></asp:Label>
             </td>
         </tr>
     </table>
                     </ContentTemplate>
     </asp:UpdatePanel>
     <p style="font-size: 22px">
-        Movimientos a realizar: 
-        <asp:Button ID="Pop_Art_bt" runat="server" Text="Agregar Articulo" CssClass="btn btn-default" OnClick="Pop_Art_bt_Click" />
+        Movimiento a realizar: 
+        <asp:Button ID="Pop_Art_bt" runat="server" Text="Agregar Artículo" CssClass="btn btn-default" OnClick="Pop_Art_bt_Click" />
         
     </p>
     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
@@ -55,10 +61,10 @@
                 <asp:BoundField DataField="Nombre" HeaderText="Nombre" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
-                <asp:BoundField DataField="Categoria" HeaderText="Categoria" >
+                <asp:BoundField DataField="Categoria" HeaderText="Categoría" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
-                <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" >
+                <asp:BoundField DataField="Descripcion" HeaderText="Descripción" >
                     <FooterStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                     </asp:BoundField>
                     <%--<asp:BoundField DataField="Movimiento" HeaderText="Movimiento" >
@@ -336,4 +342,22 @@
       }
 
   </script>
-     </asp:Content>
+  
+  <script>
+      function updateDateTime() {
+          var now = new Date();
+          var currentDate = now.toLocaleDateString();
+          var currentTime = now.toLocaleTimeString();
+
+          document.getElementById("currentDate").textContent = "Fecha: " + currentDate;
+          document.getElementById("currentTime").textContent = " - Hora: " + currentTime;
+      }
+
+      // Actualiza la fecha y hora cada segundo
+      setInterval(updateDateTime, 1000);
+
+      // Ejecuta la función una vez para mostrar la fecha y hora de inmediato
+      updateDateTime();
+  </script>
+
+</asp:Content>
