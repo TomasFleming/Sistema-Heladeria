@@ -107,6 +107,8 @@
                 </ContentTemplate></asp:UpdatePanel>
         </center>
     </p>
+     
+
         <div id="myModal1" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
@@ -122,6 +124,38 @@
         <p></p><%--aasasdasasadsads--%>
           <%-- aca deberia empesar el asp:UpdatePanel y el contentemplate, pero solo los nesesitaria para aquellos que nesesito para editar --%>
           <asp:UpdatePanel ID="UpdatePanel3" runat="server"><ContentTemplate>
+
+              <table class="nav-justified" style="width: 60%; font-family: Arial; font-size: 18px; white-space:nowrap; height: 79px;">
+        <tr>
+            <td style="height: 28px; width: 144px">Proveedor :<br />
+            </td>
+            <td style="height: 28px; width: 244px"> <asp:Label ID="Prov_nom_lb" runat="server" style="font-size: 17px"></asp:Label>
+            &nbsp;
+            </td>
+            <td style="height: 28px; width: 155px;">Estado:</td>
+            <td style="height: 28px"> <asp:Label ID="Estado_Fact_lb" runat="server" style="font-size: 17px"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 144px">Fecha de Emision :<br />
+            </td>
+            <td style="width: 244px" class="modal-sm"> <asp:Label ID="Fecha_Emision_lb" runat="server" style="font-size: 17px"></asp:Label>
+            </td>
+            <td style="width: 155px">Fecha Registro :</td>
+            <td> <asp:Label ID="Fecha_Reg_lb" runat="server" style="font-size: 17px"></asp:Label>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 144px">Tipo Factura :<br />
+            </td>
+            <td style="width: 244px" class="modal-sm"> <asp:Label ID="Tipo_lb" runat="server" style="font-size: 17px"></asp:Label>
+            </td>
+            <td style="width: 155px">Importe Total :</td>
+            <td> <asp:Label ID="Total_lb" runat="server" style="font-size: 17px"></asp:Label>
+            </td>
+        </tr>
+    </table>
+
                 <center>
                           <asp:GridView ID="Lista_Detalle" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt">
 <AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>

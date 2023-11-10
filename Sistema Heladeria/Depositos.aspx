@@ -3,7 +3,7 @@
     <%--<center><p style="font-size: 40px; font-weight: bold; color:#0094ff;font-family: Arial, sans-serif;">Depositos Registrados</p></center>--%>
     
     <header class="jumbotron text-center">
-     <h2>L<strong>ista De Depósitos</strong></h2>
+     <h2><strong>Lista De Depósitos</strong></h2>
     </header>
   
 

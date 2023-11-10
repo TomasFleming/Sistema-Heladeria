@@ -36,6 +36,12 @@ namespace Sistema_Heladeria
             Lista_Detalle.DataSource = det;
             Lista_Detalle.DataBind();
             con.Close();
+            Prov_nom_lb.Text = Lista_facturas.SelectedRow.Cells[1].Text;
+            Estado_Fact_lb.Text = Lista_facturas.SelectedRow.Cells[4].Text;
+            Fecha_Emision_lb.Text = Lista_facturas.SelectedRow.Cells[6].Text;
+            Fecha_Reg_lb.Text = Lista_facturas.SelectedRow.Cells[5].Text;
+            Tipo_lb.Text = Lista_facturas.SelectedRow.Cells[3].Text;
+            Total_lb.Text = Lista_facturas.SelectedRow.Cells[7].Text;
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
         }
         protected void Buscar_fact_btn_Click(object sender, EventArgs e)

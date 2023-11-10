@@ -125,29 +125,29 @@
         <tr>
             <td style="height: 28px; width: 144px">Proveedor :<br />
             </td>
-            <td style="height: 28px; width: 199px"> <asp:Label ID="Prov_nom_lb" runat="server" style="font-size: 20px"></asp:Label>
+            <td style="height: 28px; width: 199px">&nbsp;<asp:Label ID="Prov_nom_lb" runat="server" style="font-size: 17px"></asp:Label>
             &nbsp;
             </td>
             <td style="height: 28px; width: 155px;">N° Cuenta :</td>
-            <td style="height: 28px"> <asp:Label ID="Num_Cuenta_lb" runat="server" style="font-size: 20px"></asp:Label>
+            <td style="height: 28px">&nbsp;<asp:Label ID="Num_Cuenta_lb" runat="server" style="font-size: 17px"></asp:Label>
             </td>
         </tr>
         <tr>
             <td style="width: 144px">Fecha de Pago :<br />
             </td>
-            <td style="width: 199px" class="modal-sm"> <asp:Label ID="Fecha_Pago_lb" runat="server" style="font-size: 20px"></asp:Label>
+            <td style="width: 199px" class="modal-sm">&nbsp;<asp:Label ID="Fecha_Pago_lb" runat="server" style="font-size: 17px"></asp:Label>
             </td>
             <td style="width: 155px">Fecha Registro :</td>
-            <td> <asp:Label ID="Fecha_Reg_lb" runat="server" style="font-size: 20px"></asp:Label>
+            <td>&nbsp;<asp:Label ID="Fecha_Reg_lb" runat="server" style="font-size: 17px"></asp:Label>
             </td>
         </tr>
         <tr>
             <td style="width: 144px">Metodo Pago :<br />
             </td>
-            <td style="width: 199px" class="modal-sm"> <asp:Label ID="Met_Pago_lb" runat="server" style="font-size: 20px"></asp:Label>
+            <td style="width: 199px" class="modal-sm">&nbsp;<asp:Label ID="Met_Pago_lb" runat="server" style="font-size: 17px"></asp:Label>
             </td>
             <td style="width: 155px">Importe Total :</td>
-            <td> <asp:Label ID="Total_lb" runat="server" style="font-size: 20px"></asp:Label>
+            <td>&nbsp;<asp:Label ID="Total_lb" runat="server" style="font-size: 17px"></asp:Label>
             </td>
         </tr>
     </table> 
