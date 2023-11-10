@@ -11,7 +11,7 @@
         <asp:DropDownList ID="Lista_Mov" runat="server" Height="25px" Width="244px" DataSourceID="SqlDataSource1" DataTextField="Nombre" DataValueField="ID" OnSelectedIndexChanged="Lista_Mov_SelectedIndexChanged">
         </asp:DropDownList>
 
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Heladeria Sistemas 3ConnectionString %>" SelectCommand="SELECT [ID], [Nombre] FROM [Actividades]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Heladeria Sistemas 3ConnectionString %>" SelectCommand="SELECT [ID], [Nombre] FROM [Actividades] where Estado !='Desactivado'"></asp:SqlDataSource>
             </ContentTemplate></asp:UpdatePanel>
     </p>
     <p style="font-size: 22px">

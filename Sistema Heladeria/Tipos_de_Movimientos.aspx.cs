@@ -20,13 +20,15 @@ namespace Sistema_Heladeria
 
         protected void Agregar_mov_btn_Click(object sender, EventArgs e)
         {
+            Completos_lb.Visible = false;
+            Alert_lb.Visible = false;
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
         }
 
         protected void Buscar_mov_btn_Click(object sender, EventArgs e)
         {
             con.Open();
-            string comando = "select * from Actividades";
+            string comando = "select * from Actividades where Estado!='Desactivado' and (ID like '%"+Buscador_mov.Text+"%' or Nombre like '%"+Buscador_mov.Text+"%')";
             SqlCommand Com = new SqlCommand(comando, con.GetConnection());
             Com.ExecuteNonQuery();
             SqlDataAdapter Proveedores = new SqlDataAdapter(Com);
@@ -61,7 +63,7 @@ namespace Sistema_Heladeria
         protected void Guardar_Mov_bt_Click(object sender, EventArgs e)//guarda primera vez
         {
             con.Open();
-            SqlCommand check = new SqlCommand("select * from Actividades where Nombre='" + Nombre_mov_tx.Text + "'", con.GetConnection());
+            SqlCommand check = new SqlCommand("select * from Actividades where Nombre='" + Nombre_mov_tx.Text + "' and Estado!='Desactivado'", con.GetConnection());
             SqlDataReader leer = check.ExecuteReader();
             if (leer.Read())
             {
@@ -81,6 +83,7 @@ namespace Sistema_Heladeria
                 Nombre_mov_tx.Text = "";
                 Descp_tx.Text = "";
                 Completos_lb.Visible = false;
+                Buscar_mov_btn_Click(sender, e);
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
             }
             else
@@ -97,7 +100,7 @@ namespace Sistema_Heladeria
         protected void Mov_guard_btn_Click(object sender, EventArgs e)//edita 
         {
             con.Open();
-            SqlCommand check = new SqlCommand("select * from Actividades where Nombre='" + Nomb_Edit_tx.Text + "'", con.GetConnection());
+            SqlCommand check = new SqlCommand("select * from Actividades where Nombre='" + Nomb_Edit_tx.Text + "' and Estado!='Desactivado' and ID!="+ID_Art_edit_lb.Text, con.GetConnection());
             SqlDataReader leer = check.ExecuteReader();
             if (leer.Read())
             {
@@ -142,7 +145,7 @@ namespace Sistema_Heladeria
         protected void Eliminar_Mov_btn_Click(object sender, EventArgs e)
         {
             con.Open();
-            SqlCommand sql = new SqlCommand("delete Actividades where ID=" + ID_Art_edit_lb.Text, con.GetConnection());
+            SqlCommand sql = new SqlCommand("update Actividades set Estado='Desactivado' where ID=" + ID_Art_edit_lb.Text, con.GetConnection());
             sql.ExecuteNonQuery();
             con.Close();
             Buscar_mov_btn_Click(sender, e);
