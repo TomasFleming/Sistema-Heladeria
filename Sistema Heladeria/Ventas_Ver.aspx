@@ -126,33 +126,33 @@
         <tr>
             <td style="height: 36px; width: 144px">Cliente :<br />
             </td>
-            <td style="height: 36px; width: 244px"> <asp:Label ID="Client_nom_lb" runat="server" style="font-size: 17px"></asp:Label>
+            <td style="height: 36px; width: 244px"> <asp:Label ID="Client_nom_lb" runat="server" style="font-size: 18px"></asp:Label>
             &nbsp;
                 <br />
             </td>
             <td style="height: 36px; width: 65px"> &nbsp;</td>
             <td style="height: 36px; width: 155px;">Fecha Emision :<br />
             </td>
-            <td style="height: 36px"> <asp:Label ID="Fecha_Emision_lb" runat="server" style="font-size: 17px"></asp:Label>
+            <td style="height: 36px"> <asp:Label ID="Fecha_Emision_lb" runat="server" style="font-size: 18px"></asp:Label>
             </td>
         </tr>
-        <tr>
+        <%--<tr>
             <td style="height: 36px; width: 144px">&nbsp;</td>
             <td style="height: 36px; width: 244px"> &nbsp;</td>
             <td style="height: 36px; width: 65px"> &nbsp;</td>
             <td style="height: 36px; width: 155px;">&nbsp;</td>
             <td style="height: 36px"> &nbsp;</td>
-        </tr>
+        </tr>--%>
         <tr>
             <td style="width: 144px; height: 35px;">Metodo Pago :<br />
             </td>
-            <td style="width: 244px; height: 35px;" class="modal-sm"> <asp:Label ID="Met_pago_lb" runat="server" style="font-size: 17px"></asp:Label>
+            <td style="width: 244px; height: 35px;" class="modal-sm"> <asp:Label ID="Met_pago_lb" runat="server" style="font-size: 18px">&nbsp;&nbsp;                        </asp:Label>
                 <br />
             </td>
             <td style="width: 65px; height: 35px;" class="modal-sm"> &nbsp;</td>
             <td style="width: 155px; height: 35px;">Importe Total :<br />
             </td>
-            <td style="height: 35px"> <asp:Label ID="Total_lb" runat="server" style="font-size: 17px"></asp:Label>
+            <td style="height: 35px"> <asp:Label ID="Total_lb" runat="server" style="font-size: 18px"></asp:Label>
                 <br />
             </td>
         </tr>

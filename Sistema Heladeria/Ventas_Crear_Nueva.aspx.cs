@@ -233,7 +233,7 @@ namespace Sistema_Heladeria
 
         protected void Guardar_Venta_btn_Click(object sender, EventArgs e)
         {
-            if (Tarjeta.Checked == true && (string.IsNullOrEmpty(Numero_tj_tx.Text) || string.IsNullOrEmpty(Cod_tj_tx.Text) || string.IsNullOrEmpty(Nomb_tj_lb.Text) || string.IsNullOrEmpty(Fecha_Tarjeta_tx.Text) || string.IsNullOrEmpty(Fecha_Tarjeta_tx0.Text)))
+            if (Tarjeta.Checked == true && (string.IsNullOrEmpty(Numero_tj_tx.Text) || string.IsNullOrEmpty(Cod_tj_tx.Text) || string.IsNullOrEmpty(Nomb_tj_lb.Text) || string.IsNullOrEmpty(Fecha_Tarjeta_tx.Text)))
             {
                 Label_Tarjeta.Visible = true;
             }

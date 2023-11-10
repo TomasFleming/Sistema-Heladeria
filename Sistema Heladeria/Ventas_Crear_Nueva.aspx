@@ -39,7 +39,7 @@
     <table class="tableDist" border="0" style="border-style: solid; border-width: 0px 3px 0px 3px; border-color: #CCCCCC; padding: 0px; clip: rect(0px, 0px, 0px, 0px); font-family: Arial; font-size: 20px;">
         <tr>
             <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; border-top: 3px solid #C0C0C0; width: 525px; border-bottom-color: #C0C0C0; border-bottom-width: 3px; height: 39px; background-color: #6495ED;">Detalles de Cliente :&nbsp;&nbsp;&nbsp;<asp:Button ID="PopUp_Cliente_btn" runat="server" Text="Seleccionar Cliente" CssClass="btn btn-default" OnClick="PopUp_Cliente_btn_Click"/>
-                &nbsp;<asp:Button ID="Cliente_Default_btn" runat="server" CssClass="btn btn-primary" OnClick="Cliente_Default_btn_Click" Text="Venta Caja" />
+                &nbsp;<asp:Button ID="Cliente_Default_btn" runat="server" CssClass="btn btn-primary" OnClick="Cliente_Default_btn_Click" Text="Usuario Final" />
             </td>
             <td class="modal-lg" style="border-style: inherit; border-color: #FFFFFF; border-width: 0px; width: 70px; background-color: #FFFFFF; border-collapse: separate; table-layout: inherit; border-spacing: inherit; empty-cells: hide; height: 39px;"></td>
             <td style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; border-top: 3px solid #C0C0C0; height: 39px; border-bottom-color: #C0C0C0; border-bottom-width: 3px; background-color: #6495ED;">Detalles de Venta:&nbsp;&nbsp;&nbsp;</td>
@@ -59,6 +59,9 @@
                     <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
                         <asp:Label ID="Det_tj_lb" runat="server" Text="Detalles de la Tarjeta :" Visible="False"></asp:Label>
                         <asp:Label ID="Label_Tarjeta" runat="server" Text="Por Favor asegurese de ingresar todos los datos correctamente." ForeColor="Red" Visible="False"></asp:Label>
+                    </p>
+                    
+                    <p>
                     </p>
                     
                     <p>

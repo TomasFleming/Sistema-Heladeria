@@ -36,7 +36,7 @@
     </table>
     <asp:UpdatePanel ID="UpdatePanel5" runat="server">
         <ContentTemplate>
-    <table class="tableDist" border="0" style="border-style: solid; border-width: 0px 3px 0px 3px; border-color: #CCCCCC; padding: 0px; clip: rect(0px, 0px, 0px, 0px);">
+    <table class="tableDist" border="0" style="border-style: solid; border-width: 0px 3px 0px 3px; border-color: #CCCCCC; padding: 0px; clip: rect(0px, 0px, 0px, 0px); font-size: 20px;">
         <tr>
             <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; border-top: 3px solid #C0C0C0; width: 525px; border-bottom-color: #C0C0C0; border-bottom-width: 3px; background-color: #6495ED;">Detalles del Proveedor :&nbsp;&nbsp;&nbsp;<asp:Button ID="PopUp_Prov_bt" runat="server" Text="Seleccionar Proveedor" CssClass="btn btn-default" OnClick="PopUp_Prov_bt_Click"/>
             </td>
@@ -267,7 +267,7 @@
             
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Articulo N°<asp:Label ID="ID_Art_sel_lb" runat="server" Visible="True"></asp:Label> :</h4></center>
+        <center><h4 class="modal-title" style="font-family: 'Arial Black'; font-size: 24px; font-weight: bold; font-style: normal; font-variant: normal">Agregar Articulo<asp:Label ID="ID_Art_sel_lb" runat="server" Visible="false"></asp:Label></h4></center>
       </div></ContentTemplate>
         </asp:UpdatePanel>
       <div class="modal-body">
