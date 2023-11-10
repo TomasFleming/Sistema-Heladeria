@@ -300,7 +300,7 @@ namespace Sistema_Heladeria
         protected void Buscar_client_btn_Click(object sender, EventArgs e)
         {
             con.Open();
-            string qry = "select * from Clientes where ID like '%" + Buscador_cliente.Text + "%' and ID not like '2'";
+            string qry = "select * from Clientes where ID like '%" + Buscador_cliente.Text + "%' and Estado!='Desactivado' and ID not like '2'";
             SqlCommand Com = new SqlCommand(qry, con.GetConnection());
             Com.ExecuteNonQuery();
             SqlDataAdapter Articulos = new SqlDataAdapter(Com);
