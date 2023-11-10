@@ -203,7 +203,7 @@ namespace Sistema_Heladeria
         protected void Buscar_prov_btn_Click(object sender, EventArgs e)
         {
             con.Open();
-            string qry = "select * from Proveedores ";
+            string qry = "select * from Proveedores where Estado!='Desactivado' and (ID like '%" + Buscador_prov.Text + "%' or NombreCompleto like '%" + Buscador_prov.Text + "%') ";
             SqlCommand Com = new SqlCommand(qry, con.GetConnection());
             Com.ExecuteNonQuery();
             SqlDataAdapter Proveedores = new SqlDataAdapter(Com);

@@ -20,7 +20,7 @@ namespace Sistema_Heladeria
         protected void Buscar_client_btn_Click(object sender, EventArgs e)
         {
             con.Open();
-            string qry = "select * from Clientes where ID like '%" + Buscador_client.Text + "%'  and ID not like '2'";
+            string qry = "select * from Clientes where ID like '%" + Buscador_client.Text + "%' and Estado!='Desactivado'  and ID not like '2'";
             SqlCommand Com = new SqlCommand(qry, con.GetConnection());
             Com.ExecuteNonQuery();
             SqlDataAdapter Articulos = new SqlDataAdapter(Com);
@@ -62,7 +62,7 @@ namespace Sistema_Heladeria
         protected void Cliente_guard_btn_Click(object sender, EventArgs e)
         {
             con.Open();
-            SqlCommand check = new SqlCommand("select * from Clientes where NombreCompleto='" + Nombre_tx.Text + "' or Correo='"+Mail_tx.Text+"'", con.GetConnection());
+            SqlCommand check = new SqlCommand("select * from Clientes where (NombreCompleto='" + Nombre_tx.Text + "' or Correo='"+Mail_tx.Text+ "') and Estado!='Desactivado'", con.GetConnection());
             SqlDataReader leer = check.ExecuteReader();
             if (leer.Read())
             {
@@ -96,6 +96,7 @@ namespace Sistema_Heladeria
                 Doc_tx.Text = "";
                 Mail_tx.Text = "";
                 Completos_lb.Visible = false;
+                Buscar_client_btn_Click(sender, e);
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
             }
             else
@@ -123,7 +124,7 @@ namespace Sistema_Heladeria
         protected void Guardar_Camb_bt_Click(object sender, EventArgs e)
         {
             con.Open();
-            SqlCommand check = new SqlCommand("select * from Clientes where (NombreCompleto='" + Nomb_Edit_tx.Text + "' or Correo='"+Correo_Edit_tx.Text+"') and ID!=" + ID_Art_edit_lb.Text, con.GetConnection());
+            SqlCommand check = new SqlCommand("select * from Clientes where (NombreCompleto='" + Nomb_Edit_tx.Text + "' or Correo='"+Correo_Edit_tx.Text+ "') and Estado!='Desactivado' and ID!=" + ID_Art_edit_lb.Text, con.GetConnection());
             SqlDataReader leer = check.ExecuteReader();
             if (leer.Read())
             {
@@ -149,6 +150,7 @@ namespace Sistema_Heladeria
                 sql.ExecuteNonQuery();
                 con.Close();
                 Completos_lb.Visible = false;
+                Buscar_client_btn_Click(sender, e);
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal2();", true);
             }
             else
@@ -164,12 +166,13 @@ namespace Sistema_Heladeria
         protected void Eliminar_Client_btn_Click(object sender, EventArgs e)
         {
             con.Open();
-            SqlCommand sql = new SqlCommand("delete Clientes where ID= " + ID_Art_edit_lb.Text, con.GetConnection());
+            SqlCommand sql = new SqlCommand("update Clientes set Estado='Desactivado' where ID= " + ID_Art_edit_lb.Text, con.GetConnection());
             sql.ExecuteNonQuery();
             con.Close();
             Alert_Edit_lb.Visible = false;
             Alert_Correo_Edit_lb.Visible = false;
             Completos_Edit_lb.Visible = false;
+            Buscar_client_btn_Click(sender, e);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal2();", true);
         }
     }

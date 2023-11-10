@@ -29,7 +29,7 @@ namespace Sistema_Heladeria
         protected void Buscar_prov_btn_Click(object sender, EventArgs e)
         {
             con.Open();
-            string qry = "select * from Proveedores ";
+            string qry = "select * from Proveedores where Estado!='Desactivado' and (ID like '%" + Buscador_prov.Text + "%' or NombreCompleto like '%" + Buscador_prov.Text + "%')";
             SqlCommand Com = new SqlCommand(qry, con.GetConnection());
             Com.ExecuteNonQuery();
             SqlDataAdapter Proveedores = new SqlDataAdapter(Com);
@@ -43,7 +43,7 @@ namespace Sistema_Heladeria
         protected void Prov_guard_btn_Click(object sender, EventArgs e)
         {
             con.Open();
-            SqlCommand check = new SqlCommand("select * from Proveedores where NombreCompleto='" + Nomb_tx.Text + "' or Correo='" + Correo_tx.Text + "'", con.GetConnection());
+            SqlCommand check = new SqlCommand("select * from Proveedores where (NombreCompleto='" + Nomb_tx.Text + "' or Correo='" + Correo_tx.Text + "') and Estado!='Desactivado'", con.GetConnection());
             SqlDataReader leer = check.ExecuteReader();
             if (leer.Read())
             {
@@ -78,6 +78,7 @@ namespace Sistema_Heladeria
                 Telefono_tx.Text = "";
                 Correo_tx.Text = "";
                 Completos_lb.Visible = false;
+                Buscar_prov_btn_Click(sender, e);
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal();", true);
             }
             else
@@ -105,19 +106,20 @@ namespace Sistema_Heladeria
         protected void Eliminar_Prov_btn_Click(object sender, EventArgs e)
         {
             con.Open();
-            SqlCommand sql = new SqlCommand("delete Proveedores where ID= " + ID_Prov_edit.Text, con.GetConnection());
+            SqlCommand sql = new SqlCommand("update Proveedores set Estado='Desactivado' where ID= " + ID_Prov_edit.Text, con.GetConnection());
             sql.ExecuteNonQuery();
             con.Close();
             Alert_Edit_lb.Visible = false;
             Alert_Correo_Edit_lb.Visible = false;
             Completos_Edit_lb.Visible = false;
+            Buscar_prov_btn_Click(sender, e);
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal2();", true);
         }
 
         protected void Guardar_Edit_btn_Click(object sender, EventArgs e)
         {
             con.Open();
-            SqlCommand check = new SqlCommand("select * from Proveedores where (NombreCompleto='" + Nomb_Edit_tx.Text + "' or Correo='" + Correo_Edit_tx.Text + "') and ID!="+ID_Prov_edit.Text, con.GetConnection());
+            SqlCommand check = new SqlCommand("select * from Proveedores where (NombreCompleto='" + Nomb_Edit_tx.Text + "' or Correo='" + Correo_Edit_tx.Text + "') and Estado!='Desactivado' and ID!=" + ID_Prov_edit.Text, con.GetConnection());
             SqlDataReader leer = check.ExecuteReader();
             if (leer.Read())
             {
@@ -143,6 +145,7 @@ namespace Sistema_Heladeria
                 sql.ExecuteNonQuery();
                 con.Close();
                 Completos_Edit_lb.Visible = false;
+                Buscar_prov_btn_Click(sender, e);
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModal2();", true);
             }
             else

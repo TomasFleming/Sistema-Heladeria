@@ -28,6 +28,7 @@
         
     </p>
     <p>
+        <asp:UpdatePanel ID="UpdatePanel3" runat="server"><ContentTemplate>
         <center>
             <asp:GridView ID="Lista_Proveedores" runat="server" AutoGenerateColumns="False" DataKeyNames="ID"  CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt" Width="1235px">
 <AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
@@ -58,7 +59,7 @@
 
 <PagerStyle CssClass="pgr"></PagerStyle>
             </asp:GridView>
-        </center>
+        </center></ContentTemplate></asp:UpdatePanel>
     </p>
     <p>
         
