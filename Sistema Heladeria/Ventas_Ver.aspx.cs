@@ -21,7 +21,7 @@ namespace Sistema_Heladeria
         protected void Buscar_Vent_btn_Click(object sender, EventArgs e)
         {
             con.Open();
-            string comando = "select * from Ventas V inner join Clientes C on C.ID=V.ID_Cliente where V.ID ";//and Total>=@prTotMin and Total<=@prTotMax and Fecha_Emision>=@prFechaInicio and Fecha_Emision<=@prFechaFin and ID_prov=@prProveedor";
+            string comando = "select V.ID,ID_Cliente,NombreCompleto,FORMAT(Fecha, 'dd/MM/yyyy') AS Fecha,MetodoPago,NumeroCuenta,Total from Ventas V inner join Clientes C on C.ID=V.ID_Cliente where V.ID ";//and Total>=@prTotMin and Total<=@prTotMax and Fecha_Emision>=@prFechaInicio and Fecha_Emision<=@prFechaFin and ID_prov=@prProveedor";
 
             if (!string.IsNullOrWhiteSpace(Buscador_Vents_tx.Text))
             {
@@ -79,6 +79,10 @@ namespace Sistema_Heladeria
             Lista_Detalle.DataSource = det;
             Lista_Detalle.DataBind();
             con.Close();
+            Client_nom_lb.Text=Lista_facturas.SelectedRow.Cells[1].Text;
+            Met_pago_lb.Text = Lista_facturas.SelectedRow.Cells[3].Text;
+            Fecha_Emision_lb.Text = Lista_facturas.SelectedRow.Cells[2].Text;
+            Total_lb.Text = Lista_facturas.SelectedRow.Cells[4].Text;
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalArt();", true);
         }
 

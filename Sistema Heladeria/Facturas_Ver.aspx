@@ -131,6 +131,7 @@
             </td>
             <td style="height: 28px; width: 244px"> <asp:Label ID="Prov_nom_lb" runat="server" style="font-size: 17px"></asp:Label>
             &nbsp;
+                <br />
             </td>
             <td style="height: 28px; width: 155px;">Estado  :</td>
             <td style="height: 28px"> <asp:Label ID="Estado_Fact_lb" runat="server" style="font-size: 17px"></asp:Label>
@@ -140,6 +141,7 @@
             <td style="width: 144px">Fecha de Emision :<br />
             </td>
             <td style="width: 244px" class="modal-sm"> <asp:Label ID="Fecha_Emision_lb" runat="server" style="font-size: 17px"></asp:Label>
+                <br />
             </td>
             <td style="width: 155px">Fecha Registro :</td>
             <td> <asp:Label ID="Fecha_Reg_lb" runat="server" style="font-size: 17px"></asp:Label>
@@ -149,6 +151,7 @@
             <td style="width: 144px">Tipo Factura :<br />
             </td>
             <td style="width: 244px" class="modal-sm"> <asp:Label ID="Tipo_lb" runat="server" style="font-size: 17px"></asp:Label>
+                <br />
             </td>
             <td style="width: 155px">Importe Total :</td>
             <td> <asp:Label ID="Total_lb" runat="server" style="font-size: 17px"></asp:Label>
