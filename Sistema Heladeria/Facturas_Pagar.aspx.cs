@@ -15,6 +15,8 @@ namespace Sistema_Heladeria
         Conectar con = new Conectar();
         protected void Page_Load(object sender, EventArgs e)
         {
+            DateTime fechaActual = DateTime.Now;
+            Fecha_Creacion_tx.Text = fechaActual.ToString("yyyy-MM-dd");
             con.CrearConexion();
             con.Open();
             SqlCommand sql = new SqlCommand("SELECT TOP 1 * FROM Registro_Pagos ORDER BY ID DESC", con.GetConnection());

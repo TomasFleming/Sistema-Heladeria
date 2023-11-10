@@ -363,9 +363,12 @@ namespace Sistema_Heladeria
             SqlDataReader Leer = Com.ExecuteReader();
             Leer.Read();
             Client_ID_lb.Text = Leer["ID"].ToString();
-
+            Client_nom_lb.Text = "-----------";
+            DNI_lb.Text = "----------------------------";
+            Telf_lb.Text = "----------------------------";
+            Correo_lb.Text = "----------------------------";
             //ID_art_tx.Text = Leer["ID"].ToString();
-            Client_nom_lb.Text = Leer["NombreCompleto"].ToString();
+            Client_nom_lb.Text = "Usuario Final"; /*Leer["NombreCompleto"].ToString();*/
             con.Close();
         }
     }

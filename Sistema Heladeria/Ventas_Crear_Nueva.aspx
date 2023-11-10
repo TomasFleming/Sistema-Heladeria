@@ -14,7 +14,7 @@
                     </strong>
                 </p>
                 <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000; margin-left: 0px;">
-                    Numero de Venta a Crear:&nbsp;&nbsp;&nbsp;
+                    Numero de Venta:&nbsp;&nbsp;&nbsp;
         <asp:Label ID="Nro_Venta_lb" runat="server"></asp:Label>
     </p>
             </td>
@@ -39,7 +39,7 @@
             <td style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; border-top: 3px solid #C0C0C0; height: 39px; border-bottom-color: #C0C0C0; border-bottom-width: 3px; background-color: #6495ED;">Detalles de Venta:&nbsp;&nbsp;&nbsp;</td>
         </tr>
         <tr>
-            <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; width: 525px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px; height: 56px;">COD Cliente:
+            <td class="modal-lg" style="border-left: 3px solid #C0C0C0; border-right: 3px solid #C0C0C0; width: 525px; border-top-color: #C0C0C0; border-top-width: 3px; border-bottom-color: #C0C0C0; border-bottom-width: 3px; height: 56px;">COD Cliente:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Label ID="Client_ID_lb" runat="server" style="font-size: 20px"></asp:Label>
                 <br />
                 Nombre :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="Client_nom_lb" runat="server" style="font-size: 20px"></asp:Label>
@@ -53,6 +53,9 @@
                     <p style="font-family: Arial; font-size: 20px; font-style: inherit; color: #000000;">
                         <asp:Label ID="Det_tj_lb" runat="server" Text="Detalles de la Tarjeta :" Visible="False"></asp:Label>
                         <asp:Label ID="Label_Tarjeta" runat="server" Text="Por Favor asegurese de ingresar todos los datos correctamente" ForeColor="Red" Visible="false"></asp:Label>
+                    </p>
+                    
+                    <p>
                     </p>
                     
                     <p>
@@ -101,7 +104,7 @@
             <td style="border-width: 3px; border-color: #C0C0C0; border-right-style: solid; border-left-style: solid; border-bottom-style: solid;">
                 <p>
                 <asp:Label ID="Fecha_tj_lb" runat="server" Text="Vencimiento: " Visible="False"></asp:Label>
-                &nbsp;<strong><asp:TextBox ID="Fecha_Tarjeta_tx" runat="server" Height="23px" style="font-size: 13pt; font-weight: bold" TextMode="Number" Visible="False" MaxLength="2" Width="57px"></asp:TextBox>
+                &nbsp;<strong><asp:TextBox ID="Fecha_Tarjeta_tx" runat="server" Height="23px" style="font-size: 13pt; font-weight: bold" Visible="False" MaxLength="5" Width="57px"></asp:TextBox>
                     &nbsp;&nbsp;
                 <asp:TextBox ID="Fecha_Tarjeta_tx0" runat="server" Height="23px" style="font-size: 13pt; font-weight: bold" TextMode="Number" MaxLength="2" Visible="False" Width="57px"></asp:TextBox>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
