@@ -79,7 +79,7 @@
                 <asp:Label ID="Art_nom_lb" runat="server" Text="Nombre:" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 66px; width: 300px">
-                <asp:TextBox ID="Nombre_mov_tx" runat="server" Width="300px"></asp:TextBox>
+                <asp:TextBox ID="Nombre_mov_tx" runat="server" Width="300px" MaxLength="15"></asp:TextBox>
                 <asp:Label ID="Alert_lb" runat="server" Text="Ya existe un Movimiento con ese nombre" Visible="False" ForeColor="Red"></asp:Label>
             </td>
         </tr>
@@ -152,7 +152,7 @@
                     <asp:Label ID="Label3" runat="server" style="font-size: 20px" Text="Nombre:"></asp:Label>
                 </td>
                 <td style="height: 66px; width: 646px">
-                    <asp:TextBox ID="Nomb_Edit_tx" runat="server" style="font-size: 15pt" Width="300px"></asp:TextBox>
+                    <asp:TextBox ID="Nomb_Edit_tx" runat="server" style="font-size: 15pt" Width="300px" MaxLength="15"></asp:TextBox>
                     <asp:Label ID="Alert_Edit_lb" runat="server" ForeColor="Red" Text="Ya existe un Movimiento con ese nombre" Visible="False"></asp:Label>
                 </td>
             </tr>

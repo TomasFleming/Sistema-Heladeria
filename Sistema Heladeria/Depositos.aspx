@@ -92,7 +92,7 @@
                 <asp:Label ID="Art_nom_lb" runat="server" Text="Nombre" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 20px; width: 646px">
-                <asp:TextBox ID="Nomb_tx" runat="server" style="font-size: 15pt" Width="300px"></asp:TextBox>
+                <asp:TextBox ID="Nomb_tx" runat="server" style="font-size: 15pt" Width="300px" MaxLength="15"></asp:TextBox>
                 <asp:Label ID="Alert_lb" runat="server" Text="Ya existe un Deposito con ese nombre registrado" Visible="False" ForeColor="Red"></asp:Label>
             </td>
         </tr>
@@ -170,7 +170,7 @@
                     <asp:TemplateField HeaderText="">
                 <ItemTemplate>
                     <center>
-                        <asp:Button ID="Stock_Min_btn" runat="server" CssClass="btn btn-primary" OnClick="Stock_Min_btn_Click" Text="Cambiar Stock Minimo" />
+                        <asp:Button ID="Stock_Min_btn" runat="server" CssClass="btn btn-primary" OnClick="Stock_Min_btn_Click" Text="Cambiar Minimo" />
                     </center>
                 </ItemTemplate>
             </asp:TemplateField>

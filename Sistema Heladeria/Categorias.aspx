@@ -83,7 +83,7 @@
                 <asp:Label ID="Art_nom_lb" runat="server" Text="Nombre:" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 20px; width: 646px">
-                <asp:TextBox ID="Nomb_tx" runat="server" style="font-size: 15pt" Width="300px"></asp:TextBox>
+                <asp:TextBox ID="Nomb_tx" runat="server" style="font-size: 15pt" Width="300px" MaxLength="15"></asp:TextBox>
                 <br />
                 <asp:Label ID="Alert_lb" runat="server" Text="Ya existe una categoria con ese nombre" Visible="False" ForeColor="Red"></asp:Label>
             </td>
@@ -141,7 +141,7 @@
                 <asp:Label ID="Label2" runat="server" Text="Nombre" style="font-size: 20px"></asp:Label>
             </td>
             <td style="height: 20px; width: 646px">
-                <asp:TextBox ID="Nomb_Edit_tx" runat="server" style="font-size: 15pt" Width="300px"></asp:TextBox>
+                <asp:TextBox ID="Nomb_Edit_tx" runat="server" style="font-size: 15pt" Width="300px" MaxLength="15"></asp:TextBox>
                 <br />
                 <asp:Label ID="Alert_edit_lb" runat="server" Text="Ya existe una categoria con ese nombre" Visible="False" ForeColor="Red"></asp:Label>
             </td>
