@@ -9,8 +9,6 @@
         Tipo de Movimiento a realizar :
 
         <asp:DropDownList ID="Lista_Mov" runat="server" Height="25px" Width="244px" DataSourceID="SqlDataSource1" DataTextField="Nombre" DataValueField="ID" OnSelectedIndexChanged="Lista_Mov_SelectedIndexChanged">
-            <asp:ListItem>Agregar</asp:ListItem>
-            <asp:ListItem>Retirar</asp:ListItem>
         </asp:DropDownList>
 
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Heladeria Sistemas 3ConnectionString %>" SelectCommand="SELECT [ID], [Nombre] FROM [Actividades]"></asp:SqlDataSource>

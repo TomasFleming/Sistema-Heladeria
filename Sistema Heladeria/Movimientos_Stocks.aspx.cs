@@ -62,8 +62,14 @@ namespace Sistema_Heladeria
 
         protected void PopUp_Depos_bt_Click(object sender, EventArgs e)
         {
-            Buscar_dep_btn_Click(sender, e);
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalDep();", true);
+            try
+            {
+                Buscar_dep_btn_Click(sender, e);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalDep();", true);
+            }catch(Exception ex)
+            {
+                con.Close();
+            }
         }
 
         protected void Select_Dept_btn_Click(object sender, EventArgs e)
@@ -140,20 +146,61 @@ namespace Sistema_Heladeria
 
         protected void Art_Agregar_btn_Click(object sender, EventArgs e)//cambiarlo para que me valide si puedo quitar la cantidad de articulos que digo, o que me de una alerta de que quedaran con bajo stock
         {
-            con.Open();
-            int IDact = Lista_Mov.SelectedIndex + 1;
-            SqlCommand chec = new SqlCommand("select* from Actividades where ID= " + IDact, con.GetConnection());
-            SqlDataReader act = chec.ExecuteReader();
-            act.Read();
-            string Actividad = act["Detalle"].ToString();
-            con.Close();
             try
             {
-                if (Actividad == "Retiro")
+                con.Open();
+                string Actividad = "";
+                try
                 {
-                    int checkeo = ChequearArt(Convert.ToInt32(ID_Art_sel_lb.Text), Convert.ToInt32(Cantidad_tx.Text));
+                    int IDact = Convert.ToInt32(Lista_Mov.SelectedValue);
+                    SqlCommand chec = new SqlCommand("select* from Actividades where ID= " + IDact, con.GetConnection());
+                    SqlDataReader act = chec.ExecuteReader();
+                    act.Read();
+                    Actividad = act["Detalle"].ToString();
+                }
+                catch(Exception ex)
+                {
+                    con.Close();
+                    con.Open();
+                    int IDact = Convert.ToInt32(Lista_Mov.SelectedValue);
+                    SqlCommand chec = new SqlCommand("select* from Actividades where ID= " + IDact, con.GetConnection());
+                    SqlDataReader act = chec.ExecuteReader();
+                    act.Read();
+                    Actividad = act["Detalle"].ToString();
+                }
+                
+                con.Close();
+                try
+                {
+                    if (Actividad == "Retiro")
+                    {
+                        int checkeo = ChequearArt(Convert.ToInt32(ID_Art_sel_lb.Text), Convert.ToInt32(Cantidad_tx.Text));
 
-                    if (checkeo == 0)//quiere decir que la cantidad que quiero quitar es menor a la que hay y si puedo moverlo
+                        if (checkeo == 0)//quiere decir que la cantidad que quiero quitar es menor a la que hay y si puedo moverlo
+                        {
+                            List<ItemMovimiento> ListaOrden = (List<ItemMovimiento>)Session["ListaOps"];
+                            ListaOrden.Add(new ItemMovimiento { ID = Convert.ToInt32(ID_Art_sel_lb.Text), Nombre = Nomb_art_lb.Text, Categoria = Cat_art_lb.Text, Descripcion = Desc_art_lb.Text, Cantidad = Convert.ToInt32(Cantidad_tx.Text) });
+                            Lista_Art_MOV.DataSource = ListaOrden;
+                            Lista_Art_MOV.DataBind();
+
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalSelArt();", true);
+
+                            ID_art_tx.Text = "";
+                            Nomb_art_lb.Text = "";
+                            Desc_art_lb.Text = "";
+                            Cantidad_tx.Text = "";
+
+                            Cat_art_lb.Text = "";
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalArt();", true);
+                            Cant_alert_lb.Visible = false;
+                        }
+                        else
+                        {
+                            //Response.Write("<script>alert('La cantidad que quiere sacar es mayor a la que hay disponible');</script>");
+                            Cant_alert_lb.Visible = true;
+                        }
+                    }
+                    else
                     {
                         List<ItemMovimiento> ListaOrden = (List<ItemMovimiento>)Session["ListaOps"];
                         ListaOrden.Add(new ItemMovimiento { ID = Convert.ToInt32(ID_Art_sel_lb.Text), Nombre = Nomb_art_lb.Text, Categoria = Cat_art_lb.Text, Descripcion = Desc_art_lb.Text, Cantidad = Convert.ToInt32(Cantidad_tx.Text) });
@@ -171,37 +218,18 @@ namespace Sistema_Heladeria
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalArt();", true);
                         Cant_alert_lb.Visible = false;
                     }
-                    else
-                    {
-                        //Response.Write("<script>alert('La cantidad que quiere sacar es mayor a la que hay disponible');</script>");
-                        Cant_alert_lb.Visible = true;
-                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    List<ItemMovimiento> ListaOrden = (List<ItemMovimiento>)Session["ListaOps"];
-                    ListaOrden.Add(new ItemMovimiento { ID = Convert.ToInt32(ID_Art_sel_lb.Text), Nombre = Nomb_art_lb.Text, Categoria = Cat_art_lb.Text, Descripcion = Desc_art_lb.Text, Cantidad = Convert.ToInt32(Cantidad_tx.Text) });
-                    Lista_Art_MOV.DataSource = ListaOrden;
-                    Lista_Art_MOV.DataBind();
-
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalSelArt();", true);
-
-                    ID_art_tx.Text = "";
-                    Nomb_art_lb.Text = "";
-                    Desc_art_lb.Text = "";
-                    Cantidad_tx.Text = "";
-
-                    Cat_art_lb.Text = "";
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "closeModalArt();", true);
-                    Cant_alert_lb.Visible = false;
+                    con.Close();
                 }
-            }
-            catch(Exception ex)
-            {
-            }
-            finally
-            {
+                finally
+                {
 
+                }
+            }finally
+            {
+                //con.Close();
             }
 
             //int ID = Convert.ToInt32(Session[""].ToString());
@@ -246,7 +274,7 @@ namespace Sistema_Heladeria
         protected void Buscar_art_btn_Click(object sender, EventArgs e)
         {
                 con.Open();
-                string qry = "select A.ID, A.Nombre,C.Nombre_Categoria, A.Descripcion, A.Precio from Articulos A inner join Categorias C on A.Categoria=C.ID where A.ID like '" + Buscador_art.Text + "' or A.Nombre like '%" + Buscador_art.Text + "%' or C.Nombre_Categoria like '%" + Buscador_art.Text + "%' ";
+                string qry = "select A.ID, A.Nombre,C.Nombre_Categoria, A.Descripcion, A.Precio from Articulos A inner join Categorias C on A.Categoria=C.ID where (A.ID like '" + Buscador_art.Text + "' or A.Nombre like '%" + Buscador_art.Text + "%' or C.Nombre_Categoria like '%" + Buscador_art.Text + "%') and A.Estado!='Desactivado' ";
                 SqlCommand Com = new SqlCommand(qry, con.GetConnection());
                 Com.ExecuteNonQuery();
                 SqlDataAdapter Articulos = new SqlDataAdapter(Com);
@@ -263,7 +291,7 @@ namespace Sistema_Heladeria
             try
             {
                 con.Open();
-                SqlCommand Com = new SqlCommand("Select A.ID,A.Nombre,C.Nombre_Categoria,A.Descripcion from Articulos A inner join Categorias C on C.ID=A.Categoria where A.ID=" + ID_art_tx.Text, con.GetConnection());
+                SqlCommand Com = new SqlCommand("Select A.ID,A.Nombre,C.Nombre_Categoria,A.Descripcion from Articulos A inner join Categorias C on C.ID=A.Categoria where A.Estado!='Desactivado' and A.ID=" + ID_art_tx.Text, con.GetConnection());
                 SqlDataReader Leer = Com.ExecuteReader();
                 Leer.Read();
                 ID_Art_sel_lb.Text = Leer["ID"].ToString();
@@ -387,21 +415,28 @@ namespace Sistema_Heladeria
 
         protected void Lista_Mov_SelectedIndexChanged(object sender, EventArgs e)//cada que cambie de movimiento
         {
-            con.Open();
-            int IDact = Lista_Mov.SelectedIndex + 1;
-            SqlCommand chec = new SqlCommand("select* from Actividades where ID= " + IDact, con.GetConnection());
-            SqlDataReader act = chec.ExecuteReader();
-            act.Read();
-            string Actividad = act["Detalle"].ToString();
-            con.Close();
-            if (Actividad == "Retiro")
+            try
             {
-                ReChequearListaCambios(sender, e);
-                List<ItemMovimiento> ListaOrden = (List<ItemMovimiento>)Session["ListaOps"];
-                Lista_Art_MOV.DataSource = ListaOrden;
-                Lista_Art_MOV.DataBind();
-                //Page_Load(sender, e);
-                //Response.Write("<script>alert('"+Session["ListBorrados"].ToString()+"');</script>");
+                con.Open();
+                int IDact = Lista_Mov.SelectedIndex + 1;
+                SqlCommand chec = new SqlCommand("select* from Actividades where ID= " + IDact, con.GetConnection());
+                SqlDataReader act = chec.ExecuteReader();
+                act.Read();
+                string Actividad = act["Detalle"].ToString();
+                con.Close();
+                if (Actividad == "Retiro")
+                {
+                    ReChequearListaCambios(sender, e);
+                    List<ItemMovimiento> ListaOrden = (List<ItemMovimiento>)Session["ListaOps"];
+                    Lista_Art_MOV.DataSource = ListaOrden;
+                    Lista_Art_MOV.DataBind();
+                    //Page_Load(sender, e);
+                    //Response.Write("<script>alert('"+Session["ListBorrados"].ToString()+"');</script>");
+                }
+            }
+            catch(Exception ex)
+            {
+                con.Close();
             }
         }
         public void ReChequearListaCambios(object sender,EventArgs e)
@@ -427,7 +462,7 @@ namespace Sistema_Heladeria
         {
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModalArt();", true);
             con.Open();
-            string qry = "select A.ID, A.Nombre,C.Nombre_Categoria, A.Descripcion, A.Precio from Articulos A inner join Categorias C on A.Categoria=C.ID where A.ID like '" + ID_art_tx.Text + "' or A.Nombre like '%" + ID_art_tx.Text + "%' or C.Nombre_Categoria like '%" + ID_art_tx.Text + "%' ";
+            string qry = "select A.ID, A.Nombre,C.Nombre_Categoria, A.Descripcion, A.Precio from Articulos A inner join Categorias C on A.Categoria=C.ID where (A.ID like '" + ID_art_tx.Text + "' or A.Nombre like '%" + ID_art_tx.Text + "%' or C.Nombre_Categoria like '%" + ID_art_tx.Text + "%') and A.Estado!='Desactivado' ";
             SqlCommand Com = new SqlCommand(qry, con.GetConnection());
             Com.ExecuteNonQuery();
             SqlDataAdapter Articulos = new SqlDataAdapter(Com);
