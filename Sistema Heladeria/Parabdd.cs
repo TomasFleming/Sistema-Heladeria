@@ -28,7 +28,7 @@ namespace Sistema_Heladeria
             
             SqlConnectionStringBuilder cs = new SqlConnectionStringBuilder();
 
-            cs.DataSource = @"LAPTOP-HUIOQ9EK\MSSQLSERVER_5";
+            cs.DataSource = @"MSSQLSERVER_5";//nombre del de ustedes
             cs.InitialCatalog = "Heladeria Sistemas 3";
             cs.UserID = "Visual";
             cs.Password = "123456";
